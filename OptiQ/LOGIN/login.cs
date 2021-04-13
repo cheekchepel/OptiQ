@@ -166,7 +166,8 @@ namespace OptiQ
                 if (droff[0].ToString() == "Kaspi") { Global.kaspi = Convert.ToInt32(droff[1]); }
                 if (droff[0].ToString() == "Kaspi RED") { Global.kaspired = Convert.ToInt32(droff[1]); }
 
-                MessageBox.Show("" + Global.nal +" "+ Global.beznal +" "+ Global.kaspi +" "+ Global.kaspired);
+             
+
                 
                              
 
@@ -408,7 +409,7 @@ namespace OptiQ
 
 
                     }
-                    else { Program.msg.Message.Text = "Неверный логин или пароль"; mess.Show(); con.Close(); }
+                    else { Program.msg.Width = 350; Program.msg.Message.Text = "Неверный логин или пароль"; mess.Show(); con.Close(); }
                 }
                 catch (NpgsqlException)
                 {

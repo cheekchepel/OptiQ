@@ -378,6 +378,12 @@
     <Compile Include="massa\Vesa.Designer.cs">
       <DependentUpon>Vesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vozvrat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vozvrat.Designer.cs">
+      <DependentUpon>Vozvrat.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="kassa\izmena\drobno.resx">
       <DependentUpon>drobno.cs</DependentUpon>
     </EmbeddedResource>
@@ -484,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="massa\Vesa.resx">
       <DependentUpon>Vesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozvrat.resx">
+      <DependentUpon>Vozvrat.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="BASE\OptiQ_TemporaryKey.pfx" />

@@ -81,6 +81,7 @@ namespace OptiQ
             this.danie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.us_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.header = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -853,7 +854,7 @@ namespace OptiQ
             this.flowLayoutPanel2.Controls.Add(this.mzSombraPanel1);
             this.flowLayoutPanel2.Controls.Add(this.bunifuFlatButton7);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 40);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(580, 55);
             this.flowLayoutPanel2.TabIndex = 11;
@@ -938,7 +939,7 @@ namespace OptiQ
             this.grdt_kass.EnableHeadersVisualStyles = false;
             this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
-            this.grdt_kass.Location = new System.Drawing.Point(0, 55);
+            this.grdt_kass.Location = new System.Drawing.Point(0, 95);
             this.grdt_kass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grdt_kass.MultiSelect = false;
             this.grdt_kass.Name = "grdt_kass";
@@ -962,7 +963,7 @@ namespace OptiQ
             this.grdt_kass.RowTemplate.Height = 30;
             this.grdt_kass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdt_kass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdt_kass.Size = new System.Drawing.Size(580, 270);
+            this.grdt_kass.Size = new System.Drawing.Size(580, 230);
             this.grdt_kass.TabIndex = 12;
             this.grdt_kass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdt_kass_CellClick);
             // 
@@ -1001,6 +1002,16 @@ namespace OptiQ
             this.us_date.Name = "us_date";
             this.us_date.ReadOnly = true;
             // 
+            // header
+            // 
+            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.header.Location = new System.Drawing.Point(0, 0);
+            this.header.Margin = new System.Windows.Forms.Padding(0);
+            this.header.Name = "header";
+            this.header.Size = new System.Drawing.Size(580, 40);
+            this.header.TabIndex = 14;
+            // 
             // dolgi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1010,6 +1021,7 @@ namespace OptiQ
             this.Controls.Add(this.grdt_kass);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "dolgi";
@@ -1088,5 +1100,6 @@ namespace OptiQ
         private System.Windows.Forms.DataGridViewTextBoxColumn summa;
         private System.Windows.Forms.DataGridViewTextBoxColumn us_date;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel header;
     }
 }

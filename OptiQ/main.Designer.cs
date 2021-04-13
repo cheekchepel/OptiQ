@@ -38,12 +38,14 @@ namespace OptiQ
             this.turn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.output = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.header.SuspendLayout();
             this.SuspendLayout();
             // 
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.header.Controls.Add(this.bunifuFlatButton1);
             this.header.Controls.Add(this.vesovoi);
             this.header.Controls.Add(this.kassa_but);
             this.header.Controls.Add(this.smenna);
@@ -80,14 +82,14 @@ namespace OptiQ
             this.vesovoi.IconVisible = true;
             this.vesovoi.IconZoom = 100D;
             this.vesovoi.IsTab = false;
-            this.vesovoi.Location = new System.Drawing.Point(264, 0);
+            this.vesovoi.Location = new System.Drawing.Point(344, 0);
             this.vesovoi.Margin = new System.Windows.Forms.Padding(0);
             this.vesovoi.Name = "vesovoi";
             this.vesovoi.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.vesovoi.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
             this.vesovoi.OnHoverTextColor = System.Drawing.Color.White;
             this.vesovoi.selected = false;
-            this.vesovoi.Size = new System.Drawing.Size(170, 40);
+            this.vesovoi.Size = new System.Drawing.Size(150, 40);
             this.vesovoi.TabIndex = 15;
             this.vesovoi.Text = "Весы";
             this.vesovoi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -119,14 +121,14 @@ namespace OptiQ
             this.kassa_but.IconVisible = true;
             this.kassa_but.IconZoom = 100D;
             this.kassa_but.IsTab = false;
-            this.kassa_but.Location = new System.Drawing.Point(434, 0);
+            this.kassa_but.Location = new System.Drawing.Point(494, 0);
             this.kassa_but.Margin = new System.Windows.Forms.Padding(0);
             this.kassa_but.Name = "kassa_but";
             this.kassa_but.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.kassa_but.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
             this.kassa_but.OnHoverTextColor = System.Drawing.Color.White;
             this.kassa_but.selected = false;
-            this.kassa_but.Size = new System.Drawing.Size(170, 40);
+            this.kassa_but.Size = new System.Drawing.Size(150, 40);
             this.kassa_but.TabIndex = 6;
             this.kassa_but.Text = "Касса";
             this.kassa_but.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,14 +160,14 @@ namespace OptiQ
             this.smenna.IconVisible = true;
             this.smenna.IconZoom = 100D;
             this.smenna.IsTab = false;
-            this.smenna.Location = new System.Drawing.Point(604, 0);
+            this.smenna.Location = new System.Drawing.Point(644, 0);
             this.smenna.Margin = new System.Windows.Forms.Padding(0);
             this.smenna.Name = "smenna";
             this.smenna.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.smenna.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.smenna.OnHoverTextColor = System.Drawing.Color.White;
             this.smenna.selected = false;
-            this.smenna.Size = new System.Drawing.Size(170, 40);
+            this.smenna.Size = new System.Drawing.Size(150, 40);
             this.smenna.TabIndex = 14;
             this.smenna.Text = "Смена";
             this.smenna.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -180,7 +182,7 @@ namespace OptiQ
             this.prodect_but.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.prodect_but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.prodect_but.BorderRadius = 7;
-            this.prodect_but.ButtonText = "Все продукты";
+            this.prodect_but.ButtonText = "Товары";
             this.prodect_but.Cursor = System.Windows.Forms.Cursors.Hand;
             this.prodect_but.DisabledColor = System.Drawing.Color.Gray;
             this.prodect_but.Dock = System.Windows.Forms.DockStyle.Right;
@@ -197,16 +199,16 @@ namespace OptiQ
             this.prodect_but.IconVisible = true;
             this.prodect_but.IconZoom = 100D;
             this.prodect_but.IsTab = false;
-            this.prodect_but.Location = new System.Drawing.Point(774, 0);
+            this.prodect_but.Location = new System.Drawing.Point(794, 0);
             this.prodect_but.Margin = new System.Windows.Forms.Padding(0);
             this.prodect_but.Name = "prodect_but";
             this.prodect_but.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.prodect_but.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.prodect_but.OnHoverTextColor = System.Drawing.Color.White;
             this.prodect_but.selected = false;
-            this.prodect_but.Size = new System.Drawing.Size(170, 40);
+            this.prodect_but.Size = new System.Drawing.Size(150, 40);
             this.prodect_but.TabIndex = 13;
-            this.prodect_but.Text = "Все продукты";
+            this.prodect_but.Text = "Товары";
             this.prodect_but.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.prodect_but.Textcolor = System.Drawing.Color.White;
             this.prodect_but.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -297,6 +299,44 @@ namespace OptiQ
             this.output.Size = new System.Drawing.Size(1024, 701);
             this.output.TabIndex = 3;
             // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 7;
+            this.bunifuFlatButton1.ButtonText = "Возврат";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = null;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 100D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(194, 0);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(150, 40);
+            this.bunifuFlatButton1.TabIndex = 16;
+            this.bunifuFlatButton1.Text = "Возврат";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton1.Visible = false;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -334,6 +374,7 @@ namespace OptiQ
         public Bunifu.Framework.UI.BunifuFlatButton smenna;
         public Bunifu.Framework.UI.BunifuFlatButton vesovoi;
         public System.Windows.Forms.Panel output;
+        public Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }
 
