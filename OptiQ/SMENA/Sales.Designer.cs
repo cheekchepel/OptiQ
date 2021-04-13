@@ -78,6 +78,7 @@ namespace OptiQ
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.how = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.obski = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.komisa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tovartut = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -683,7 +684,8 @@ namespace OptiQ
             this.sum_sal,
             this.date,
             this.how,
-            this.obski});
+            this.obski,
+            this.komisa});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -788,6 +790,12 @@ namespace OptiQ
             this.obski.ReadOnly = true;
             this.obski.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.obski.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // komisa
+            // 
+            this.komisa.HeaderText = "komisa";
+            this.komisa.Name = "komisa";
+            this.komisa.ReadOnly = true;
             // 
             // bunifuElipse1
             // 
@@ -1026,5 +1034,6 @@ namespace OptiQ
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn how;
         private System.Windows.Forms.DataGridViewTextBoxColumn obski;
+        private System.Windows.Forms.DataGridViewTextBoxColumn komisa;
     }
 }

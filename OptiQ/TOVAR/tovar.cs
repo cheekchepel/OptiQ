@@ -179,9 +179,7 @@ namespace OptiQ
 
         private void tovar_Shown(object sender, EventArgs e)
         {
-           // zagrsel();
            
-           // viewcell();
             
         }
 

@@ -96,6 +96,31 @@ namespace OptiQ
 
         public static void start() {
 
+            try
+            {
+                conc.Close();
+                conc.Open();
+                sqlc = "select by_how,by_komis from buymethod where by_mg_id=" + Global.IDmagaz + ";";
+                cmdc = new NpgsqlCommand(sqlc, conc);
+                drc = cmdc.ExecuteReader();
+                string a = "DELETE FROM buymethod;";
+                while (drc.Read())
+                {
+                    conoff1.Close();
+                    conoff1.Open();
+                    sqloff1 = a + "INSERT INTO buymethod(by_how, by_komis)VALUES(N'" + drc[0] + "'," + drc[1] + ")";
+                    cmdoff1 = new SqlCommand(sqloff1, conoff1);
+                    droff1 = cmdoff1.ExecuteReader();
+                    droff1.Read();
+                    conoff1.Close();
+                    a = "";
+                }
+
+                conc.Close();
+            }
+            catch (NpgsqlException) { }
+
+
 
             startot();
             startpro();
@@ -118,26 +143,7 @@ namespace OptiQ
 
 
 
-
-            //conc.Close();
-            //conc.Open();
-            //sqlc = "select pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd from prava where pra_id_kassir=" + Global.IDuser;
-            //cmdc = new NpgsqlCommand(sqlc, conc);
-            //drc = cmdc.ExecuteReader();
-
-            //if (drc.Read())
-            //{
-            //    conoff1.Close();
-            //    conoff1.Open();
-            //    sqloff1 = "DELETE FROM prava;" +
-            //"INSERT INTO prava(pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd)VALUES('" + dr[0] + "','" + dr[1] + "','" + dr[2] + "','" + dr[3] + "','" + dr[4] + "')";
-            //    cmdoff1 = new SqlCommand(sqloff1, conoff1);
-            //    droff1 = cmdoff1.ExecuteReader();
-            //    droff1.Read();
-            //    conoff1.Close();
-            //}
-
-            //conc.Close();
+           
 
 
 
@@ -191,9 +197,18 @@ namespace OptiQ
 
             try
             {
+
+
+                
+               
+
+
+
+
+
                 if (Global.date_open_sesions != 0)
                 {
-                    Int32 unixTimestamp = (Int32)(DateTime.Today.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                   // Int32 unixTimestamp = (Int32)(DateTime.Today.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
 
 
@@ -212,9 +227,9 @@ namespace OptiQ
 
                     while (dr2.Read())
                     {
-                        // MessageBox.Show(""+dr2[0] + ",N'" + dr2[1] + "',0," + dr2[3] + "");
+                        
                         conoff2.Open();
-                        sqloff2 = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(" + dr2[0] + ",N'" + dr2[1] + "',0," + dr2[3] + ",N'"+ dr2[4] +"');";
+                        sqloff2 = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(" + dr2[0] + ",N'" + dr2[1] + "'," + dr2[2] + "," + dr2[3] + ",N'"+ dr2[4] +"');";
                         cmdoff2 = new SqlCommand(sqloff2, conoff2);
                         droff2 = cmdoff2.ExecuteReader();
                         droff2.Read();
@@ -243,7 +258,7 @@ namespace OptiQ
 
                     while (dr2.Read())
                     {
-                        // MessageBox.Show(""+dr2[0] + ",N'" + dr2[1] + "',0," + dr2[3] + "");
+                       
                         conoff2.Open();
                         sqloff2 = "INSERT INTO crt(crt,date)VALUES(" + dr2[0] + "," + dr2[1] + ");";
                         cmdoff2 = new SqlCommand(sqloff2, conoff2);
@@ -279,7 +294,7 @@ namespace OptiQ
 
                     while (dr2.Read())
                     {
-                        // MessageBox.Show(""+dr2[0] + ",N'" + dr2[1] + "',0," + dr2[3] + "");
+                       
                         conoff2.Open();
                         sqloff2 = "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon)VALUES(" + dr2[0] + "," + (dr2[1].ToString()).Replace(",",".") + "," + dr2[2] + ",N'" + dr2[3] + "'," + dr2[4] + ",N'"+dr2[5]+"');";
                         cmdoff2 = new SqlCommand(sqloff2, conoff2);
@@ -504,8 +519,7 @@ namespace OptiQ
 
 
 
-                try
-                {
+                try{
 
                     conoff.Close();
                     conoff.Open();
@@ -550,12 +564,10 @@ namespace OptiQ
                     droff = cmdoff.ExecuteReader();
                     droff.Read();
                     conoff.Close();
-           }
-                catch (NpgsqlException) { }
+           }catch (NpgsqlException) { }
 
 
-           try
-          {
+           try{
                 conoff.Close();
                     conoff.Open();
 
@@ -584,8 +596,7 @@ namespace OptiQ
                     conoff.Close();
 
 
-            }
-           catch (NpgsqlException) { }
+            }catch (NpgsqlException) { }
 
 
             Thread.Sleep(5000);

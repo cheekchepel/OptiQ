@@ -288,23 +288,23 @@ namespace OptiQ
                 {
                     if (!String.IsNullOrWhiteSpace(textBox1.Text) || Convert.ToInt32("0" + textBox1.Text) != 0 || chislo > 0)
                     {
-                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + nal.Text + "$,0," + (Convert.ToInt32("0"+textBox1.Text) - chislo).ToString() + ",N$" + obs + "$);";
+                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + nal.Text + "$,"+Global.nal+"," + (Convert.ToInt32("0"+textBox1.Text) - chislo).ToString() + ",N$" + obs + "$);";
                         Program.KASA.kakprodalchek += nal.Text + " : " + (Convert.ToInt32("0" + textBox1.Text) - chislo).ToString() + "\n";
 
                     }
                     if (!String.IsNullOrWhiteSpace(textBox2.Text) || Convert.ToInt32("0" + textBox2.Text) != 0)
                     {
-                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + karta.Text + "$,0," + Convert.ToInt32(textBox2.Text).ToString() + ",N$"+ obs + "$);";
+                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + karta.Text + "$,"+ Global.beznal + "," + Convert.ToInt32(textBox2.Text).ToString() + ",N$"+ obs + "$);";
                         Program.KASA.kakprodalchek += karta.Text + " : " + Convert.ToInt32(textBox2.Text).ToString() + "\n";
                     }
                     if (!String.IsNullOrWhiteSpace(textBox3.Text) || Convert.ToInt32("0" + textBox3.Text) != 0)
                     {
-                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + kaspi.Text + "$,0," + Convert.ToInt32(textBox3.Text).ToString() + ",N$" + obs + "$);";
+                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + kaspi.Text + "$," + Global.kaspi + "," + Convert.ToInt32(textBox3.Text).ToString() + ",N$" + obs + "$);";
                         Program.KASA.kakprodalchek += kaspi.Text + " : " + Convert.ToInt32(textBox3.Text).ToString() + "\n";
                     }
                     if (!String.IsNullOrWhiteSpace(textBox4.Text) || Convert.ToInt32("0" + textBox4.Text) != 0)
                     {
-                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + RED.Text + "$,0," + Convert.ToInt32(textBox4.Text).ToString() + ",N$" + obs + "$);";
+                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + RED.Text + "$," + Global.kaspired + "," + Convert.ToInt32(textBox4.Text).ToString() + ",N$" + obs + "$);";
                         Program.KASA.kakprodalchek += RED.Text + " : " + Convert.ToInt32(textBox4.Text).ToString() + "\n";
                     }
 

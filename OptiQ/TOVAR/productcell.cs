@@ -110,6 +110,7 @@ namespace OptiQ
             {
                 try
                 {
+
                     con.Open();
                     sql = Global.versia;
                     sql += "UPDATE product Set pr_kod=" + textBox1.Text + ",pr_name='" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_fact_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + ",pr_piec=" + Convert.ToString(Convert.ToDouble(textBox5.Text.Replace(".", ","))).Replace(",", ".") + " where pr_id=" + idtov;
@@ -119,17 +120,14 @@ namespace OptiQ
                     dr.Read();
                     con.Close();
 
-
-                    // dt.Rows[i][j];
-                    Program.tov.dtSales.Rows[id][0] = idtov;
-                    Program.tov.dtSales.Rows[id][1] = textBox1.Text;
-                    Program.tov.dtSales.Rows[id][2] = textBox2.Text;
-                    Program.tov.dtSales.Rows[id][3] = textBox3.Text;
-                    Program.tov.dtSales.Rows[id][4] = textBox4.Text;
-                    Program.tov.dtSales.Rows[id][5] = Convert.ToString(Convert.ToDouble(textBox5.Text.Replace(".", ","))).Replace(",", ".");
-
                     editFalse();
                     add();
+
+
+                    Program.tov.zagrsel();
+
+                    Program.tov.viewcell();
+
                 }
                 catch (NpgsqlException)
                 {

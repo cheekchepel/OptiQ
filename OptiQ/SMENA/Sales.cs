@@ -33,7 +33,7 @@ namespace OptiQ
 
         closesess clclc = new closesess();
 
-
+        public double sum_kom = 0;
 
        public int crt_index = 0;
 
@@ -56,7 +56,7 @@ namespace OptiQ
             if (Global.pra_showdohd == true)
             {
                 panel2.Visible = true;
-                seldoh(bunifuFlatButton1.Text);
+                seldoh();
             }
             else { panel2.Visible = false; }
           
@@ -76,6 +76,7 @@ namespace OptiQ
 
         public void scet() {
             int ket = 0;
+            sum_kom = 0;
             bunifuFlatButton1.Text = "0";
             bunifuFlatButton2.Text = "0";
             bunifuFlatButton3.Text = "0";
@@ -86,9 +87,15 @@ namespace OptiQ
 
             while (grdt_kass.Rows.Count > ket)
             {
-               // MessageBox.Show(""+(Convert.ToInt64(grdt_kass.Rows[ket].Cells[2].Value))+"    "+ grdt_kass.Rows[ket].Cells[2].Value);
+                // MessageBox.Show(""+(Convert.ToInt64(grdt_kass.Rows[ket].Cells[2].Value))+"    "+ grdt_kass.Rows[ket].Cells[2].Value);
 
-                bunifuFlatButton1.Text = (Convert.ToInt64(bunifuFlatButton1.Text) + (Convert.ToInt64(grdt_kass.Rows[ket].Cells[2].Value))).ToString(); 
+                double cena = Convert.ToDouble(grdt_kass.Rows[ket].Cells[2].Value);
+                double kom = Convert.ToDouble(grdt_kass.Rows[ket].Cells[6].Value);
+                if (kom != 0) { sum_kom += cena * (1-kom / 100); }
+                else { sum_kom += cena; }
+                
+
+                bunifuFlatButton1.Text =(Convert.ToInt64(bunifuFlatButton1.Text) + (Convert.ToInt64(grdt_kass.Rows[ket].Cells[2].Value))).ToString(); 
 
 
                 if ((grdt_kass.Rows[ket].Cells[4].Value).ToString() == "Наличный")
@@ -173,13 +180,13 @@ namespace OptiQ
             {
                 conoff.Close(); 
                 conoff.Open();
-                sqloff = "select crt,cbt_sum,date,cbt_by_how,(SELECT COUNT(*) as count FROM sales WHERE sl_crt_id=crt  and sl_skidon!='0'),cbt_skidon from crt LEFT JOIN cartbuymet ON crt=cbt_cart_id where date>" + Global.date_open_sesions + "and (crt LIKE '%" + id_cart + "%') ORDER BY date desc";
+                sqloff = "select crt,cbt_sum,date,cbt_by_how,(SELECT COUNT(*) as count FROM sales WHERE sl_crt_id=crt  and sl_skidon!='0'),cbt_skidon,cbt_by_komuis from crt LEFT JOIN cartbuymet ON crt=cbt_cart_id where date>" + Global.date_open_sesions + "and (crt LIKE '%" + id_cart + "%') ORDER BY date desc";
 
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 while (droff.Read())
                 {
-                    grdt_kass.Rows.Add(ket+1, droff[0], droff[1], UnixTimeStampToDateTime(Convert.ToDouble(droff[2])), droff[3],droff[5]);
+                    grdt_kass.Rows.Add(ket+1, droff[0], droff[1], UnixTimeStampToDateTime(Convert.ToDouble(droff[2])), droff[3],droff[5],droff[6]);
                     ket++;
 
                     if (droff[3].ToString() == "Возврат")
@@ -187,7 +194,7 @@ namespace OptiQ
                         grdt_kass.Rows[grdt_kass.Rows.Count - 1].DefaultCellStyle.BackColor = Color.FromArgb(240, 71, 71);
                     }
                     else {
-                        if (droff[4].ToString()!= "0"|| droff[5].ToString() != "0") {
+                        if (droff[4].ToString()!= "0"|| (droff[5].ToString() != "0" && droff[5].ToString() != "") ) {
                             grdt_kass.Rows[grdt_kass.Rows.Count - 1].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 0);
 
                         }
@@ -232,6 +239,15 @@ namespace OptiQ
 
         private void Opensesess_Click(object sender, EventArgs e)
         {
+
+            bunifuFlatButton1.Text = "0";
+            bunifuFlatButton2.Text = "0";
+            bunifuFlatButton3.Text = "0";
+            bunifuFlatButton4.Text = "0";
+            bunifuFlatButton5.Text = "0";
+            bunifuFlatButton7.Text = "0";
+            bunifuFlatButton8.Text = "0";
+
 
             long date1 = DateTimeOffset.Now.ToUnixTimeSeconds();
 
@@ -361,7 +377,7 @@ namespace OptiQ
 
         }
 
-        void seldoh(string obh) {
+        void seldoh() {
 
             long dl = 0;
 
@@ -376,8 +392,9 @@ namespace OptiQ
             
             }
             conoff.Close();
+           
 
-            bunifuFlatButton7.Text = (Convert.ToInt64(obh) - dl).ToString();
+            bunifuFlatButton7.Text = (Convert.ToInt64(sum_kom) - dl).ToString();
 
         }
 

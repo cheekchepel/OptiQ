@@ -690,7 +690,7 @@ namespace OptiQ
             this.panel4.Controls.Add(this.label3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(20, 20);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(400, 185);
             this.panel4.TabIndex = 10;
@@ -715,7 +715,7 @@ namespace OptiQ
             this.bunifuFlatButton16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.bunifuFlatButton16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton16.BorderRadius = 7;
-            this.bunifuFlatButton16.ButtonText = "";
+            this.bunifuFlatButton16.ButtonText = "0";
             this.bunifuFlatButton16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton16.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.bunifuFlatButton16.Enabled = false;
@@ -742,9 +742,11 @@ namespace OptiQ
             this.bunifuFlatButton16.selected = false;
             this.bunifuFlatButton16.Size = new System.Drawing.Size(180, 50);
             this.bunifuFlatButton16.TabIndex = 13;
+            this.bunifuFlatButton16.Text = "0";
             this.bunifuFlatButton16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bunifuFlatButton16.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton16.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.bunifuFlatButton16.Visible = false;
             // 
             // bunifuFlatButton2
             // 

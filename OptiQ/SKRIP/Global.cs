@@ -48,6 +48,16 @@ namespace OptiQ
         public static string pass;
 
 
+        public static int nal = 0;
+        public static int beznal = 0;
+        public static int kaspi = 0;
+        public static int kaspired = 0;
+
+
+
+
+
+
         public static string namekass;
         public static int IDuser;
         public static string USname = "";

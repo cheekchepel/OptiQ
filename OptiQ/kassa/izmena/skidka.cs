@@ -103,7 +103,8 @@ namespace OptiQ.kassa.izmena
                     if (textBox1.Text =="" || Convert.ToDouble(textBox1.Text) == 0)
                     {
                         Program.KASA.label4.Visible = false;
-                        Program.KASA.bunifuFlatButton16.Text = "";
+                        Program.KASA.bunifuFlatButton16.Text = "0";
+                        Program.KASA.bunifuFlatButton16.Visible = false;
                     }
                     else
                     {
@@ -124,6 +125,7 @@ namespace OptiQ.kassa.izmena
                                 Program.KASA.bunifuFlatButton16.Text = "+" + Convert.ToDouble(textBox1.Text) + " тг.";
                         }
                         Program.KASA.label4.Visible = true;
+                        Program.KASA.bunifuFlatButton16.Visible = true;
                     }
                 }
                 else

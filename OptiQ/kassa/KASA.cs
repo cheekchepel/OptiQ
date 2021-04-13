@@ -334,7 +334,8 @@ namespace OptiQ
                 bunifuFlatButton2.Text = "0";
                 
                label4.Visible = false;
-               bunifuFlatButton16.Text = "";
+               bunifuFlatButton16.Text = "0";
+                bunifuFlatButton16.Visible = false;
 
             }
             else { Program.msg.Message.Text = "Корзина пуста"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100); }
@@ -770,9 +771,9 @@ namespace OptiQ
 
 
                     offup += "UPDATE product SET pr_piec = ((select pr_piec from product WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + " limit 1)+" + pieces + " ) WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + ";";
-                    offup += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sk_kod)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$,"+kodd+");";
+                    offup += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$,"+kodd+");";
 
-                    seleoffproduct += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ");";
+                    seleoffproduct += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$);";
 
 
 
@@ -781,11 +782,16 @@ namespace OptiQ
 
                 }
 
-                method = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum)VALUES(crtid,N$Возврат$,0,-" + Convert.ToInt32(bunifuFlatButton1.Text).ToString() + ");";
+                method = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$Возврат$,0,-" + Convert.ToInt32(bunifuFlatButton1.Text).ToString() + ",$"+bunifuFlatButton16.Text+"$);";
+                
+
+              
 
                 conoff.Close();
                 conoff.Open();
                 sqloff = "INSERT INTO saleoff(saleoofudin,saledate,salecart)VALUES(N'" + offup + "',N'" + offcard + "',N'" + method.Replace("crtid", generateid) + "')";
+               
+                
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();
@@ -823,7 +829,7 @@ namespace OptiQ
                 label4.Text = "";
                 bunifuFlatButton1.Text = null;
                 bunifuFlatButton2.Text = null;
-                bunifuFlatButton16.Text = null;
+                bunifuFlatButton16.Text = "0";
 
                 Program.msg.Message.Text = "Товар возвращен"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100);
 

@@ -149,6 +149,39 @@ namespace OptiQ
             }
             conoff.Close();
 
+
+
+
+
+            conoff.Close();
+            conoff.Open();
+            sqloff = "select by_how,by_komis from buymethod";
+            cmdoff = new SqlCommand(sqloff, conoff);
+            droff = cmdoff.ExecuteReader();
+            while (droff.Read())
+            {
+
+                if (droff[0].ToString() == "Наличный") { Global.nal = Convert.ToInt32(droff[1]); }
+                if (droff[0].ToString() == "Безналичный") { Global.beznal = Convert.ToInt32(droff[1]); }
+                if (droff[0].ToString() == "Kaspi") { Global.kaspi = Convert.ToInt32(droff[1]); }
+                if (droff[0].ToString() == "Kaspi RED") { Global.kaspired = Convert.ToInt32(droff[1]); }
+
+                MessageBox.Show("" + Global.nal +" "+ Global.beznal +" "+ Global.kaspi +" "+ Global.kaspired);
+                
+                             
+
+            }
+            conoff.Close();
+
+
+
+
+          
+
+
+
+
+
         }
 
      
