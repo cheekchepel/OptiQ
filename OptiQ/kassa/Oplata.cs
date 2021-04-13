@@ -271,6 +271,7 @@ namespace OptiQ
         private void Oplata_Load(object sender, EventArgs e)
         {
             nav_clik();
+            this.Top = (Global.y - this.Height)/2;
         }
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)

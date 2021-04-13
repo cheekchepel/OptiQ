@@ -796,6 +796,7 @@ namespace OptiQ
             this.komisa.HeaderText = "komisa";
             this.komisa.Name = "komisa";
             this.komisa.ReadOnly = true;
+            this.komisa.Visible = false;
             // 
             // bunifuElipse1
             // 
