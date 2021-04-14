@@ -47,6 +47,7 @@ namespace OptiQ
 
         public string sqloff;
         public string offup;
+        public string offup2;
         public string offdell;
         public string offcard;
         public string method;
@@ -72,6 +73,9 @@ namespace OptiQ
         skidka skidka1 = new skidka();
 
         drobno drobno1 = new drobno();
+
+
+        Vozvrat vozvrat = new Vozvrat();
 
 
         public string generateid = null;
@@ -211,9 +215,9 @@ namespace OptiQ
 
 
                     offup = null;
+                     offup2 = null;
 
-
-                    INFO += "М.№" + Global.IDmagaz + "  '" + Global.MGname + "'\n" + "Адрес  " + Global.MGadr + "\n" + "Продажа" + "\n";
+                INFO += "М.№" + Global.IDmagaz + "  '" + Global.MGname + "'\n" + "Адрес  " + Global.MGadr + "\n" + "Продажа" + "\n";
 
                     BarcodeWriter qr = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
                     img = qr.Write(generateid);
@@ -260,9 +264,9 @@ namespace OptiQ
 
 
                         offup += "UPDATE product SET pr_piec = ((select pr_piec from product WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + " limit 1)-" + pieces + " ) WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + ";";
-                        offup += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod)VALUES(" + generateid + ","+ pieces + ","+Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value)+",$"+saloname+"$,"+ Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$"+ skid + "$,"+ kodd + ");";
-                        seleoffproduct+= "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$);";
-
+                        offup2 += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod)VALUES(" + generateid + ","+ pieces + ","+Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value)+ ",N$" + saloname+"$,"+ Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$"+ skid + "$,"+ kodd + ");";
+                seleoffproduct+= "INSERT INTO vozvrat(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,cbt_skidon)VALUES(" + generateid + ","+ pieces + ","+ Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value)+",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$," + kodd + ",N$"+bunifuFlatButton16.Text+"$);";
+                     ;
 
                     keeti++;
 
@@ -270,7 +274,7 @@ namespace OptiQ
                     }
                 conoff.Close();
                 conoff.Open();
-                    sqloff = "INSERT INTO saleoff(saleoofudin,saledate,salecart)VALUES(N'" + offup + "',N'" + offcard + "',N'"+ method.Replace("crtid", generateid) + "')";
+                    sqloff = "INSERT INTO saleoff(saleoofudin,saledate,salecart)VALUES(N'" + offup+ offup2 + "',N'" + offcard + "',N'"+ method.Replace("crtid", generateid) + "')";
                     cmdoff = new SqlCommand(sqloff, conoff);
                     droff = cmdoff.ExecuteReader();
                     droff.Read();
@@ -288,7 +292,7 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = ((seleoffproduct + method).Replace("$","'")).Replace("crtid", generateid);
+                sqloff = ((seleoffproduct+ method+ offup2).Replace("$","'")).Replace("crtid", generateid);
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();
@@ -436,27 +440,27 @@ namespace OptiQ
                             {
 
 
-                            grdt_kass.Rows[index].Cells[4].Value = Convert.ToDouble(grdt_kass.Rows[index].Cells[4].Value) + 1;
+                            grdt_kass.Rows[schet].Cells[4].Value = Convert.ToDouble(grdt_kass.Rows[schet].Cells[4].Value) + 1;
 
-                            double cena = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[2].Value);
-                            double kol = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[4].Value);
-                            string skidka_str = Convert.ToString(grdt_kass.Rows[index].Cells[5].Value);
+                            double cena = Convert.ToDouble(Program.KASA.grdt_kass.Rows[schet].Cells[2].Value);
+                            double kol = Convert.ToDouble(Program.KASA.grdt_kass.Rows[schet].Cells[4].Value);
+                            string skidka_str = Convert.ToString(grdt_kass.Rows[schet].Cells[5].Value);
 
                             if (skidka_str == "0")
-                                Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[6].Value = cena * kol;
+                                Program.KASA.grdt_kass.Rows[schet].Cells[6].Value = cena * kol;
                             else if (skidka_str.Length > 0 && skidka_str[skidka_str.Length - 1] == '%')
                             {
                                 double skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 1));
-                                Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[6].Value = (cena * kol) * (1 + skidka / 100);
+                                Program.KASA.grdt_kass.Rows[schet].Cells[6].Value = (cena * kol) * (1 + skidka / 100);
                             }
                             else if (skidka_str.Length > 0 && skidka_str[skidka_str.Length - 1] == '.')
                             {
                                 double skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 4));
-                                Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[6].Value = (cena + skidka) * kol;
+                                Program.KASA.grdt_kass.Rows[schet].Cells[6].Value = (cena + skidka) * kol;
                             }
-                            Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[6].Value = Convert.ToInt64(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[6].Value);
-                            Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[7].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[3].Value) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[4].Value);
-                            Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[8].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[9].Value) - Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[4].Value);
+                            Program.KASA.grdt_kass.Rows[schet].Cells[6].Value = Convert.ToInt64(Program.KASA.grdt_kass.Rows[schet].Cells[6].Value);
+                            Program.KASA.grdt_kass.Rows[schet].Cells[7].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[schet].Cells[3].Value) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[schet].Cells[4].Value);
+                            Program.KASA.grdt_kass.Rows[schet].Cells[8].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[schet].Cells[9].Value) - Convert.ToDouble(Program.KASA.grdt_kass.Rows[schet].Cells[4].Value);
 
                          
 
@@ -714,130 +718,7 @@ namespace OptiQ
 
         }
 
-        private void bunifuFlatButton11_Click(object sender, EventArgs e)
-        {
-
-
-            int keeti = 0;
-
-            if ((grdt_kass.Rows.Count - 1) > -1)
-            {
-                generateid = Global.IDuser + (DateTimeOffset.Now.ToUnixTimeSeconds()).ToString();
-
-
-                offcard = null;
-
-
-                offcard = "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ") Returning crt_id";
-
-
-
-
-
-
-                offup = null;
-
-
-                INFO += "М.№" + Global.IDmagaz + "  '" + Global.MGname + "'\n" + "Адрес  " + Global.MGadr + "\n" + "Продажа" + "\n";
-
-                BarcodeWriter qr = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
-                img = qr.Write((Global.IDmagaz + Global.IDuser).ToString());
-
-                while (keeti <= grdt_kass.Rows.Count - 1)
-                {
-
-
-                    // grdt_kass.Rows[keeti].Cells[3].Value;
-                    // string prov = grdt_kass.Rows[keeti].Cells[6].Value.ToString();
-                    string zena = grdt_kass.Rows[keeti].Cells[2].Value.ToString();
-                    string pieces = Convert.ToString(grdt_kass.Rows[keeti].Cells[4].Value).Replace(",", ".");
-                    string skid = (grdt_kass.Rows[keeti].Cells[5].Value).ToString().Replace(",", ".");
-                    long sum = Convert.ToInt64(grdt_kass.Rows[keeti].Cells[6].Value);
-                    long min = Convert.ToInt64(grdt_kass.Rows[keeti].Cells[7].Value);
-                    string saloname = Convert.ToString(grdt_kass.Rows[keeti].Cells[1].Value);
-                    long kodd = Convert.ToInt64(grdt_kass.Rows[keeti].Cells[0].Value);
-
-                    OVAR = "                                    " + pieces + " X " + zena + " = " + sum;
-                    while (OVAR.Length < 70)
-                    {
-                        OVAR = "  " + OVAR;
-
-                    }
-
-
-
-                    TOVAR += kodd + "  " + saloname + "\n" + OVAR + "\n";
-
-
-
-                    offup += "UPDATE product SET pr_piec = ((select pr_piec from product WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + " limit 1)+" + pieces + " ) WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + ";";
-                    offup += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$,"+kodd+");";
-
-                    seleoffproduct += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$);";
-
-
-
-                    keeti++;
-
-
-                }
-
-                method = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$Возврат$,0,-" + Convert.ToInt32(bunifuFlatButton1.Text).ToString() + ",$"+bunifuFlatButton16.Text+"$);";
-                
-
-              
-
-                conoff.Close();
-                conoff.Open();
-                sqloff = "INSERT INTO saleoff(saleoofudin,saledate,salecart)VALUES(N'" + offup + "',N'" + offcard + "',N'" + method.Replace("crtid", generateid) + "')";
-               
-                
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                droff.Read();
-                conoff.Close();
-
-
-                conoff.Close();
-                conoff.Open();
-                sqloff = "INSERT INTO crt(crt,date) VALUES(" + generateid + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + ")";
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                droff.Read();
-                conoff.Close();
-
-
-                conoff.Close();
-                conoff.Open();
-                sqloff = ((seleoffproduct + method).Replace("$", "'")).Replace("crtid", generateid);
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                droff.Read();
-                conoff.Close();
-
-
-
-
-
-
-
-
-                grdt_kass.Rows.Clear();
-
-                INFO = "";
-                TOVAR = "";
-                label4.Text = "";
-                bunifuFlatButton1.Text = null;
-                bunifuFlatButton2.Text = null;
-                bunifuFlatButton16.Text = "0";
-
-                Program.msg.Message.Text = "Товар возвращен"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100);
-
-            }
-            else { Program.msg.Message.Text = "Корзина пуста"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100); }
-
-
-        }
+        
 
         public void salesssssssssssssss()
         {
@@ -940,6 +821,12 @@ namespace OptiQ
                 Program.main.backblakshow();
                 skidka1.ShowDialog();
             }
+        }
+
+        private void bunifuFlatButton11_Click(object sender, EventArgs e)
+        {
+            Program.main.backblakshow();
+            vozvrat.ShowDialog();
         }
     }
 }

@@ -98,7 +98,7 @@ namespace OptiQ
                 bunifuFlatButton1.Text =(Convert.ToInt64(bunifuFlatButton1.Text) + (Convert.ToInt64(grdt_kass.Rows[ket].Cells[2].Value))).ToString(); 
 
 
-                if ((grdt_kass.Rows[ket].Cells[4].Value).ToString() == "Наличный")
+                if ((grdt_kass.Rows[ket].Cells[4].Value).ToString() == "Наличный"|| (grdt_kass.Rows[ket].Cells[4].Value).ToString() == "Возврат")
                 {
 
 
@@ -379,22 +379,28 @@ namespace OptiQ
 
         void seldoh() {
 
+            bunifuFlatButton7.Text = "0";
+
             long dl = 0;
+            if (Global.date_open_sesions > 0)
+            {
+                conoff.Close();
+                conoff.Open();
+                sqloff = "select sl_prihod  from sales LEFT JOIN crt ON sl_crt_id=crt where date >" + Global.date_open_sesions;
+                cmdoff = new SqlCommand(sqloff, conoff);
+                droff = cmdoff.ExecuteReader();
+                while (droff.Read())
+                {
 
-            conoff.Close();
-            conoff.Open();
-            sqloff = "select sl_prihod  from sales ";
-            cmdoff = new SqlCommand(sqloff, conoff);
-            droff = cmdoff.ExecuteReader();
-            while (droff.Read()) {
+                    dl += Convert.ToInt64(droff[0]);
+                   // MessageBox.Show(sum_kom + "-" + dl);
+                }
 
-                dl +=Convert.ToInt64( droff[0]);
-            
+                conoff.Close();
+                bunifuFlatButton7.Text = (Convert.ToInt64(sum_kom) - dl).ToString();
             }
-            conoff.Close();
-           
 
-            bunifuFlatButton7.Text = (Convert.ToInt64(sum_kom) - dl).ToString();
+            
 
         }
 

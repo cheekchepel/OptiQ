@@ -224,17 +224,18 @@ namespace OptiQ
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-           
-                
+
+            try
+            {
                 list = 0;
-            flowLayoutPanel1.VerticalScroll.Value = 0;
+                flowLayoutPanel1.VerticalScroll.Value = 0;
                 bool isInt = Double.TryParse(textBox1.Text + "0", out res);
                 if (isInt == true) { dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "pr_kod", textBox1.Text); }
                 else { dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "pr_name", textBox1.Text); }
-            flowLayoutPanel1.Visible = false;
-              
-                viewcell();
+                flowLayoutPanel1.Visible = false;
 
+                viewcell();
+            }catch { }
            
         }
 

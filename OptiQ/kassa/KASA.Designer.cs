@@ -30,24 +30,34 @@ namespace OptiQ
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grdt_kass = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenaco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.skidka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vsekol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenakonco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.piec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcpcpcpcpccp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poisc = new System.Windows.Forms.Panel();
             this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +68,8 @@ namespace OptiQ
             this.mzSombraPanel1 = new MZControls.MZSombraPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search1 = new OptiQ.search();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -74,24 +86,12 @@ namespace OptiQ
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton10 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton12 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton9 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.search1 = new OptiQ.search();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
-            this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.skidka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vsekol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenakonco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.piec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pcpcpcpcpccp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).BeginInit();
             this.poisc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
@@ -110,7 +110,7 @@ namespace OptiQ
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label2.Location = new System.Drawing.Point(20, 130);
+            this.label2.Location = new System.Drawing.Point(20, 129);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 29);
@@ -136,22 +136,22 @@ namespace OptiQ
             this.grdt_kass.AllowUserToDeleteRows = false;
             this.grdt_kass.AllowUserToResizeColumns = false;
             this.grdt_kass.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grdt_kass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grdt_kass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.grdt_kass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdt_kass.BackgroundColor = System.Drawing.Color.White;
             this.grdt_kass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdt_kass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdt_kass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdt_kass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdt_kass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.grdt_kass.ColumnHeadersHeight = 40;
             this.grdt_kass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grdt_kass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -165,14 +165,14 @@ namespace OptiQ
             this.cenakonco,
             this.piec,
             this.pcpcpcpcpccp});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdt_kass.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdt_kass.DefaultCellStyle = dataGridViewCellStyle38;
             this.grdt_kass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdt_kass.DoubleBuffered = true;
             this.grdt_kass.EnableHeadersVisualStyles = false;
@@ -180,24 +180,24 @@ namespace OptiQ
             this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
             this.grdt_kass.Location = new System.Drawing.Point(0, 52);
-            this.grdt_kass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.grdt_kass.Margin = new System.Windows.Forms.Padding(2);
             this.grdt_kass.MultiSelect = false;
             this.grdt_kass.Name = "grdt_kass";
             this.grdt_kass.ReadOnly = true;
             this.grdt_kass.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdt_kass.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdt_kass.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.grdt_kass.RowHeadersVisible = false;
             this.grdt_kass.RowHeadersWidth = 45;
             this.grdt_kass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grdt_kass.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grdt_kass.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.grdt_kass.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grdt_kass.RowTemplate.DividerHeight = 1;
             this.grdt_kass.RowTemplate.Height = 30;
@@ -207,6 +207,111 @@ namespace OptiQ
             this.grdt_kass.TabIndex = 1;
             this.grdt_kass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdt_kass_CellClick);
             // 
+            // kod
+            // 
+            this.kod.FillWeight = 89.19894F;
+            this.kod.HeaderText = "Код";
+            this.kod.MinimumWidth = 6;
+            this.kod.Name = "kod";
+            this.kod.ReadOnly = true;
+            this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.kod.Visible = false;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 302.2072F;
+            this.name.HeaderText = "Наименование";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // price
+            // 
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.price.DefaultCellStyle = dataGridViewCellStyle33;
+            this.price.FillWeight = 56.02955F;
+            this.price.HeaderText = "Цена";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cenaco
+            // 
+            this.cenaco.HeaderText = "Ценаприхода";
+            this.cenaco.MinimumWidth = 6;
+            this.cenaco.Name = "cenaco";
+            this.cenaco.ReadOnly = true;
+            this.cenaco.Visible = false;
+            // 
+            // kol
+            // 
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.kol.DefaultCellStyle = dataGridViewCellStyle34;
+            this.kol.FillWeight = 76.69028F;
+            this.kol.HeaderText = "Количество";
+            this.kol.MinimumWidth = 6;
+            this.kol.Name = "kol";
+            this.kol.ReadOnly = true;
+            this.kol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.kol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // skidka
+            // 
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.skidka.DefaultCellStyle = dataGridViewCellStyle35;
+            this.skidka.FillWeight = 58.90973F;
+            this.skidka.HeaderText = "Расценка";
+            this.skidka.MinimumWidth = 6;
+            this.skidka.Name = "skidka";
+            this.skidka.ReadOnly = true;
+            this.skidka.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.skidka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vsekol
+            // 
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.vsekol.DefaultCellStyle = dataGridViewCellStyle36;
+            this.vsekol.FillWeight = 55.91035F;
+            this.vsekol.HeaderText = "Сумма";
+            this.vsekol.MinimumWidth = 6;
+            this.vsekol.Name = "vsekol";
+            this.vsekol.ReadOnly = true;
+            this.vsekol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vsekol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cenakonco
+            // 
+            this.cenakonco.HeaderText = "cenakonco";
+            this.cenakonco.MinimumWidth = 6;
+            this.cenakonco.Name = "cenakonco";
+            this.cenakonco.ReadOnly = true;
+            this.cenakonco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cenakonco.Visible = false;
+            // 
+            // piec
+            // 
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.piec.DefaultCellStyle = dataGridViewCellStyle37;
+            this.piec.FillWeight = 61.05378F;
+            this.piec.HeaderText = "Остаток";
+            this.piec.MinimumWidth = 6;
+            this.piec.Name = "piec";
+            this.piec.ReadOnly = true;
+            this.piec.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.piec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // pcpcpcpcpccp
+            // 
+            this.pcpcpcpcpccp.HeaderText = "pcpcpcpcpccp";
+            this.pcpcpcpcpccp.MinimumWidth = 6;
+            this.pcpcpcpcpccp.Name = "pcpcpcpcpccp";
+            this.pcpcpcpcpccp.ReadOnly = true;
+            this.pcpcpcpcpccp.Visible = false;
+            // 
             // poisc
             // 
             this.poisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
@@ -215,7 +320,7 @@ namespace OptiQ
             this.poisc.Controls.Add(this.panel3);
             this.poisc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poisc.Location = new System.Drawing.Point(0, 0);
-            this.poisc.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.poisc.Margin = new System.Windows.Forms.Padding(2);
             this.poisc.Name = "poisc";
             this.poisc.Size = new System.Drawing.Size(1024, 375);
             this.poisc.TabIndex = 3;
@@ -226,67 +331,67 @@ namespace OptiQ
             this.bunifuCustomDataGrid1.AllowUserToDeleteRows = false;
             this.bunifuCustomDataGrid1.AllowUserToResizeColumns = false;
             this.bunifuCustomDataGrid1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuCustomDataGrid1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
             this.bunifuCustomDataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.bunifuCustomDataGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.bunifuCustomDataGrid1.BackgroundColor = System.Drawing.Color.White;
             this.bunifuCustomDataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.bunifuCustomDataGrid1.ColumnHeadersHeight = 40;
             this.bunifuCustomDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.bunifuCustomDataGrid1.ColumnHeadersVisible = false;
             this.bunifuCustomDataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid1.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid1.DefaultCellStyle = dataGridViewCellStyle43;
             this.bunifuCustomDataGrid1.DoubleBuffered = true;
             this.bunifuCustomDataGrid1.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid1.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.bunifuCustomDataGrid1.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(-446, 69);
-            this.bunifuCustomDataGrid1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.bunifuCustomDataGrid1.MaximumSize = new System.Drawing.Size(534, 300);
+            this.bunifuCustomDataGrid1.Location = new System.Drawing.Point(-444, 69);
+            this.bunifuCustomDataGrid1.Margin = new System.Windows.Forms.Padding(2);
+            this.bunifuCustomDataGrid1.MaximumSize = new System.Drawing.Size(536, 300);
             this.bunifuCustomDataGrid1.MultiSelect = false;
             this.bunifuCustomDataGrid1.Name = "bunifuCustomDataGrid1";
             this.bunifuCustomDataGrid1.ReadOnly = true;
             this.bunifuCustomDataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.bunifuCustomDataGrid1.RowHeadersVisible = false;
             this.bunifuCustomDataGrid1.RowHeadersWidth = 45;
             this.bunifuCustomDataGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuCustomDataGrid1.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuCustomDataGrid1.RowsDefaultCellStyle = dataGridViewCellStyle45;
             this.bunifuCustomDataGrid1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuCustomDataGrid1.RowTemplate.DividerHeight = 1;
             this.bunifuCustomDataGrid1.RowTemplate.Height = 30;
             this.bunifuCustomDataGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.bunifuCustomDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(514, 91);
+            this.bunifuCustomDataGrid1.Size = new System.Drawing.Size(516, 91);
             this.bunifuCustomDataGrid1.TabIndex = 4;
             this.bunifuCustomDataGrid1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGrid1_CellClick);
             // 
@@ -316,6 +421,7 @@ namespace OptiQ
             this.panel3.Controls.Add(this.mzSombraPanel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1024, 52);
             this.panel3.TabIndex = 2;
@@ -343,8 +449,8 @@ namespace OptiQ
             this.bunifuFlatButton13.IconVisible = true;
             this.bunifuFlatButton13.IconZoom = 90D;
             this.bunifuFlatButton13.IsTab = false;
-            this.bunifuFlatButton13.Location = new System.Drawing.Point(694, 0);
-            this.bunifuFlatButton13.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton13.Location = new System.Drawing.Point(696, 0);
+            this.bunifuFlatButton13.Margin = new System.Windows.Forms.Padding(10, 0, 0, 9);
             this.bunifuFlatButton13.Name = "bunifuFlatButton13";
             this.bunifuFlatButton13.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton13.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
@@ -381,8 +487,8 @@ namespace OptiQ
             this.bunifuFlatButton11.IconVisible = true;
             this.bunifuFlatButton11.IconZoom = 90D;
             this.bunifuFlatButton11.IsTab = false;
-            this.bunifuFlatButton11.Location = new System.Drawing.Point(534, 0);
-            this.bunifuFlatButton11.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton11.Location = new System.Drawing.Point(536, 0);
+            this.bunifuFlatButton11.Margin = new System.Windows.Forms.Padding(10, 0, 0, 9);
             this.bunifuFlatButton11.Name = "bunifuFlatButton11";
             this.bunifuFlatButton11.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton11.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -402,9 +508,10 @@ namespace OptiQ
             this.mzSombraPanel1.Controls.Add(this.panel2);
             this.mzSombraPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.mzSombraPanel1.Location = new System.Drawing.Point(0, 0);
+            this.mzSombraPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mzSombraPanel1.Name = "mzSombraPanel1";
             this.mzSombraPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.mzSombraPanel1.Size = new System.Drawing.Size(534, 52);
+            this.mzSombraPanel1.Size = new System.Drawing.Size(536, 52);
             this.mzSombraPanel1.TabIndex = 2;
             this.mzSombraPanel1.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
             // 
@@ -416,9 +523,10 @@ namespace OptiQ
             this.panel2.Controls.Add(this.shjowkeyboard1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 10);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(514, 32);
+            this.panel2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Size = new System.Drawing.Size(516, 32);
             this.panel2.TabIndex = 8;
             // 
             // textBox1
@@ -428,13 +536,37 @@ namespace OptiQ
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
-            this.textBox1.Location = new System.Drawing.Point(35, 5);
+            this.textBox1.Location = new System.Drawing.Point(34, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(444, 22);
+            this.textBox1.Size = new System.Drawing.Size(448, 22);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
+            // 
+            // search1
+            // 
+            this.search1.BackColor = System.Drawing.Color.Transparent;
+            this.search1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.search1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search1.Location = new System.Drawing.Point(4, 5);
+            this.search1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.search1.Name = "search1";
+            this.search1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.search1.Size = new System.Drawing.Size(30, 22);
+            this.search1.TabIndex = 3;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(482, 5);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
+            this.shjowkeyboard1.TabIndex = 9;
             // 
             // panel1
             // 
@@ -600,7 +732,7 @@ namespace OptiQ
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label4.Location = new System.Drawing.Point(20, 77);
+            this.label4.Location = new System.Drawing.Point(20, 78);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(226, 31);
@@ -632,14 +764,14 @@ namespace OptiQ
             this.bunifuFlatButton16.IconVisible = true;
             this.bunifuFlatButton16.IconZoom = 90D;
             this.bunifuFlatButton16.IsTab = false;
-            this.bunifuFlatButton16.Location = new System.Drawing.Point(205, 68);
-            this.bunifuFlatButton16.Margin = new System.Windows.Forms.Padding(14, 0, 0, 15);
+            this.bunifuFlatButton16.Location = new System.Drawing.Point(204, 68);
+            this.bunifuFlatButton16.Margin = new System.Windows.Forms.Padding(16, 0, 0, 15);
             this.bunifuFlatButton16.Name = "bunifuFlatButton16";
             this.bunifuFlatButton16.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.bunifuFlatButton16.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton16.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton16.selected = false;
-            this.bunifuFlatButton16.Size = new System.Drawing.Size(180, 50);
+            this.bunifuFlatButton16.Size = new System.Drawing.Size(180, 49);
             this.bunifuFlatButton16.TabIndex = 13;
             this.bunifuFlatButton16.Text = "0";
             this.bunifuFlatButton16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -671,14 +803,14 @@ namespace OptiQ
             this.bunifuFlatButton2.IconVisible = true;
             this.bunifuFlatButton2.IconZoom = 90D;
             this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(205, 120);
-            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(14, 0, 0, 15);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(204, 120);
+            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(16, 0, 0, 15);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(180, 50);
+            this.bunifuFlatButton2.Size = new System.Drawing.Size(180, 49);
             this.bunifuFlatButton2.TabIndex = 12;
             this.bunifuFlatButton2.Text = "0";
             this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -709,14 +841,14 @@ namespace OptiQ
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(205, 15);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(18, 0, 0, 16);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(204, 15);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(18, 0, 0, 18);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(180, 50);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(180, 49);
             this.bunifuFlatButton1.TabIndex = 11;
             this.bunifuFlatButton1.Text = "0";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -729,7 +861,7 @@ namespace OptiQ
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.Maroon;
-            this.label3.Location = new System.Drawing.Point(20, 156);
+            this.label3.Location = new System.Drawing.Point(20, 158);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 29);
@@ -858,7 +990,7 @@ namespace OptiQ
             this.bunifuFlatButton10.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(111)))), ((int)(((byte)(177)))));
             this.bunifuFlatButton10.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton10.selected = false;
-            this.bunifuFlatButton10.Size = new System.Drawing.Size(66, 55);
+            this.bunifuFlatButton10.Size = new System.Drawing.Size(65, 55);
             this.bunifuFlatButton10.TabIndex = 9;
             this.bunifuFlatButton10.Text = "+";
             this.bunifuFlatButton10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -903,43 +1035,6 @@ namespace OptiQ
             this.bunifuFlatButton12.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton12.Click += new System.EventHandler(this.bunifuFlatButton12_Click);
             // 
-            // bunifuFlatButton4
-            // 
-            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(102)))), ((int)(((byte)(113)))));
-            this.bunifuFlatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
-            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton4.BorderRadius = 7;
-            this.bunifuFlatButton4.ButtonText = "Быстрые товары";
-            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton4.Iconimage = null;
-            this.bunifuFlatButton4.Iconimage_right = null;
-            this.bunifuFlatButton4.Iconimage_right_Selected = null;
-            this.bunifuFlatButton4.Iconimage_Selected = null;
-            this.bunifuFlatButton4.IconMarginLeft = 0;
-            this.bunifuFlatButton4.IconMarginRight = 0;
-            this.bunifuFlatButton4.IconRightVisible = true;
-            this.bunifuFlatButton4.IconRightZoom = 0D;
-            this.bunifuFlatButton4.IconVisible = true;
-            this.bunifuFlatButton4.IconZoom = 90D;
-            this.bunifuFlatButton4.IsTab = false;
-            this.bunifuFlatButton4.Location = new System.Drawing.Point(142, 65);
-            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
-            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
-            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
-            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
-            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.selected = false;
-            this.bunifuFlatButton4.Size = new System.Drawing.Size(198, 55);
-            this.bunifuFlatButton4.TabIndex = 3;
-            this.bunifuFlatButton4.Text = "Быстрые товары";
-            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
-            // 
             // bunifuFlatButton9
             // 
             this.bunifuFlatButton9.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
@@ -969,7 +1064,7 @@ namespace OptiQ
             this.bunifuFlatButton9.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(111)))), ((int)(((byte)(177)))));
             this.bunifuFlatButton9.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton9.selected = false;
-            this.bunifuFlatButton9.Size = new System.Drawing.Size(66, 55);
+            this.bunifuFlatButton9.Size = new System.Drawing.Size(65, 55);
             this.bunifuFlatButton9.TabIndex = 8;
             this.bunifuFlatButton9.Text = "-";
             this.bunifuFlatButton9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1037,13 +1132,13 @@ namespace OptiQ
             this.bunifuFlatButton6.IconZoom = 90D;
             this.bunifuFlatButton6.IsTab = false;
             this.bunifuFlatButton6.Location = new System.Drawing.Point(142, 130);
-            this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.bunifuFlatButton6.Name = "bunifuFlatButton6";
             this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(162)))), ((int)(((byte)(128)))));
             this.bunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton6.selected = false;
-            this.bunifuFlatButton6.Size = new System.Drawing.Size(274, 55);
+            this.bunifuFlatButton6.Size = new System.Drawing.Size(273, 55);
             this.bunifuFlatButton6.TabIndex = 5;
             this.bunifuFlatButton6.Text = "Оплатить";
             this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1061,133 +1156,42 @@ namespace OptiQ
             this.bunifuElipse2.ElipseRadius = 15;
             this.bunifuElipse2.TargetControl = this.panel4;
             // 
-            // search1
+            // bunifuFlatButton4
             // 
-            this.search1.BackColor = System.Drawing.Color.Transparent;
-            this.search1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.search1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.search1.Location = new System.Drawing.Point(5, 5);
-            this.search1.Margin = new System.Windows.Forms.Padding(5);
-            this.search1.Name = "search1";
-            this.search1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.search1.Size = new System.Drawing.Size(30, 22);
-            this.search1.TabIndex = 3;
-            // 
-            // shjowkeyboard1
-            // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(479, 5);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
-            this.shjowkeyboard1.TabIndex = 9;
-            // 
-            // kod
-            // 
-            this.kod.FillWeight = 89.19894F;
-            this.kod.HeaderText = "Код";
-            this.kod.MinimumWidth = 6;
-            this.kod.Name = "kod";
-            this.kod.ReadOnly = true;
-            this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.kod.Visible = false;
-            // 
-            // name
-            // 
-            this.name.FillWeight = 302.2072F;
-            this.name.HeaderText = "Наименование";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // price
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.price.DefaultCellStyle = dataGridViewCellStyle18;
-            this.price.FillWeight = 56.02955F;
-            this.price.HeaderText = "Цена";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // cenaco
-            // 
-            this.cenaco.HeaderText = "Ценаприхода";
-            this.cenaco.MinimumWidth = 6;
-            this.cenaco.Name = "cenaco";
-            this.cenaco.ReadOnly = true;
-            this.cenaco.Visible = false;
-            // 
-            // kol
-            // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.kol.DefaultCellStyle = dataGridViewCellStyle19;
-            this.kol.FillWeight = 76.69028F;
-            this.kol.HeaderText = "Количество";
-            this.kol.MinimumWidth = 6;
-            this.kol.Name = "kol";
-            this.kol.ReadOnly = true;
-            this.kol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.kol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // skidka
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.skidka.DefaultCellStyle = dataGridViewCellStyle20;
-            this.skidka.FillWeight = 58.90973F;
-            this.skidka.HeaderText = "Расценка";
-            this.skidka.MinimumWidth = 6;
-            this.skidka.Name = "skidka";
-            this.skidka.ReadOnly = true;
-            this.skidka.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.skidka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // vsekol
-            // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.vsekol.DefaultCellStyle = dataGridViewCellStyle21;
-            this.vsekol.FillWeight = 55.91035F;
-            this.vsekol.HeaderText = "Сумма";
-            this.vsekol.MinimumWidth = 6;
-            this.vsekol.Name = "vsekol";
-            this.vsekol.ReadOnly = true;
-            this.vsekol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.vsekol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // cenakonco
-            // 
-            this.cenakonco.HeaderText = "cenakonco";
-            this.cenakonco.MinimumWidth = 6;
-            this.cenakonco.Name = "cenakonco";
-            this.cenakonco.ReadOnly = true;
-            this.cenakonco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cenakonco.Visible = false;
-            // 
-            // piec
-            // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.piec.DefaultCellStyle = dataGridViewCellStyle22;
-            this.piec.FillWeight = 61.05378F;
-            this.piec.HeaderText = "Остаток";
-            this.piec.MinimumWidth = 6;
-            this.piec.Name = "piec";
-            this.piec.ReadOnly = true;
-            this.piec.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.piec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // pcpcpcpcpccp
-            // 
-            this.pcpcpcpcpccp.HeaderText = "pcpcpcpcpccp";
-            this.pcpcpcpcpccp.MinimumWidth = 6;
-            this.pcpcpcpcpccp.Name = "pcpcpcpcpccp";
-            this.pcpcpcpcpccp.ReadOnly = true;
-            this.pcpcpcpcpccp.Visible = false;
+            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(102)))), ((int)(((byte)(113)))));
+            this.bunifuFlatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton4.BorderRadius = 7;
+            this.bunifuFlatButton4.ButtonText = "Быстрые товары";
+            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.Iconimage = null;
+            this.bunifuFlatButton4.Iconimage_right = null;
+            this.bunifuFlatButton4.Iconimage_right_Selected = null;
+            this.bunifuFlatButton4.Iconimage_Selected = null;
+            this.bunifuFlatButton4.IconMarginLeft = 0;
+            this.bunifuFlatButton4.IconMarginRight = 0;
+            this.bunifuFlatButton4.IconRightVisible = true;
+            this.bunifuFlatButton4.IconRightZoom = 0D;
+            this.bunifuFlatButton4.IconVisible = true;
+            this.bunifuFlatButton4.IconZoom = 90D;
+            this.bunifuFlatButton4.IsTab = false;
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(142, 65);
+            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
+            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
+            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.selected = false;
+            this.bunifuFlatButton4.Size = new System.Drawing.Size(198, 55);
+            this.bunifuFlatButton4.TabIndex = 3;
+            this.bunifuFlatButton4.Text = "Быстрые товары";
+            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
             // 
             // KASA
             // 
@@ -1198,7 +1202,7 @@ namespace OptiQ
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "KASA";
             this.Text = "KASA";
             this.Load += new System.EventHandler(this.KASA_Load);
@@ -1232,7 +1236,6 @@ namespace OptiQ
         private shjowkeyboard shjowkeyboard1;
         private search search1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
@@ -1267,5 +1270,6 @@ namespace OptiQ
         private System.Windows.Forms.DataGridViewTextBoxColumn cenakonco;
         private System.Windows.Forms.DataGridViewTextBoxColumn piec;
         private System.Windows.Forms.DataGridViewTextBoxColumn pcpcpcpcpccp;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
     }
 }

@@ -172,7 +172,7 @@ namespace OptiQ
             con3.Close();
             con3.Open();
 
-            sql3 = "select sl_id,sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,(select cbt_skidon from cartbuymet where cbt_cart_id=sl_crt_id limit 1) from sales LEFT JOIN cart ON sl_crt_id=crt_off_id  where crt_mg_id=" + Global.IDmagaz + " and crt_date >" + date;
+            sql3 = "select sl_kod,sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,(select cbt_skidon from cartbuymet where cbt_cart_id=sl_crt_id limit 1) from sales LEFT JOIN cart ON sl_crt_id=crt_off_id  where crt_mg_id=" + Global.IDmagaz + " and crt_date >" + date;
             cmd3 = new NpgsqlCommand(sql3, con3);
             dr3 = cmd3.ExecuteReader();        
 
@@ -180,7 +180,7 @@ namespace OptiQ
             {
 
                 conoff3.Open();
-                sqloff3 = delstr+"INSERT INTO vozvrat(sl_id,sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,cbt_skidon)VALUES(" + dr3[0]+"," + dr3[1] + "," + (dr3[2].ToString()).Replace(",", ".") + "," + dr3[3] + ",N'" + dr3[4] + "'," + dr3[5] + ",N'" + dr3[6] + "',N'" + dr3[7] + "');";
+                sqloff3 = delstr+ "INSERT INTO vozvrat(sl_kod,sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,cbt_skidon)VALUES(" + dr3[0]+"," + dr3[1] + "," + (dr3[2].ToString()).Replace(",", ".") + "," + dr3[3] + ",N'" + dr3[4] + "'," + dr3[5] + ",N'" + dr3[6] + "',N'" + dr3[7] + "');";
                 cmdoff3 = new SqlCommand(sqloff3, conoff3);
                 droff3 = cmdoff3.ExecuteReader();
                 droff3.Read();
@@ -343,40 +343,40 @@ namespace OptiQ
 
 
 
-                    //con2.Close();
-                    //con2.Open();
-                    //sql2 = "select sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon from sales LEFT JOIN cart ON sl_crt_id=crt_off_id where id_kassir=" + Global.IDuser + "and crt_date >" + Global.date_open_sesions;
-                    //cmd2 = new NpgsqlCommand(sql2, con2);
+                    con2.Close();
+                    con2.Open();
+                    sql2 = "select sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod from sales LEFT JOIN cart ON sl_crt_id=crt_off_id where id_kassir=" + Global.IDuser + "and crt_date >" + Global.date_open_sesions;
+                    cmd2 = new NpgsqlCommand(sql2, con2);
 
-                    //dr2 = cmd2.ExecuteReader();
-
-
-                    //conoff2.Open();
-                    //sqloff2 = "delete from sales;";
-                    //cmdoff2 = new SqlCommand(sqloff2, conoff2);
-                    //droff2 = cmdoff2.ExecuteReader();
-                    //droff2.Read();
-                    //conoff2.Close();
-
-                    //while (dr2.Read())
-                    //{
-
-                    //    conoff2.Open();
-                    //    sqloff2 = "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon)VALUES(" + dr2[0] + "," + (dr2[1].ToString()).Replace(",",".") + "," + dr2[2] + ",N'" + dr2[3] + "'," + dr2[4] + ",N'"+dr2[5]+"');";
-                    //    cmdoff2 = new SqlCommand(sqloff2, conoff2);
-                    //    droff2 = cmdoff2.ExecuteReader();
-                    //    droff2.Read();
-                    //    conoff2.Close();
-
-                    //}
-                    //con2.Close();
+                    dr2 = cmd2.ExecuteReader();
 
 
+                    conoff2.Open();
+                    sqloff2 = "delete from sales;";
+                    cmdoff2 = new SqlCommand(sqloff2, conoff2);
+                    droff2 = cmdoff2.ExecuteReader();
+                    droff2.Read();
+                    conoff2.Close();
+
+                    while (dr2.Read())
+                    {
+
+                        conoff2.Open();
+                        sqloff2 = "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod)VALUES(" + dr2[0] + "," + (dr2[1].ToString()).Replace(",", ".") + "," + dr2[2] + ",N'" + dr2[3] + "'," + dr2[4] + ",N'" + dr2[5] + "',"+ dr2[6] + ");";
+                        cmdoff2 = new SqlCommand(sqloff2, conoff2);
+                        droff2 = cmdoff2.ExecuteReader();
+                        droff2.Read();
+                        conoff2.Close();
+
+                    }
+                    con2.Close();
 
 
 
 
-                   
+
+
+
 
 
 
@@ -645,7 +645,7 @@ namespace OptiQ
            }catch (NpgsqlException) { }
 
 
-           try{
+           //try{
                 conoff.Close();
                     conoff.Open();
 
@@ -674,7 +674,7 @@ namespace OptiQ
                     conoff.Close();
 
 
-            }catch (NpgsqlException) { }
+           // }catch (NpgsqlException) { }
 
 
             Thread.Sleep(5000);

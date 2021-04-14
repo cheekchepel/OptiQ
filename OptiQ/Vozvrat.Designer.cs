@@ -29,12 +29,12 @@ namespace OptiQ
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vozvrat));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vozvrat));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,10 +46,21 @@ namespace OptiQ
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.search1 = new OptiQ.search();
+            this.bunifuFlatButton12 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.header = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bunifuFlatButton16 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.bunifuFlatButton13 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.grdt_kass = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.bunifuFlatButton12 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,26 +69,15 @@ namespace OptiQ
             this.skidka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vsekol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cenakonco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fact_kol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.bunifuFlatButton16 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.bunifuFlatButton15 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton13 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.flowLayoutPanel2.SuspendLayout();
             this.mzSombraPanel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).BeginInit();
+            this.header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -88,7 +88,7 @@ namespace OptiQ
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 40);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(680, 55);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(680, 52);
             this.flowLayoutPanel2.TabIndex = 12;
             // 
             // mzSombraPanel1
@@ -100,7 +100,7 @@ namespace OptiQ
             this.mzSombraPanel1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.mzSombraPanel1.Name = "mzSombraPanel1";
             this.mzSombraPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.mzSombraPanel1.Size = new System.Drawing.Size(418, 55);
+            this.mzSombraPanel1.Size = new System.Drawing.Size(400, 52);
             this.mzSombraPanel1.TabIndex = 10;
             this.mzSombraPanel1.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
             // 
@@ -113,7 +113,7 @@ namespace OptiQ
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(10, 10);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(398, 35);
+            this.panel9.Size = new System.Drawing.Size(380, 32);
             this.panel9.TabIndex = 8;
             // 
             // panel10
@@ -122,9 +122,10 @@ namespace OptiQ
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(30, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.panel10.Size = new System.Drawing.Size(333, 35);
+            this.panel10.Padding = new System.Windows.Forms.Padding(10, 4, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(315, 32);
             this.panel10.TabIndex = 11;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // textBox2
             // 
@@ -132,21 +133,23 @@ namespace OptiQ
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            this.textBox2.Location = new System.Drawing.Point(10, 6);
+            this.textBox2.Location = new System.Drawing.Point(10, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(323, 24);
+            this.textBox2.Size = new System.Drawing.Size(305, 24);
             this.textBox2.TabIndex = 0;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // shjowkeyboard1
             // 
             this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
             this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
             this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(363, 0);
+            this.shjowkeyboard1.Location = new System.Drawing.Point(345, 0);
             this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard1.Name = "shjowkeyboard1";
             this.shjowkeyboard1.Padding = new System.Windows.Forms.Padding(5);
-            this.shjowkeyboard1.Size = new System.Drawing.Size(35, 35);
+            this.shjowkeyboard1.Size = new System.Drawing.Size(35, 32);
             this.shjowkeyboard1.TabIndex = 10;
             // 
             // search1
@@ -158,129 +161,8 @@ namespace OptiQ
             this.search1.Margin = new System.Windows.Forms.Padding(5);
             this.search1.Name = "search1";
             this.search1.Padding = new System.Windows.Forms.Padding(5);
-            this.search1.Size = new System.Drawing.Size(30, 35);
+            this.search1.Size = new System.Drawing.Size(30, 32);
             this.search1.TabIndex = 12;
-            // 
-            // bunifuFlatButton7
-            // 
-            this.bunifuFlatButton7.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.bunifuFlatButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.bunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton7.BorderRadius = 7;
-            this.bunifuFlatButton7.ButtonText = "Закрыть";
-            this.bunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton7.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton7.Iconimage = null;
-            this.bunifuFlatButton7.Iconimage_right = null;
-            this.bunifuFlatButton7.Iconimage_right_Selected = null;
-            this.bunifuFlatButton7.Iconimage_Selected = null;
-            this.bunifuFlatButton7.IconMarginLeft = 0;
-            this.bunifuFlatButton7.IconMarginRight = 0;
-            this.bunifuFlatButton7.IconRightVisible = true;
-            this.bunifuFlatButton7.IconRightZoom = 0D;
-            this.bunifuFlatButton7.IconVisible = true;
-            this.bunifuFlatButton7.IconZoom = 90D;
-            this.bunifuFlatButton7.IsTab = false;
-            this.bunifuFlatButton7.Location = new System.Drawing.Point(538, 10);
-            this.bunifuFlatButton7.Margin = new System.Windows.Forms.Padding(55, 10, 10, 10);
-            this.bunifuFlatButton7.Name = "bunifuFlatButton7";
-            this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton7.selected = false;
-            this.bunifuFlatButton7.Size = new System.Drawing.Size(122, 35);
-            this.bunifuFlatButton7.TabIndex = 7;
-            this.bunifuFlatButton7.Text = "Закрыть";
-            this.bunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton7.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton7.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            // 
-            // header
-            // 
-            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
-            this.header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.header.Location = new System.Drawing.Point(0, 0);
-            this.header.Margin = new System.Windows.Forms.Padding(0);
-            this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(680, 40);
-            this.header.TabIndex = 13;
-            // 
-            // grdt_kass
-            // 
-            this.grdt_kass.AllowUserToAddRows = false;
-            this.grdt_kass.AllowUserToDeleteRows = false;
-            this.grdt_kass.AllowUserToResizeColumns = false;
-            this.grdt_kass.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grdt_kass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            this.grdt_kass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdt_kass.BackgroundColor = System.Drawing.Color.White;
-            this.grdt_kass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdt_kass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.grdt_kass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdt_kass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.grdt_kass.ColumnHeadersHeight = 40;
-            this.grdt_kass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grdt_kass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.kod,
-            this.name,
-            this.price,
-            this.cenaco,
-            this.kol,
-            this.skidka,
-            this.vsekol,
-            this.cenakonco,
-            this.fact_kol});
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdt_kass.DefaultCellStyle = dataGridViewCellStyle25;
-            this.grdt_kass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grdt_kass.DoubleBuffered = true;
-            this.grdt_kass.EnableHeadersVisualStyles = false;
-            this.grdt_kass.GridColor = System.Drawing.Color.White;
-            this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
-            this.grdt_kass.Location = new System.Drawing.Point(0, 95);
-            this.grdt_kass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.grdt_kass.MultiSelect = false;
-            this.grdt_kass.Name = "grdt_kass";
-            this.grdt_kass.ReadOnly = true;
-            this.grdt_kass.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdt_kass.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
-            this.grdt_kass.RowHeadersVisible = false;
-            this.grdt_kass.RowHeadersWidth = 45;
-            this.grdt_kass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grdt_kass.RowsDefaultCellStyle = dataGridViewCellStyle27;
-            this.grdt_kass.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.grdt_kass.RowTemplate.DividerHeight = 1;
-            this.grdt_kass.RowTemplate.Height = 30;
-            this.grdt_kass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grdt_kass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdt_kass.Size = new System.Drawing.Size(680, 292);
-            this.grdt_kass.TabIndex = 14;
             // 
             // bunifuFlatButton12
             // 
@@ -304,111 +186,79 @@ namespace OptiQ
             this.bunifuFlatButton12.IconVisible = true;
             this.bunifuFlatButton12.IconZoom = 45D;
             this.bunifuFlatButton12.IsTab = false;
-            this.bunifuFlatButton12.Location = new System.Drawing.Point(448, 10);
-            this.bunifuFlatButton12.Margin = new System.Windows.Forms.Padding(20, 10, 0, 10);
+            this.bunifuFlatButton12.Location = new System.Drawing.Point(453, 10);
+            this.bunifuFlatButton12.Margin = new System.Windows.Forms.Padding(43, 10, 0, 10);
             this.bunifuFlatButton12.Name = "bunifuFlatButton12";
             this.bunifuFlatButton12.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.bunifuFlatButton12.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.bunifuFlatButton12.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton12.selected = false;
-            this.bunifuFlatButton12.Size = new System.Drawing.Size(35, 35);
+            this.bunifuFlatButton12.Size = new System.Drawing.Size(32, 32);
             this.bunifuFlatButton12.TabIndex = 11;
             this.bunifuFlatButton12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton12.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton12.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             // 
-            // kod
+            // bunifuFlatButton7
             // 
-            this.kod.FillWeight = 89.19894F;
-            this.kod.HeaderText = "Код";
-            this.kod.MinimumWidth = 6;
-            this.kod.Name = "kod";
-            this.kod.ReadOnly = true;
-            this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.kod.Visible = false;
+            this.bunifuFlatButton7.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.bunifuFlatButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.bunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton7.BorderRadius = 7;
+            this.bunifuFlatButton7.ButtonText = "Закрыть";
+            this.bunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton7.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton7.Iconimage = null;
+            this.bunifuFlatButton7.Iconimage_right = null;
+            this.bunifuFlatButton7.Iconimage_right_Selected = null;
+            this.bunifuFlatButton7.Iconimage_Selected = null;
+            this.bunifuFlatButton7.IconMarginLeft = 0;
+            this.bunifuFlatButton7.IconMarginRight = 0;
+            this.bunifuFlatButton7.IconRightVisible = true;
+            this.bunifuFlatButton7.IconRightZoom = 0D;
+            this.bunifuFlatButton7.IconVisible = true;
+            this.bunifuFlatButton7.IconZoom = 90D;
+            this.bunifuFlatButton7.IsTab = false;
+            this.bunifuFlatButton7.Location = new System.Drawing.Point(530, 10);
+            this.bunifuFlatButton7.Margin = new System.Windows.Forms.Padding(45, 10, 10, 10);
+            this.bunifuFlatButton7.Name = "bunifuFlatButton7";
+            this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton7.selected = false;
+            this.bunifuFlatButton7.Size = new System.Drawing.Size(130, 32);
+            this.bunifuFlatButton7.TabIndex = 7;
+            this.bunifuFlatButton7.Text = "Закрыть";
+            this.bunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton7.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton7.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton7.Click += new System.EventHandler(this.bunifuFlatButton7_Click);
             // 
-            // name
+            // header
             // 
-            this.name.FillWeight = 302.2072F;
-            this.name.HeaderText = "Наименование";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.header.Controls.Add(this.label6);
+            this.header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.header.Location = new System.Drawing.Point(0, 0);
+            this.header.Margin = new System.Windows.Forms.Padding(0);
+            this.header.Name = "header";
+            this.header.Padding = new System.Windows.Forms.Padding(20, 8, 0, 0);
+            this.header.Size = new System.Drawing.Size(680, 40);
+            this.header.TabIndex = 13;
             // 
-            // price
+            // label6
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.price.DefaultCellStyle = dataGridViewCellStyle21;
-            this.price.FillWeight = 56.02955F;
-            this.price.HeaderText = "Цена";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // cenaco
-            // 
-            this.cenaco.HeaderText = "Ценаприхода";
-            this.cenaco.MinimumWidth = 6;
-            this.cenaco.Name = "cenaco";
-            this.cenaco.ReadOnly = true;
-            this.cenaco.Visible = false;
-            // 
-            // kol
-            // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.kol.DefaultCellStyle = dataGridViewCellStyle22;
-            this.kol.FillWeight = 76.69028F;
-            this.kol.HeaderText = "Количество";
-            this.kol.MinimumWidth = 6;
-            this.kol.Name = "kol";
-            this.kol.ReadOnly = true;
-            this.kol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.kol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // skidka
-            // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.skidka.DefaultCellStyle = dataGridViewCellStyle23;
-            this.skidka.FillWeight = 58.90973F;
-            this.skidka.HeaderText = "Расценка";
-            this.skidka.MinimumWidth = 6;
-            this.skidka.Name = "skidka";
-            this.skidka.ReadOnly = true;
-            this.skidka.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.skidka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.skidka.Visible = false;
-            // 
-            // vsekol
-            // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.vsekol.DefaultCellStyle = dataGridViewCellStyle24;
-            this.vsekol.FillWeight = 55.91035F;
-            this.vsekol.HeaderText = "Сумма";
-            this.vsekol.MinimumWidth = 6;
-            this.vsekol.Name = "vsekol";
-            this.vsekol.ReadOnly = true;
-            this.vsekol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.vsekol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // cenakonco
-            // 
-            this.cenakonco.HeaderText = "cenakonco";
-            this.cenakonco.MinimumWidth = 6;
-            this.cenakonco.Name = "cenakonco";
-            this.cenakonco.ReadOnly = true;
-            this.cenakonco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cenakonco.Visible = false;
-            // 
-            // fact_kol
-            // 
-            this.fact_kol.HeaderText = "Column1";
-            this.fact_kol.Name = "fact_kol";
-            this.fact_kol.ReadOnly = true;
-            this.fact_kol.Visible = false;
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(20, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 24);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Возвраты";
             // 
             // panel1
             // 
@@ -438,6 +288,19 @@ namespace OptiQ
             this.panel4.Size = new System.Drawing.Size(390, 140);
             this.panel4.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.label1.Location = new System.Drawing.Point(10, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 31);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Сумма возврата";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -445,7 +308,7 @@ namespace OptiQ
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.label4.Location = new System.Drawing.Point(10, 84);
-            this.label4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(226, 31);
             this.label4.TabIndex = 14;
@@ -516,7 +379,7 @@ namespace OptiQ
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
             this.bunifuFlatButton1.Location = new System.Drawing.Point(230, 15);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(0);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
@@ -528,19 +391,6 @@ namespace OptiQ
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label1.Location = new System.Drawing.Point(10, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 31);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Сумма возврата";
             // 
             // label3
             // 
@@ -559,52 +409,14 @@ namespace OptiQ
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel3.Controls.Add(this.bunifuFlatButton2);
-            this.flowLayoutPanel3.Controls.Add(this.bunifuFlatButton15);
             this.flowLayoutPanel3.Controls.Add(this.bunifuFlatButton13);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(410, 20);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flowLayoutPanel3.Size = new System.Drawing.Size(250, 140);
             this.flowLayoutPanel3.TabIndex = 9;
-            // 
-            // bunifuFlatButton15
-            // 
-            this.bunifuFlatButton15.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
-            this.bunifuFlatButton15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.bunifuFlatButton15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton15.BorderRadius = 7;
-            this.bunifuFlatButton15.ButtonText = "Количество";
-            this.bunifuFlatButton15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton15.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuFlatButton15.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton15.Iconimage = null;
-            this.bunifuFlatButton15.Iconimage_right = null;
-            this.bunifuFlatButton15.Iconimage_right_Selected = null;
-            this.bunifuFlatButton15.Iconimage_Selected = null;
-            this.bunifuFlatButton15.IconMarginLeft = 0;
-            this.bunifuFlatButton15.IconMarginRight = 0;
-            this.bunifuFlatButton15.IconRightVisible = true;
-            this.bunifuFlatButton15.IconRightZoom = 0D;
-            this.bunifuFlatButton15.IconVisible = true;
-            this.bunifuFlatButton15.IconZoom = 90D;
-            this.bunifuFlatButton15.IsTab = false;
-            this.bunifuFlatButton15.Location = new System.Drawing.Point(135, 10);
-            this.bunifuFlatButton15.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
-            this.bunifuFlatButton15.Name = "bunifuFlatButton15";
-            this.bunifuFlatButton15.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.bunifuFlatButton15.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(111)))), ((int)(((byte)(177)))));
-            this.bunifuFlatButton15.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton15.selected = false;
-            this.bunifuFlatButton15.Size = new System.Drawing.Size(115, 55);
-            this.bunifuFlatButton15.TabIndex = 9;
-            this.bunifuFlatButton15.Text = "Количество";
-            this.bunifuFlatButton15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton15.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton15.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             // 
             // bunifuFlatButton13
             // 
@@ -628,8 +440,8 @@ namespace OptiQ
             this.bunifuFlatButton13.IconVisible = true;
             this.bunifuFlatButton13.IconZoom = 90D;
             this.bunifuFlatButton13.IsTab = false;
-            this.bunifuFlatButton13.Location = new System.Drawing.Point(10, 75);
-            this.bunifuFlatButton13.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton13.Location = new System.Drawing.Point(10, 85);
+            this.bunifuFlatButton13.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.bunifuFlatButton13.Name = "bunifuFlatButton13";
             this.bunifuFlatButton13.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.bunifuFlatButton13.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(162)))), ((int)(((byte)(128)))));
@@ -641,42 +453,176 @@ namespace OptiQ
             this.bunifuFlatButton13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton13.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton13.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton13.Click += new System.EventHandler(this.bunifuFlatButton13_Click);
             // 
-            // bunifuFlatButton2
+            // grdt_kass
             // 
-            this.bunifuFlatButton2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton2.BorderRadius = 7;
-            this.bunifuFlatButton2.ButtonText = "Удалить";
-            this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton2.Iconimage = null;
-            this.bunifuFlatButton2.Iconimage_right = null;
-            this.bunifuFlatButton2.Iconimage_right_Selected = null;
-            this.bunifuFlatButton2.Iconimage_Selected = null;
-            this.bunifuFlatButton2.IconMarginLeft = 0;
-            this.bunifuFlatButton2.IconMarginRight = 0;
-            this.bunifuFlatButton2.IconRightVisible = true;
-            this.bunifuFlatButton2.IconRightZoom = 0D;
-            this.bunifuFlatButton2.IconVisible = true;
-            this.bunifuFlatButton2.IconZoom = 90D;
-            this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(10, 10);
-            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
-            this.bunifuFlatButton2.Name = "bunifuFlatButton2";
-            this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(115, 55);
-            this.bunifuFlatButton2.TabIndex = 10;
-            this.bunifuFlatButton2.Text = "Удалить";
-            this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grdt_kass.AllowUserToAddRows = false;
+            this.grdt_kass.AllowUserToDeleteRows = false;
+            this.grdt_kass.AllowUserToResizeColumns = false;
+            this.grdt_kass.AllowUserToResizeRows = false;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grdt_kass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.grdt_kass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdt_kass.BackgroundColor = System.Drawing.Color.White;
+            this.grdt_kass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdt_kass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grdt_kass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdt_kass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.grdt_kass.ColumnHeadersHeight = 40;
+            this.grdt_kass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grdt_kass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.kod,
+            this.name,
+            this.price,
+            this.cenaco,
+            this.kol,
+            this.skidka,
+            this.vsekol,
+            this.cenakonco});
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdt_kass.DefaultCellStyle = dataGridViewCellStyle25;
+            this.grdt_kass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdt_kass.DoubleBuffered = true;
+            this.grdt_kass.EnableHeadersVisualStyles = false;
+            this.grdt_kass.GridColor = System.Drawing.Color.White;
+            this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
+            this.grdt_kass.Location = new System.Drawing.Point(0, 92);
+            this.grdt_kass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.grdt_kass.MultiSelect = false;
+            this.grdt_kass.Name = "grdt_kass";
+            this.grdt_kass.ReadOnly = true;
+            this.grdt_kass.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdt_kass.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            this.grdt_kass.RowHeadersVisible = false;
+            this.grdt_kass.RowHeadersWidth = 45;
+            this.grdt_kass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grdt_kass.RowsDefaultCellStyle = dataGridViewCellStyle27;
+            this.grdt_kass.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.grdt_kass.RowTemplate.DividerHeight = 1;
+            this.grdt_kass.RowTemplate.Height = 30;
+            this.grdt_kass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grdt_kass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdt_kass.Size = new System.Drawing.Size(680, 328);
+            this.grdt_kass.TabIndex = 16;
+            this.grdt_kass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdt_kass_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 29.99174F;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // kod
+            // 
+            this.kod.FillWeight = 89.19894F;
+            this.kod.HeaderText = "Код";
+            this.kod.MinimumWidth = 6;
+            this.kod.Name = "kod";
+            this.kod.ReadOnly = true;
+            this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.kod.Visible = false;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 274.4316F;
+            this.name.HeaderText = "Наименование";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // price
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.price.DefaultCellStyle = dataGridViewCellStyle21;
+            this.price.FillWeight = 85.07465F;
+            this.price.HeaderText = "Цена";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.price.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cenaco
+            // 
+            this.cenaco.HeaderText = "Ценаприхода";
+            this.cenaco.MinimumWidth = 6;
+            this.cenaco.Name = "cenaco";
+            this.cenaco.ReadOnly = true;
+            this.cenaco.Visible = false;
+            // 
+            // kol
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.kol.DefaultCellStyle = dataGridViewCellStyle22;
+            this.kol.FillWeight = 116.4457F;
+            this.kol.HeaderText = "Количество";
+            this.kol.MinimumWidth = 6;
+            this.kol.Name = "kol";
+            this.kol.ReadOnly = true;
+            this.kol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.kol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // skidka
+            // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.skidka.DefaultCellStyle = dataGridViewCellStyle23;
+            this.skidka.FillWeight = 58.90973F;
+            this.skidka.HeaderText = "Расценка";
+            this.skidka.MinimumWidth = 6;
+            this.skidka.Name = "skidka";
+            this.skidka.ReadOnly = true;
+            this.skidka.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.skidka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.skidka.Visible = false;
+            // 
+            // vsekol
+            // 
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.vsekol.DefaultCellStyle = dataGridViewCellStyle24;
+            this.vsekol.FillWeight = 84.89368F;
+            this.vsekol.HeaderText = "Сумма";
+            this.vsekol.MinimumWidth = 6;
+            this.vsekol.Name = "vsekol";
+            this.vsekol.ReadOnly = true;
+            this.vsekol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vsekol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cenakonco
+            // 
+            this.cenakonco.HeaderText = "cenakonco";
+            this.cenakonco.MinimumWidth = 6;
+            this.cenakonco.Name = "cenakonco";
+            this.cenakonco.ReadOnly = true;
+            this.cenakonco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cenakonco.Visible = false;
             // 
             // Vozvrat
             // 
@@ -684,25 +630,31 @@ namespace OptiQ
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(680, 600);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.grdt_kass);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.header);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Vozvrat";
             this.Text = "Vozvrat";
+            this.Load += new System.EventHandler(this.Vozvrat_Load);
+            this.Shown += new System.EventHandler(this.Vozvrat_Shown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Vozvrat_KeyPress);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.mzSombraPanel1.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).EndInit();
+            this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,17 +670,7 @@ namespace OptiQ
         private search search1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
         private System.Windows.Forms.Panel header;
-        public Bunifu.Framework.UI.BunifuCustomDataGrid grdt_kass;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cenaco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn skidka;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vsekol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cenakonco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fact_kol;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.Label label4;
@@ -737,8 +679,17 @@ namespace OptiQ
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton15;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton13;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
+        public Bunifu.Framework.UI.BunifuCustomDataGrid grdt_kass;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cenaco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn skidka;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vsekol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cenakonco;
     }
 }

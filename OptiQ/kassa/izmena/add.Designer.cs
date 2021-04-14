@@ -37,8 +37,8 @@ namespace OptiQ
             this.label2 = new System.Windows.Forms.Label();
             this.mzSombraPanel1 = new MZControls.MZSombraPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.nalich = new MZControls.MZSombraPanel();
@@ -132,7 +132,7 @@ namespace OptiQ
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(6, 4, 0, 0);
             this.panel2.Size = new System.Drawing.Size(244, 30);
@@ -141,6 +141,18 @@ namespace OptiQ
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseMove);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseUp);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Location = new System.Drawing.Point(6, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(238, 22);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // shjowkeyboard1
             // 
@@ -152,18 +164,6 @@ namespace OptiQ
             this.shjowkeyboard1.Name = "shjowkeyboard1";
             this.shjowkeyboard1.Size = new System.Drawing.Size(36, 30);
             this.shjowkeyboard1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(6, 4);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(238, 22);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // flowLayoutPanel3
             // 

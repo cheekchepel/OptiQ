@@ -82,6 +82,7 @@ namespace OptiQ
             this.summa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.us_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.header = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -99,6 +100,7 @@ namespace OptiQ
             this.panel10.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).BeginInit();
+            this.header.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -787,7 +789,7 @@ namespace OptiQ
             this.mzSombraPanel1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.mzSombraPanel1.Name = "mzSombraPanel1";
             this.mzSombraPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.mzSombraPanel1.Size = new System.Drawing.Size(418, 55);
+            this.mzSombraPanel1.Size = new System.Drawing.Size(400, 52);
             this.mzSombraPanel1.TabIndex = 10;
             this.mzSombraPanel1.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
             // 
@@ -800,7 +802,7 @@ namespace OptiQ
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(10, 10);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(398, 35);
+            this.panel9.Size = new System.Drawing.Size(380, 32);
             this.panel9.TabIndex = 8;
             // 
             // panel10
@@ -809,8 +811,8 @@ namespace OptiQ
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(30, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.panel10.Size = new System.Drawing.Size(333, 35);
+            this.panel10.Padding = new System.Windows.Forms.Padding(10, 4, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(315, 32);
             this.panel10.TabIndex = 11;
             // 
             // textBox2
@@ -819,9 +821,9 @@ namespace OptiQ
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            this.textBox2.Location = new System.Drawing.Point(10, 6);
+            this.textBox2.Location = new System.Drawing.Point(10, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(323, 24);
+            this.textBox2.Size = new System.Drawing.Size(305, 24);
             this.textBox2.TabIndex = 0;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -830,11 +832,11 @@ namespace OptiQ
             this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
             this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
             this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(363, 0);
+            this.shjowkeyboard1.Location = new System.Drawing.Point(345, 0);
             this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard1.Name = "shjowkeyboard1";
             this.shjowkeyboard1.Padding = new System.Windows.Forms.Padding(5);
-            this.shjowkeyboard1.Size = new System.Drawing.Size(35, 35);
+            this.shjowkeyboard1.Size = new System.Drawing.Size(35, 32);
             this.shjowkeyboard1.TabIndex = 10;
             // 
             // search1
@@ -846,7 +848,7 @@ namespace OptiQ
             this.search1.Margin = new System.Windows.Forms.Padding(5);
             this.search1.Name = "search1";
             this.search1.Padding = new System.Windows.Forms.Padding(5);
-            this.search1.Size = new System.Drawing.Size(30, 35);
+            this.search1.Size = new System.Drawing.Size(30, 32);
             this.search1.TabIndex = 12;
             // 
             // flowLayoutPanel2
@@ -856,7 +858,7 @@ namespace OptiQ
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 40);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(580, 55);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(580, 52);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
             // bunifuFlatButton7
@@ -881,14 +883,14 @@ namespace OptiQ
             this.bunifuFlatButton7.IconVisible = true;
             this.bunifuFlatButton7.IconZoom = 90D;
             this.bunifuFlatButton7.IsTab = false;
-            this.bunifuFlatButton7.Location = new System.Drawing.Point(438, 10);
-            this.bunifuFlatButton7.Margin = new System.Windows.Forms.Padding(10);
+            this.bunifuFlatButton7.Location = new System.Drawing.Point(430, 10);
+            this.bunifuFlatButton7.Margin = new System.Windows.Forms.Padding(20, 10, 10, 10);
             this.bunifuFlatButton7.Name = "bunifuFlatButton7";
             this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
             this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton7.selected = false;
-            this.bunifuFlatButton7.Size = new System.Drawing.Size(122, 35);
+            this.bunifuFlatButton7.Size = new System.Drawing.Size(130, 32);
             this.bunifuFlatButton7.TabIndex = 7;
             this.bunifuFlatButton7.Text = "Закрыть";
             this.bunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -939,7 +941,7 @@ namespace OptiQ
             this.grdt_kass.EnableHeadersVisualStyles = false;
             this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
-            this.grdt_kass.Location = new System.Drawing.Point(0, 95);
+            this.grdt_kass.Location = new System.Drawing.Point(0, 92);
             this.grdt_kass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.grdt_kass.MultiSelect = false;
             this.grdt_kass.Name = "grdt_kass";
@@ -963,7 +965,7 @@ namespace OptiQ
             this.grdt_kass.RowTemplate.Height = 30;
             this.grdt_kass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdt_kass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdt_kass.Size = new System.Drawing.Size(580, 230);
+            this.grdt_kass.Size = new System.Drawing.Size(580, 233);
             this.grdt_kass.TabIndex = 12;
             this.grdt_kass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdt_kass_CellClick);
             // 
@@ -1005,12 +1007,26 @@ namespace OptiQ
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.header.Controls.Add(this.label6);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Margin = new System.Windows.Forms.Padding(0);
             this.header.Name = "header";
+            this.header.Padding = new System.Windows.Forms.Padding(20, 8, 0, 0);
             this.header.Size = new System.Drawing.Size(580, 40);
             this.header.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(20, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 24);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Должники";
             // 
             // dolgi
             // 
@@ -1050,6 +1066,8 @@ namespace OptiQ
             this.panel10.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).EndInit();
+            this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1101,5 +1119,6 @@ namespace OptiQ
         private System.Windows.Forms.DataGridViewTextBoxColumn us_date;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel header;
+        private System.Windows.Forms.Label label6;
     }
 }
