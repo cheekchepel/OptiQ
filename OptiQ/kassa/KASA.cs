@@ -37,10 +37,10 @@ namespace OptiQ
         public NpgsqlDataReader dr;
 
 
-       // fastovar fastovar = new fastovar();
+        // fastovar fastovar = new fastovar();
 
         //InputSimulator Simulator = new InputSimulator();
-
+        public bool optom = false;
 
 
         public SqlConnection conoff = new SqlConnection(Global.conectsql);
@@ -428,7 +428,7 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                    sqloff = "select pr_kod,pr_name,pr_fact_co,pr_price_ca,pr_piec from product where  pr_kod=" + textBox1.Text;
+                    sqloff = "select pr_kod,pr_name,pr_fact_co,pr_price_ca,pr_piec,pr_optom from product where  pr_kod=" + textBox1.Text;
                     cmdoff = new SqlCommand(sqloff, conoff);
                     droff = cmdoff.ExecuteReader();
 
@@ -471,7 +471,9 @@ namespace OptiQ
                             schet++;
 
                         }
-                        if (zap == true) { grdt_kass.Rows.Add(droff[0], droff[1], droff[3], droff[2],1,0,Convert.ToDouble(droff[3]), droff[2],Convert.ToDouble(droff[4])-1, droff[4]); }
+                        if (zap == true) {
+                        string opt = Convert.ToInt32("-"+ droff[3]) - Convert.ToInt32(droff[5])+ " тг.";
+                        grdt_kass.Rows.Add(droff[0], droff[1], droff[3], droff[2],1,0,Convert.ToDouble(droff[3]), droff[2],Convert.ToDouble(droff[4])-1, Convert.ToDouble(droff[4]), opt); }
 
 
 
@@ -827,6 +829,85 @@ namespace OptiQ
         {
             Program.main.backblakshow();
             vozvrat.ShowDialog();
+        }
+
+        private void bunifuFlatButton17_MouseClick(object sender, MouseEventArgs e)
+        {
+          
+        }
+
+
+        public void opt_fun() {
+
+            int schet = 0;
+
+            
+
+            while (schet < grdt_kass.Rows.Count) 
+            {
+
+               
+
+
+                double cena = Convert.ToDouble(grdt_kass.Rows[schet].Cells[2].Value);
+                double kol = Convert.ToDouble(grdt_kass.Rows[schet].Cells[4].Value);
+                double skidka;
+                string skidka_str = Convert.ToString(grdt_kass.Rows[schet].Cells[10].Value);
+                if (optom == true)
+                {
+
+                    
+                    skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 4));
+                    grdt_kass.Rows[schet].Cells[6].Value = (cena - skidka) * kol;
+                    grdt_kass.Rows[schet].Cells[5].Value = skidka_str;
+                }
+                else {
+
+                    grdt_kass.Rows[schet].Cells[6].Value = cena * kol;
+                    grdt_kass.Rows[schet].Cells[5].Value = 0;
+                }
+                
+                grdt_kass.Rows[schet].Cells[6].Value = Convert.ToInt64(grdt_kass.Rows[schet].Cells[6].Value);
+                grdt_kass.Rows[schet].Cells[7].Value = Convert.ToDouble(grdt_kass.Rows[schet].Cells[3].Value) * Convert.ToDouble(grdt_kass.Rows[schet].Cells[4].Value);
+                grdt_kass.Rows[schet].Cells[8].Value = Convert.ToDouble(grdt_kass.Rows[schet].Cells[9].Value) - Convert.ToDouble(grdt_kass.Rows[schet].Cells[4].Value);
+
+
+
+
+
+                schet++;
+
+
+
+
+
+
+
+
+            }
+
+            summa();
+
+
+
+        }
+
+        private void bunifuFlatButton17_Click(object sender, EventArgs e)
+        {
+            if (bunifuFlatButton17.Text == "Оптом")
+            {
+                bunifuFlatButton17.Text = "Розница";
+                optom = true;
+
+            }
+            else
+            {
+
+                bunifuFlatButton17.Text = "Оптом";
+                optom = false;
+
+            }
+            opt_fun();
         }
     }
 }

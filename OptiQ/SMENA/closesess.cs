@@ -46,7 +46,8 @@ namespace OptiQ
         private void close_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
+            Program.main.backblakhide();
+            this.Close();
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -57,12 +58,12 @@ namespace OptiQ
             if (Global.date_open_sesions!=0)
             {
 
-               
+                int stal = Convert.ToInt32("0" + textBox1.Text);
 
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "UPDATE ksas set date_end_ksas= " + DateTimeOffset.Now.ToUnixTimeSeconds() + " where id_kassir_ksas =" + Global.IDuser + "and date_end_ksas =0 and date_start_ksas =" + Global.date_open_sesions;
+                sqloff = "UPDATE ksas set stalo_ksas="+ stal + ", date_end_ksas= " + DateTimeOffset.Now.ToUnixTimeSeconds() + " where id_kassir_ksas =" + Global.IDuser + "and date_end_ksas =0 and date_start_ksas =" + Global.date_open_sesions;
                 sqloff += "INSERT INTO productoff(pr_text)VALUES(N'" + sqloff + "')";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
@@ -75,6 +76,8 @@ namespace OptiQ
 
                 Program.msg.Size = new Size(360, 100);
                 Program.msg.Message.Text = "Смена успешно закрыта"; Program.msg.Show();
+                Program.main.backblakhide();
+                this.Close();
 
             }
             else
@@ -85,8 +88,28 @@ namespace OptiQ
 
             conoff.Close();
             Program.ssssss.Closesess.Visible = false;
-            this.Hide();
+            this.Close();
             Program.log.poisc_sessii_and_view();
+        }
+
+        private void closesess_Shown(object sender, EventArgs e)
+        {
+            textBox1.Focus();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            textBox1.Focus();
+        }
+
+        private void closesess_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
         }
     }
 }

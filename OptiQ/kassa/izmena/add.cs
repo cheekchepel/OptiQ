@@ -227,9 +227,9 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "INSERT INTO product(pr_name,pr_price_ca,pr_kod,pr_fact_co,pr_piec)VALUES(N'" + textBox2.Text + "'," + textBox1.Text + "," + id + ",0,0);";
-                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "INSERT INTO product(pr_mg_id,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_piec,pr_kod,pr_fact_co)" +
-                    "VALUES(" + Global.IDmagaz + ",N$" + textBox2.Text + "$,0," + textBox1.Text + ",0,0," + id + ",0);');";
+                sqloff = "INSERT INTO product(pr_name,pr_price_ca,pr_kod,pr_fact_co,pr_piec,pr_optom)VALUES(N'" + textBox2.Text + "'," + textBox1.Text + "," + id + ",0,0," + textBox1.Text + ");";
+                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "INSERT INTO product(pr_mg_id,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_piec,pr_kod,pr_fact_co,pr_optom)" +
+                    "VALUES(" + Global.IDmagaz + ",N$" + textBox2.Text + "$,0," + textBox1.Text + ",0,0," + id + ",0," + textBox1.Text + ");');";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();

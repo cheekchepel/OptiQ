@@ -420,7 +420,7 @@ namespace OptiQ
            {
                 con1.Close();
                 con1.Open();
-                sql1 = "select pr_kod, pr_name, pr_fact_co, pr_price_ca,pr_id,pr_piec,pr_kateg,pr_plu from product LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
+                sql1 = "select pr_kod, pr_name, pr_fact_co, pr_price_ca,pr_id,pr_piec,pr_kateg,pr_plu,pr_optom from product LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
                 cmd1 = new NpgsqlCommand(sql1, con1);
                 dr1 = cmd1.ExecuteReader();
                 conoff1.Close();
@@ -435,7 +435,7 @@ namespace OptiQ
                     conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
-                    sqloff1 = "INSERT INTO product(pr_id,pr_kod, pr_name, pr_fact_co, pr_price_ca,pr_piec,pr_kateg,pr_plu)VALUES(" + dr1[4] + "," + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + "," + dr1[3] + ","+(dr1[5].ToString()).Replace(",",".")+","+dr1[6]+ ",0" + dr1[7] + ")";
+                    sqloff1 = "INSERT INTO product(pr_id,pr_kod, pr_name, pr_fact_co, pr_price_ca,pr_piec,pr_kateg,pr_plu,pr_optom)VALUES(" + dr1[4] + "," + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + "," + dr1[3] + ","+(dr1[5].ToString()).Replace(",",".")+","+dr1[6]+ ",0" + dr1[7] + "," + dr1[8] + ")";
                     cmdoff1 = new SqlCommand(sqloff1, conoff1);
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();

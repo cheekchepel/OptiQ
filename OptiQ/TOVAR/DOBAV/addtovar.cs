@@ -92,7 +92,7 @@ namespace OptiQ
             text1.Text = null;
             text2.Text = null;
             text3.Text = null;
-            text4.Text = null;
+            textopt.Text = null;
             text5.Text = null;
             text6.Items.Clear();
             text7.Text = null;
@@ -212,7 +212,7 @@ namespace OptiQ
                
                 text2.Text = null;
                 text3.Text = null;
-                text4.Text = null;
+                textopt.Text = null;
                 text5.Text = null;
                 text6.Text = "Нет";
                 text7.Text = null;
@@ -229,11 +229,13 @@ namespace OptiQ
                     text2.Text = dr["pr_name"].ToString();
                     text3.Text = dr["pr_price_co"].ToString();
                     text5.Text = dr["pr_price_ca"].ToString();
-
+                    textopt.Text = text5.Text;
                     text6.Text = dr["pr_provid"].ToString();
                     text7.Text = dr["pr_piec"].ToString().Replace(",",".");
-
-
+                    if (Convert.ToInt32(dr["pr_optom"]) != 0) {
+                        textopt.Text = dr["pr_optom"].ToString();
+                    }
+                        
                 }
                 else
                 {
@@ -336,6 +338,10 @@ namespace OptiQ
             if (!String.IsNullOrWhiteSpace(text1.Text) && !String.IsNullOrWhiteSpace(text2.Text) && !String.IsNullOrWhiteSpace(text5.Text) && !String.IsNullOrWhiteSpace(text6.Text) && !String.IsNullOrWhiteSpace(text7.Text)  && isInt == true)         
             {
                     int priha =Convert.ToInt32(0 + text3.Text);
+                    int opti = Convert.ToInt32(0 + textopt.Text);
+                    if (opti ==0) {
+                        opti= Convert.ToInt32(0 + text5.Text);
+                    }
 
                 con.Open();
                 sql = "select * from product where pr_mg_id =" + Global.IDmagaz + "and pr_kod=" + text1.Text;
@@ -346,7 +352,7 @@ namespace OptiQ
                     con.Close();
                     con.Open();
                         sql = Global.versia;
-                    sql += "UPDATE product Set pr_mg_id="+Global.IDmagaz+",pr_kod=" + text1.Text + ", pr_name='" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_provid='"+text6.Text+"',pr_fact_co=" + priha + ",pr_piec=" + Convert.ToString(Convert.ToDouble(text7.Text.Replace(".", ","))).Replace(",", ".") + "  WHERE pr_kod =" + text1.Text;
+                    sql += "UPDATE product Set pr_mg_id="+Global.IDmagaz+",pr_kod=" + text1.Text + ", pr_name='" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_provid='"+text6.Text+"',pr_fact_co=" + priha + ",pr_piec=" + Convert.ToString(Convert.ToDouble(text7.Text.Replace(".", ","))).Replace(",", ".")+ ",pr_optom="+ opti + " WHERE pr_kod =" + text1.Text;
                     cmd = new NpgsqlCommand(sql, con);
                     dr = cmd.ExecuteReader();
                     dr.Read();
@@ -361,7 +367,7 @@ namespace OptiQ
                     con.Close();
                     con.Open();
                         sql = Global.versia;
-                        sql += "INSERT INTO product(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_fact_co,pr_provid,pr_piec)VALUES("+Global.IDmagaz+"," + text1.Text+",'"+text2.Text+"',"+ priha + ","+text5.Text+","+ priha + ",'"+text6.Text+"',"+ Convert.ToString(Convert.ToDouble(text7.Text.Replace(".", ","))).Replace(",", ".") + ")";
+                        sql += "INSERT INTO product(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_fact_co,pr_provid,pr_piec,pr_optom)VALUES(" + Global.IDmagaz+"," + text1.Text+",'"+text2.Text+"',"+ priha + ","+text5.Text+","+ priha + ",'"+text6.Text+"',"+ Convert.ToString(Convert.ToDouble(text7.Text.Replace(".", ","))).Replace(",", ".") + ","+ opti + ")";
                     cmd = new NpgsqlCommand(sql, con);
                     dr = cmd.ExecuteReader();
                     dr.Read();
@@ -453,10 +459,10 @@ namespace OptiQ
 
             
 
-            if (!String.IsNullOrWhiteSpace(text3.Text)&& !String.IsNullOrWhiteSpace(text4.Text)) {
+            if (!String.IsNullOrWhiteSpace(text3.Text)&& !String.IsNullOrWhiteSpace(textopt.Text)) {
 
 
-                text5.Text = (((Convert.ToInt32(text3.Text))/100)*(100+(Convert.ToInt32(text4.Text)))).ToString() ;
+                text5.Text = (((Convert.ToInt32(text3.Text))/100)*(100+(Convert.ToInt32(textopt.Text)))).ToString() ;
 
             }
 
@@ -473,35 +479,16 @@ namespace OptiQ
                 text3.Text = (Convert.ToInt32(text3.Text)).ToString();
             }
 
-            if (!String.IsNullOrWhiteSpace(text3.Text) && !String.IsNullOrWhiteSpace(text4.Text))
-            {
-
-
-                text5.Text = (((Convert.ToInt32(text3.Text)) / 100) * (100 + (Convert.ToInt32(text4.Text)))).ToString();
-
-            }
+           
 
         }
 
         private void text4_OnValueChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(text4.Text)&& text4.Text!="-")
-            {
-               text4.Text = ((Convert.ToInt32( text4.Text)).ToString());
-                if (text4.Text.Length > 3)
-                {
+            if (Convert.ToInt32(textopt.Text) > Convert.ToInt32(text5.Text)) {
 
-                    text4.Text = text4.Text.Remove(3);
+                textopt.Text = text5.Text;
 
-
-                }
-            }
-
-            if (!String.IsNullOrWhiteSpace(text3.Text) && !String.IsNullOrWhiteSpace(text4.Text))
-            {
-
-
-                text5.Text = (((Convert.ToInt32(text3.Text)) / 100) * (100 + (Convert.ToInt32(text4.Text)))).ToString();
 
             }
 

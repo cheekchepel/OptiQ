@@ -272,8 +272,8 @@ namespace OptiQ
 
             if (Global.date_open_sesions!=0)
             {
-
-                clclc.Show();
+                Program.main.backblakshow();
+                clclc.ShowDialog();
 
             }
             else

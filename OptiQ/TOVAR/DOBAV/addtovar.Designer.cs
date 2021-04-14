@@ -48,7 +48,7 @@ namespace OptiQ
             this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
             this.text3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.shjowkeyboard3 = new OptiQ.shjowkeyboard();
-            this.text4 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.textopt = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.shjowkeyboard4 = new OptiQ.shjowkeyboard();
             this.text5 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.shjowkeyboard5 = new OptiQ.shjowkeyboard();
@@ -79,8 +79,8 @@ namespace OptiQ
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.label5);
+            this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.label6);
             this.flowLayoutPanel1.Controls.Add(this.label7);
             this.flowLayoutPanel1.Controls.Add(this.bunifuFlatButton6);
@@ -113,9 +113,9 @@ namespace OptiQ
             this.label1.Location = new System.Drawing.Point(20, 80);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 20);
+            this.label1.Size = new System.Drawing.Size(168, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Название товара";
+            this.label1.Text = "Название товара *";
             // 
             // label3
             // 
@@ -132,24 +132,23 @@ namespace OptiQ
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label4.Location = new System.Drawing.Point(20, 180);
+            this.label4.Location = new System.Drawing.Point(20, 230);
             this.label4.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 20);
+            this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Наценка (%)";
-            this.label4.Visible = false;
+            this.label4.Text = "Цена оптом";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label5.Location = new System.Drawing.Point(20, 230);
+            this.label5.Location = new System.Drawing.Point(20, 180);
             this.label5.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 20);
+            this.label5.Size = new System.Drawing.Size(143, 20);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Цена продажи";
+            this.label5.Text = "Цена продажи *";
             // 
             // label6
             // 
@@ -169,9 +168,9 @@ namespace OptiQ
             this.label7.Location = new System.Drawing.Point(20, 330);
             this.label7.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 20);
+            this.label7.Size = new System.Drawing.Size(122, 20);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Количество";
+            this.label7.Text = "Количество *";
             // 
             // bunifuFlatButton6
             // 
@@ -219,9 +218,9 @@ namespace OptiQ
             this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard2);
             this.flowLayoutPanel2.Controls.Add(this.text3);
             this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard3);
-            this.flowLayoutPanel2.Controls.Add(this.text4);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard4);
             this.flowLayoutPanel2.Controls.Add(this.text5);
+            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard4);
+            this.flowLayoutPanel2.Controls.Add(this.textopt);
             this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard5);
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.bunifuFlatButton2);
@@ -358,29 +357,28 @@ namespace OptiQ
             this.shjowkeyboard3.TabIndex = 12;
             this.shjowkeyboard3.Visible = false;
             // 
-            // text4
+            // textopt
             // 
-            this.text4.BackColor = System.Drawing.Color.White;
-            this.text4.BorderColorFocused = System.Drawing.Color.Blue;
-            this.text4.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.text4.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.text4.BorderThickness = 1;
-            this.text4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.text4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.text4.isPassword = false;
-            this.text4.Location = new System.Drawing.Point(0, 175);
-            this.text4.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.text4.Name = "text4";
-            this.text4.Size = new System.Drawing.Size(280, 30);
-            this.text4.TabIndex = 4;
-            this.text4.Text = "bunifuMetroTextbox4";
-            this.text4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.text4.Visible = false;
-            this.text4.OnValueChanged += new System.EventHandler(this.text4_OnValueChanged);
-            this.text4.Enter += new System.EventHandler(this.text4_Enter);
-            this.text4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text4_KeyPress);
-            this.text4.Leave += new System.EventHandler(this.text4_Leave);
+            this.textopt.BackColor = System.Drawing.Color.White;
+            this.textopt.BorderColorFocused = System.Drawing.Color.Blue;
+            this.textopt.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textopt.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.textopt.BorderThickness = 1;
+            this.textopt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textopt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textopt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.textopt.isPassword = false;
+            this.textopt.Location = new System.Drawing.Point(0, 225);
+            this.textopt.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.textopt.Name = "textopt";
+            this.textopt.Size = new System.Drawing.Size(280, 30);
+            this.textopt.TabIndex = 4;
+            this.textopt.Text = "bunifuMetroTextbox4";
+            this.textopt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textopt.OnValueChanged += new System.EventHandler(this.text4_OnValueChanged);
+            this.textopt.Enter += new System.EventHandler(this.text4_Enter);
+            this.textopt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text4_KeyPress);
+            this.textopt.Leave += new System.EventHandler(this.text4_Leave);
             // 
             // shjowkeyboard4
             // 
@@ -404,7 +402,7 @@ namespace OptiQ
             this.text5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.text5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.text5.isPassword = false;
-            this.text5.Location = new System.Drawing.Point(0, 225);
+            this.text5.Location = new System.Drawing.Point(0, 175);
             this.text5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.text5.Name = "text5";
             this.text5.Size = new System.Drawing.Size(280, 30);
@@ -656,7 +654,7 @@ namespace OptiQ
         private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuMetroTextbox text2;
         private Bunifu.Framework.UI.BunifuMetroTextbox text3;
-        private Bunifu.Framework.UI.BunifuMetroTextbox text4;
+        private Bunifu.Framework.UI.BunifuMetroTextbox textopt;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuMetroTextbox text5;
         private System.Windows.Forms.Panel panel1;
