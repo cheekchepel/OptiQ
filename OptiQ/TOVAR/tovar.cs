@@ -62,7 +62,7 @@ namespace OptiQ
             {
                 con.Close();
                 con.Open();
-                sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_piec from product where pr_mg_id =" + Global.IDmagaz;
+                sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,(SELECT SUM(rz_pies) as sum FROM razmer_pro WHERE rz_mg_id =" + Global.IDmagaz+" and rz_pr_kod =pr_kod) from product_pro where pr_mg_id =" + Global.IDmagaz;
                 cmd = new NpgsqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 dtSales.Rows.Clear();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,27 +18,36 @@ namespace OptiQ
             InitializeComponent();
         }
 
+        public SqlConnection cont = new SqlConnection(Global.conectsql);
+
+        public string sqlt;
+
+        public SqlCommand cmdt;
+        public SqlDataReader drt;
 
 
+        long otl_id = 0;
 
-        public void vgruzit() {
 
+        public void vgruzit(long id) {
 
-            if (Program.KASA.grdt_kass.Rows.Count  > 0)
+            otl_id = id;
+            grdt_kass50.Rows.Clear();
+            cont.Close();
+            cont.Open();
+            sqlt = "select tov_kod,tov_rz,tov_pies,tov_name from tov_otlojka_pro LEFT JOIN otlojka_pro ON tov_ot_id=ot_id  where tov_ot_id="+id+" and id_kassir=" + Global.IDuser;
+            cmdt = new SqlCommand(sqlt, cont);
+            drt = cmdt.ExecuteReader();
+            while (drt.Read())
             {
-                int keetti = 0;
 
-                while (keetti < Program.KASA.grdt_kass.Rows.Count )
-                {
-                   grdt_kass50.Rows.Add(Program.KASA.grdt_kass.Rows[keetti].Cells[0].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[1].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[2].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[3].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[4].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[5].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[6].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[7].Value, Program.KASA.grdt_kass.Rows[keetti].Cells[8].Value);
+                grdt_kass50.Rows.Add(drt[0], drt[1], drt[2], drt[3]);
 
-                    keetti++;
-                }
-                this.Visible = true;
-                Program.KASA.grdt_kass.Rows.Clear();
-                grdt_kass50.ClearSelection();
             }
-                
+            cont.Close();
+
+            this.Visible = true;
+
         }
 
 
@@ -45,24 +55,59 @@ namespace OptiQ
 
         public void vigruzet()
         {
-            Program.ooo.Close();
+            
+                int nacht = 0;
+
+               
+
+                string zapros = null;
+            string delketzapr = null;
+            
+
+                while (nacht < grdt_kass50.Rows.Count)
+                {
+                    long kod = Convert.ToInt64(grdt_kass50.Rows[nacht].Cells[0].Value);
+                    long rz = Convert.ToInt64(grdt_kass50.Rows[nacht].Cells[1].Value);
+                    string pies = grdt_kass50.Rows[nacht].Cells[2].Value.ToString().Replace(",", ".");
+
+                Program.KASA.pohav.Rows.Add(kod, rz, pies);
+                    
+                    zapros += "UPDATE razmer_pro SET rz_pies=((SELECT rz_pies FROM razmer_pro where rz_pr_kod=" + kod + " and rz_id=" + rz + "ORDER BY rz_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY)+" + pies + ") where rz_id=" + rz + " and rz_pr_kod=" + kod + ";";
+                    delketzapr += "delete from tov_otlojka_pro where tov_kod="+kod+" and tov_ot_id=" + otl_id + ";";
+                    nacht++;
+                }
+
+            
+                    delketzapr = "delete from otlojka_pro where id_kassir="+Global.IDuser+" and ot_id=" + otl_id + ";";
+
+
+                string zaprostext = delketzapr + zapros + "INSERT INTO productoff(pr_text)VALUES(N'" + Global.versia + delketzapr.Replace("'", "$") + zapros.Replace("'", "$") + "');";
+            
+
+                cont.Close();
+                cont.Open();
+                sqlt = zaprostext;
+                cmdt = new SqlCommand(sqlt, cont);
+                drt = cmdt.ExecuteReader();
+                drt.Read();
+                cont.Close();
+
+
+
+            Program.KASA.poihali();
+
+
+
            
 
-            int keetti = 0;
 
-                while (keetti < grdt_kass50.Rows.Count )
-                {
-                
-                Program.KASA.grdt_kass.Rows.Add(grdt_kass50.Rows[keetti].Cells[0].Value, grdt_kass50.Rows[keetti].Cells[1].Value, grdt_kass50.Rows[keetti].Cells[2].Value, grdt_kass50.Rows[keetti].Cells[3].Value, grdt_kass50.Rows[keetti].Cells[4].Value, grdt_kass50.Rows[keetti].Cells[5].Value, grdt_kass50.Rows[keetti].Cells[6].Value, grdt_kass50.Rows[keetti].Cells[7].Value, grdt_kass50.Rows[keetti].Cells[8].Value);
-                keetti++;
-
-            }
-                this.Visible = false;
-                 grdt_kass50.Rows.Clear();
             Program.main.backblakhide();
-            Program.KASA.schet();
-            Program.KASA.summa();
-            //  Program.KASA.kassadeletrow();
+            Program.ooo.Close();
+
+
+
+
+
 
 
         }
@@ -70,12 +115,12 @@ namespace OptiQ
         private void grdt_kass50_Click(object sender, EventArgs e)
         {
            
-            vigruzet();
+         //   vigruzet();
         }
 
         private void grdt_kass50_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            vigruzet();
+          //  vigruzet();
         }
 
         private void numerkas_MouseClick(object sender, MouseEventArgs e)

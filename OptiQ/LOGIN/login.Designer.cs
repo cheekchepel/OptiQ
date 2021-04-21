@@ -32,6 +32,8 @@ namespace OptiQ
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.login_form = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.login_button = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pass_text = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pass_img = new System.Windows.Forms.Label();
@@ -39,9 +41,7 @@ namespace OptiQ
             this.label_label = new System.Windows.Forms.Label();
             this.text_login = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.form_login_elips = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.login_form.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,8 @@ namespace OptiQ
             this.login_form.BackColor = System.Drawing.Color.White;
             this.login_form.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("login_form.BackgroundImage")));
             this.login_form.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.login_form.Controls.Add(this.shjowkeyboard2);
+            this.login_form.Controls.Add(this.shjowkeyboard1);
             this.login_form.Controls.Add(this.login_button);
             this.login_form.Controls.Add(this.pass_text);
             this.login_form.Controls.Add(this.pass_img);
@@ -66,6 +68,28 @@ namespace OptiQ
             this.login_form.Quality = 10;
             this.login_form.Size = new System.Drawing.Size(600, 425);
             this.login_form.TabIndex = 7;
+            // 
+            // shjowkeyboard2
+            // 
+            this.shjowkeyboard2.BackColor = System.Drawing.Color.White;
+            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard2.Location = new System.Drawing.Point(444, 255);
+            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard2.Name = "shjowkeyboard2";
+            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard2.TabIndex = 19;
+            this.shjowkeyboard2.Visible = false;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.White;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(444, 161);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard1.TabIndex = 18;
+            this.shjowkeyboard1.Visible = false;
             // 
             // login_button
             // 
@@ -125,6 +149,7 @@ namespace OptiQ
             this.pass_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.pass_text.OnValueChanged += new System.EventHandler(this.pass_text_OnValueChanged);
             this.pass_text.Enter += new System.EventHandler(this.pass_text_Enter);
+            this.pass_text.Leave += new System.EventHandler(this.pass_text_Leave);
             // 
             // pass_img
             // 
@@ -183,41 +208,17 @@ namespace OptiQ
             this.text_login.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.text_login.OnValueChanged += new System.EventHandler(this.text_login_OnValueChanged);
             this.text_login.Enter += new System.EventHandler(this.text_login_Enter);
+            this.text_login.Leave += new System.EventHandler(this.text_login_Leave);
             // 
             // form_login_elips
             // 
             this.form_login_elips.ElipseRadius = 40;
             this.form_login_elips.TargetControl = this.login_form;
             // 
-            // bunifuGradientPanel1
-            // 
-            this.bunifuGradientPanel1.BackColor = System.Drawing.Color.Gray;
-            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
-            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.Gray;
-            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(226, 72);
-            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
-            this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(602, 430);
-            this.bunifuGradientPanel1.TabIndex = 9;
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 40;
-            this.bunifuElipse1.TargetControl = this.bunifuGradientPanel1;
-            // 
-            // shjowkeyboard1
-            // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(-100, 197);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard1.TabIndex = 18;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // login
             // 
@@ -226,9 +227,7 @@ namespace OptiQ
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1028, 641);
-            this.Controls.Add(this.shjowkeyboard1);
             this.Controls.Add(this.login_form);
-            this.Controls.Add(this.bunifuGradientPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(148)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -255,8 +254,8 @@ namespace OptiQ
         private Bunifu.Framework.UI.BunifuMaterialTextbox text_login;
         private Bunifu.Framework.UI.BunifuMaterialTextbox pass_text;
         private Bunifu.Framework.UI.BunifuFlatButton login_button;
-        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private shjowkeyboard shjowkeyboard1;
+        private shjowkeyboard shjowkeyboard2;
     }
 }

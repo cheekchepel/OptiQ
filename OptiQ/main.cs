@@ -98,38 +98,7 @@ namespace OptiQ
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            try
-            {
-                conoff.Close();
-                conoff.Open();
-
-                sqloff = "select pr_text from productoff";
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                while (droff.Read())
-                {
-                    con.Close();
-                    con.Close();
-                    con.Open();
-                    sql = (droff[0].ToString()).Replace("$", "'");
-                    cmd = new NpgsqlCommand(sql, con);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    con.Close();
-
-                }
-
-                conoff.Close();
-                conoff.Open();
-                sqloff = "delete from productoff";
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                droff.Read();
-                conoff.Close();
-
-
-            }
-            catch (NpgsqlException) { }
+           Potoki.startot();
 
 
 
@@ -138,7 +107,7 @@ namespace OptiQ
 
 
 
-            Global.x = SystemInformation.WorkingArea.Width;
+              Global.x = SystemInformation.WorkingArea.Width;
             Global.y = SystemInformation.WorkingArea.Height;
             output.Controls.Add(log);
 
@@ -240,8 +209,9 @@ namespace OptiQ
 
         private void prodect_but_Click(object sender, EventArgs e)
         {
-            output.Controls.Add(prd);
             hide_form();
+            output.Controls.Add(prd);
+            
             prd.Show();
          
             prd.zagrsel();
@@ -253,9 +223,9 @@ namespace OptiQ
         public void hide_form()
         {
 
-      
+          //  output.Controls.Clear();
             log.Hide();
-            prd.Hide();
+           prd.Hide();
             sslllaasslo.Hide();
             newkass.Hide();
             vesa.Hide();
@@ -285,8 +255,8 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-    
-            sqloff = " INSERT INTO productoff(pr_text)VALUES(N'INSERT INTO sobbez(sb_ksas_id,sb_date,sb_con)VALUES("+Global.IDuser+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ","+ choon + ")')";
+
+            sqloff = " INSERT INTO productoff(pr_text)VALUES(N'INSERT INTO sobbez(sb_ksas_id,sb_date,sb_con)VALUES(" + Global.IDuser + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + choon + ")')";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             droff.Read();
@@ -335,6 +305,11 @@ namespace OptiQ
             Program.vesika.zagrsel();
             Program.vesika.viewcell();
             Program.vesika.vsetovari();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Program.main.backblakshow();
         }
     }
 

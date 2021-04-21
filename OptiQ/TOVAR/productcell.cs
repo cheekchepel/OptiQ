@@ -54,7 +54,7 @@ namespace OptiQ
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             textBox4.Enabled = true;
-            textBox5.Enabled = true;
+          
             edit.Visible = false;
             close.Visible = true;
             savebut.Visible = true;
@@ -69,7 +69,7 @@ namespace OptiQ
             textBox2.Enabled = false;
             textBox3.Enabled = false;
             textBox4.Enabled = false;
-            textBox5.Enabled = false;
+       
             edit.Visible = true;
             close.Visible = false;
             savebut.Visible = false;
@@ -113,7 +113,7 @@ namespace OptiQ
 
                     con.Open();
                     sql = Global.versia;
-                    sql += "UPDATE product Set pr_kod=" + textBox1.Text + ",pr_name='" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_fact_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + ",pr_piec=" + Convert.ToString(Convert.ToDouble(textBox5.Text.Replace(".", ","))).Replace(",", ".") + " where pr_id=" + idtov;
+                    sql += "UPDATE product_pro Set pr_kod=" + textBox1.Text + ",pr_name='" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_id=" + idtov;
 
                     cmd = new NpgsqlCommand(sql, con);
                     dr = cmd.ExecuteReader();

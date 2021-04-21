@@ -29,6 +29,8 @@ namespace OptiQ
         public static Otlojka ooo;
 
 
+        public static Oplata oplati;
+
         public static revizia revix;
 
         public static Vdolg dlg;

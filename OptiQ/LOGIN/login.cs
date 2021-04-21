@@ -68,7 +68,7 @@ namespace OptiQ
 
             login_form.Location = new Point(((Global.x - 600) / 2), Convert.ToInt32(Convert.ToDouble(Global.y - 728) * 0.5)+40);
 
-            bunifuGradientPanel1.Location = new Point(login_form.Left - 1, login_form.Top - 1);
+
 
         }
 
@@ -115,7 +115,7 @@ namespace OptiQ
         {
             login_form.Visible = false;
 
-            bunifuGradientPanel1.Height = 560;
+
             shjowkeyboard1.Left = -100;
         }
 
@@ -259,9 +259,9 @@ namespace OptiQ
 
         private void text_login_Enter(object sender, EventArgs e)
         {
-    
 
-           shjowkeyboard1.Location=new Point(login_form.Location.X + text_login.Size.Width+ text_login.Location.X- shjowkeyboard1.Width, login_form.Location.Y + text_login.Location.Y);
+
+            shjowkeyboard1.Visible = true;
       
            
         }
@@ -269,9 +269,8 @@ namespace OptiQ
     
 
         private void pass_text_Enter(object sender, EventArgs e)
-        { 
-            shjowkeyboard1.Location = new Point(login_form.Location.X + pass_text.Size.Width + pass_text.Location.X - shjowkeyboard1.Width, pass_text.Location.Y + login_form.Location.Y);
-            
+        {
+            shjowkeyboard2.Visible = true;
         }
 
 
@@ -295,7 +294,7 @@ namespace OptiQ
                 {
 
                     con.Open();
-                    sql = "select sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,base_ver,mg_test,(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "- mg_pay) from kassir LEFT JOIN magaz ON sir_mg_id=mg_id where sir_login='" + text_login.Text + "' and sir_pass='" + pass_text.Text + "'and sir_enabled=true";
+                    sql = "select sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,mg_test,(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "- mg_pay) from kassir LEFT JOIN magaz ON sir_mg_id=mg_id where sir_login='" + text_login.Text + "' and sir_pass='" + pass_text.Text + "'and sir_enabled=true";
                     cmd = new NpgsqlCommand(sql, con);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
@@ -310,16 +309,18 @@ namespace OptiQ
                         Global.mg_pay = Convert.ToInt64(dr["mg_pay"]);
                         Global.MGadr = dr["mg_address"].ToString();
                         Global.basever = Convert.ToInt64(0);
+                        Global.veriaprodaj = Convert.ToInt64(0);
+
                         Global.mg_test = Convert.ToBoolean(dr["mg_test"]);
-                        Global.mg_pay_raznica = Convert.ToInt32(dr[11]);
+                        Global.mg_pay_raznica = Convert.ToInt32(dr[10]);
                         Global.Vers = Global.IDmagaz.ToString();
 
 
 
                         conoff.Open();
 
-                        sqloff = "DELETE FROM kassirmagaz; INSERT INTO kassirmagaz (sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,base_ver,mg_test,off_date)" +
-                        "VALUES(" + Global.IDuser + "," + Global.IDmagaz + ",N'" + Global.namekass + "',N'" + Global.USname + "',N'" + Global.login + "',N'" + Global.pass + "',N'" + Global.MGname + "','" + Global.mg_pay + "',N'" + Global.MGadr + "'," + Global.basever + ",'" + Global.mg_test + "'," + DateTimeOffset.Now.ToUnixTimeSeconds() + ");";
+                        sqloff = "DELETE FROM kassirmagaz; INSERT INTO kassirmagaz (sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,base_ver,mg_test,off_date,sales_ver)" +
+                        "VALUES(" + Global.IDuser + "," + Global.IDmagaz + ",N'" + Global.namekass + "',N'" + Global.USname + "',N'" + Global.login + "',N'" + Global.pass + "',N'" + Global.MGname + "','" + Global.mg_pay + "',N'" + Global.MGadr + "'," + Global.basever + ",'" + Global.mg_test + "'," + DateTimeOffset.Now.ToUnixTimeSeconds() + ","+Global.veriaprodaj+");";
 
                         cmdoff = new SqlCommand(sqloff, conoff);
                         droff = cmdoff.ExecuteReader();
@@ -419,7 +420,7 @@ namespace OptiQ
 
                     conoff.Close();
                     conoff.Open();
-                    sqloff = "select sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,base_ver,mg_test,(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "-mg_pay),(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "-off_date) from kassirmagaz  where sir_login='" + text_login.Text + "' and sir_pass='" + pass_text.Text + "'";
+                    sqloff = "select sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,base_ver,sales_ver,mg_test,(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "-mg_pay),(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "-off_date) from kassirmagaz  where sir_login='" + text_login.Text + "' and sir_pass='" + pass_text.Text + "'";
                     cmdoff = new SqlCommand(sqloff, conoff);
                     droff = cmdoff.ExecuteReader();
                     if (droff.Read())
@@ -434,6 +435,9 @@ namespace OptiQ
                         Global.mg_pay = Convert.ToInt64(droff["mg_pay"]);
                         Global.MGadr = droff["mg_address"].ToString();
                         Global.basever = Convert.ToInt32(droff["base_ver"]);
+
+                        Global.veriaprodaj= Convert.ToInt32(droff["sales_ver"]);
+
                         Global.mg_test = Convert.ToBoolean(droff["mg_test"]);
                         Global.mg_pay_raznica = Convert.ToInt32(droff[11]);
                         Global.mg_off_raznica = Convert.ToInt32(droff[12]);
@@ -491,6 +495,16 @@ namespace OptiQ
         {
             if (e.KeyChar == (char)Keys.Enter) { INICIALIZ(); }
             
+        }
+
+        private void text_login_Leave(object sender, EventArgs e)
+        {
+            shjowkeyboard1.Visible = false;
+        }
+
+        private void pass_text_Leave(object sender, EventArgs e)
+        {
+            shjowkeyboard2.Visible = false;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace OptiQ
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.header = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.vesovoi = new Bunifu.Framework.UI.BunifuFlatButton();
             this.kassa_but = new Bunifu.Framework.UI.BunifuFlatButton();
             this.smenna = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -39,11 +40,13 @@ namespace OptiQ
             this.close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.output = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.header.Controls.Add(this.pictureBox2);
             this.header.Controls.Add(this.vesovoi);
             this.header.Controls.Add(this.kassa_but);
             this.header.Controls.Add(this.smenna);
@@ -56,6 +59,19 @@ namespace OptiQ
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(1024, 40);
             this.header.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // vesovoi
             // 
@@ -320,6 +336,7 @@ namespace OptiQ
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.main_KeyPress);
             this.header.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,6 +351,7 @@ namespace OptiQ
         public Bunifu.Framework.UI.BunifuFlatButton smenna;
         public Bunifu.Framework.UI.BunifuFlatButton vesovoi;
         public System.Windows.Forms.Panel output;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

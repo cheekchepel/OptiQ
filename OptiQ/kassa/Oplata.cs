@@ -16,10 +16,13 @@ namespace OptiQ
         public Oplata()
         {
             InitializeComponent();
+            Program.oplati = this;
         }
         int o = 0;
 
-        bool dolber = false;
+        public int che = 0;
+
+        public bool dolber = false;
 
        public string opa = "";
 
@@ -41,7 +44,9 @@ namespace OptiQ
 
 
 
+        public long us_id_bon =0;
 
+        public int bonus = 0;
 
         private bool Drag;
         private int MouseX;
@@ -81,7 +86,18 @@ namespace OptiQ
             numpad1.Visible = true;
             cena.Visible = true;
             textBox1.Focus();
-            o = 1;
+            label5Change();
+            if (us_id_bon != 0)
+            {
+                o = 0;
+
+
+            }
+            else {
+                o = 1;
+            }
+
+
             opa = nal.Text;
         }
 
@@ -92,10 +108,22 @@ namespace OptiQ
             color_clear();
             karta.Normalcolor = nal.Activecolor;
             karta.Textcolor = Color.White;
-            label5.Text = label4.Text;
-            textBox2.Text = label4.Text;
+            
+            textbonus.Focus();
+
+            if (dolber == true)
+            {
+                beznal.Visible = true;
+                textBox2.Focus();
+                label5.Text = label4.Text;
+            }
+            else { textBox2.Text = label4.Text; }
+            
             cena.Visible = false;
             opa = karta.Text;
+            che = 1;
+           
+           // label5Change();
         }
 
         private void kaspi_Click(object sender, EventArgs e)
@@ -103,10 +131,21 @@ namespace OptiQ
             color_clear();
             kaspi.Normalcolor = nal.Activecolor;
             kaspi.Textcolor = Color.White;
-            label5.Text = label4.Text;
-            textBox3.Text = label4.Text;
+            
+            textbonus.Focus();
+            if (dolber == true)
+            {
+                kaspiet.Visible = true;
+                textBox3.Focus();
+                label5.Text = label4.Text;
+            }
+            else { textBox3.Text = label4.Text; }
+
+          
             cena.Visible = false;
             opa = kaspi.Text;
+            che = 2;
+            label5Change();
         }
 
         private void smejno_Click(object sender, EventArgs e)
@@ -122,27 +161,49 @@ namespace OptiQ
             smejno.Textcolor = Color.White;
             cena.Visible = false;
             opa = smejno.Text;
+            pbonus.Width = 242;
+            skokadolg.Width = 242;
+            label5Change();
         }
 
         private void dolg_Click(object sender, EventArgs e)
         {
 
             color_clear();
-            dolg.Normalcolor = nal.Activecolor;
             dolber = true;
-            vdolg1.Visible = true;
-            dolg.Textcolor = Color.White;
-            cena.Visible = false;
-            label5.Text = label4.Text;
-            textBox3.Text = label4.Text;
-            opa = dolg.Text;
+            if (us_id_bon != 0)
+            {
+                nav_clik();
+                
+
+            }
+            else {
+
+                pbonus.Visible = false;
+                dolg.Normalcolor = nal.Activecolor;
+
+                vdolg1.Visible = true;
+                dolg.Textcolor = Color.White;
+                cena.Visible = false;
+                opa = dolg.Text;
+                numpad1.Visible = false;
+
+            }
+            
+            // bunifuFlatButton6.Text = "Записать";
+
+            //  label5.Text = label4.Text;
+            // textBox3.Text = label4.Text;
+
 
         }
 
         public void color_clear() {
-
+            o = 0;
+           
+            bunifuFlatButton6.Text = "Оплатить";
             vdolg1.Visible = false;
-
+            skokadolg.Visible = false;
             nal.Normalcolor = nal.OnHovercolor;
             karta.Normalcolor = nal.OnHovercolor;
             kaspi.Normalcolor = nal.OnHovercolor;
@@ -157,25 +218,55 @@ namespace OptiQ
             dolg.Textcolor = nal.DisabledColor;
             RED.Textcolor = nal.DisabledColor;
 
-            dolber = false;
-            numpad1.Visible = false;
+
+           
+
+
             nalich.Visible = false;
             beznal.Visible = false;
             kaspiet.Visible = false;
             REDT.Visible = false;
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            o = 0;
+            this.ActiveControl = null;
+
+            if (us_id_bon != 0)
+            {
+                pbonus.Visible = true;
+                numpad1.Visible = true; 
+                
+            }
+            else {
+                pbonus.Visible = false;
+                numpad1.Visible = false;
+                dolber = false;
+                
+            }
+            if (dolber == true)
+            {
+
+                skokadolg.Visible = true;
+            }
+            else { skokadolg.Visible = false; }
+            che = 0;
+
+            pbonus.Width = 300;
+            skokadolg.Width = 300;
+            textBox1.Text = null;
+            textBox2.Text = null;
+            textBox3.Text = null;
+            textBox4.Text=null;
+            textbonus.Text=null;
+           textdolg.Text=null;
+
+
+
             label5.Text = "0";
             
-
         }
 
         private void flowLayoutPanel5_Resize(object sender, EventArgs e)
         {
-            this.Height = 295 + flowLayoutPanel5.Height;
+            
+            this.Height = 290 + flowLayoutPanel5.Height;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -243,33 +334,69 @@ namespace OptiQ
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0"+textBox3.Text) + Convert.ToInt32("0" + textBox2.Text)).ToString();
-
+            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) + Convert.ToInt32("0" + textBox2.Text) ).ToString();
             if (textBox1.Text.Length > 8) { textBox1.Text = textBox1.Text.Remove(8); textBox1.SelectionStart = textBox1.Text.Length; }
 
         }
 
         private void label5_TextChanged(object sender, EventArgs e)
         {
+            label5Change();
+        }
+
+        public void label5Change() {
+            bunifuFlatButton6.Text = "Оплатить";
             int sdaca = Convert.ToInt32(label5.Text) - Convert.ToInt32(label4.Text);
-            if (sdaca < 0) { label7.Visible = true; } else { label7.Visible = false; }
+            if (sdaca < 0) { label7.Text = "Суммы недостаточно для оплаты"; label7.Visible = true;
+
+                if (dolber == true)
+                {
+                    label7.Text = "Недостающая сумма запишется в долг";
+                    textdolg.Text = Math.Abs(sdaca).ToString();
+                    bunifuFlatButton6.Text = "Записать";
+                }
+                else { textdolg.Text = "0"; }
+
+            }      
+            else { label7.Visible = false; textdolg.Text = "0"; }
             label6.Text = (sdaca).ToString();
+           
+
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) + Convert.ToInt32("0" + textBox2.Text)).ToString();
             if (textBox3.Text.Length > 8) { textBox3.Text = textBox3.Text.Remove(8); textBox3.SelectionStart = textBox3.Text.Length; }
+        //    label4.Text = (Convert.ToInt32(Program.KASA.bunifuFlatButton1.Text) - Convert.ToInt32("0" + textbonus.Text)).ToString();
+           
+            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) + Convert.ToInt32("0" + textBox2.Text) ).ToString();
+           
+          
         }
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) + Convert.ToInt32("0" + textBox2.Text)).ToString();
             if (textBox2.Text.Length > 8) { textBox2.Text = textBox2.Text.Remove(8); textBox2.SelectionStart = textBox2.Text.Length; }
+         //  label4.Text = (Convert.ToInt32(Program.KASA.bunifuFlatButton1.Text) - Convert.ToInt32("0" + textbonus.Text)).ToString();
+            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) + Convert.ToInt32("0" + textBox2.Text)).ToString();
+          
         }
 
         private void Oplata_Load(object sender, EventArgs e)
         {
+          us_id_bon = 0;
+            dolber = false;
+
+            color_clear();
+
+          bonus = 0;
+
+            textBox5.Text = "Клиент не выбран";
+            cifra.Text = "0";
+
+
+
             nav_clik();
             this.Top = (Global.y - this.Height)/2;
         }
@@ -277,16 +404,16 @@ namespace OptiQ
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt32(label6.Text) > -1)
+            if (Convert.ToInt32(label6.Text) > -1 ||dolber==true)
             {
+                sqloff = null;
                 Program.KASA.kakprodalchek = null;
 
-                int chislo = Convert.ToInt32(label6.Text);
+                int chislo = Convert.ToInt32(label6.Text)+ Convert.ToInt32("0"+textdolg.Text);
                 string obs = Program.KASA.bunifuFlatButton16.Text;
 
                 Program.KASA.method = null;
-                if (dolber == false)
-                {
+                
                     if (!String.IsNullOrWhiteSpace(textBox1.Text) || Convert.ToInt32("0" + textBox1.Text) != 0 || chislo > 0)
                     {
                         Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + nal.Text + "$,"+Global.nal+"," + (Convert.ToInt32("0"+textBox1.Text) - chislo).ToString() + ",N$" + obs + "$);";
@@ -308,50 +435,74 @@ namespace OptiQ
                         Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + RED.Text + "$," + Global.kaspired + "," + Convert.ToInt32(textBox4.Text).ToString() + ",N$" + obs + "$);";
                         Program.KASA.kakprodalchek += RED.Text + " : " + Convert.ToInt32(textBox4.Text).ToString() + "\n";
                     }
+                  
+                    if(us_id_bon!=0)
+                {
+
+                         if (Convert.ToInt32("0" + textbonus.Text) != 0)
+                             {
+                                Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$Бонусы$,0," + Convert.ToInt32(textbonus.Text).ToString() + ",N$" + obs + "$);";
+
+                                 sqloff = "UPDATE users_pro SET us_bonus = ((select us_bonus from users_pro WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ")-" + textbonus.Text + " )" +
+                                " WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ";";
+
+                                 Program.KASA.kakprodalchek += "Бонусы : " + Convert.ToInt32(textbonus.Text).ToString() + "\n";
+
+                             }
+                        else if(Convert.ToInt32("0"+ textdolg.Text) == 0)
+                            {
+                                sqloff = "UPDATE users_pro SET us_bonus = ((select us_bonus from users_pro WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ")+" + 500 + " )" +
+                                " WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ";";
+
+                            }
+                        if (dolber == true &&  Convert.ToInt32("0"+textdolg.Text)!=0)
+                            {
+                       
+                                Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + dolg.Text + "$,0," + textdolg.Text + ",N$" + obs + "$);";
+
+                                sqloff = "UPDATE users_pro SET us_summa = ((select us_summa from users_pro WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ")+" + textdolg.Text + " ),us_date=" + DateTimeOffset.Now.ToUnixTimeSeconds() + "" +
+                                " WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ";";
+                          
+                                Program.KASA.kakprodalchek += dolg.Text + " : " + Convert.ToInt32(label4.Text).ToString() + "\n";
+
+                            }
 
 
-                    if (Program.KASA.method != null) {
+
+
+                 }
+
+             
+
+
+                if (Program.KASA.method != null) {
 
                         Program.main.backblakhide();
                         this.Close();
                         Program.KASA.oplata();
 
-                    }
+                    if (sqloff != null)
+                    {
 
 
-                    
-
-
-                }
-                else {
-
-                     if (!String.IsNullOrWhiteSpace(Program.dlg.usid))
-                         {
-                        Program.KASA.method += "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$" + dolg.Text + "$,0," + label4.Text + ",N$" + obs + "$);";
-                        conoff.Close();
                         conoff.Close();
                         conoff.Open();
-
-                        sqloff = "UPDATE users SET summa = ((select summa from users WHERE us_off_id_date = " + Program.dlg.usid + " )+" + label4.Text + " ),us_date=" + DateTimeOffset.Now.ToUnixTimeSeconds() + " WHERE us_off_id_date = " + Program.dlg.usid + ";";
-                        sqloff += "INSERT INTO productoff(pr_text)VALUES(N'UPDATE users SET summa = ((select summa from users WHERE us_off_id_date = " + Program.dlg.usid + " and us_mg_id =" + Global.IDmagaz + " limit 1)+" + label4.Text + " ),us_date=" + DateTimeOffset.Now.ToUnixTimeSeconds() + " WHERE us_off_id_date = " + Program.dlg.usid + ";');";
+                        sqloff += "INSERT INTO productoff(pr_text)VALUES(N'" + sqloff.Replace("'", "$") + "');";
                         cmdoff = new SqlCommand(sqloff, conoff);
                         droff = cmdoff.ExecuteReader();
                         droff.Read();
                         conoff.Close();
                         conoff.Close();
 
-                        Program.KASA.kakprodalchek += dolg.Text + " : " + Convert.ToInt32(label4.Text).ToString() + "\n";
-
-                        Program.main.backblakhide();
-                        this.Close();
-                        Program.KASA.oplata();
-
                     }
 
+
                 }
-                
+
+
 
               
+
 
             }
         }
@@ -403,13 +554,7 @@ namespace OptiQ
             textBox1.SelectionStart = textBox1.Text.Length;
         }
 
-        private void vdolg1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-           
-
-
-        }
+     
 
         private void RED_Click(object sender, EventArgs e)
         {
@@ -418,18 +563,28 @@ namespace OptiQ
             color_clear();
             RED.Normalcolor = nal.Activecolor;
             RED.Textcolor = Color.White;
-            label5.Text = label4.Text;
-            textBox4.Text = label4.Text;
+            
+            textbonus.Focus();
+            if (dolber == true)
+            {
+                REDT.Visible = true;
+                textBox4.Focus();
+                label5.Text = label4.Text;
+            }
+            else { textBox4.Text = label4.Text; }
+        
             cena.Visible = false;
             opa = RED.Text;
-
-
+            che = 3;
+            label5Change();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) + Convert.ToInt32("0" + textBox2.Text)).ToString();
             if (textBox3.Text.Length > 8) { textBox4.Text = textBox4.Text.Remove(8); textBox4.SelectionStart = textBox4.Text.Length; }
+           // label4.Text = (Convert.ToInt32(Program.KASA.bunifuFlatButton1.Text) - Convert.ToInt32("0" + textbonus.Text)).ToString();
+            label5.Text = (Convert.ToInt32("0" + textBox4.Text) + Convert.ToInt32("0" + textBox1.Text) + Convert.ToInt32("0" + textBox3.Text) ).ToString();
+           
         }
 
         private void bunifuFlatButton12_MouseDown(object sender, EventArgs e)
@@ -460,7 +615,115 @@ namespace OptiQ
 
         }
 
+        
+
+        public void viborusers(long us_id, string name, int bon ) {
+
+            us_id_bon = us_id;
+
+            if (us_id != 0) {
+
+                textBox5.Text = name;
+                cifra.Text = bon.ToString();
 
 
+
+            }
+            else
+            {
+
+                textBox5.Text = "Клиент не выбран";
+                cifra.Text = "0";
+
+
+            }
+
+            
+
+            
+
+
+
+
+
+        }
+
+     
+
+        private void pictureBox5_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox5_MouseDown();
+        }
+
+        public void pictureBox5_MouseDown() {
+
+            us_id_bon = 0;
+            bonus = 0;
+            color_clear();
+            vdolg1.textBox4.Text = null;
+            viborusers(0, "", 0);
+            vdolg1.Visible = true;
+            cena.Visible = false;
+            pbonus.Visible = false;
+            skokadolg.Visible = false;
+
+        }
+
+        private void textbonus_TextChanged(object sender, EventArgs e)
+        {
+            if (textbonus.Text.Length > 8) { textbonus.Text = textbonus.Text.Remove(8); textbonus.SelectionStart = textbonus.Text.Length; }
+
+           if (Convert.ToInt32("0"+textbonus.Text)> Convert.ToInt32(cifra.Text)) {
+                textbonus.Text = cifra.Text;
+                textbonus.SelectionStart = textbonus.Text.Length;
+            }
+
+            double porogvozm = Convert.ToDouble(Program.KASA.bunifuFlatButton1.Text) * (Convert.ToDouble(Global.maxbonus)/100);
+
+            if (Convert.ToInt32("0" + textbonus.Text) > porogvozm)
+            { textbonus.Text = porogvozm.ToString(); }
+
+            label4.Text= (Convert.ToInt32(Program.KASA.bunifuFlatButton1.Text)- Convert.ToInt32("0" + textbonus.Text)).ToString();
+
+            if (che == 1) { textBox2.Text = label4.Text; }
+            else if (che == 2) { textBox3.Text = label4.Text; }
+            else if (che == 3) { textBox4.Text = label4.Text; }
+            
+
+
+            label5Change();
+        }
+
+     
+
+        private void pictureBox9_MouseDown(object sender, MouseEventArgs e)
+        {
+            dolber = false;
+            skokadolg.Visible = false;
+            if (che == 1) { textBox2.Text = label4.Text; }
+            else if (che == 2) { textBox3.Text = label4.Text; }
+            else if (che == 3) { textBox4.Text = label4.Text; }
+            label5Change();
+        }
+
+        private void textbonus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox5_MouseDown(object sender, EventArgs e)
+        {
+            pictureBox5_MouseDown();
+        }
+
+        private void cifra_MouseDown(object sender, EventArgs e)
+        {
+            pictureBox5_MouseDown();
+        }
     }
 }

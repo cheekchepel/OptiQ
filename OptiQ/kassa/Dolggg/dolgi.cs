@@ -83,7 +83,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select us_off_id_date,us_name,danie,summa,us_date from users where (LOWER(us_name) LIKE LOWER(N'%" + textBox2.Text + "%'))";
+            sqloff = "select us_off_id,us_name,us_danie,us_summa,us_date from users_pro where us_mg_id=" + Global.IDmagaz+" and (LOWER(us_name) LIKE LOWER(N'%" + textBox2.Text + "%'))";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read())
@@ -260,8 +260,8 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "update users set summa=(select summa from users where us_off_id_date="+label5.Text+")-"+textBox1.Text+",us_date = "+ date + " where us_off_id_date ="+label5.Text+";";
-                sqloff+= "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "update users set summa=(select summa from users where us_off_id_date=" + label5.Text + ")-" + textBox1.Text + ",us_date = " + date + " where us_off_id_date =" + label5.Text + ";')";
+                sqloff = "update users_pro set summa=(select summa from users_pro where us_off_id=" + label5.Text+")-"+textBox1.Text+",us_date = "+ date + " where us_off_id =" + label5.Text+";";
+                sqloff+= "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + sqloff+"')";
  
                  cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();

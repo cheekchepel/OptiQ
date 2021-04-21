@@ -48,18 +48,25 @@ namespace OptiQ
         long numchek = 0;
         int pometka = 0;
 
+
+        Vibrazer vibrazer = new Vibrazer();
+
+
+        string newskidaka ="";
+        string newpofactu = "";
+
         private void Vozvrat_Load(object sender, EventArgs e)
         {
             this.Location = new Point(Global.x - this.Width, 0); ;
             this.Height = Global.y + 40;
 
-            grdt_kass.Rows.Clear();
+            
             label4.Visible = false;
             bunifuFlatButton16.Visible = false;
             bunifuFlatButton1.Text ="";
             textBox2.Text = null;
             textBox2.Focus();
-        }
+            numchek = 0;        }
 
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
@@ -76,8 +83,10 @@ namespace OptiQ
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-
-                kassa_pulus();
+               
+                
+              kassa_pulus(); 
+                
                 
             }
         }
@@ -103,19 +112,20 @@ namespace OptiQ
             string obshskid = "";
             numchek = 0;
 
-            
+            bunifuFlatButton16.Text = "0";
+
 
 
             if (!String.IsNullOrWhiteSpace(textBox2.Text))
             {
 
 
-
+             
 
           
                 conoff.Close();
                 conoff.Open();
-                sqloff = "select sl_kod,sl_name,sl_cena,sl_prihod,sl_pieces,sl_skidon,cbt_skidon,sl_crt_id from vozvrat where sl_crt_id=" + textBox2.Text;
+                sqloff = "select sl_kod,sl_name,sl_cena,sl_prihod,sl_vozvrat,sl_skidon,cbt_skidon,sl_crt_id,sl_rz_id from sales_pro where sl_vozvrat>0 and sl_crt_id=" + textBox2.Text;
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
 
@@ -125,7 +135,7 @@ namespace OptiQ
 
                     numchek =Convert.ToInt64( droff[7]);
                     obshskid = droff[6].ToString();
-                    grdt_kass.Rows.Add(false, droff[0], droff[1], droff[2], droff[3], droff[4], droff[5] , 0, 0);
+                    grdt_kass.Rows.Add(false, droff[0], droff[1], droff[2], droff[3], droff[4], droff[5] , 0, 0, droff[8]);
 
                     schet = grdt_kass.Rows.Count-1;
 
@@ -139,11 +149,13 @@ namespace OptiQ
                     {
                         double skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 1));
                         grdt_kass.Rows[schet].Cells[7].Value = (cena * kol) * (1 + skidka / 100);
+                  
                     }
                     else if (skidka_str.Length > 0 && skidka_str[skidka_str.Length - 1] == '.')
                     {
                         double skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 4));
                         grdt_kass.Rows[schet].Cells[7].Value = (cena + skidka) * kol;
+                    ;
                     }
                    grdt_kass.Rows[schet].Cells[7].Value = Convert.ToInt64(grdt_kass.Rows[schet].Cells[7].Value);
                     grdt_kass.Rows[schet].Cells[8].Value = Convert.ToDouble(grdt_kass.Rows[schet].Cells[4].Value) * Convert.ToDouble(grdt_kass.Rows[schet].Cells[5].Value);
@@ -175,7 +187,9 @@ namespace OptiQ
             long sum = 0;
             long min = 0;
             int tik = 0;
-            pometka=0;
+            newskidaka = "0";
+            newpofactu = "0";
+            pometka =0;
             bunifuFlatButton1.Text = "";
             while (tik < grdt_kass.Rows.Count )
             {
@@ -215,11 +229,18 @@ namespace OptiQ
                 {
                     double skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 1));
                     new_sum = Convert.ToInt64(sum * (1 + skidka / 100));
+                    newskidaka = skidka+"%";
+                    newpofactu= skidka + "%";
                 }
                 else if (skidka_str.Length > 0 && skidka_str[skidka_str.Length - 1] == '.')
                 {
                     double skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 4));
                     new_sum = sum + Convert.ToInt64(skidka/grdt_kass.Rows.Count*pometka);
+
+                    newskidaka = Convert.ToInt64(skidka - Convert.ToInt64(skidka / grdt_kass.Rows.Count * pometka)) + " тг.";
+                    newpofactu = Convert.ToInt64(skidka / grdt_kass.Rows.Count * pometka) + " тг.";
+
+
                 }
                 bunifuFlatButton1.Text = new_sum.ToString();
             }
@@ -262,25 +283,13 @@ namespace OptiQ
 
             int keeti = 0;
 
-            string deletetov = "";
+            sqloff = null;
+           
            
 
             if (pometka>0)
             {
                 generateid = Global.IDuser + (DateTimeOffset.Now.ToUnixTimeSeconds()).ToString();
-
-
-                offcard = null;
-
-
-                offcard = "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ") Returning crt_id";
-
-
-
-
-
-
-                offup = null;
 
 
                 INFO += "М.№" + Global.IDmagaz + "  '" + Global.MGname + "'\n" + "Адрес  " + Global.MGadr + "\n" + "Продажа" + "\n";
@@ -303,8 +312,8 @@ namespace OptiQ
 
                     string saloname = Convert.ToString(grdt_kass.Rows[keeti].Cells[2].Value);
                     long kodd = Convert.ToInt64(grdt_kass.Rows[keeti].Cells[1].Value);
-
-                    OVAR = "                                    " + pieces + " X " + zena + " = " + sum;
+                    long rz_id = Convert.ToInt64(grdt_kass.Rows[keeti].Cells[9].Value);
+                        OVAR = "                                    " + pieces + " X " + zena + " = " + sum;
                     while (OVAR.Length < 70)
                     {
                         OVAR = "  " + OVAR;
@@ -316,63 +325,47 @@ namespace OptiQ
                     TOVAR += kodd + "  " + saloname + "\n" + OVAR + "\n";
 
 
-                     
-                    offup += "UPDATE product SET pr_piec = ((select pr_piec from product WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + " limit 1)+" + pieces + " ) WHERE pr_kod = " + kodd + " and pr_mg_id =" + Global.IDmagaz + ";";
-                    offup += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod)VALUES(" + generateid + "," + pieces + "," + zena + ",$" + saloname + "$,-" + hodka + ",N$" + skid + "$," + kodd + ");";
 
-                    seleoffproduct += "INSERT INTO sales(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon)VALUES(" + generateid + "," + pieces + "," + zena + ",N$" + saloname + "$,-" + hodka + ",N$" + skid + "$);";
+                        sqloff += "UPDATE razmer_pro SET rz_pies=(SELECT rz_pies FROM razmer_pro where rz_pr_kod=" + kodd + " and rz_id=" + rz_id + "ORDER BY rz_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY)+" + pieces + " where rz_id=" + rz_id + " and rz_pr_kod=" + kodd + ";";
 
-                    deletetov += "delete from vozvrat where sl_kod=" + kodd + "and sl_crt_id=" + numchek+";";
+                        sqloff += "INSERT INTO sales_pro(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,sl_rz_id,cbt_skidon,sl_vozvrat)VALUES(" + generateid + "," + pieces + "," + zena + ",N$" + saloname + "$,-" + hodka + ",N$" + skid + "$," + kodd + ","+ rz_id + ",N'" + newpofactu + "',0);";
 
-                }
+                        sqloff += "UPDATE sales_pro SET sl_vozvrat=(SELECT sl_vozvrat FROM sales_pro where sl_kod=" + kodd + " and sl_rz_id=" + rz_id + " and sl_crt_id="+numchek+" ORDER BY sl_rz_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY)-" + pieces + "  where sl_rz_id=" + rz_id + " and sl_kod=" + kodd + " and sl_crt_id=" + numchek + ";";
+                       
+                        
+
+
+
+                    }
 
                     keeti++;
 
 
                 }
 
-                method = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$Возврат$,0,-" + Convert.ToInt32(bunifuFlatButton1.Text).ToString() + ",N$" + bunifuFlatButton16.Text + "$);";
+                method = "INSERT INTO cartbuymet(cbt_cart_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon)VALUES(crtid,N$Возврат$,0,-" + Convert.ToInt32(bunifuFlatButton1.Text).ToString() + ",N$" + newpofactu + "$);";
+
+                sqloff += "UPDATE sales_pro SET cbt_skidon=N'" + newskidaka + "'  where sl_crt_id=" + numchek + ";";
 
 
-                
+                sqloff += "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ");";
 
 
+             
 
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "INSERT INTO saleoff(saleoofudin,saledate,salecart)VALUES(N'" + offup + "',N'" + offcard + "',N'" + method.Replace("crtid", generateid) + "');";
-                sqloff += deletetov;
-                sqloff += deletetov.Replace("vozvrat", "sales");
+                sqloff = (sqloff + method.Replace("crtid", generateid)).Replace("$","'");
 
+                sqloff += "insert into productoff(pr_text)VALUES(N'" + sqloff.Replace("'","$") + "');";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();
                 conoff.Close();
 
 
-                conoff.Close();
-                conoff.Open();
-                sqloff = "INSERT INTO crt(crt,date) VALUES(" + generateid + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + ");";
-                sqloff += "insert into productoff(pr_text)VALUES(N'" + deletetov.Replace("vozvrat", "sales") + "');";
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                droff.Read();
-                conoff.Close();
-
-
-                conoff.Close();
-                conoff.Open();
-                sqloff = ((seleoffproduct + method).Replace("$", "'")).Replace("crtid", generateid);
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
-                droff.Read();
-                conoff.Close();
-
-
-
-
-
+              
 
 
 
@@ -385,9 +378,18 @@ namespace OptiQ
             
                 bunifuFlatButton16.Text = "0";
 
+
+                if (numchek == 0) {
+
+                    Program.KASA.grdt_kass.Rows.Clear();
+
+
+                }
+
                 Program.main.backblakhide();
-                Program.msg.Message.Text = "Товар возвращен"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100);
                 this.Close();
+                Program.msg.Message.Text = "Товар возвращен"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100);
+                
 
                 
 
@@ -432,5 +434,18 @@ namespace OptiQ
         {
             textBox2.Focus();
         }
+
+      
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -106,7 +106,7 @@ namespace OptiQ.kassa
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select pr_kod,pr_name from product where pr_kateg="+ nomerkateg;
+            sqloff = "select pr_kod,pr_name from product_pro where pr_kateg="+ nomerkateg;
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read())
@@ -389,7 +389,7 @@ namespace OptiQ.kassa
 
             conoff.Close();
             conoff.Open();
-            sqloff = " SELECT pr_kod,pr_name FROM product WHERE (LOWER(pr_name) LIKE LOWER(N'%" + textBox2.Text + "%'))";
+            sqloff = " SELECT pr_kod,pr_name FROM product_pro WHERE (LOWER(pr_name) LIKE LOWER(N'%" + textBox2.Text + "%'))";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read())
@@ -416,8 +416,8 @@ namespace OptiQ.kassa
 
                     conoff.Close();
                     conoff.Open();
-                    sqloff = "UPDATE product set pr_kateg =" + uznat + "WHERE pr_kod =" + Convert.ToInt64(grdt_kass.Rows[a].Cells[2].Value)+";";
-                    sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "UPDATE product set pr_kateg = " + uznat + " WHERE pr_kod = " + Convert.ToInt64(grdt_kass.Rows[a].Cells[2].Value) + " and pr_mg_id=" + Global.IDmagaz + "')";
+                    sqloff = "UPDATE product_pro set pr_kateg =" + uznat + "WHERE pr_kod =" + Convert.ToInt64(grdt_kass.Rows[a].Cells[2].Value)+";";
+                    sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "UPDATE product_pro set pr_kateg = " + uznat + " WHERE pr_kod = " + Convert.ToInt64(grdt_kass.Rows[a].Cells[2].Value) + " and pr_mg_id=" + Global.IDmagaz + "')";
                     cmdoff = new SqlCommand(sqloff, conoff);
                     droff = cmdoff.ExecuteReader();
                     droff.Read();

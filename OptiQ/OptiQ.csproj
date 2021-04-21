@@ -7,7 +7,7 @@
     <ProjectGuid>{6267D171-6287-4AB5-9331-F99E97AD3BE5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>OptiQ</RootNamespace>
-    <AssemblyName>OptiQ</AssemblyName>
+    <AssemblyName>OptiQ Pro</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\Куаныш\Desktop\instq\</PublishUrl>
+    <PublishUrl>C:\Users\Elon\Desktop\OPTIQPRO\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/OptiQ/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
-    <ApplicationRevision>132</ApplicationRevision>
+    <ApplicationRevision>134</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -68,8 +68,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>TImeck3.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
@@ -224,6 +223,12 @@
     <Compile Include="kassa\izmena\add.Designer.cs">
       <DependentUpon>add.cs</DependentUpon>
     </Compile>
+    <Compile Include="TOVAR\DOBAV\Razmer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TOVAR\DOBAV\Razmer.Designer.cs">
+      <DependentUpon>Razmer.cs</DependentUpon>
+    </Compile>
     <Compile Include="TOVAR\DOBAV\addtovar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,10 +253,10 @@
     <Compile Include="kassa\izmena\fasttovar.Designer.cs">
       <DependentUpon>fasttovar.cs</DependentUpon>
     </Compile>
-    <Compile Include="kassa\blackback.cs">
+    <Compile Include="OBSHIE\blackback.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kassa\blackback.Designer.cs">
+    <Compile Include="OBSHIE\blackback.Designer.cs">
       <DependentUpon>blackback.cs</DependentUpon>
     </Compile>
     <Compile Include="kassa\OTLOJKA\Otlojka.cs">
@@ -291,10 +296,10 @@
     <Compile Include="kassa\OTLOJKA\numerkas.Designer.cs">
       <DependentUpon>numerkas.cs</DependentUpon>
     </Compile>
-    <Compile Include="kassa\numpad.cs">
+    <Compile Include="OBSHIE\numpad.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="kassa\numpad.Designer.cs">
+    <Compile Include="OBSHIE\numpad.Designer.cs">
       <DependentUpon>numpad.cs</DependentUpon>
     </Compile>
     <Compile Include="kassa\Oplata.cs">
@@ -378,11 +383,17 @@
     <Compile Include="massa\Vesa.Designer.cs">
       <DependentUpon>Vesa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vozvrat.cs">
+    <Compile Include="kassa\Vozvrati\Vozvrat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vozvrat.Designer.cs">
+    <Compile Include="kassa\Vozvrati\Vozvrat.Designer.cs">
       <DependentUpon>Vozvrat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kassa\Vibrazer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kassa\Vibrazer.Designer.cs">
+      <DependentUpon>Vibrazer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="kassa\izmena\drobno.resx">
       <DependentUpon>drobno.cs</DependentUpon>
@@ -411,6 +422,9 @@
     <EmbeddedResource Include="massa\plutovar.resx">
       <DependentUpon>plutovar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TOVAR\DOBAV\Razmer.resx">
+      <DependentUpon>Razmer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TOVAR\DOBAV\addtovar.resx">
       <DependentUpon>addtovar.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,7 +437,7 @@
     <EmbeddedResource Include="kassa\izmena\fasttovar.resx">
       <DependentUpon>fasttovar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kassa\blackback.resx">
+    <EmbeddedResource Include="OBSHIE\blackback.resx">
       <DependentUpon>blackback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kassa\OTLOJKA\Otlojka.resx">
@@ -444,7 +458,7 @@
     <EmbeddedResource Include="kassa\OTLOJKA\numerkas.resx">
       <DependentUpon>numerkas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kassa\numpad.resx">
+    <EmbeddedResource Include="OBSHIE\numpad.resx">
       <DependentUpon>numpad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kassa\Oplata.resx">
@@ -491,8 +505,11 @@
     <EmbeddedResource Include="massa\Vesa.resx">
       <DependentUpon>Vesa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vozvrat.resx">
+    <EmbeddedResource Include="kassa\Vozvrati\Vozvrat.resx">
       <DependentUpon>Vozvrat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kassa\Vibrazer.resx">
+      <DependentUpon>Vibrazer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="BASE\OptiQ_TemporaryKey.pfx" />
@@ -527,6 +544,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="BASE\wares.txt" />
+    <Content Include="TImeck3.ico" />
     <None Include="bin\Debug\icon\check %281%29.png" />
     <None Include="bin\Debug\png\keyboard.png" />
     <Content Include="BASE\OFFver.mdf">

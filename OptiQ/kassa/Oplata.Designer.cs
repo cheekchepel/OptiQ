@@ -35,6 +35,15 @@ namespace OptiQ
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.name1 = new MZControls.MZSombraPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.cifra = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox5 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -76,6 +85,17 @@ namespace OptiQ
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.skokadolg = new MZControls.MZSombraPanel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.textdolg = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pbonus = new MZControls.MZSombraPanel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.textbonus = new System.Windows.Forms.TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cena = new System.Windows.Forms.FlowLayoutPanel();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -89,6 +109,12 @@ namespace OptiQ
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.name1.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -109,6 +135,15 @@ namespace OptiQ
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.skokadolg.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.pbonus.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.cena.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,8 +161,7 @@ namespace OptiQ
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.panel1.Size = new System.Drawing.Size(800, 187);
+            this.panel1.Size = new System.Drawing.Size(800, 180);
             this.panel1.TabIndex = 0;
             // 
             // label7
@@ -136,7 +170,7 @@ namespace OptiQ
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(10)))), ((int)(((byte)(57)))));
-            this.label7.Location = new System.Drawing.Point(233, 151);
+            this.label7.Location = new System.Drawing.Point(226, 150);
             this.label7.Margin = new System.Windows.Forms.Padding(0, 15, 3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(340, 24);
@@ -146,6 +180,7 @@ namespace OptiQ
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.Controls.Add(this.panel14);
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.label6);
@@ -153,14 +188,185 @@ namespace OptiQ
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(400, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel2.MaximumSize = new System.Drawing.Size(400, 150);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 0, 230, 0);
             this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(400, 162);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(400, 150);
             this.flowLayoutPanel2.TabIndex = 9;
             this.flowLayoutPanel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
             this.flowLayoutPanel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseMove);
             this.flowLayoutPanel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseUp);
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.name1);
+            this.panel14.Location = new System.Drawing.Point(150, 0);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(40, 10, 10, 10);
+            this.panel14.Size = new System.Drawing.Size(250, 150);
+            this.panel14.TabIndex = 10;
+            // 
+            // name1
+            // 
+            this.name1.AddControl = null;
+            this.name1.Controls.Add(this.panel11);
+            this.name1.Controls.Add(this.panel10);
+            this.name1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.name1.Location = new System.Drawing.Point(40, 10);
+            this.name1.Margin = new System.Windows.Forms.Padding(0);
+            this.name1.Name = "name1";
+            this.name1.Padding = new System.Windows.Forms.Padding(10);
+            this.name1.Size = new System.Drawing.Size(200, 130);
+            this.name1.TabIndex = 8;
+            this.name1.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
+            this.name1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Controls.Add(this.cifra);
+            this.panel11.Controls.Add(this.label8);
+            this.panel11.Controls.Add(this.textBox5);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(47, 10);
+            this.panel11.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.panel11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.panel11.Size = new System.Drawing.Size(143, 110);
+            this.panel11.TabIndex = 12;
+            this.panel11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
+            // 
+            // cifra
+            // 
+            this.cifra.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(27)))), ((int)(((byte)(41)))));
+            this.cifra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.cifra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cifra.BorderRadius = 0;
+            this.cifra.ButtonText = "Cмешанный";
+            this.cifra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cifra.DisabledColor = System.Drawing.Color.White;
+            this.cifra.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cifra.Enabled = false;
+            this.cifra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cifra.Iconcolor = System.Drawing.Color.Transparent;
+            this.cifra.Iconimage = null;
+            this.cifra.Iconimage_right = null;
+            this.cifra.Iconimage_right_Selected = null;
+            this.cifra.Iconimage_Selected = null;
+            this.cifra.IconMarginLeft = 0;
+            this.cifra.IconMarginRight = 0;
+            this.cifra.IconRightVisible = true;
+            this.cifra.IconRightZoom = 0D;
+            this.cifra.IconVisible = true;
+            this.cifra.IconZoom = 90D;
+            this.cifra.IsTab = false;
+            this.cifra.Location = new System.Drawing.Point(5, 80);
+            this.cifra.Margin = new System.Windows.Forms.Padding(0);
+            this.cifra.Name = "cifra";
+            this.cifra.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.cifra.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.cifra.OnHoverTextColor = System.Drawing.Color.White;
+            this.cifra.selected = false;
+            this.cifra.Size = new System.Drawing.Size(138, 30);
+            this.cifra.TabIndex = 12;
+            this.cifra.Text = "Cмешанный";
+            this.cifra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cifra.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.cifra.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cifra.MouseDown += new System.EventHandler(this.cifra_MouseDown);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.label8.Location = new System.Drawing.Point(5, 55);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label8.Size = new System.Drawing.Size(114, 25);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "   Бонусы";
+            this.label8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(27)))), ((int)(((byte)(41)))));
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.textBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.textBox5.BorderRadius = 0;
+            this.textBox5.ButtonText = "Cмешанный";
+            this.textBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox5.DisabledColor = System.Drawing.Color.White;
+            this.textBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox5.Enabled = false;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox5.Iconcolor = System.Drawing.Color.Transparent;
+            this.textBox5.Iconimage = null;
+            this.textBox5.Iconimage_right = null;
+            this.textBox5.Iconimage_right_Selected = null;
+            this.textBox5.Iconimage_Selected = null;
+            this.textBox5.IconMarginLeft = 0;
+            this.textBox5.IconMarginRight = 0;
+            this.textBox5.IconRightVisible = true;
+            this.textBox5.IconRightZoom = 0D;
+            this.textBox5.IconVisible = true;
+            this.textBox5.IconZoom = 90D;
+            this.textBox5.IsTab = false;
+            this.textBox5.Location = new System.Drawing.Point(5, 0);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.textBox5.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.textBox5.OnHoverTextColor = System.Drawing.Color.White;
+            this.textBox5.selected = false;
+            this.textBox5.Size = new System.Drawing.Size(138, 55);
+            this.textBox5.TabIndex = 13;
+            this.textBox5.Text = "Cмешанный";
+            this.textBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox5.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.textBox5.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox5.MouseDown += new System.EventHandler(this.textBox5_MouseDown);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.Controls.Add(this.pictureBox7);
+            this.panel10.Controls.Add(this.pictureBox5);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(10, 10);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(37, 110);
+            this.panel10.TabIndex = 8;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(2, 55);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(35, 55);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 13;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(35, 55);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 11;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox5_MouseDown);
             // 
             // label4
             // 
@@ -168,7 +374,7 @@ namespace OptiQ
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
-            this.label4.Location = new System.Drawing.Point(89, 15);
+            this.label4.Location = new System.Drawing.Point(69, 15);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -182,7 +388,7 @@ namespace OptiQ
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.label5.Location = new System.Drawing.Point(89, 61);
+            this.label5.Location = new System.Drawing.Point(69, 61);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -197,7 +403,7 @@ namespace OptiQ
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.label6.Location = new System.Drawing.Point(89, 107);
+            this.label6.Location = new System.Drawing.Point(69, 107);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -215,9 +421,10 @@ namespace OptiQ
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(400, 150);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 162);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 150);
             this.flowLayoutPanel1.TabIndex = 8;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseMove);
@@ -306,7 +513,7 @@ namespace OptiQ
             this.flowLayoutPanel3.Controls.Add(this.RED);
             this.flowLayoutPanel3.Controls.Add(this.smejno);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 187);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 180);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -542,7 +749,7 @@ namespace OptiQ
             this.flowLayoutPanel4.Controls.Add(this.dolg);
             this.flowLayoutPanel4.Controls.Add(this.bunifuFlatButton6);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 487);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 480);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel4.MaximumSize = new System.Drawing.Size(800, 65);
             this.flowLayoutPanel4.MinimumSize = new System.Drawing.Size(700, 65);
@@ -633,11 +840,13 @@ namespace OptiQ
             this.flowLayoutPanel5.Controls.Add(this.bunifuFlatButton1);
             this.flowLayoutPanel5.Controls.Add(this.REDT);
             this.flowLayoutPanel5.Controls.Add(this.beznal);
+            this.flowLayoutPanel5.Controls.Add(this.skokadolg);
+            this.flowLayoutPanel5.Controls.Add(this.pbonus);
             this.flowLayoutPanel5.Controls.Add(this.cena);
             this.flowLayoutPanel5.Controls.Add(this.vdolg1);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 232);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 225);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
@@ -719,7 +928,7 @@ namespace OptiQ
             this.kaspiet.AddControl = null;
             this.kaspiet.Controls.Add(this.panel5);
             this.kaspiet.Location = new System.Drawing.Point(228, 70);
-            this.kaspiet.Margin = new System.Windows.Forms.Padding(10, 0, 0, 5);
+            this.kaspiet.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.kaspiet.Name = "kaspiet";
             this.kaspiet.Padding = new System.Windows.Forms.Padding(10);
             this.kaspiet.Size = new System.Drawing.Size(300, 55);
@@ -793,7 +1002,7 @@ namespace OptiQ
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(218, 130);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(218, 125);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
@@ -811,8 +1020,8 @@ namespace OptiQ
             // 
             this.REDT.AddControl = null;
             this.REDT.Controls.Add(this.panel3);
-            this.REDT.Location = new System.Drawing.Point(228, 135);
-            this.REDT.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.REDT.Location = new System.Drawing.Point(228, 130);
+            this.REDT.Margin = new System.Windows.Forms.Padding(10, 0, 0, 5);
             this.REDT.Name = "REDT";
             this.REDT.Padding = new System.Windows.Forms.Padding(10);
             this.REDT.Size = new System.Drawing.Size(300, 55);
@@ -920,6 +1129,134 @@ namespace OptiQ
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
+            // skokadolg
+            // 
+            this.skokadolg.AddControl = null;
+            this.skokadolg.Controls.Add(this.panel15);
+            this.skokadolg.Location = new System.Drawing.Point(548, 10);
+            this.skokadolg.Margin = new System.Windows.Forms.Padding(10, 0, 0, 5);
+            this.skokadolg.Name = "skokadolg";
+            this.skokadolg.Padding = new System.Windows.Forms.Padding(10);
+            this.skokadolg.Size = new System.Drawing.Size(242, 55);
+            this.skokadolg.TabIndex = 14;
+            this.skokadolg.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.White;
+            this.panel15.Controls.Add(this.panel16);
+            this.panel15.Controls.Add(this.pictureBox8);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(10, 10);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(222, 35);
+            this.panel15.TabIndex = 8;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.textdolg);
+            this.panel16.Controls.Add(this.pictureBox9);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(35, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Padding = new System.Windows.Forms.Padding(10, 6, 0, 6);
+            this.panel16.Size = new System.Drawing.Size(187, 35);
+            this.panel16.TabIndex = 12;
+            // 
+            // textdolg
+            // 
+            this.textdolg.AutoSize = true;
+            this.textdolg.BackColor = System.Drawing.Color.White;
+            this.textdolg.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textdolg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textdolg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.textdolg.Location = new System.Drawing.Point(10, 6);
+            this.textdolg.Margin = new System.Windows.Forms.Padding(0, 15, 3, 0);
+            this.textdolg.Name = "textdolg";
+            this.textdolg.Size = new System.Drawing.Size(0, 25);
+            this.textdolg.TabIndex = 14;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(152, 6);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(35, 23);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 13;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox9_MouseDown);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 11;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pbonus
+            // 
+            this.pbonus.AddControl = null;
+            this.pbonus.Controls.Add(this.panel12);
+            this.pbonus.Location = new System.Drawing.Point(548, 70);
+            this.pbonus.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.pbonus.Name = "pbonus";
+            this.pbonus.Padding = new System.Windows.Forms.Padding(10);
+            this.pbonus.Size = new System.Drawing.Size(242, 55);
+            this.pbonus.TabIndex = 13;
+            this.pbonus.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.pictureBox6);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(10, 10);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(222, 35);
+            this.panel12.TabIndex = 8;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.textbonus);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(35, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.panel13.Size = new System.Drawing.Size(187, 35);
+            this.panel13.TabIndex = 12;
+            // 
+            // textbonus
+            // 
+            this.textbonus.BackColor = System.Drawing.Color.White;
+            this.textbonus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textbonus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textbonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textbonus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.textbonus.Location = new System.Drawing.Point(10, 6);
+            this.textbonus.Name = "textbonus";
+            this.textbonus.Size = new System.Drawing.Size(177, 24);
+            this.textbonus.TabIndex = 0;
+            this.textbonus.TextChanged += new System.EventHandler(this.textbonus_TextChanged);
+            this.textbonus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbonus_KeyPress);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 11;
+            this.pictureBox6.TabStop = false;
+            // 
             // cena
             // 
             this.cena.BackColor = System.Drawing.Color.Transparent;
@@ -931,7 +1268,7 @@ namespace OptiQ
             this.cena.Controls.Add(this.bunifuFlatButton9);
             this.cena.Controls.Add(this.bunifuFlatButton10);
             this.cena.Controls.Add(this.bunifuFlatButton11);
-            this.cena.Location = new System.Drawing.Point(538, 10);
+            this.cena.Location = new System.Drawing.Point(790, 10);
             this.cena.Margin = new System.Windows.Forms.Padding(0);
             this.cena.Name = "cena";
             this.cena.Size = new System.Drawing.Size(252, 235);
@@ -1237,12 +1574,11 @@ namespace OptiQ
             // 
             this.vdolg1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.vdolg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.vdolg1.Location = new System.Drawing.Point(790, 10);
+            this.vdolg1.Location = new System.Drawing.Point(1042, 10);
             this.vdolg1.Margin = new System.Windows.Forms.Padding(0);
             this.vdolg1.Name = "vdolg1";
             this.vdolg1.Size = new System.Drawing.Size(725, 235);
             this.vdolg1.TabIndex = 12;
-            this.vdolg1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vdolg1_KeyPress);
             // 
             // bunifuElipse2
             // 
@@ -1254,7 +1590,7 @@ namespace OptiQ
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.ClientSize = new System.Drawing.Size(800, 550);
+            this.ClientSize = new System.Drawing.Size(800, 537);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel5);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -1275,6 +1611,13 @@ namespace OptiQ
             this.panel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.name1.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -1300,6 +1643,17 @@ namespace OptiQ
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.skokadolg.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.pbonus.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.cena.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1364,5 +1718,25 @@ namespace OptiQ
         private System.Windows.Forms.PictureBox pictureBox4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton12;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private MZControls.MZSombraPanel name1;
+        private MZControls.MZSombraPanel pbonus;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox textbonus;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label8;
+        private Bunifu.Framework.UI.BunifuFlatButton cifra;
+        private Bunifu.Framework.UI.BunifuFlatButton textBox5;
+        private MZControls.MZSombraPanel skokadolg;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label textdolg;
     }
 }

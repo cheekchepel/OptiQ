@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,24 @@ namespace OptiQ.kassa
 
          int opa =0;
 
-        numerkas[] nmk = new numerkas[15];
+
+
+        public SqlConnection cons = new SqlConnection(Global.conectsql);
+
+        public string sqls;
+
+        public SqlCommand cmds;
+        public SqlDataReader drs;
+
+
+
+        numerkas[] nmk = new numerkas[20];
 
         private void Otlojka_Load(object sender, EventArgs e)
         {
 
 
-            while (opa < 15) {
+            while (opa < 20) {
 
 
 
@@ -54,27 +66,42 @@ namespace OptiQ.kassa
         {
             Program.main.backblakhide();
             this.Close();
-            Program.KASA.schet();
+           // Program.KASA.schet();
 
         }
 
         public void sell()
         {
+            int i = 0;
 
-            for (int i = 0; i < 15; i++)
+            cons.Close();
+            cons.Open();
+            sqls = "select ot_id from otlojka_pro where id_kassir=" + Global.IDuser;
+            cmds = new SqlCommand(sqls, cons);
+            drs = cmds.ExecuteReader();
 
-            {
-                if (nmk[i].Visible == false){
-                    nmk[i].vgruzit();
-                    i = 20;
-                    }
-                  
-                
+            while (drs.Read()) {
 
+                nmk[i].vgruzit(Convert.ToInt64(drs[0]));
 
+                i++;
             }
+            cons.Close();
+            while (i < 20){
+
+                nmk[i].Visible=false;
+
+                i++;
+            }
+            
+
 
         }
+
+
+
+
+
 
       
     }

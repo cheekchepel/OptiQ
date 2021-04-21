@@ -54,6 +54,7 @@ namespace OptiQ
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.shjowkeyboard3 = new OptiQ.shjowkeyboard();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -61,8 +62,10 @@ namespace OptiQ
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.grdt_kass = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.nm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dnie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -83,11 +86,11 @@ namespace OptiQ
             // 
             this.name.AddControl = null;
             this.name.Controls.Add(this.panel3);
-            this.name.Location = new System.Drawing.Point(51, 20);
+            this.name.Location = new System.Drawing.Point(19, 20);
             this.name.Margin = new System.Windows.Forms.Padding(0);
             this.name.Name = "name";
             this.name.Padding = new System.Windows.Forms.Padding(10);
-            this.name.Size = new System.Drawing.Size(319, 55);
+            this.name.Size = new System.Drawing.Size(383, 55);
             this.name.TabIndex = 7;
             this.name.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
             // 
@@ -100,7 +103,7 @@ namespace OptiQ
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(10, 10);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(299, 35);
+            this.panel3.Size = new System.Drawing.Size(363, 35);
             this.panel3.TabIndex = 8;
             // 
             // panel9
@@ -110,7 +113,7 @@ namespace OptiQ
             this.panel9.Location = new System.Drawing.Point(35, 0);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(224, 35);
+            this.panel9.Size = new System.Drawing.Size(288, 35);
             this.panel9.TabIndex = 12;
             // 
             // textBox4
@@ -121,7 +124,7 @@ namespace OptiQ
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.textBox4.Location = new System.Drawing.Point(10, 6);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(214, 24);
+            this.textBox4.Size = new System.Drawing.Size(278, 24);
             this.textBox4.TabIndex = 0;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -130,7 +133,7 @@ namespace OptiQ
             this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
             this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
             this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(259, 0);
+            this.shjowkeyboard1.Location = new System.Drawing.Point(323, 0);
             this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard1.Name = "shjowkeyboard1";
             this.shjowkeyboard1.Size = new System.Drawing.Size(40, 35);
@@ -156,7 +159,7 @@ namespace OptiQ
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(299, 235);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(300, 235);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // flowLayoutPanel3
@@ -170,7 +173,7 @@ namespace OptiQ
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(299, 235);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(300, 235);
             this.flowLayoutPanel3.TabIndex = 10;
             this.flowLayoutPanel3.Visible = false;
             // 
@@ -249,9 +252,9 @@ namespace OptiQ
             this.label1.Location = new System.Drawing.Point(10, 75);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 20);
+            this.label1.Size = new System.Drawing.Size(156, 20);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Данные о клиенте";
+            this.label1.Text = "Номер телефона";
             // 
             // mzSombraPanel2
             // 
@@ -261,7 +264,7 @@ namespace OptiQ
             this.mzSombraPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.mzSombraPanel2.Name = "mzSombraPanel2";
             this.mzSombraPanel2.Padding = new System.Windows.Forms.Padding(10);
-            this.mzSombraPanel2.Size = new System.Drawing.Size(300, 95);
+            this.mzSombraPanel2.Size = new System.Drawing.Size(299, 55);
             this.mzSombraPanel2.TabIndex = 9;
             this.mzSombraPanel2.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
             // 
@@ -273,17 +276,18 @@ namespace OptiQ
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(10, 10);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(280, 75);
+            this.panel4.Size = new System.Drawing.Size(279, 35);
             this.panel4.TabIndex = 8;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.textBox3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(10, 6, 0, 6);
-            this.panel5.Size = new System.Drawing.Size(240, 75);
+            this.panel5.Padding = new System.Windows.Forms.Padding(10, 6, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(239, 35);
             this.panel5.TabIndex = 12;
             // 
             // textBox2
@@ -292,18 +296,35 @@ namespace OptiQ
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
-            this.textBox2.Location = new System.Drawing.Point(10, 6);
-            this.textBox2.Multiline = true;
+            this.textBox2.Location = new System.Drawing.Point(45, 6);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 63);
+            this.textBox2.Size = new System.Drawing.Size(194, 24);
             this.textBox2.TabIndex = 0;
+            this.textBox2.Text = "705 105 51 82";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.textBox3.Location = new System.Drawing.Point(10, 6);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(35, 24);
+            this.textBox3.TabIndex = 1;
+            this.textBox3.Text = "+7";
+            this.textBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox3_MouseDown);
             // 
             // shjowkeyboard3
             // 
             this.shjowkeyboard3.BackColor = System.Drawing.Color.Transparent;
             this.shjowkeyboard3.Dock = System.Windows.Forms.DockStyle.Right;
             this.shjowkeyboard3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard3.Location = new System.Drawing.Point(240, 0);
+            this.shjowkeyboard3.Location = new System.Drawing.Point(239, 0);
             this.shjowkeyboard3.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard3.MaximumSize = new System.Drawing.Size(40, 35);
             this.shjowkeyboard3.Name = "shjowkeyboard3";
@@ -332,7 +353,7 @@ namespace OptiQ
             this.bunifuFlatButton6.IconVisible = true;
             this.bunifuFlatButton6.IconZoom = 90D;
             this.bunifuFlatButton6.IsTab = false;
-            this.bunifuFlatButton6.Location = new System.Drawing.Point(10, 190);
+            this.bunifuFlatButton6.Location = new System.Drawing.Point(10, 150);
             this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
             this.bunifuFlatButton6.Name = "bunifuFlatButton6";
             this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -369,7 +390,7 @@ namespace OptiQ
             this.bunifuFlatButton7.IconVisible = true;
             this.bunifuFlatButton7.IconZoom = 90D;
             this.bunifuFlatButton7.IsTab = false;
-            this.bunifuFlatButton7.Location = new System.Drawing.Point(176, 190);
+            this.bunifuFlatButton7.Location = new System.Drawing.Point(176, 150);
             this.bunifuFlatButton7.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
             this.bunifuFlatButton7.Name = "bunifuFlatButton7";
             this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -428,11 +449,11 @@ namespace OptiQ
             this.flowLayoutPanel2.Controls.Add(this.name);
             this.flowLayoutPanel2.Controls.Add(this.grdt_kass);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(299, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(300, 0);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(426, 235);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(490, 235);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
             // label3
@@ -440,12 +461,12 @@ namespace OptiQ
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            this.label3.Location = new System.Drawing.Point(61, 0);
+            this.label3.Location = new System.Drawing.Point(29, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 20);
+            this.label3.Size = new System.Drawing.Size(196, 20);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Выберите должника";
+            this.label3.Text = "Выберите покупателя";
             // 
             // grdt_kass
             // 
@@ -454,14 +475,14 @@ namespace OptiQ
             this.grdt_kass.AllowUserToResizeColumns = false;
             this.grdt_kass.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grdt_kass.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grdt_kass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdt_kass.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.grdt_kass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdt_kass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdt_kass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
@@ -469,12 +490,14 @@ namespace OptiQ
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdt_kass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.grdt_kass.ColumnHeadersHeight = 4;
+            this.grdt_kass.ColumnHeadersHeight = 30;
             this.grdt_kass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grdt_kass.ColumnHeadersVisible = false;
             this.grdt_kass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nm,
-            this.kod});
+            this.id,
+            this.name1,
+            this.dnie,
+            this.bonus});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -485,10 +508,11 @@ namespace OptiQ
             this.grdt_kass.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdt_kass.DoubleBuffered = true;
             this.grdt_kass.EnableHeadersVisualStyles = false;
+            this.grdt_kass.GridColor = System.Drawing.Color.White;
             this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
-            this.grdt_kass.Location = new System.Drawing.Point(61, 75);
-            this.grdt_kass.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.grdt_kass.Location = new System.Drawing.Point(21, 77);
+            this.grdt_kass.Margin = new System.Windows.Forms.Padding(2);
             this.grdt_kass.MultiSelect = false;
             this.grdt_kass.Name = "grdt_kass";
             this.grdt_kass.ReadOnly = true;
@@ -511,24 +535,37 @@ namespace OptiQ
             this.grdt_kass.RowTemplate.Height = 30;
             this.grdt_kass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grdt_kass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdt_kass.Size = new System.Drawing.Size(301, 160);
-            this.grdt_kass.TabIndex = 8;
+            this.grdt_kass.Size = new System.Drawing.Size(381, 158);
+            this.grdt_kass.TabIndex = 13;
             this.grdt_kass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdt_kass_CellClick);
             // 
-            // nm
+            // id
             // 
-            this.nm.HeaderText = "nm";
-            this.nm.MinimumWidth = 6;
-            this.nm.Name = "nm";
-            this.nm.ReadOnly = true;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
-            // kod
+            // name1
             // 
-            this.kod.HeaderText = "Column1";
-            this.kod.MinimumWidth = 6;
-            this.kod.Name = "kod";
-            this.kod.ReadOnly = true;
-            this.kod.Visible = false;
+            this.name1.HeaderText = "Имя";
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            this.name1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dnie
+            // 
+            this.dnie.HeaderText = "Телефон";
+            this.dnie.Name = "dnie";
+            this.dnie.ReadOnly = true;
+            this.dnie.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // bonus
+            // 
+            this.bonus.HeaderText = "bonus";
+            this.bonus.Name = "bonus";
+            this.bonus.ReadOnly = true;
+            this.bonus.Visible = false;
             // 
             // Vdolg
             // 
@@ -571,30 +608,33 @@ namespace OptiQ
         private MZControls.MZSombraPanel name;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox4;
         private shjowkeyboard shjowkeyboard1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label2;
         private MZControls.MZSombraPanel mzSombraPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox1;
         private shjowkeyboard shjowkeyboard2;
+        private System.Windows.Forms.Label label1;
         private MZControls.MZSombraPanel mzSombraPanel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox2;
         private shjowkeyboard shjowkeyboard3;
-        public Bunifu.Framework.UI.BunifuCustomDataGrid grdt_kass;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kod;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
+        public Bunifu.Framework.UI.BunifuCustomDataGrid grdt_kass;
+        public System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dnie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bonus;
     }
 }

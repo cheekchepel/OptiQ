@@ -93,11 +93,11 @@ namespace OptiQ
             // 
             this.panel6.Controls.Add(this.textBox1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(58, 0);
+            this.panel6.Location = new System.Drawing.Point(35, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(5);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(10, 6, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(222, 35);
+            this.panel6.Size = new System.Drawing.Size(245, 35);
             this.panel6.TabIndex = 11;
             // 
             // textBox1
@@ -109,7 +109,7 @@ namespace OptiQ
             this.textBox1.Location = new System.Drawing.Point(10, 6);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 24);
+            this.textBox1.Size = new System.Drawing.Size(235, 24);
             this.textBox1.TabIndex = 0;
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             this.textBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
@@ -123,7 +123,7 @@ namespace OptiQ
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;

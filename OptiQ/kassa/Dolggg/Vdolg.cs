@@ -47,16 +47,16 @@ namespace OptiQ
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(textBox1.Text))
+            if (!String.IsNullOrWhiteSpace(textBox1.Text)&& textBox2.Text.Length==10)
             {
-                string id_us = Global.IDuser+(Global.IDuser + DateTimeOffset.Now.ToUnixTimeSeconds()).ToString();
+                string id_us = Global.IDuser+(DateTimeOffset.Now.ToUnixTimeSeconds()).ToString();
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "INSERT INTO users(us_name,danie,summa,us_date,us_off_id_date)" +
-                    "VALUES(N'" + textBox1.Text + "',N'" + textBox2.Text + "',0," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + id_us + ");";
-                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+Global.versia+"INSERT INTO users(us_mg_id,us_name,danie,summa,us_date,us_off_id_date)" +
-                    "VALUES(" + Global.IDmagaz + ",N$" + textBox1.Text + "$,N$" + textBox2.Text + "$,0," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + id_us + ");');";
+                sqloff = "INSERT INTO users_pro(us_mg_id,us_off_id,us_name,us_danie,us_summa,us_bonus,us_date)" +
+                    "VALUES("+Global.IDmagaz+ ","+id_us+",N'" + textBox1.Text + "',7" + textBox2.Text + ",0,0," + DateTimeOffset.Now.ToUnixTimeSeconds() + ");";
+
+                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+Global.versia+sqloff.Replace("'", "$") + "');";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();
@@ -80,17 +80,17 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select us_name,us_off_id_date from users where (LOWER(us_name) LIKE LOWER(N'%" + textBox4.Text + "%'))";
+            sqloff = "select us_off_id,us_name,us_danie,us_bonus from users_pro where (LOWER(us_name) LIKE LOWER(N'%" + textBox4.Text + "%')) ";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read()) {
 
-                grdt_kass.Rows.Add(droff[0], droff[1]);
+                grdt_kass.Rows.Add(droff[0], droff[1],"+"+droff[2], droff[3]);
             
             }
             conoff.Close();
 
-            
+            grdt_kass.ClearSelection();
         }
 
 
@@ -102,6 +102,7 @@ namespace OptiQ
             zagrizka();
             flowLayoutPanel3.Visible = false;
             textBox4.Text = null;
+            grdt_kass.ClearSelection();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -110,27 +111,34 @@ namespace OptiQ
             zagrizka();
           
             grdt_kass.ClearSelection();
-            if (grdt_kass.Rows.Count > 0)
-            {
-                grdt_kass.Rows[0].Selected = true;
-                index = grdt_kass.CurrentRow.Index;
-                usid = (grdt_kass.Rows[index].Cells[1].Value).ToString();
-
-            }
-            else {
-                usid = null;
-            }
+          
         }
 
         private void grdt_kass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //grdt_kass.ClearSelection();
+
             usid = null;
 
             if (grdt_kass.Rows.Count > 0)
             {
                 index = grdt_kass.CurrentRow.Index;
-                usid = (grdt_kass.Rows[index].Cells[1].Value).ToString();
-                textBox4.Text = (grdt_kass.Rows[index].Cells[0].Value).ToString();
+                usid = (grdt_kass.Rows[index].Cells[0].Value).ToString();
+                
+
+                Program.oplati.viborusers(Convert.ToInt64(usid), grdt_kass.Rows[index].Cells[1].Value.ToString(), Convert.ToInt32(grdt_kass.Rows[index].Cells[3].Value));
+
+                
+
+                    Program.oplati.nav_clik();
+
+
+                
+                
+                
+
+
+
 
 
             }
@@ -139,6 +147,31 @@ namespace OptiQ
 
             }
           
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            textBox2.SelectionStart = textBox2.Text.Length;
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2.Text.Length > 10) {
+
+                textBox2.Text= textBox2.Text.Remove(10);
+                textBox2.SelectionStart = textBox2.Text.Length;
+            }
+        }
+
+        private void textBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBox2.Focus();
         }
     }
 }

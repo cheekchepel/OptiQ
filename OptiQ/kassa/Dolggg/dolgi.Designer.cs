@@ -40,8 +40,8 @@ namespace OptiQ
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -134,8 +134,8 @@ namespace OptiQ
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Controls.Add(this.label5);
             this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.label5);
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(125, 0);
@@ -143,6 +143,20 @@ namespace OptiQ
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 10, 0, 20);
             this.panel8.Size = new System.Drawing.Size(202, 120);
             this.panel8.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Enabled = false;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            this.label4.Location = new System.Drawing.Point(0, 10);
+            this.label4.MaximumSize = new System.Drawing.Size(190, 50);
+            this.label4.Multiline = true;
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(190, 50);
+            this.label4.TabIndex = 6;
             // 
             // label5
             // 
@@ -156,19 +170,6 @@ namespace OptiQ
             this.label5.TabIndex = 3;
             this.label5.Text = "id";
             this.label5.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
-            this.label4.Location = new System.Drawing.Point(0, 10);
-            this.label4.MaximumSize = new System.Drawing.Size(280, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Не выбран";
             // 
             // label3
             // 
@@ -1077,7 +1078,6 @@ namespace OptiQ
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label2;
@@ -1120,5 +1120,6 @@ namespace OptiQ
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel header;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox label4;
     }
 }

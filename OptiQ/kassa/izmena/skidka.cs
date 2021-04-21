@@ -90,6 +90,13 @@ namespace OptiQ.kassa.izmena
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
             textBox1.Focus();
            
         }
@@ -211,49 +218,71 @@ namespace OptiQ.kassa.izmena
         {
             this.Top = Program.KASA.panel1.Top - this.Height + 40;
             this.Left = Global.x - this.Width - 307;
+
+
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (pictureBox1.Visible == true)
             {
-                if (textBox1.Text.Length > 3)
+                if (comboBox1.SelectedItem.ToString() != "Итоговая сумма")
                 {
-                    textBox1.Text.Remove(3);
-                }
-                if (Convert.ToInt32("0" + textBox1.Text) > 100)
-                {
-                    textBox1.Text = "100";
+                    if (Convert.ToInt32("0" + textBox1.Text) > Global.maxskidnactov)
+                    {
+
+                        textBox1.Text = Global.maxskidnactov.ToString();
 
 
+                    }
                 }
+                else {
+
+                    if (Convert.ToInt32("0" + textBox1.Text) > Global.maxskidnacitog)
+                    {
+
+                        textBox1.Text = Global.maxskidnacitog.ToString();
+
+
+                    }
+
+                }
+
                 textBox1.SelectionStart = textBox1.Text.Length;
             }
             else
             {
                 if(comboBox1.SelectedItem.ToString() != "Итоговая сумма")
                 {
-                    if (Program.KASA.opend_by == "skidka")
-                    {
-                        double cena = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[2].Value);
-                        if (textBox1.Text.Length > 0 && Convert.ToDouble(textBox1.Text) > cena)
+
+
+
+
+                    double cenat = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[2].Value)*(Convert.ToDouble(Global.maxskidnactov)/100);
+                        if (Convert.ToDouble("0"+textBox1.Text) > cenat)
                         {
-                            textBox1.Text = cena.ToString();
+                            textBox1.Text = cenat.ToString();
                         }
-                    }
+
+                 
                 }
                 else
                 {
-                    if(Program.KASA.opend_by == "skidka")
-                    {
-                        if(textBox1.Text.Length > 0 && Convert.ToDouble(textBox1.Text) > Convert.ToDouble(Program.KASA.bunifuFlatButton1.Text))
+                   
+                        double cenai = Convert.ToDouble(Program.KASA.cenabezskidki) * (Convert.ToDouble(Global.maxskidnacitog) / 100);
+
+                        if (Convert.ToDouble("0" + textBox1.Text) > cenai)
                         {
-                            textBox1.Text = Program.KASA.bunifuFlatButton1.Text;
+                            textBox1.Text = cenai.ToString(); ;
                         }
-                    }
+                    
                 }
                 textBox1.SelectionStart = textBox1.Text.Length;
             }
+
+            textBox1.Text = Convert.ToInt32("0" + textBox1.Text).ToString() ;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

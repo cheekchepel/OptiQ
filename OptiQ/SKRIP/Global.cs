@@ -29,9 +29,11 @@ namespace OptiQ
         public static bool pra_showpie;
         public static bool pra_showprih;
         public static bool pra_showdohd;
+        public static bool sale_in_minus=false;
+
 
         public static long basever;
-
+        public static long veriaprodaj;
 
         public static long mg_pay_raznica;
         public static long mg_off_raznica;
@@ -52,7 +54,13 @@ namespace OptiQ
         public static int beznal = 0;
         public static int kaspi = 0;
         public static int kaspired = 0;
+        public static int uvedomlenie_ostatoc = 10;
 
+        public static int maxbonus = 20;
+
+        public static int maxskidnactov = 20;
+
+        public static int maxskidnacitog = 10;
 
 
 
@@ -66,20 +74,26 @@ namespace OptiQ
         public static string MGname = "";
         public static string MGadr = "";
         public static string conectpost = "Server=45.9.190.177; Port=5432; User Id = konstantin; Password=kot_520535; Database=optiq";
-         public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\1ooppa3\OptiQ\OptiQ\BASE\OFFver.mdf;Integrated Security = True";
-        //public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BASE\OFFver.mdf;Integrated Security = True";
+       //  public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\1ooppa3\OptiQ\OptiQ\BASE\OFFver.mdf;Integrated Security = True";
+       // public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BASE\OFFver.mdf;Integrated Security = True";
 
-        //public static string conectsql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Elon\Desktop\OptiQ\OptiQ\BASE\OFFver.mdf;Integrated Security=True";
+        public static string conectsql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\Rabota\1ooppa3\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security=True";
 
+         public static string versia ;
+        public static string salever;
 
-        public static string versia ;
-
-
-         public static string Vers
+        public static string Vers
         {
             get { return versia; }
-            set { versia = "select basever(" + value + ");"; }
+            set { 
+                versia = "select basever(" + value + ");";
+                salever = "select salever(" + value + ");";
+            }
         }
+
+
+     
+
 
 
         public static int Globalmagaz

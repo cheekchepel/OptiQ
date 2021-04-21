@@ -46,19 +46,20 @@ namespace OptiQ
             // Message
             // 
             this.Message.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Message.AutoSize = true;
             this.Message.BackColor = System.Drawing.Color.Transparent;
             this.Message.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Message.ForeColor = System.Drawing.Color.White;
-            this.Message.Location = new System.Drawing.Point(32, 22);
+            this.Message.Location = new System.Drawing.Point(30, 22);
             this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(57, 23);
+            this.Message.Size = new System.Drawing.Size(54, 24);
             this.Message.TabIndex = 17;
             this.Message.Text = "текст";
             this.Message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Message.TextChanged += new System.EventHandler(this.Message_TextChanged);
             // 
             // bunifuGradientPanel1
             // 
+            this.bunifuGradientPanel1.AutoSize = true;
             this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
             this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuGradientPanel1.Controls.Add(this.close);
@@ -127,8 +128,8 @@ namespace OptiQ
             this.TopMost = true;
             this.Shown += new System.EventHandler(this.ShowMessage_Shown);
             this.bunifuGradientPanel1.ResumeLayout(false);
-            this.bunifuGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

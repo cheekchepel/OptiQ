@@ -38,14 +38,9 @@ namespace OptiQ
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.grdt_kass50 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vsekol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenakonco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.a1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.a2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdt_kass50)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +65,7 @@ namespace OptiQ
             this.grdt_kass50.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -80,14 +75,9 @@ namespace OptiQ
             this.grdt_kass50.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grdt_kass50.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.kod,
-            this.name,
-            this.price,
-            this.cenaco,
+            this.rz,
             this.kol,
-            this.vsekol,
-            this.cenakonco,
-            this.a1,
-            this.a2});
+            this.name});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -110,7 +100,7 @@ namespace OptiQ
             this.grdt_kass50.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -141,32 +131,12 @@ namespace OptiQ
             this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.kod.Visible = false;
             // 
-            // name
+            // rz
             // 
-            this.name.FillWeight = 229.7631F;
-            this.name.HeaderText = "Наименование";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // price
-            // 
-            this.price.FillWeight = 41.70567F;
-            this.price.HeaderText = "Цена";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.price.Visible = false;
-            // 
-            // cenaco
-            // 
-            this.cenaco.HeaderText = "Ценаприхода";
-            this.cenaco.MinimumWidth = 6;
-            this.cenaco.Name = "cenaco";
-            this.cenaco.ReadOnly = true;
-            this.cenaco.Visible = false;
+            this.rz.HeaderText = "rz";
+            this.rz.Name = "rz";
+            this.rz.ReadOnly = true;
+            this.rz.Visible = false;
             // 
             // kol
             // 
@@ -178,38 +148,14 @@ namespace OptiQ
             this.kol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.kol.Visible = false;
             // 
-            // vsekol
+            // name
             // 
-            this.vsekol.FillWeight = 81.02573F;
-            this.vsekol.HeaderText = "Сумма";
-            this.vsekol.MinimumWidth = 6;
-            this.vsekol.Name = "vsekol";
-            this.vsekol.ReadOnly = true;
-            this.vsekol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.vsekol.Visible = false;
-            // 
-            // cenakonco
-            // 
-            this.cenakonco.HeaderText = "cenakonco";
-            this.cenakonco.MinimumWidth = 6;
-            this.cenakonco.Name = "cenakonco";
-            this.cenakonco.ReadOnly = true;
-            this.cenakonco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cenakonco.Visible = false;
-            // 
-            // a1
-            // 
-            this.a1.HeaderText = "a1";
-            this.a1.Name = "a1";
-            this.a1.ReadOnly = true;
-            this.a1.Visible = false;
-            // 
-            // a2
-            // 
-            this.a2.HeaderText = "a2";
-            this.a2.Name = "a2";
-            this.a2.ReadOnly = true;
-            this.a2.Visible = false;
+            this.name.FillWeight = 229.7631F;
+            this.name.HeaderText = "Наименование";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // numerkas
             // 
@@ -232,13 +178,8 @@ namespace OptiQ
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         public Bunifu.Framework.UI.BunifuCustomDataGrid grdt_kass50;
         private System.Windows.Forms.DataGridViewTextBoxColumn kod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cenaco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rz;
         private System.Windows.Forms.DataGridViewTextBoxColumn kol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vsekol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cenakonco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn a1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn a2;
         public System.Windows.Forms.DataGridViewTextBoxColumn name;
     }
 }
