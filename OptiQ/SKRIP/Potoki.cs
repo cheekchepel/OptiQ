@@ -336,6 +336,7 @@ namespace OptiQ
                 
                 while (dr1.Read())
                 {
+
                     conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
@@ -402,9 +403,6 @@ namespace OptiQ
                 while (dr1.Read())
                 {
 
-
-
-
                     conoff1.Close();
                     conoff1.Open();
                     sqloff1 = delkateg+ "INSERT INTO kateg(kat_mg_id,kat_name,kat_silka) VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + ")";
@@ -414,21 +412,44 @@ namespace OptiQ
                     conoff1.Close();
                 delkateg = null;
 
-
-
-
                 }
 
                 con1.Close();
 
 
-          //  } catch (NpgsqlException) { }
+            //  } catch (NpgsqlException) { }
+
+
+            con1.Close();
+
+            //   try{
+            string delprov = "DELETE FROM myprov;";
+            con1.Close();
+            con1.Open();
+            sql1 = "select mp_mg_id,mp_name,mp_test from myprov where mp_mg_id=" + Global.IDmagaz;
+            cmd1 = new NpgsqlCommand(sql1, con1);
+            dr1 = cmd1.ExecuteReader();
+
+
+            while (dr1.Read())
+            {
+
+                conoff1.Close();
+                conoff1.Open();
+                sqloff1 = delprov + "INSERT INTO myprov(mp_mg_id,mp_name,mp_test)VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + ")";
+                cmdoff1 = new SqlCommand(sqloff1, conoff1);
+                droff1 = cmdoff1.ExecuteReader();
+                droff1.Read();
+                conoff1.Close();
+                delprov = null;
+
+            }
+
+            con1.Close();
 
 
 
-
-
-
+            ///////////////////
 
 
             con1.Close();
@@ -440,11 +461,6 @@ namespace OptiQ
                     droff1.Read();
                     conoff1.Close();
                     Global.basever = basver;
-
-
-
-
-
 
         }
 
@@ -591,7 +607,7 @@ namespace OptiQ
 
             conoff3.Close();
             conoff3.Open();
-            sqloff1 = "UPDATE kassirmagaz SET base_ver =" + basvers + " WHERE sir_mg_id =" + Global.IDmagaz;
+            sqloff1 = "UPDATE kassirmagaz SET sales_ver =" + basvers + " WHERE sir_mg_id =" + Global.IDmagaz;
             cmdoff3 = new SqlCommand(sqloff3, conoff3);
             droff3 = cmdoff3.ExecuteReader();
             droff3.Read();

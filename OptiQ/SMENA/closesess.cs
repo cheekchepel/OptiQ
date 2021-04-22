@@ -33,6 +33,10 @@ namespace OptiQ
 
 
 
+        public int shtoct=0;
+
+
+
         public closesess()
         {
             InitializeComponent();
@@ -52,13 +56,31 @@ namespace OptiQ
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
+            int stal = Convert.ToInt32("0" + textBox1.Text);
+
+            if (shtoct == 0) { 
+
+
             
 
 
-            if (Global.date_open_sesions!=0)
+            long date1 = DateTimeOffset.Now.ToUnixTimeSeconds();
+
+            conoff.Open();
+            sqloff = "INSERT INTO ksas(bilo_ksas,id_kassir_ksas,date_start_ksas,date_end_ksas,id_mg_ksas)VALUES("+ stal + "," + Global.IDuser + "," + date1 + ",0," + Global.IDmagaz + ");";
+            sqloff += "INSERT INTO productoff(pr_text)VALUES(N'" + sqloff + "')";
+            cmdoff = new SqlCommand(sqloff, conoff);
+            droff = cmdoff.ExecuteReader();
+            droff.Read();
+            conoff.Close();
+            Program.log.poisc_sessii_and_view();
+            Program.ssssss.addact();
+
+            }
+           else if (shtoct==1 && Global.date_open_sesions!=0)
             {
 
-                int stal = Convert.ToInt32("0" + textBox1.Text);
+                
 
 
                 conoff.Close();

@@ -42,12 +42,7 @@ namespace OptiQ
         public DataTable dtSales = new DataTable();
 
 
-        public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
-
-      
-        public string sql;
-        public NpgsqlCommand cmd;
-        public NpgsqlDataReader dr;
+     
 
 
         

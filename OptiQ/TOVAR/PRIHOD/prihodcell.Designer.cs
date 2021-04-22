@@ -29,171 +29,186 @@ namespace OptiQ
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(prihodcell));
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.savebut = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.delete = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // bunifuElipse1
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(450, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(7);
-            this.panel2.Size = new System.Drawing.Size(268, 40);
-            this.panel2.TabIndex = 6;
-            this.panel2.Visible = false;
+            this.bunifuElipse1.ElipseRadius = 10;
+            this.bunifuElipse1.TargetControl = this;
             // 
-            // textBox2
+            // flowLayoutPanel3
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox2.Location = new System.Drawing.Point(7, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(254, 26);
-            this.textBox2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(350, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(7);
-            this.panel3.Size = new System.Drawing.Size(100, 40);
-            this.panel3.TabIndex = 7;
-            this.panel3.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox3.Location = new System.Drawing.Point(7, 7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(86, 26);
-            this.textBox3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.textBox4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(250, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(5);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(7);
-            this.panel4.Size = new System.Drawing.Size(100, 40);
-            this.panel4.TabIndex = 8;
-            this.panel4.Visible = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox4.Location = new System.Drawing.Point(7, 7);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(86, 26);
-            this.textBox4.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(100, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(7);
-            this.panel1.Size = new System.Drawing.Size(150, 40);
-            this.panel1.TabIndex = 5;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.Controls.Add(this.textBox1);
+            this.flowLayoutPanel3.Controls.Add(this.textBox2);
+            this.flowLayoutPanel3.Controls.Add(this.textBox3);
+            this.flowLayoutPanel3.Controls.Add(this.textBox4);
+            this.flowLayoutPanel3.Controls.Add(this.panel2);
+            this.flowLayoutPanel3.Controls.Add(this.textBox5);
+            this.flowLayoutPanel3.Controls.Add(this.delete);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(920, 36);
+            this.flowLayoutPanel3.TabIndex = 17;
             // 
             // textBox1
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox1.Location = new System.Drawing.Point(7, 7);
+            this.textBox1.Location = new System.Drawing.Point(10, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 26);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.Size = new System.Drawing.Size(200, 26);
+            this.textBox1.TabIndex = 2;
             // 
-            // panel5
+            // panel2
             // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.textBox5);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(5);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(7);
-            this.panel5.Size = new System.Drawing.Size(100, 40);
-            this.panel5.TabIndex = 9;
-            this.panel5.Visible = false;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(600, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(1);
+            this.panel2.Size = new System.Drawing.Size(150, 26);
+            this.panel2.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(1, 1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(148, 24);
+            this.panel3.TabIndex = 0;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(0, 0);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(148, 24);
+            this.comboBox2.TabIndex = 7;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboBox2_MouseDown);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.textBox2.Location = new System.Drawing.Point(220, 5);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(120, 26);
+            this.textBox2.TabIndex = 10;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.textBox3.Location = new System.Drawing.Point(350, 5);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(120, 26);
+            this.textBox3.TabIndex = 11;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // textBox4
+            // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.textBox4.Location = new System.Drawing.Point(480, 5);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(110, 26);
+            this.textBox4.TabIndex = 12;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.textBox5.Location = new System.Drawing.Point(7, 7);
+            this.textBox5.Location = new System.Drawing.Point(760, 5);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(86, 26);
-            this.textBox5.TabIndex = 1;
+            this.textBox5.Size = new System.Drawing.Size(110, 26);
+            this.textBox5.TabIndex = 13;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // savebut
+            // delete
             // 
-            this.savebut.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.savebut.BackColor = System.Drawing.Color.Transparent;
-            this.savebut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.savebut.BorderRadius = 0;
-            this.savebut.ButtonText = "Добвить";
-            this.savebut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.savebut.DisabledColor = System.Drawing.Color.Gray;
-            this.savebut.Dock = System.Windows.Forms.DockStyle.Left;
-            this.savebut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.savebut.Iconcolor = System.Drawing.Color.Transparent;
-            this.savebut.Iconimage = ((System.Drawing.Image)(resources.GetObject("savebut.Iconimage")));
-            this.savebut.Iconimage_right = null;
-            this.savebut.Iconimage_right_Selected = null;
-            this.savebut.Iconimage_Selected = null;
-            this.savebut.IconMarginLeft = 0;
-            this.savebut.IconMarginRight = 0;
-            this.savebut.IconRightVisible = true;
-            this.savebut.IconRightZoom = 20D;
-            this.savebut.IconVisible = true;
-            this.savebut.IconZoom = 20D;
-            this.savebut.IsTab = false;
-            this.savebut.Location = new System.Drawing.Point(718, 0);
-            this.savebut.Margin = new System.Windows.Forms.Padding(0);
-            this.savebut.Name = "savebut";
-            this.savebut.Normalcolor = System.Drawing.Color.Transparent;
-            this.savebut.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(229)))), ((int)(((byte)(232)))));
-            this.savebut.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(96)))));
-            this.savebut.selected = false;
-            this.savebut.Size = new System.Drawing.Size(140, 40);
-            this.savebut.TabIndex = 10;
-            this.savebut.Text = "Добвить";
-            this.savebut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.savebut.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(96)))));
-            this.savebut.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.savebut.Click += new System.EventHandler(this.savebut_Click);
+            this.delete.Activecolor = System.Drawing.Color.Transparent;
+            this.delete.BackColor = System.Drawing.Color.Transparent;
+            this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.delete.BorderRadius = 0;
+            this.delete.ButtonText = "";
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.DisabledColor = System.Drawing.Color.Gray;
+            this.delete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delete.Iconcolor = System.Drawing.Color.Transparent;
+            this.delete.Iconimage = ((System.Drawing.Image)(resources.GetObject("delete.Iconimage")));
+            this.delete.Iconimage_right = null;
+            this.delete.Iconimage_right_Selected = null;
+            this.delete.Iconimage_Selected = null;
+            this.delete.IconMarginLeft = 0;
+            this.delete.IconMarginRight = 0;
+            this.delete.IconRightVisible = true;
+            this.delete.IconRightZoom = 20D;
+            this.delete.IconVisible = true;
+            this.delete.IconZoom = 20D;
+            this.delete.IsTab = false;
+            this.delete.Location = new System.Drawing.Point(880, 5);
+            this.delete.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.delete.Name = "delete";
+            this.delete.Normalcolor = System.Drawing.Color.Transparent;
+            this.delete.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(229)))), ((int)(((byte)(232)))));
+            this.delete.OnHoverTextColor = System.Drawing.Color.White;
+            this.delete.selected = false;
+            this.delete.Size = new System.Drawing.Size(26, 26);
+            this.delete.TabIndex = 17;
+            this.delete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.delete.Textcolor = System.Drawing.Color.White;
+            this.delete.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delete.Click += new System.EventHandler(this.delete_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // prihodcell
             // 
@@ -201,42 +216,32 @@ namespace OptiQ
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.savebut);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "prihodcell";
-            this.Size = new System.Drawing.Size(858, 40);
+            this.Size = new System.Drawing.Size(920, 36);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private Bunifu.Framework.UI.BunifuFlatButton savebut;
+        private Bunifu.Framework.UI.BunifuFlatButton delete;
+        private System.Windows.Forms.Timer timer1;
     }
 }

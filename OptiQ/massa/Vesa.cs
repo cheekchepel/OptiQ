@@ -114,7 +114,7 @@ namespace OptiQ
             {
                 con.Close();
                 con.Open();
-                sql = "select vesi_name,pr_plu,pr_silka,pr_name,pr_opis,pr_price_ca from product_ves left join product on pr_silka=pr_id left join vesi_prot on pr_vesi_numer=vesi_numer where mg_id =" + Global.IDmagaz+ " order by pr_plu desc";
+                sql = "select vesi_name,pr_plu,pr_silka,pr_name,pr_opis,pr_price_ca from product_ves left join product_pro on pr_silka=pr_id left join vesi_prot on pr_vesi_numer=vesi_numer where mg_id =" + Global.IDmagaz+ " order by pr_plu desc";
                 cmd = new NpgsqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 dtSales.Rows.Clear();
@@ -265,7 +265,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = " SELECT pr_id,pr_name FROM product WHERE pr_plu=0 and (LOWER(pr_name) LIKE LOWER(N'%" + textBox6.Text + "%'))";
+            sqloff = " SELECT pr_id,pr_name FROM product_pro WHERE pr_plu=0 and (LOWER(pr_name) LIKE LOWER(N'%" + textBox6.Text + "%'))";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read())

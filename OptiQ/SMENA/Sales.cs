@@ -239,27 +239,11 @@ namespace OptiQ
 
         private void Opensesess_Click(object sender, EventArgs e)
         {
-
-            bunifuFlatButton1.Text = "0";
-            bunifuFlatButton2.Text = "0";
-            bunifuFlatButton3.Text = "0";
-            bunifuFlatButton4.Text = "0";
-            bunifuFlatButton5.Text = "0";
-            bunifuFlatButton7.Text = "0";
-            bunifuFlatButton8.Text = "0";
+            Program.main.backblakshow();
+            clclc.ShowDialog();
+            clclc.shtoct = 1;
 
 
-            long date1 = DateTimeOffset.Now.ToUnixTimeSeconds();
-
-            conoff.Open();
-            sqloff = "INSERT INTO ksas(id_kassir_ksas,date_start_ksas,date_end_ksas,id_mg_ksas)VALUES(" + Global.IDuser + "," + date1 + ",0," + Global.IDmagaz + ");";
-            sqloff+= "INSERT INTO productoff(pr_text)VALUES(N'"+ sqloff + "')";
-            cmdoff = new SqlCommand(sqloff, conoff);
-            droff = cmdoff.ExecuteReader();
-            droff.Read();
-            conoff.Close();
-            Program.log.poisc_sessii_and_view();
-            addact();
         }
 
         private void Closesess_Click(object sender, EventArgs e)
@@ -274,6 +258,7 @@ namespace OptiQ
             {
                 Program.main.backblakshow();
                 clclc.ShowDialog();
+                clclc.shtoct = 0;
 
             }
             else
