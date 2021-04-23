@@ -818,11 +818,14 @@ namespace OptiQ
                 string skidka_str = Convert.ToString(grdt_kass.Rows[schet].Cells[10].Value);
                 if (optom == true)
                 {
+                    if (skidka_str.Length > 4) {
+                        skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 4));
+                        grdt_kass.Rows[schet].Cells[6].Value = (cena + skidka) * kol;
+                        grdt_kass.Rows[schet].Cells[5].Value = skidka_str;
 
+                    }
                     
-                    skidka = Convert.ToDouble(skidka_str.Substring(0, skidka_str.Length - 4));
-                    grdt_kass.Rows[schet].Cells[6].Value = (cena + skidka) * kol;
-                    grdt_kass.Rows[schet].Cells[5].Value = skidka_str;
+                    
                 }
                 else {
 
@@ -1030,7 +1033,7 @@ namespace OptiQ
             if (zap == true)
             {
               
-                string opt = "-" + (price_ca - optom) + " тг.";
+                string opt = "-" + (Math.Abs(price_ca - optom)) + " тг.";
                 grdt_kass.Rows.Add(kod, new_neme_tov, price_ca, price_co, 1, 0, price_ca, price_co, pies - 1, pies, opt, rz_id);
             }
 

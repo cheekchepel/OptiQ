@@ -44,11 +44,7 @@ namespace OptiQ
 
         long id_date_start = 0;
 
-        int cenaco = 0;
 
-
-        string itog;
-        string url = "https://barcode-list.ru/barcode/RU/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA.htm?barcode=";
 
 
         private void close_Click(object sender, EventArgs e)
@@ -84,13 +80,13 @@ namespace OptiQ
                 textBox2.Text = (UnixTimeToDateTime(id_date_start)).ToString();
                 con.Close();
                 con.Open();
-                sql = "select rev_kod_pr,rev_name_pr,rev_cena_pr_co,rev_kol_bilo,rev_kol_stalo from revizia where id_rev_cart="+id_rev_care;
+                sql = "select rev_kod_pr,rev_name_pr,rev_kol_bilo,rev_kol_stalo,rz_name from revizia where id_rev_cart=" + id_rev_care;
                 cmd = new NpgsqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 while (dr.Read()) {
 
 
-                    dtSales.Rows.Add(dr[0],dr[1], dr[3], dr[4],Convert.ToInt32(dr[4])- Convert.ToInt32(dr[3]), Convert.ToInt32(dr[3]) - Convert.ToInt32(dr[4])* Convert.ToInt32(dr[2]));
+                    dtSales.Rows.Add(dr[0],dr[1], dr[2], dr[3],Convert.ToInt32(dr[3])- Convert.ToInt32(dr[2]),dr[4]);
 
 
                     
@@ -208,7 +204,7 @@ namespace OptiQ
                 dtSales.Columns.Add("rev_kol_bilo", typeof(string));
                 dtSales.Columns.Add("rev_kol_stalo", typeof(string));
                 dtSales.Columns.Add("raznica", typeof(string));
-                dtSales.Columns.Add("rev_cena_pr_co", typeof(string));
+                dtSales.Columns.Add("rz_name", typeof(string));
                 createcell();
             }
             catch { }
@@ -227,19 +223,19 @@ namespace OptiQ
                 try { 
                 while (ket < dtSales.Rows.Count) {
 
-                    if (textBox1.Text == dtSales.Rows[ket][0].ToString())
+                    if (textBox1.Text == dtSales.Rows[ket][0].ToString()&& comboBox2.Text == dtSales.Rows[ket][5].ToString())
                     {
                         Global.yesno = false;
                         yan.ShowDialog();
                         if (Global.yesno == true)
                         {
                             dtSales.Rows.RemoveAt(ket);
-                            dtSales.Rows.Add(textBox1.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDouble(textBox4.Text.Replace(".", ",")) - Convert.ToDouble(textBox5.Text.Replace(".", ",")), (Convert.ToDouble(textBox4.Text.Replace(".", ",")) - Convert.ToDouble(textBox5.Text.Replace(".", ","))) * cenaco); ;
+                            dtSales.Rows.Add(textBox1.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDouble(textBox4.Text.Replace(".", ",")) - Convert.ToDouble(textBox5.Text.Replace(".", ",")), comboBox2.Text); ;
                             viewcell();
 
                             con.Close();
                             con.Open();
-                            sql = "delete from revizia where rev_kod_pr=" + textBox1.Text + " and id_rev_cart =" + id_rev_care + "; INSERT INTO revizia(rev_kod_pr,rev_name_pr,rev_kol_bilo,rev_kol_stalo,rev_cena_pr_co,id_rev_cart)VALUES(" + textBox1.Text + ",'" + textBox3.Text + "'," + textBox4.Text.Replace(",", ".") + "," + textBox5.Text.Replace(",", ".") + "," + (((Convert.ToDouble(textBox4.Text.Replace(".", ",")) - Convert.ToDouble(textBox5.Text.Replace(".", ","))) * cenaco).ToString()).Replace(",", ".") + "," + id_rev_care + ")";
+                            sql = "delete from revizia where  rz_name='"+ comboBox2.Text + "' and rev_kod_pr=" + textBox1.Text + " and id_rev_cart =" + id_rev_care + "; INSERT INTO revizia(rev_kod_pr,rev_name_pr,rev_kol_bilo,rev_kol_stalo,rz_name,id_rev_cart)VALUES(" + textBox1.Text + ",'" + textBox3.Text + "'," + textBox4.Text.Replace(",", ".") + "," + textBox5.Text.Replace(",", ".") + ",'" + comboBox2.Text + "'," + id_rev_care + ")";
                             cmd = new NpgsqlCommand(sql, con);
                             dr = cmd.ExecuteReader();
                             dr.Read();
@@ -257,12 +253,12 @@ namespace OptiQ
                 {
 
 
-                    dtSales.Rows.Add(textBox1.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDouble(textBox4.Text) - Convert.ToDouble(textBox5.Text), (Convert.ToDouble(textBox4.Text) - Convert.ToDouble(textBox5.Text)) * cenaco);
+                    dtSales.Rows.Add(textBox1.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToDouble(textBox4.Text) - Convert.ToDouble(textBox5.Text), comboBox2.Text);
                     viewcell();
 
                     con.Close();
                     con.Open();
-                    sql = "INSERT INTO revizia(rev_kod_pr,rev_name_pr,rev_kol_bilo,rev_kol_stalo,rev_cena_pr_co,id_rev_cart)VALUES(" + textBox1.Text + ",'" + textBox3.Text + "'," + textBox4.Text.Replace(",", ".") + "," + textBox5.Text.Replace(",", ".") + "," + (((Convert.ToDouble(textBox4.Text) - Convert.ToDouble(textBox5.Text)) * cenaco).ToString()).Replace(",", ".") + "," + id_rev_care + ")";
+                    sql = "INSERT INTO revizia(rev_kod_pr,rev_name_pr,rev_kol_bilo,rev_kol_stalo,rz_name,id_rev_cart)VALUES(" + textBox1.Text + ",'" + textBox3.Text + "'," + textBox4.Text.Replace(",", ".") + "," + textBox5.Text.Replace(",", ".") + "," + comboBox2.Text + "," + id_rev_care + ")";
                     cmd = new NpgsqlCommand(sql, con);
                     dr = cmd.ExecuteReader();
                     dr.Read();
@@ -342,70 +338,46 @@ namespace OptiQ
 
 
         public void selct() {
-            try { 
+            
+
+            string namet = "";
+
+            comboBox2.Items.Clear();
+
             con.Close();
             con.Open();
-            sql = "select * from product where pr_kod =" + textBox1.Text + "and pr_mg_id=" + Global.IDmagaz;
+            sql = "select pr_name,rz_name from product_pro LEFT JOIN razmer_pro ON crt_off_id=cbt_cart_id where pr_kod =" + textBox1.Text + "and pr_mg_id=" + Global.IDmagaz;
             cmd = new NpgsqlCommand(sql, con);
 
             dr = cmd.ExecuteReader();
-            if (dr.Read())
+            while (dr.Read())
             {
 
-                textBox3.Text = dr["pr_name"].ToString();
-                textBox4.Text = dr["pr_piec"].ToString();
-                cenaco = Convert.ToInt32( dr["pr_price_co"]);
+
+                namet=dr["pr_name"].ToString();
+
+                comboBox2.Items.Add(dr["rz_name"].ToString());
+
+
+
+            }
+
+            if (comboBox2.Items.Count < 1) {
+
+                textBox1.Text = null;
+                textBox2.Text = null;
                
-
-
+                return;
+            
             }
-            else
-            {
+
+            textBox2.Text = namet;
 
 
-                var qe = (HttpWebRequest)WebRequest.Create(url + textBox1.Text);
-                using (HttpWebResponse response = (HttpWebResponse)qe.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
-                {
-
-                    itog = reader.ReadToEnd();
-
-                }
-
-
-
-                int dva = itog.IndexOf(" - Штрих-код:");
-
-                if (dva > 0)
-                {
-                    itog = itog.Remove(dva);
-
-                    int odin = itog.IndexOf("<title>");
-
-                    itog = itog.Remove(0, odin + 7);
-
-                    textBox3.Text = itog.Replace(",", ".");
-                    textBox4.Text = "0";
-                    cenaco = 0;
-                }
-
-
-
-            }
             con.Close();
 
+          
         }
-            catch (NpgsqlException)
-            {
-                this.Hide();
-        Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
-
-            }
-}
 
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
@@ -441,7 +413,7 @@ namespace OptiQ
 
                 con.Close();
                 con.Open();
-                sql = "select rev_kod_pr,rev_name_pr,rev_cena_pr_co,rev_kol_bilo,rev_kol_stalo from revizia where id_rev_cart=" + id_rev_care;
+                sql = "select rev_kod_pr,rev_name_pr,rz_name,rev_kol_bilo,rev_kol_stalo from revizia where id_rev_cart=" + id_rev_care;
                 cmd = new NpgsqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -449,34 +421,15 @@ namespace OptiQ
                 string cho = "";
                 long a = Convert.ToInt64(dr[4])- Convert.ToInt64(dr[3]);
                 if (a >= 0) { cho = "+"; } else { cho = ""; }
-             
+                    string rzname = dr[2].ToString();
                 long kod = Convert.ToInt64(dr[0]);
                   con2.Close();
                      con2.Open();
-                    sql2 = "UPDATE product Set pr_piec= (Select pr_piec where pr_kod="+ kod+" and pr_mg_id = "+Global.IDmagaz+")"+cho+"" + a + "  WHERE pr_kod =" + kod + " and pr_mg_id=" + Global.IDmagaz + "RETURNING pr_id";
+                    sql2 = "UPDATE razmer_pro Set rz_pies= (Select pr_piec where pr_kod=" + kod+" and pr_mg_id = "+Global.IDmagaz+")"+cho+"" + a + "  WHERE pr_kod =" + kod + " and pr_mg_id=" + Global.IDmagaz + "RETURNING pr_id";
                     cmd2 = new NpgsqlCommand(sql2, con2);
                     dr2 = cmd2.ExecuteReader();
                     dr2.Read();
-                    if (dr2.Read())
-                    {
-
-             
-
-                    }
-                    else
-                    {
-
-
-                        con2.Close();
-                        con2.Open();
-                        sql2 = "INSERT INTO product(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_fact_co,pr_provid,pr_piec)" +
-                            "VALUES(" + Global.IDmagaz + "," + kod + ",'" + dr[1].ToString() + "',0,0,0,'Нет'," + dr[4].ToString() + ")";
-                        cmd2 = new NpgsqlCommand(sql2, con2);
-                        dr2 = cmd2.ExecuteReader();
-                        dr2.Read();
-                        con2.Close();
-
-                    }
+                 
 
                     con2.Close();
 
@@ -528,5 +481,25 @@ namespace OptiQ
 
 
 }
+
+    
+
+        private void comboBox2_TextChanged(object sender, EventArgs e)
+        {
+
+            dtSales.Rows.Clear();
+            con.Close();
+            con.Open();
+            sql = "select rz_pies from razmer_pro where rz_pr_kod="+textBox1.Text+" and rz_mg_id="+Global.IDmagaz;
+            cmd = new NpgsqlCommand(sql, con);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+            
+            
+            
+            }
+
+        }
     }
 }

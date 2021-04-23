@@ -177,8 +177,8 @@ namespace OptiQ
                 droff = cmdoff.ExecuteReader();
 
                 conoff.Close();
-            
-            
+
+            id_rz = Convert.ToInt64(combrz.Text);
         }
 
 
@@ -215,8 +215,7 @@ namespace OptiQ
         {
             textBox2.Text = Convert.ToInt32("0" + textBox2.Text).ToString();
             textBox2.SelectionStart = textBox2.Text.Length;
-            timer1.Enabled = false;
-            timer1.Enabled = true;
+            
 
            
         }
@@ -231,8 +230,7 @@ namespace OptiQ
         {
             textBox3.Text = Convert.ToInt32("0" + textBox3.Text).ToString();
             textBox3.SelectionStart = textBox3.Text.Length;
-            timer1.Enabled = false;
-            timer1.Enabled = true;
+        
           
            
         }
@@ -241,34 +239,22 @@ namespace OptiQ
         {
             textBox4.Text = Convert.ToInt32("0" + textBox4.Text).ToString();
             textBox4.SelectionStart = textBox4.Text.Length;
-            timer1.Enabled = false;
-            timer1.Enabled = true;
+          
            
            
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-         
-
-            
-        }
+      
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             textBox5.SelectionStart = textBox5.Text.Length;
-            timer1.Enabled = false;
-            timer1.Enabled = true;
+        
           
             
         }
 
-        private void comboBox2_MouseDown(object sender, MouseEventArgs e)
-        {
-
-
-
-        }
+   
 
         private void delete_Click(object sender, EventArgs e)
         {
@@ -284,6 +270,7 @@ namespace OptiQ
             droff = cmdoff.ExecuteReader();
 
             conoff.Close();
+            Program.zakup.bunifuVTrackbar1.Value = 0;
             Program.zakup.select();
             
 
@@ -291,16 +278,21 @@ namespace OptiQ
 
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-         
-
             combrz.SelectedIndex = comboBox2.SelectedIndex;
-                  
-                update();
+
+            timer1.Enabled = false;
+            timer1.Enabled = true;
+
+           
+
+
+
 
             
-            id_rz = Convert.ToInt64(combrz.Text);  
 
-          
+
+
+
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -311,6 +303,12 @@ namespace OptiQ
             if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace и запятая
             {
                 e.Handled = true;
+            }
+            else {
+
+                timer1.Enabled = false;
+                timer1.Enabled = true;
+
             }
         }
 
@@ -323,6 +321,13 @@ namespace OptiQ
             {
                 e.Handled = true;
             }
+            else
+            {
+
+                timer1.Enabled = false;
+                timer1.Enabled = true;
+
+            }
         }
 
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
@@ -334,6 +339,13 @@ namespace OptiQ
             if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace и запятая
             {
                 e.Handled = true;
+            }
+            else
+            {
+
+                timer1.Enabled = false;
+                timer1.Enabled = true;
+
             }
         }
 
@@ -353,11 +365,34 @@ namespace OptiQ
             else
             {
 
-                if (number == '.' && indexOfChar != -1) { e.Handled = true; }
+                if (number == '.' && indexOfChar != -1) { e.Handled = true; } else {
+                
+                
+
+                }
+
+                
+
+                    timer1.Enabled = false;
+                    timer1.Enabled = true;
+
+                
 
             }
         }
 
-        
+
+
+        private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            timer2.Enabled = false;
+            timer2.Enabled = true;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            timer2.Enabled = false;
+            Program.zakup.select();
+        }
     }
 }

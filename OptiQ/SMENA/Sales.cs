@@ -239,9 +239,10 @@ namespace OptiQ
 
         private void Opensesess_Click(object sender, EventArgs e)
         {
+            clclc.shtoct = 1;
             Program.main.backblakshow();
             clclc.ShowDialog();
-            clclc.shtoct = 1;
+           
 
 
         }
@@ -256,9 +257,10 @@ namespace OptiQ
 
             if (Global.date_open_sesions!=0)
             {
+                clclc.shtoct = 0;
                 Program.main.backblakshow();
                 clclc.ShowDialog();
-                clclc.shtoct = 0;
+              
 
             }
             else

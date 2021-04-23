@@ -111,6 +111,7 @@ namespace OptiQ
             this.panel7.Padding = new System.Windows.Forms.Padding(10);
             this.panel7.Size = new System.Drawing.Size(160, 60);
             this.panel7.TabIndex = 11;
+            this.panel7.Visible = false;
             // 
             // bunifuFlatButton5
             // 

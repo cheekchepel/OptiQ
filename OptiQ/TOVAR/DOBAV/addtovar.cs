@@ -418,7 +418,7 @@ namespace OptiQ
                         dr = cmd.ExecuteReader();
                         dr.Read();
                         con.Close();
-                        MessageBox.Show("savascvas");
+                  
 
 
                     }

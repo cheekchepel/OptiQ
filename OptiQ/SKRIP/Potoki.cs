@@ -177,7 +177,7 @@ namespace OptiQ
             {
 
 
-               // try{
+                try{
                     conc.Close();
                     conc.Open();
                     sqlc = "select base_ver,sales_ver from magaz where mg_id=" + Global.IDmagaz + " and (base_ver>" + Global.basever+ "or sales_ver>" + Global.veriaprodaj+")";
@@ -197,7 +197,7 @@ namespace OptiQ
 
                     }
                     conc.Close();
-              //  } catch (NpgsqlException) { }
+                } catch (NpgsqlException) { }
 
             Thread.Sleep(10000);
         }
@@ -226,15 +226,10 @@ namespace OptiQ
 
         public static void cari() {
 
-       //     try {
+            try {
 
 
-                
-               
-
-
-
-
+     
 
                 if (Global.date_open_sesions != 0)
                 {
@@ -299,7 +294,7 @@ namespace OptiQ
 
 
 
-           // }catch (NpgsqlException) { }
+            }catch (NpgsqlException) { }
 
         }
 
@@ -327,7 +322,7 @@ namespace OptiQ
             string delproduc = "DELETE FROM product_pro;";
             con1.Close();
 
-         //   try{
+            try{
                 con1.Close();
                 con1.Open();
                 sql1 = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
@@ -350,14 +345,14 @@ namespace OptiQ
                 }
 
                 con1.Close();
-      //     }catch (NpgsqlException) { }
+           }catch (NpgsqlException) { }
 
 
 
 
             con1.Close();
 
-         //   try{
+            try{
             string delrazmer = "DELETE FROM razmer_pro;";
             con1.Close();
                 con1.Open();
@@ -381,7 +376,7 @@ namespace OptiQ
                 }
 
                 con1.Close();
-          //  }catch (NpgsqlException) { }
+            }catch (NpgsqlException) { }
 
 
 
@@ -391,7 +386,7 @@ namespace OptiQ
 
             con1.Close();
 
-         //   try{
+            try{
          string delkateg= "DELETE FROM kateg;";
             con1.Close();
                 con1.Open();
@@ -417,12 +412,12 @@ namespace OptiQ
                 con1.Close();
 
 
-            //  } catch (NpgsqlException) { }
+              } catch (NpgsqlException) { }
 
 
             con1.Close();
 
-            //   try{
+               try{
             string delprov = "DELETE FROM myprov;";
             con1.Close();
             con1.Open();
@@ -448,7 +443,8 @@ namespace OptiQ
             con1.Close();
 
 
-
+            }
+            catch (NpgsqlException) { }
             ///////////////////
 
 
@@ -473,7 +469,7 @@ namespace OptiQ
 
 
 
-
+            try { 
 
 
 
@@ -523,14 +519,14 @@ namespace OptiQ
 
 
 
+        } catch (NpgsqlException) { }
 
 
 
+    con3.Close();
 
-            con3.Close();
 
-
-         //   try{
+            try{
                 con3.Close();
                 con3.Open();
                 sql3 = "select us_mg_id,us_off_id,us_name,us_danie,us_summa,us_bonus,us_date from users_pro where us_mg_id=" + Global.IDmagaz;
@@ -566,12 +562,12 @@ namespace OptiQ
                 con3.Close();
 
 
-         //   } catch (NpgsqlException) { }
+           } catch (NpgsqlException) { }
 
 
 
 
-
+            try { 
 
 
 
@@ -614,14 +610,14 @@ namespace OptiQ
             conoff3.Close();
             Global.veriaprodaj = basvers;
 
-            
-            
+
+
+        } catch (NpgsqlException) { }
 
 
 
 
-
-        }
+}
 
 
 
@@ -658,7 +654,7 @@ namespace OptiQ
 
            
 
-          // try{
+           try{
                 conoff.Close();
                     conoff.Open();
 
@@ -687,7 +683,7 @@ namespace OptiQ
                     conoff.Close();
 
 
-          // }catch (NpgsqlException) { }
+           }catch (NpgsqlException) { }
 
 
             Thread.Sleep(5000);

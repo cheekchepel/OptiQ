@@ -43,6 +43,7 @@ namespace OptiQ
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.delete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -157,9 +158,8 @@ namespace OptiQ
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(148, 24);
             this.comboBox2.TabIndex = 7;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox2.SelectionChangeCommitted += new System.EventHandler(this.comboBox2_SelectionChangeCommitted);
             this.comboBox2.TextChanged += new System.EventHandler(this.comboBox2_TextChanged);
-            this.comboBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboBox2_MouseDown);
             // 
             // textBox5
             // 
@@ -216,6 +216,11 @@ namespace OptiQ
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 250;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // prihodcell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -223,7 +228,7 @@ namespace OptiQ
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.flowLayoutPanel3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.Name = "prihodcell";
             this.Size = new System.Drawing.Size(920, 36);
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -248,5 +253,6 @@ namespace OptiQ
         private System.Windows.Forms.TextBox textBox5;
         private Bunifu.Framework.UI.BunifuFlatButton delete;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

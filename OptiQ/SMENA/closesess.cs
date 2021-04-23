@@ -58,7 +58,7 @@ namespace OptiQ
         {
             int stal = Convert.ToInt32("0" + textBox1.Text);
 
-            if (shtoct == 0) { 
+            if (shtoct == 1) { 
 
 
             
@@ -77,7 +77,7 @@ namespace OptiQ
             Program.ssssss.addact();
 
             }
-           else if (shtoct==1 && Global.date_open_sesions!=0)
+           else if (shtoct==0 && Global.date_open_sesions!=0)
             {
 
                 
@@ -110,6 +110,7 @@ namespace OptiQ
 
             conoff.Close();
             Program.ssssss.Closesess.Visible = false;
+            Program.main.backblakhide();
             this.Close();
             Program.log.poisc_sessii_and_view();
         }

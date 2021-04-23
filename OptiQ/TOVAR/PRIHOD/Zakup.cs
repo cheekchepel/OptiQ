@@ -31,7 +31,7 @@ namespace OptiQ
         public SqlCommand cmd;
         public SqlDataReader dr;
 
-        prihodcell[] sel = new prihodcell[50];
+        prihodcell[] sel = new prihodcell[12];
 
         public int kolichestvo=0;
 
@@ -98,7 +98,7 @@ namespace OptiQ
             //panel8.Visible = Global.pra_showprih;
             // cenaco.Visible = Global.pra_showprih;
 
-            while (raz < 50) {
+            while (raz < 12) {
 
                 sel[raz] = new prihodcell{Visible=false,selcehk=false};
 
@@ -120,31 +120,50 @@ namespace OptiQ
 
         public void select() {
 
+            int count = 0;
+
             kolichestvo = 0;
 
             con.Close();
             con.Open();
-            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol from prihod order by Id desc ";
+            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol,(SELECT COUNT(*) FROM prihod) from prihod order by Id desc OFFSET " +Convert.ToInt32(bunifuVTrackbar1.Value/4)+" ROWS";
             cmd = new SqlCommand(sql, con);
             dr = cmd.ExecuteReader();
-            while (kolichestvo<50)
+            while (kolichestvo < 11)
             {
-             
-                while (dr.Read()&& kolichestvo < 50)
-                {
 
+                 while (kolichestvo < 11 && dr.Read()) {
+
+                    sel[kolichestvo].zagruz(Convert.ToInt64(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), Convert.ToInt64(dr[5]), Convert.ToDouble(dr[6]));
                     
-                    sel[kolichestvo].zagruz(Convert.ToInt64(dr[0]),dr[1].ToString(),dr[2].ToString(), dr[3].ToString(), dr[4].ToString(),Convert.ToInt64(dr[5]) , Convert.ToDouble(dr[6]));
-
                     kolichestvo++;
-                }
+
+                    count = Convert.ToInt32(dr[7]) ;
+
+                 }
 
                 sel[kolichestvo].Visible = false;
+
                 kolichestvo++;
 
-            }
+
+            }         
+
+ 
             con.Close();
 
+            if (count > 11)
+            {
+                bunifuVTrackbar1.MaximumValue = (count - 10)*4;
+                bunifuVTrackbar1.Visible = true;
+            }
+            else {
+
+                bunifuVTrackbar1.Visible = false;
+
+            }
+
+            
 
 
 
@@ -188,6 +207,7 @@ namespace OptiQ
                     sel[0].selcehk = false;
                     sel[0].add(Convert.ToInt64(kod));
                     textBox1.Text = null;
+                    bunifuVTrackbar1.Value = 0;
                     select();
 
                 }
@@ -266,6 +286,70 @@ namespace OptiQ
 
             select();
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            bunifuCustomDataGrid1.Height = 0;
+            bunifuCustomDataGrid1.Visible = true;
+            long res;
+            bool isInt = Int64.TryParse(textBox1.Text + "0", out res);
+
+            if (textBox1.Text.Length > 1 && isInt != true)
+            {
+                
+                bunifuCustomDataGrid1.Rows.Clear();
+                con.Close();
+                con.Open();
+                sql = " SELECT pr_kod,pr_name FROM product_pro WHERE (LOWER(pr_name) LIKE LOWER(N'%" + textBox1.Text + "%'))";
+                cmd = new SqlCommand(sql, con);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    bunifuCustomDataGrid1.Rows.Add(Convert.ToInt64(dr[0]), dr[1]);
+
+                }
+                con.Close();
+
+                bunifuCustomDataGrid1.Height = (bunifuCustomDataGrid1.Rows.Count) * 28;
+                bunifuCustomDataGrid1.Width = 438;
+                bunifuCustomDataGrid1.Location = new Point(50, 145);
+                bunifuCustomDataGrid1.ClearSelection();
+
+            }
+        }
+
+        private void bunifuCustomDataGrid1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bunifuCustomDataGrid1.Height = 0;
+            int idx = 0;
+
+            if (bunifuCustomDataGrid1.Rows.Count > 0)
+            {
+
+
+
+
+
+                idx = bunifuCustomDataGrid1.CurrentRow.Index;
+
+                kassa_pulus((bunifuCustomDataGrid1.Rows[idx].Cells[0].Value).ToString());
+
+
+               
+
+
+
+
+
+
+
+            }
+        }
+
+        private void bunifuVTrackbar1_ValueChanged(object sender, EventArgs e)
+        {
+            select();
         }
     }
 }
