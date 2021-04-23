@@ -240,9 +240,9 @@ namespace OptiQ
                 {
 
                 string delcartmet = "delete from cartbuymet;";
-
-
-                    con2.Close();
+                con2.Close();
+                con2.Close();
+                con2.Close();
                     con2.Open();
                     sql2 = "select crt_off_id,cbt_by_how,cbt_by_komuis,cbt_sum,cbt_skidon from cart LEFT JOIN cartbuymet ON crt_off_id=cbt_cart_id where id_kassir=" + Global.IDuser + "and crt_date >" + Global.date_open_sesions;
                     cmd2 = new NpgsqlCommand(sql2, con2);
@@ -324,7 +324,7 @@ namespace OptiQ
         {
 
 
-            string delproduc = "DELETE FROM product;";
+            string delproduc = "DELETE FROM product_pro;";
             con1.Close();
 
          //   try{
@@ -436,7 +436,7 @@ namespace OptiQ
 
                 conoff1.Close();
                 conoff1.Open();
-                sqloff1 = delprov + "INSERT INTO myprov(mp_mg_id,mp_name,mp_test)VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + ")";
+                sqloff1 = delprov + "INSERT INTO myprov(mp_mg_id,mp_name,mp_test)VALUES(" + dr1[0] + ",N'" + dr1[1] + "','" + dr1[2] + "')";
                 cmdoff1 = new SqlCommand(sqloff1, conoff1);
                 droff1 = cmdoff1.ExecuteReader();
                 droff1.Read();

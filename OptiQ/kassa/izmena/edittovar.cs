@@ -162,8 +162,8 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                 sqloff = "UPDATE product set pr_price_ca =" + textBox1.Text + "WHERE pr_kod =" + kod;
-                sqloff += " INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "UPDATE product set pr_price_ca = " + textBox1.Text + " WHERE pr_kod = " + kod + " and pr_mg_id="+Global.IDmagaz+"')";
+                 sqloff = "UPDATE product_pro set pr_price_ca =" + textBox1.Text + "WHERE pr_kod =" + kod;
+                sqloff += " INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + "UPDATE product_pro set pr_price_ca = " + textBox1.Text + " WHERE pr_kod = " + kod + " and pr_mg_id="+Global.IDmagaz+"')";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader(); 
                 droff.Read();

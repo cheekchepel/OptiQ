@@ -74,13 +74,13 @@ namespace OptiQ
         public static string MGname = "";
         public static string MGadr = "";
         public static string conectpost = "Server=45.9.190.177; Port=5432; User Id = konstantin; Password=kot_520535; Database=optiq";
-       //  public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\1ooppa3\OptiQ\OptiQ\BASE\OFFver.mdf;Integrated Security = True";
-       // public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BASE\OFFver.mdf;Integrated Security = True";
+         // public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Elon\Desktop\Rabota\1ooppa3\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security = True";
+        // public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BASE\OFFver.mdf;Integrated Security = True";
 
         public static string conectsql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\Rabota\1ooppa3\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security=True";
 
          public static string versia ;
-        public static string salever;
+        public static string salever; 
 
         public static string Vers
         {

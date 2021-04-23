@@ -36,7 +36,7 @@ namespace OptiQ
         public int kolichestvo=0;
 
 
-        int sum = 0;
+       // int sum = 0;
 
 
         int raz = 0;
@@ -100,7 +100,10 @@ namespace OptiQ
 
             while (raz < 50) {
 
-                sel[raz] = new prihodcell {Visible=false}; 
+                sel[raz] = new prihodcell{Visible=false,selcehk=false};
+
+                flowLayoutPanel1.Controls.Add(sel[raz]);
+          
 
                 raz++;
             }
@@ -121,16 +124,17 @@ namespace OptiQ
 
             con.Close();
             con.Open();
-            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,rz_id,kol from prihod order by desc";
+            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol from prihod order by Id desc ";
             cmd = new SqlCommand(sql, con);
             dr = cmd.ExecuteReader();
             while (kolichestvo<50)
             {
-
-                while (dr.Read())
+             
+                while (dr.Read()&& kolichestvo < 50)
                 {
 
-                    sel[kolichestvo].zagruz(Convert.ToInt64(dr[0]),dr[1].ToString(),dr[3].ToString(), dr[4].ToString(), dr[5].ToString(),Convert.ToInt64(dr[6]) , Convert.ToDouble(dr[7]));
+                    
+                    sel[kolichestvo].zagruz(Convert.ToInt64(dr[0]),dr[1].ToString(),dr[2].ToString(), dr[3].ToString(), dr[4].ToString(),Convert.ToInt64(dr[5]) , Convert.ToDouble(dr[6]));
 
                     kolichestvo++;
                 }
@@ -156,7 +160,7 @@ namespace OptiQ
 
 
 
-        public void kassa_pulus(long rz_id, string kod)
+        public void kassa_pulus(string kod)
         {
 
 
@@ -172,37 +176,29 @@ namespace OptiQ
 
 
 
-                conoff.Close();
-                conoff.Open();
-                sqloff = "select pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom from product_pro where  pr_kod=" + kod;
-                cmdoff = new SqlCommand(sqloff, conoff);
-                droff = cmdoff.ExecuteReader();
+                con.Close();
+                con.Open();
+                sql = "select pr_kod from product_pro where pr_kod=" + kod;
+                cmd = new SqlCommand(sql, con);
+                dr = cmd.ExecuteReader();
 
-                if (droff.Read())
+                if (dr.Read())
                 {
 
-                    select(Convert.ToInt64(droff[0]), droff[1].ToString(), Convert.ToInt32(droff[2]), Convert.ToInt32(droff[3]), Convert.ToInt32(droff[4]), rz_id);
-
+                    sel[0].selcehk = false;
+                    sel[0].add(Convert.ToInt64(kod));
+                    textBox1.Text = null;
+                    select();
 
                 }
                 else
                 {
-                    if (kod.Length == 13)
-                    {
-                        pisc_plu(kod.Remove(12).Remove(0, 2));
-                    }
-                    else
-                    {
-                        conoff.Close();
-                        add.ID = kod;
-                        Program.main.backblakshow();
-                        add.ShowDialog();
 
-                    }
-
+                    textBox1.Text = null;
 
                 }
-                conoff.Close();
+                con.Close();
+
 
 
 
@@ -214,15 +210,62 @@ namespace OptiQ
 
         }
 
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
 
+                kassa_pulus(textBox1.Text);
 
+            }
+        }
 
+        private void Zakup_Shown(object sender, EventArgs e)
+        {
+            select();
+        }
 
+        private void bunifuFlatButton8_Click(object sender, EventArgs e)
+        {
+            string cart_id = Global.IDuser + "" + DateTimeOffset.Now.ToUnixTimeSeconds();
+            string zapros=null;
+            string zaprosoff = null;
 
+            int min = 0;
 
+            con.Close();
+            con.Open();
+            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol from prihod";
+            cmd = new SqlCommand(sql, con);
+            dr = cmd.ExecuteReader();
 
+            while (dr.Read())
+            {
+                
+                zapros += "insert into postavproduct(pospro_id_postavki,pospro_kod,pospro_name,pospro_price_co,pospro_price_ca,pospro_rz_id,pospro_piec)" +
+                    " VALUES ("+ cart_id + ","+dr[0]+",N'"+dr[1]+"',"+dr[2]+"," + dr[3] + "," + dr[5] + "," + dr[6].ToString().Replace(",",".") + ");";
 
+                zaprosoff+= "UPDATE razmer_pro SET rz_pies=((select rz_pies from razmer_pro where rz_pr_kod=" + dr[0] + " and rz_id=" + dr[5] + ")+" + dr[6].ToString().Replace(",", ".") + ") where rz_pr_kod=" + dr[0]+" and rz_id="+dr[5]+";";
 
+                min += Convert.ToInt32(dr[2]);
 
+            }
+
+            con.Close();
+
+            zapros += "insert into postavki(pos_kassir_id,pos_type,pos_sum_pri,pos_name_prov,pos_mg_id,pos_date,pos_idshnik)" +
+                " VALUES ("+Global.IDuser+",1,"+min+",'"+text6.Text+"',"+Global.IDmagaz+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ","+ cart_id + ");";
+
+            con.Close();
+            con.Open();
+            sql = "delete from prihod;" + zaprosoff+"insert into productoff(pr_text) VALUES (N'"+ (zapros + zaprosoff).Replace("'","$") + Global.versia + "');";
+            cmd = new SqlCommand(sql, con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            con.Close();
+
+            select();
+
+        }
     }
 }
