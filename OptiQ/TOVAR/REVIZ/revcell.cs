@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,22 +20,29 @@ namespace OptiQ
         }
 
 
-        public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
-
-        public string sql;
-        public NpgsqlCommand cmd;
-        public NpgsqlDataReader dr;
 
 
-        public int id;
-        public int idtov;
-        public int colsoz;
-  
+        public SqlConnection conoff1 = new SqlConnection(Global.conectsql);
 
-        public int ID
+        public string sqloff1;
+
+        public SqlCommand cmdoff1;
+        public SqlDataReader droff1;
+
+
+        public long kod = 0;
+        public long id_rz = 0;
+
+   
+
+        public ComboBox combrz = new ComboBox();
+
+        public void add(long shtrih)
         {
-            get { return id; }
-            set { id = value; add(); }
+
+            kod = shtrih;
+
+
 
 
         }
@@ -44,55 +52,207 @@ namespace OptiQ
 
 
 
-        private void add()
+
+        public void zagruz(long kd, string name, long rz_id, string bilo, string stalo)
         {
 
-            if (Program.revix.dtSales.Rows.Count > id)
+            id_rz = 0;
+
+            kod = kd;
+
+            textBox1.Text = name;
+            textBox2.Text = bilo.Replace(",", "."); ;
+            textBox3.Text = stalo.Replace(",", "."); ;
+        //    textBox4.Text = (Convert.ToDouble(bilo)-Convert.ToDouble(stalo)).ToString().Replace(",",".");
+
+            id_rz = rz_id;
+
+            sel_it(rz_id);
+
+            combrz.Text = rz_id.ToString();
+
+            comboBox2.SelectedIndex = combrz.SelectedIndex;
+
+            this.Visible = true;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void sel_it(long id)
+        {
+
+
+            conoff1.Close();
+            conoff1.Open();
+
+            sqloff1 = "select rz_name,rz_id from razmer_pro where rz_pr_kod=" + kod + "" +
+                " and (rz_id=" + id + " or not rz_id in (select rz_id from reviz where kod=" + kod + "))";
+            cmdoff1 = new SqlCommand(sqloff1, conoff1);
+            droff1 = cmdoff1.ExecuteReader();
+            comboBox2.Items.Clear();
+            combrz.Items.Clear();
+            while (droff1.Read())
             {
-                textBox1.Text = Program.revix.dtSales.Rows[id][0].ToString();
-                textBox2.Text = Program.revix.dtSales.Rows[id][1].ToString();
-                textBox3.Text = Program.revix.dtSales.Rows[id][2].ToString();
-                textBox4.Text = Program.revix.dtSales.Rows[id][3].ToString();
-                textBox5.Text = Program.revix.dtSales.Rows[id][4].ToString();
-                textBox6.Text = Program.revix.dtSales.Rows[id][5].ToString();
 
-                this.Visible = true;
-            }
-            else { this.Visible = false; }
-
-        }
-
-        private void close_Click(object sender, EventArgs e)
-        {
-            try { 
-
-            Program.revix.dtSales.Rows.RemoveAt(id);
-            this.Visible = false;
-            add();
-
-            con.Close();
-            con.Open();
-            sql = "DELETE FROM revizia WHERE rev_kod_pr =" + textBox1.Text+" and id_rev_cart="+Program.revix.id_rev_care;
-            cmd = new NpgsqlCommand(sql, con);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-            con.Close();
-        }
-            catch (NpgsqlException)
-            {
-                this.Hide();
-        Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
+                comboBox2.Items.Add(droff1[0].ToString());
+                combrz.Items.Add(droff1[1].ToString());
 
             }
 
-}
+            conoff1.Close();
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
+            textBox4.SelectionStart = textBox4.Text.Length;
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            update();
+        }
+
+
+
+
+        public void update()
+        {
+
+
+            conoff1.Close();
+            conoff1.Open();
+
+
+            sqloff1 = " UPDATE reviz SET stalo=0" + textBox3.Text.Replace(",", ".") + "where kod=" + kod + " and rz_id=" + id_rz;
+            cmdoff1 = new SqlCommand(sqloff1, conoff1);
+            droff1 = cmdoff1.ExecuteReader();
+
+            conoff1.Close();
+
+        }
+
+
+
+   
+
+        private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            timer2.Enabled = false;
+            timer2.Enabled = true;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            timer2.Enabled = false;
+
+
+            update2();
+
+
+            Program.revix.select();
+        }
+
+
+
+        public void update2()
+        {
+
+
+            conoff1.Close();
+            conoff1.Open();
+            sqloff1 = " UPDATE reviz SET rz_id=" + combrz.Text + ",bilo=(select rz_pies from razmer_pro where rz_pr_kod=" + kod + " and  rz_id  =" + combrz.Text+ "),stalo=0, where kod = " + kod + " and rz_id = " + id_rz + ";";
+            cmdoff1 = new SqlCommand(sqloff1, conoff1);
+            droff1 = cmdoff1.ExecuteReader();
+
+            conoff1.Close();
+
+
+        }
+
+        private void comboBox2_TextChanged(object sender, EventArgs e)
+        {
+            combrz.SelectedIndex = comboBox2.SelectedIndex;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
             
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            double bil = Convert.ToDouble(textBox2.Text.Replace(".", ","));
+            double stal = Convert.ToDouble("0"+textBox3.Text.Replace(".", ","));
+
+            textBox4.Text = (bil - stal).ToString().Replace(",",".");
+
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int indexOfChar = textBox3.Text.IndexOf('.');
+
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8 && number != '.') // цифры, клавиша BackSpace и запятая
+            {
+                e.Handled = true;
+            }
+            else
+            {
+
+                if (number == '.' && indexOfChar != -1) { e.Handled = true; }
+
+
+                timer1.Enabled = false;
+                timer1.Enabled = true;
+
+
+
+            }
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            conoff1.Close();
+            conoff1.Open();
+
+            conoff1.Close();
+            conoff1.Open();
+
+            sqloff1 = "delete from reviz where kod=" + kod + " and rz_id=" + id_rz;
+            cmdoff1 = new SqlCommand(sqloff1, conoff1);
+            droff1 = cmdoff1.ExecuteReader();
+
+            conoff1.Close();
+            Program.revix.bunifuVTrackbar1.Value = 0;
+            Program.revix.select();
         }
     }
 }

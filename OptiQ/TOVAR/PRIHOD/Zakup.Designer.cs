@@ -48,6 +48,8 @@ namespace OptiQ
             this.mzSombraPanel1 = new MZControls.MZSombraPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search1 = new OptiQ.search();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -62,8 +64,6 @@ namespace OptiQ
             this.bunifuCustomDataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.search1 = new OptiQ.search();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.bunifuVTrackbar1 = new Bunifu.Framework.UI.BunifuVTrackbar();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -277,6 +277,29 @@ namespace OptiQ
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
+            // search1
+            // 
+            this.search1.BackColor = System.Drawing.Color.Transparent;
+            this.search1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.search1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search1.Location = new System.Drawing.Point(4, 5);
+            this.search1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.search1.Name = "search1";
+            this.search1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.search1.Size = new System.Drawing.Size(30, 22);
+            this.search1.TabIndex = 3;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(404, 5);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
+            this.shjowkeyboard1.TabIndex = 9;
+            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
@@ -430,12 +453,12 @@ namespace OptiQ
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 201);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(973, 456);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(970, 456);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // bunifuElipse2
@@ -534,29 +557,6 @@ namespace OptiQ
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // search1
-            // 
-            this.search1.BackColor = System.Drawing.Color.Transparent;
-            this.search1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.search1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.search1.Location = new System.Drawing.Point(4, 5);
-            this.search1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.search1.Name = "search1";
-            this.search1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.search1.Size = new System.Drawing.Size(30, 22);
-            this.search1.TabIndex = 3;
-            // 
-            // shjowkeyboard1
-            // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(404, 5);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
-            this.shjowkeyboard1.TabIndex = 9;
-            // 
             // bunifuVTrackbar1
             // 
             this.bunifuVTrackbar1.AutoSize = true;
@@ -567,7 +567,7 @@ namespace OptiQ
             this.bunifuVTrackbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuVTrackbar1.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
             this.bunifuVTrackbar1.Location = new System.Drawing.Point(973, 201);
-            this.bunifuVTrackbar1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.bunifuVTrackbar1.Margin = new System.Windows.Forms.Padding(0);
             this.bunifuVTrackbar1.MaximumValue = 100;
             this.bunifuVTrackbar1.Name = "bunifuVTrackbar1";
             this.bunifuVTrackbar1.Size = new System.Drawing.Size(30, 456);
@@ -582,9 +582,9 @@ namespace OptiQ
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1000, 717);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.bunifuVTrackbar1);
             this.Controls.Add(this.bunifuCustomDataGrid1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel1);

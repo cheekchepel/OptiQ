@@ -56,7 +56,13 @@ namespace OptiQ
         public static int kaspired = 0;
         public static int uvedomlenie_ostatoc = 10;
 
+
+
+
+
         public static int maxbonus = 20;
+
+        public static int maxbonusogran = 20;
 
         public static int maxskidnactov = 20;
 
@@ -73,13 +79,17 @@ namespace OptiQ
         public static int IDmagaz;
         public static string MGname = "";
         public static string MGadr = "";
+
+
+        public static string conectblak = "Server=45.93.136.41; Port=5432; User Id = postgres; Password=qazwsxedc12; Database=mydb";
+
         public static string conectpost = "Server=45.9.190.177; Port=5432; User Id = konstantin; Password=kot_520535; Database=optiq";
-         // public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Elon\Desktop\Rabota\1ooppa3\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security = True";
-        // public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BASE\OFFver.mdf;Integrated Security = True";
+      //   public static string conectsql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\Rabota\1ooppa3\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security=True";
+        public static string conectsql = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BASE\OFFver.mdf;Integrated Security = True";
 
-        public static string conectsql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Куаныш\Desktop\Rabota\1ooppa3\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security=True";
+        // public static string conectsql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Elon\Desktop\Rabota\OPTIQrazrab\OptiQPro\OptiQ\BASE\OFFver.mdf;Integrated Security=True";
 
-         public static string versia ;
+        public static string versia ;
         public static string salever; 
 
         public static string Vers

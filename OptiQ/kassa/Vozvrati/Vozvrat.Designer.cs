@@ -60,6 +60,10 @@ namespace OptiQ
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.bunifuFlatButton13 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.grdt_kass = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +76,7 @@ namespace OptiQ
             this.cenakonco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idrz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.flowLayoutPanel2.SuspendLayout();
             this.mzSombraPanel1.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -80,6 +85,7 @@ namespace OptiQ
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).BeginInit();
             this.SuspendLayout();
             // 
@@ -413,6 +419,7 @@ namespace OptiQ
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel3.Controls.Add(this.bunifuFlatButton13);
+            this.flowLayoutPanel3.Controls.Add(this.panel2);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(410, 20);
@@ -457,6 +464,56 @@ namespace OptiQ
             this.bunifuFlatButton13.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton13.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton13.Click += new System.EventHandler(this.bunifuFlatButton13_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.shjowkeyboard2);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(10, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(240, 75);
+            this.panel2.TabIndex = 6;
+            // 
+            // shjowkeyboard2
+            // 
+            this.shjowkeyboard2.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard2.Location = new System.Drawing.Point(205, 24);
+            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard2.Name = "shjowkeyboard2";
+            this.shjowkeyboard2.Padding = new System.Windows.Forms.Padding(5);
+            this.shjowkeyboard2.Size = new System.Drawing.Size(35, 51);
+            this.shjowkeyboard2.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            this.textBox1.Location = new System.Drawing.Point(3, 25);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(198, 51);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.MinimumSize = new System.Drawing.Size(240, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "        Комментарий";
             // 
             // grdt_kass
             // 
@@ -640,6 +697,11 @@ namespace OptiQ
             this.bunifuElipse1.ElipseRadius = 15;
             this.bunifuElipse1.TargetControl = this.panel4;
             // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 15;
+            this.bunifuElipse2.TargetControl = this.panel2;
+            // 
             // Vozvrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -671,6 +733,8 @@ namespace OptiQ
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdt_kass)).EndInit();
             this.ResumeLayout(false);
 
@@ -710,5 +774,10 @@ namespace OptiQ
         private System.Windows.Forms.DataGridViewTextBoxColumn idrz;
         private search search1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private shjowkeyboard shjowkeyboard2;
     }
 }

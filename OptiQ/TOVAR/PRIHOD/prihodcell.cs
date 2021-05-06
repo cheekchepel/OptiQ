@@ -207,7 +207,7 @@ namespace OptiQ
             comboBox2.SelectedIndex = combrz.SelectedIndex;
 
             this.Visible = true;
-            selcehk = true;
+
 
         }
 

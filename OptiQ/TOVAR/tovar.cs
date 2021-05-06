@@ -7,11 +7,13 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using Excel = Microsoft.Office.Interop.Excel;
+
 using System.Windows.Forms;
 using ZXing;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace OptiQ
 {
@@ -25,6 +27,13 @@ namespace OptiQ
         public NpgsqlDataReader dr;
 
 
+
+        public SqlConnection conoff = new SqlConnection(Global.conectsql);
+        public string sqloff;
+        public SqlCommand cmdoff;
+        public SqlDataReader droff;
+
+
         productcell[] sel = new productcell[60];
         public addtovar add = new addtovar();
 
@@ -34,6 +43,12 @@ namespace OptiQ
 
 
       public  DataTable dtSales = new DataTable();
+
+
+
+       Excel.Application xlApp = new Excel.Application();
+
+
 
         int list = 0;
         private double res;
@@ -52,8 +67,9 @@ namespace OptiQ
         Point imgpo = new Point(0, 0);
         Point imgsz = new Point(0, 0);
         BarcodeWriter qr = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
-
-
+        private Excel.Workbook xlWorkBook;
+        private Excel.Worksheet xlWorkSheet;
+        private object misValue;
 
         public void zagrsel()
         {
@@ -76,6 +92,7 @@ namespace OptiQ
 
                 dataGridView1.DataSource = dtSales;
 
+
             }
             catch (NpgsqlException) { 
             Program.main.KASSA_view();
@@ -97,10 +114,9 @@ namespace OptiQ
 
 
 
-
         private void tovar_Load(object sender, EventArgs e)
         {
-
+          
 
             panel10.Visible = Global.pra_showprih;
             panel16.Visible = Global.pra_eidittov;
@@ -128,13 +144,13 @@ namespace OptiQ
 
         public void viewcell()
         {
-         
+           
 
             for ( int i =0; i < kolichestvo*2; i++)
             { 
                 if (i < dtSales.Rows.Count)
                 {
-                    sel[i].ID = list + i;
+                    sel[i].ID = i + list;
                    
                 }
                 else {
@@ -150,7 +166,7 @@ namespace OptiQ
        public void createcell()
         {
 
-            for (int i = 0; i < kolichestvo * 2; i++) {
+            for (int i = 0; i < kolichestvo*2 ; i++) {
                 
                 sel[i] = new productcell ();
                 sel[i].ID = i;
@@ -360,6 +376,96 @@ namespace OptiQ
 
             e.HasMorePages = (opana < dataGridView1.Rows.Count);
 
+        }
+
+        private void bunifuVTrackbar1_ValueChanged(object sender, EventArgs e)
+        {
+            viewcell();
+        }
+
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+            Excel.Application xlApp = new Excel.Application();
+
+            if (xlApp == null)
+            {
+                MessageBox.Show("Excel установлен неправильно!");
+                return;
+            }
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + Global.MGname + ".xls";
+
+
+            if (File.Exists(path))
+            {
+                try { File.Delete(path); }
+                catch
+                {
+                    MessageBox.Show("Закройте предыдущую версию файла " + Global.MGname);
+                    return;
+                }
+
+            }
+
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            
+            xlWorkSheet.Cells[1, 1] = "Штрих-Код"; xlWorkSheet.Columns[1].ColumnWidth = 15;
+
+            xlWorkSheet.Cells[1, 2] = "Наименование"; xlWorkSheet.Columns[2].ColumnWidth = 25;
+            xlWorkSheet.Cells[1, 3] = "Цена прихода"; xlWorkSheet.Columns[3].ColumnWidth = 15;
+            xlWorkSheet.Cells[1, 4] = "Цена продажи"; xlWorkSheet.Columns[4].ColumnWidth = 15;
+            xlWorkSheet.Cells[1, 5] = "Цена оптом"; xlWorkSheet.Columns[5].ColumnWidth = 12;
+            xlWorkSheet.Cells[1, 6] = "Модификация"; xlWorkSheet.Columns[6].ColumnWidth = 15;
+            xlWorkSheet.Cells[1, 7] = "Количество"; xlWorkSheet.Columns[7].ColumnWidth = 12;
+
+
+
+
+
+
+            conoff.Close();
+            conoff.Open();
+            sqloff = "SELECT pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,rz_name,rz_pies FROM product_pro LEFT JOIN razmer_pro ON pr_kod=rz_pr_kod";
+            cmdoff = new SqlCommand(sqloff, conoff);
+            droff = cmdoff.ExecuteReader();
+            int i = 2;
+            while (droff.Read())
+            {
+                xlWorkSheet.Cells[i, 1] = droff[0].ToString();
+                xlWorkSheet.Cells[i, 2] = droff[1].ToString();
+                xlWorkSheet.Cells[i, 3] = droff[2].ToString();
+                xlWorkSheet.Cells[i, 4] = droff[3].ToString();
+                xlWorkSheet.Cells[i, 6] = droff[5].ToString();
+                xlWorkSheet.Cells[i, 5] = droff[4].ToString();
+                xlWorkSheet.Cells[i, 7] = droff[6].ToString().Replace(",", ".");
+
+
+                i++;
+            }
+            conoff.Close();
+
+
+
+
+
+
+
+
+            xlWorkBook.SaveAs(path, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            Marshal.ReleaseComObject(xlWorkSheet);
+            Marshal.ReleaseComObject(xlWorkBook);
+            Marshal.ReleaseComObject(xlApp);
+
+            MessageBox.Show("Файл "+ Global.MGname + ".xls создан на рабочем столе");
         }
     }
 }

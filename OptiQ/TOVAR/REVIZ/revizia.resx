@@ -356,23 +356,10 @@
         kXEr42bG7YwbGrc0buqG4v4bQ7rl3/4XkP2tignP1hoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bunifuFlatButton10.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        sQAAAbEBYZgoDgAAAapJREFUeF7tm0FOQlEUQxl/B+BWYCHOHDlwRahbAN2Zyi7U26SGpnlDhaTvNjmJ
-        /FejpxNNHqyukbv7x5vipfgk+HrhcX5K9q34No48zk6J3hZfIv4Lnm1Yy01JbkXa2bKWm5LcmbSyYy03
-        kDRppQdgLTeQNGmlB2AtN5A0aaUHYC03kDRppQdgLTeQNGmlB2AtN5A0aaUHYC03kDRppQdgLTeQNGml
-        B2AtN5A0aaUHYC03kDRppQdgLTeQNGmlB2AtN5A0aeV6A9QP3xS4tMAv+J88FCN5gLPR9/wlcDzfQNUL
-        XFSO7urSeS0WDICb2VFhBp4wwMkezsQJA+B+fnQ4A+8Y4NkezsQeAyzFsRjd2acC10NxfldKvVgXs/wZ
-        XFP78uEvMZIH/Z8ga7mBpEkrPQBruYGkSSs9AGu5gaRJKz0Aa7mBpEkrPQBruYGkSSs9AGu5gaRJKz0A
-        a7mBpEkrPQBruYGkSSs9AGu5gaRJKz0Aa7mBpEkrPQBruYGkSSs9AGu5KcnpPziJG6h5PzqLlCjenOAD
-        HHicn5LFhSxupT/IHs94fMGsVj8g+rbhW9vwMgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>20, 6</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>42</value>
   </metadata>
 </root>

@@ -32,16 +32,15 @@ namespace OptiQ
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.login_form = new Bunifu.Framework.UI.BunifuGradientPanel();
-            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.login_button = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pass_text = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pass_img = new System.Windows.Forms.Label();
             this.avtor_label = new System.Windows.Forms.Label();
             this.label_label = new System.Windows.Forms.Label();
             this.text_login = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.form_login_elips = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.login_form.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,28 +67,6 @@ namespace OptiQ
             this.login_form.Quality = 10;
             this.login_form.Size = new System.Drawing.Size(600, 425);
             this.login_form.TabIndex = 7;
-            // 
-            // shjowkeyboard2
-            // 
-            this.shjowkeyboard2.BackColor = System.Drawing.Color.White;
-            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard2.Location = new System.Drawing.Point(444, 255);
-            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard2.Name = "shjowkeyboard2";
-            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard2.TabIndex = 19;
-            this.shjowkeyboard2.Visible = false;
-            // 
-            // shjowkeyboard1
-            // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.White;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(444, 161);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard1.TabIndex = 18;
-            this.shjowkeyboard1.Visible = false;
             // 
             // login_button
             // 
@@ -210,15 +187,32 @@ namespace OptiQ
             this.text_login.Enter += new System.EventHandler(this.text_login_Enter);
             this.text_login.Leave += new System.EventHandler(this.text_login_Leave);
             // 
-            // form_login_elips
-            // 
-            this.form_login_elips.ElipseRadius = 40;
-            this.form_login_elips.TargetControl = this.login_form;
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 40;
-            this.bunifuElipse1.TargetControl = this;
+            this.bunifuElipse1.TargetControl = this.login_form;
+            // 
+            // shjowkeyboard2
+            // 
+            this.shjowkeyboard2.BackColor = System.Drawing.Color.White;
+            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard2.Location = new System.Drawing.Point(444, 255);
+            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard2.Name = "shjowkeyboard2";
+            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard2.TabIndex = 19;
+            this.shjowkeyboard2.Visible = false;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.White;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(444, 161);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard1.TabIndex = 18;
+            this.shjowkeyboard1.Visible = false;
             // 
             // login
             // 
@@ -250,7 +244,6 @@ namespace OptiQ
         private System.Windows.Forms.Label pass_img;
         private System.Windows.Forms.Label avtor_label;
         private System.Windows.Forms.Label label_label;
-        private Bunifu.Framework.UI.BunifuElipse form_login_elips;
         private Bunifu.Framework.UI.BunifuMaterialTextbox text_login;
         private Bunifu.Framework.UI.BunifuMaterialTextbox pass_text;
         private Bunifu.Framework.UI.BunifuFlatButton login_button;

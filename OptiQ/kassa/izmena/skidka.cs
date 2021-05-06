@@ -263,7 +263,7 @@ namespace OptiQ.kassa.izmena
                     double cenat = Convert.ToDouble(Program.KASA.grdt_kass.Rows[Program.KASA.index].Cells[2].Value)*(Convert.ToDouble(Global.maxskidnactov)/100);
                         if (Convert.ToDouble("0"+textBox1.Text) > cenat)
                         {
-                            textBox1.Text = cenat.ToString();
+                            textBox1.Text =Convert.ToInt32(cenat).ToString();
                         }
 
                  
@@ -275,8 +275,8 @@ namespace OptiQ.kassa.izmena
 
                         if (Convert.ToDouble("0" + textBox1.Text) > cenai)
                         {
-                            textBox1.Text = cenai.ToString(); ;
-                        }
+                            textBox1.Text = Convert.ToInt32(cenai).ToString();
+                         }
                     
                 }
                 textBox1.SelectionStart = textBox1.Text.Length;

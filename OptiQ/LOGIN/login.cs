@@ -153,6 +153,33 @@ namespace OptiQ
 
 
 
+
+
+
+            conoff.Close();
+            conoff.Open();
+            sqloff = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran from nastroiki where ns_mg_id=" + Global.IDmagaz;
+            cmdoff = new SqlCommand(sqloff, conoff);
+            droff = cmdoff.ExecuteReader();
+            if (droff.Read())
+            {
+
+                Global.maxskidnactov = Convert.ToInt32(droff[0]); 
+
+                Global.maxskidnacitog = Convert.ToInt32(droff[1]);
+
+                Global.maxbonus = Convert.ToInt32(droff[2]);
+
+                Global.maxbonusogran = Convert.ToInt32(droff[3]);
+
+            }
+            conoff.Close();
+
+
+
+
+
+
             conoff.Close();
             conoff.Open();
             sqloff = "select by_how,by_komis from buymethod";
@@ -177,7 +204,6 @@ namespace OptiQ
 
 
 
-          
 
 
 
@@ -382,7 +408,34 @@ namespace OptiQ
 
 
 
-                       
+
+                        con.Close();
+                        con.Open();
+                        sql = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran from nastroiki where ns_mg_id=" + Global.IDmagaz;
+                        cmd = new NpgsqlCommand(sql, con);
+                        dr = cmd.ExecuteReader();
+
+                        if (dr.Read())
+                        {
+                            conoff.Close();
+                            conoff.Open();
+                            sqloff = "DELETE FROM nastroiki;" +
+                        "INSERT INTO nastroiki(ns_mg_id,ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran)VALUES("+Global.IDmagaz+"," + dr[0]+ "," + dr[1] + "," + dr[2] + "," + dr[3] + ")";
+                            cmdoff = new SqlCommand(sqloff, conoff);
+                            droff = cmdoff.ExecuteReader();
+                            droff.Read();
+                            conoff.Close();
+                        }
+
+                        con.Close();
+
+
+
+
+
+
+
+
 
 
 

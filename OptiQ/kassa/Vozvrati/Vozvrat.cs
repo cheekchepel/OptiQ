@@ -65,6 +65,7 @@ namespace OptiQ
             bunifuFlatButton16.Visible = false;
             bunifuFlatButton1.Text ="";
             textBox2.Text = null;
+            textBox1.Text = null;
             textBox2.Focus();
             numchek = 0;        }
 
@@ -81,6 +82,16 @@ namespace OptiQ
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8 && number != (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+
+
+
             if (e.KeyChar == (char)Keys.Enter)
             {
                
@@ -94,8 +105,9 @@ namespace OptiQ
         private void Vozvrat_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
+            string opa = "'";
 
-            if (!Char.IsDigit(number) && number != 8&& number!=(char)Keys.Enter)
+            if (number == '$' || number == '%' || number == ',' || number == Convert.ToChar(opa)) // цифры, клавиша BackSpace и запятая
             {
                 e.Handled = true;
             }
@@ -348,7 +360,7 @@ namespace OptiQ
                 sqloff += "UPDATE sales_pro SET cbt_skidon=N'" + newskidaka + "'  where sl_crt_id=" + numchek + ";";
 
 
-                sqloff += "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ");";
+                sqloff += "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id,crt_text)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ",N'"+textBox1.Text+"');";
 
 
              
@@ -427,7 +439,7 @@ namespace OptiQ
 
         private void textBox2_Leave(object sender, EventArgs e)
         {
-            textBox2.Focus();
+          
         }
 
         private void Vozvrat_Shown(object sender, EventArgs e)

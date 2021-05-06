@@ -228,22 +228,28 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "INSERT INTO product(pr_name,pr_price_ca,pr_kod,pr_price_co,pr_optom)VALUES(N'" + textBox2.Text + "'," + textBox1.Text + "," + id + ",0," + textBox1.Text + ");";
+                sqloff = "INSERT INTO product_pro(pr_name,pr_price_ca,pr_kod,pr_price_co,pr_optom)VALUES(N'" + textBox2.Text + "'," + textBox1.Text + "," + id + ",0," + textBox1.Text + ");";
 
                 sqloff += pe;
-                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+pe2+"" + Global.versia + "INSERT INTO product_pro(pr_mg_id,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_kod,pr_optom)" +
+                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+pe2+"INSERT INTO product_pro(pr_mg_id,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_kod,pr_optom)" +
                     "VALUES(" + Global.IDmagaz + ",N$" + textBox2.Text + "$,0," + textBox1.Text + ",N$0$," + id + "," + textBox1.Text + ");');";
                
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();
-                conoff.Close();
+                
+                    conoff.Close();
 
-                Program.KASA.kassa_pulus(0,textBox1.Text);
-                Program.main.backblakhide();
-                this.Close();
+                    Program.main.backblakhide();
+
+                    Program.KASA.kassa_pulus(0, id);
+                    this.Close();
 
 
+               
+                
+              
+                
 
 
 

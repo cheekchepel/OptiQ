@@ -29,7 +29,11 @@ namespace OptiQ
         long otl_id = 0;
 
 
-        public void vgruzit(long id) {
+        public void vgruzit(long id,long num,string text) {
+            name.HeaderText = "Клиент " + num;
+
+            textBox1.Text = text;
+            panel1.Height = 24;
 
             otl_id = id;
             grdt_kass50.Rows.Clear();
@@ -126,6 +130,32 @@ namespace OptiQ
         private void numerkas_MouseClick(object sender, MouseEventArgs e)
         {
             vigruzet();
+        }
+
+        private void label2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (panel1.Height == 72)
+            { panel1.Height = 24; }
+            else { panel1.Height = 72; }
+        }
+
+        private void bunifuFlatButton1_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel1.Height = 24;
+
+
+            string zapr = "UPDATE otlojka_pro SET ot_text=N'"+textBox1.Text+ "' where ot_id="+ otl_id+ "and id_kassir="+Global.IDuser+";";
+
+
+            cont.Close();
+            cont.Open();
+            sqlt = zapr+ "INSERT INTO productoff(pr_text)VALUES(N'"+ zapr .Replace("'","$")+ "')";
+            cmdt = new SqlCommand(sqlt, cont);
+            drt = cmdt.ExecuteReader();
+            drt.Read();
+            cont.Close();
+
+
         }
     }
 }

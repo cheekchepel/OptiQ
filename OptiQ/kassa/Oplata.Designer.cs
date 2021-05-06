@@ -52,6 +52,7 @@ namespace OptiQ
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuFlatButton12 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuFlatButton13 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.nal = new Bunifu.Framework.UI.BunifuFlatButton();
             this.karta = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -417,6 +418,7 @@ namespace OptiQ
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.bunifuFlatButton12);
+            this.flowLayoutPanel1.Controls.Add(this.bunifuFlatButton13);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -504,6 +506,42 @@ namespace OptiQ
             this.bunifuFlatButton12.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton12.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton12.MouseDown += new System.EventHandler(this.bunifuFlatButton12_MouseDown);
+            // 
+            // bunifuFlatButton13
+            // 
+            this.bunifuFlatButton13.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.bunifuFlatButton13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.bunifuFlatButton13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton13.BorderRadius = 7;
+            this.bunifuFlatButton13.ButtonText = "";
+            this.bunifuFlatButton13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton13.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton13.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton13.Iconimage = null;
+            this.bunifuFlatButton13.Iconimage_right = null;
+            this.bunifuFlatButton13.Iconimage_right_Selected = null;
+            this.bunifuFlatButton13.Iconimage_Selected = null;
+            this.bunifuFlatButton13.IconMarginLeft = 0;
+            this.bunifuFlatButton13.IconMarginRight = 0;
+            this.bunifuFlatButton13.IconRightVisible = true;
+            this.bunifuFlatButton13.IconRightZoom = 0D;
+            this.bunifuFlatButton13.IconVisible = true;
+            this.bunifuFlatButton13.IconZoom = 45D;
+            this.bunifuFlatButton13.IsTab = false;
+            this.bunifuFlatButton13.Location = new System.Drawing.Point(11, 61);
+            this.bunifuFlatButton13.Margin = new System.Windows.Forms.Padding(170, 10, 0, 10);
+            this.bunifuFlatButton13.Name = "bunifuFlatButton13";
+            this.bunifuFlatButton13.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.bunifuFlatButton13.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.bunifuFlatButton13.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton13.selected = false;
+            this.bunifuFlatButton13.Size = new System.Drawing.Size(31, 31);
+            this.bunifuFlatButton13.TabIndex = 9;
+            this.bunifuFlatButton13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton13.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton13.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton13.MouseDown += new System.EventHandler(this.bunifuFlatButton13_MouseDown);
             // 
             // flowLayoutPanel3
             // 
@@ -1738,5 +1776,6 @@ namespace OptiQ
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label textdolg;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton13;
     }
 }

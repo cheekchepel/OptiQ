@@ -41,7 +41,7 @@ namespace OptiQ
 
         public bool prin = true;
 
-
+        public bool belie = true;
 
 
         public long us_id_bon =0;
@@ -451,7 +451,11 @@ namespace OptiQ
                              }
                         else if(Convert.ToInt32("0"+ textdolg.Text) == 0)
                             {
-                                sqloff = "UPDATE users_pro SET us_bonus = ((select us_bonus from users_pro WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ")+" + 500 + " )" +
+
+                        int nachislino = Convert.ToInt32(Convert.ToDouble(Program.KASA.bunifuFlatButton1.Text) * (Convert.ToDouble(Global.maxbonus) / 100));
+
+
+                        sqloff = "UPDATE users_pro SET us_bonus = ((select us_bonus from users_pro WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ")+" + nachislino + " )" +
                                 " WHERE us_off_id = " + us_id_bon + " and us_mg_id=" + Global.IDmagaz + ";";
 
                             }
@@ -615,7 +619,30 @@ namespace OptiQ
 
         }
 
-        
+
+
+
+
+        void belnet()
+        {
+
+            belie = false;
+            bunifuFlatButton13.Normalcolor = Color.FromArgb(116, 127, 141);
+            bunifuFlatButton13.OnHovercolor = Color.FromArgb(116, 127, 141);
+            bunifuFlatButton13.Activecolor = Color.FromArgb(116, 127, 141);
+        }
+
+        void belda()
+        {
+
+            belie = true;
+            bunifuFlatButton13.Normalcolor = Color.FromArgb(240, 71, 71);
+            bunifuFlatButton13.OnHovercolor = Color.FromArgb(240, 71, 71);
+            bunifuFlatButton13.Activecolor = Color.FromArgb(240, 71, 71);
+
+        }
+
+
 
         public void viborusers(long us_id, string name, int bon ) {
 
@@ -673,25 +700,29 @@ namespace OptiQ
         {
             if (textbonus.Text.Length > 8) { textbonus.Text = textbonus.Text.Remove(8); textbonus.SelectionStart = textbonus.Text.Length; }
 
-           if (Convert.ToInt32("0"+textbonus.Text)> Convert.ToInt32(cifra.Text)) {
+
+            int porogvozm = Convert.ToInt32(Convert.ToDouble(Program.KASA.bunifuFlatButton1.Text) * (Convert.ToDouble(Global.maxbonusogran) / 100));
+
+            if (Convert.ToInt32("0" + textbonus.Text) > porogvozm)
+            { textbonus.Text = porogvozm.ToString(); }
+
+
+            if (Convert.ToInt32("0"+textbonus.Text)> Convert.ToInt32("0"+cifra.Text)) {
                 textbonus.Text = cifra.Text;
                 textbonus.SelectionStart = textbonus.Text.Length;
             }
 
-            double porogvozm = Convert.ToDouble(Program.KASA.bunifuFlatButton1.Text) * (Convert.ToDouble(Global.maxbonus)/100);
-
-            if (Convert.ToInt32("0" + textbonus.Text) > porogvozm)
-            { textbonus.Text = porogvozm.ToString(); }
+           
 
             label4.Text= (Convert.ToInt32(Program.KASA.bunifuFlatButton1.Text)- Convert.ToInt32("0" + textbonus.Text)).ToString();
 
             if (che == 1) { textBox2.Text = label4.Text; }
             else if (che == 2) { textBox3.Text = label4.Text; }
             else if (che == 3) { textBox4.Text = label4.Text; }
+
             
-
-
             label5Change();
+
         }
 
      
@@ -724,6 +755,11 @@ namespace OptiQ
         private void cifra_MouseDown(object sender, EventArgs e)
         {
             pictureBox5_MouseDown();
+        }
+
+        private void bunifuFlatButton13_MouseDown(object sender, EventArgs e)
+        {
+            if (belie == true) { belnet(); } else { belda(); }
         }
     }
 }

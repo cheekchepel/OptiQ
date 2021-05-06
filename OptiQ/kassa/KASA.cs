@@ -206,6 +206,11 @@ namespace OptiQ
         public void oplata() {
 
 
+            string belli = null;
+
+            string nigga = null;
+
+
             int keeti = 0;
 
             if ((grdt_kass.Rows.Count - 1) > -1)
@@ -250,7 +255,7 @@ namespace OptiQ
                         long rz_id= Convert.ToInt64(grdt_kass.Rows[keeti].Cells[11].Value);
                         string osttok = Convert.ToString(grdt_kass.Rows[keeti].Cells[8].Value).Replace(",", ".");
 
-                    show_ost(Global.pra_showpie, Convert.ToInt32(ostatok), saloname);
+                    show_ost(Global.pra_showpie, Convert.ToDouble(ostatok.Replace(".",",")), saloname);
                         
 
                     OVAR = "                               " + pieces + " X " + zena + " X " + skid + "% = " + sum;
@@ -264,7 +269,57 @@ namespace OptiQ
                         
                     sqloff += "UPDATE razmer_pro SET rz_pies=(SELECT rz_pies FROM razmer_pro where rz_pr_kod="+ kodd + " and rz_id="+ rz_id + "ORDER BY rz_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY)-" + pieces + " where rz_id=" + rz_id+ " and rz_pr_kod="+ kodd+";";
 
-                    sqloff += "INSERT INTO sales_pro(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,sl_rz_id,cbt_skidon,sl_vozvrat)VALUES(" + generateid + ","+ pieces + ","+Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value)+ ",N$" + saloname+"$,"+ Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$"+ skid + "$,"+ kodd + ","+rz_id+",N'"+ bunifuFlatButton16.Text +"',"+pieces+");";
+                   
+                    nigga += "INSERT INTO sales_pro(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,sl_rz_id,cbt_skidon,sl_vozvrat)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$," + kodd + "," + rz_id + ",N'" + bunifuFlatButton16.Text + "'," + pieces + ");";
+
+
+                    if (Program.oplati.belie == false)
+                    {
+                      //  MessageBox.Show("тест включен");
+                        string zapr = null;
+
+                        bool test = false;
+
+                        conoff.Close();
+                        conoff.Open();
+                        zapr = "select mp_test from myprov where mp_name IN (SELECT pr_provid from product_pro where pr_kod=" + kodd + ")";
+                        cmdoff = new SqlCommand(zapr, conoff);
+                        droff = cmdoff.ExecuteReader();
+                        if (droff.Read())
+                        {
+
+
+                            test = Convert.ToBoolean(droff[0]);
+
+                        }
+
+                        if (test == false)
+                        {
+
+                          //  MessageBox.Show("товар в белый");
+
+                            belli += "INSERT INTO sales_pro(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,sl_rz_id,cbt_skidon,sl_vozvrat)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$," + kodd + "," + rz_id + ",N'" + bunifuFlatButton16.Text + "'," + pieces + ");";
+
+
+                        }
+                        else {
+                          // MessageBox.Show("товар в черный");
+                        }
+
+
+                        conoff.Close();
+
+                    }
+                    else {
+
+                       // MessageBox.Show("тест выкл");
+                        belli += "INSERT INTO sales_pro(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,sl_rz_id,cbt_skidon,sl_vozvrat)VALUES(" + generateid + "," + pieces + "," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[2].Value) + ",N$" + saloname + "$," + Convert.ToInt64(grdt_kass.Rows[keeti].Cells[3].Value) + ",N$" + skid + "$," + kodd + "," + rz_id + ",N'" + bunifuFlatButton16.Text + "'," + pieces + ");";
+
+                    }
+
+
+
+
 
                     TOVAR += "№" + (keeti + 1) + " - " + kodd + "  " + saloname + "\n" + OVAR + "\n";
 
@@ -275,11 +330,18 @@ namespace OptiQ
 
 
                 sqloff += "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ");";
+                string xherni= "INSERT INTO cart(crt_mg_id,id_kassir,crt_sum_fact,crt_date,crt_off_id)VALUES(" + Global.IDmagaz + "," + Global.IDuser + "," + label3.Text + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + generateid + ");";
 
                 conoff.Close();
                 conoff.Open();
-                sqloff =(sqloff + method.Replace("crtid", generateid)).Replace("$","'");
-                sqloff += "insert into productoff(pr_text)VALUES(N'" + sqloff.Replace("'", "$") + "');";
+
+                sqloff = (sqloff + method.Replace("crtid", generateid)).Replace("$", "'");
+
+
+                sqloff += "insert into productoff(pr_text)VALUES(N'" + (belli+sqloff).Replace("'", "$") +  "');";
+
+
+                sqloff += nigga.Replace("$", "'") + "insert into nigga(pr_text)VALUES(N'"+(xherni + nigga).Replace("'", "$") + "');";
 
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
@@ -412,7 +474,7 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                    sqloff = "select pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom from product_pro where  pr_kod=" + kod;
+                    sqloff = "select pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom from product_pro where pr_kod=" + kod;
                     cmdoff = new SqlCommand(sqloff, conoff);
                     droff = cmdoff.ExecuteReader();
 
@@ -432,7 +494,7 @@ namespace OptiQ
                     else {
                         conoff.Close();
                         add.ID = kod;
-                        Program.main.backblakshow();
+                        Program.main.backblakshow();                       
                         add.ShowDialog();
                      
                     }
@@ -876,7 +938,7 @@ namespace OptiQ
             opt_fun();
         }
 
-        private void show_ost(bool need, int ost, string name_ost)
+        private void show_ost(bool need, double ost, string name_ost)
         {
             if (need)
             {
@@ -1090,6 +1152,7 @@ namespace OptiQ
             conoff.Close();
 
             grdt_kass.Rows.Clear();
+            Global.basever++;
 
         }
 

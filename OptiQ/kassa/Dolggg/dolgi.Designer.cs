@@ -146,6 +146,7 @@ namespace OptiQ
             // 
             // label4
             // 
+            this.label4.BackColor = System.Drawing.Color.White;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Enabled = false;

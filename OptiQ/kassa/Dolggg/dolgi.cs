@@ -260,7 +260,7 @@ namespace OptiQ
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "update users_pro set summa=(select summa from users_pro where us_off_id=" + label5.Text+")-"+textBox1.Text+",us_date = "+ date + " where us_off_id =" + label5.Text+";";
+                sqloff = "update users_pro set us_summa=(select us_summa from users_pro where us_off_id=" + label5.Text+")-"+textBox1.Text+",us_date = "+ date + " where us_off_id =" + label5.Text+";";
                 sqloff+= "INSERT INTO productoff(pr_text)VALUES(N'"+ Global.versia + sqloff+"')";
  
                  cmdoff = new SqlCommand(sqloff, conoff);
