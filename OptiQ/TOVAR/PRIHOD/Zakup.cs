@@ -31,13 +31,13 @@ namespace OptiQ
         public SqlCommand cmd;
         public SqlDataReader dr;
 
-        prihodcell[] sel = new prihodcell[12];
+        prihodcell[] sel = new prihodcell[13];
 
         public int kolichestvo=0;
 
 
-       // int sum = 0;
-
+        // int sum = 0;
+        public int count = 0;
 
         int raz = 0;
 
@@ -98,7 +98,7 @@ namespace OptiQ
             //panel8.Visible = Global.pra_showprih;
             // cenaco.Visible = Global.pra_showprih;
 
-            while (raz < 12) {
+            while (raz < 13) {
 
                 sel[raz] = new prihodcell{Visible=false,selcehk=false};
 
@@ -120,19 +120,19 @@ namespace OptiQ
 
         public void select() {
 
-            int count = 0;
+           
 
             kolichestvo = 0;
 
             con.Close();
             con.Open();
-            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol,(SELECT COUNT(*) FROM prihod) from prihod order by Id desc OFFSET " +Convert.ToInt32(bunifuVTrackbar1.Value/4)+" ROWS";
+            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol,(SELECT COUNT(*) FROM prihod) from prihod order by Id desc OFFSET " +Convert.ToInt32(bunifuVTrackbar1.Value)+" ROWS";
             cmd = new SqlCommand(sql, con);
             dr = cmd.ExecuteReader();
-            while (kolichestvo < 11)
+            while (kolichestvo < 12)
             {
 
-                 while (kolichestvo < 11 && dr.Read()) {
+                 while (kolichestvo < 12 && dr.Read()) {
 
                     sel[kolichestvo].zagruz(Convert.ToInt64(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), Convert.ToInt64(dr[5]), Convert.ToDouble(dr[6]));
                     
@@ -152,16 +152,6 @@ namespace OptiQ
  
             con.Close();
 
-            if (count > 11)
-            {
-                bunifuVTrackbar1.MaximumValue = (count - 10)*4;
-                bunifuVTrackbar1.Visible = true;
-            }
-            else {
-
-                bunifuVTrackbar1.Visible = false;
-
-            }
 
             
 
@@ -207,9 +197,21 @@ namespace OptiQ
                     sel[0].selcehk = false;
                     sel[0].add(Convert.ToInt64(kod));
                     textBox1.Text = null;
+
+                 
                     bunifuVTrackbar1.Value = 0;
                     select();
+                    if (count > 12)
+                    {
+                        bunifuVTrackbar1.MaximumValue = (count - 11);
+                        bunifuVTrackbar1.Visible = true;
+                    }
+                    else
+                    {
 
+                        bunifuVTrackbar1.Visible = false;
+
+                    }
                 }
                 else
                 {
@@ -243,6 +245,18 @@ namespace OptiQ
         private void Zakup_Shown(object sender, EventArgs e)
         {
             select();
+            if (count > 12)
+            {
+                bunifuVTrackbar1.MaximumValue = (count - 11);
+                bunifuVTrackbar1.Visible = true;
+            }
+            else
+            {
+
+                bunifuVTrackbar1.Visible = false;
+
+            }
+            bunifuVTrackbar1.Value = 0;
         }
 
         private void bunifuFlatButton8_Click(object sender, EventArgs e)

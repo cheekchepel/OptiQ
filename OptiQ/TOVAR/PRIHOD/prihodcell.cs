@@ -270,9 +270,22 @@ namespace OptiQ
             droff = cmdoff.ExecuteReader();
 
             conoff.Close();
+
+       
+
             Program.zakup.bunifuVTrackbar1.Value = 0;
             Program.zakup.select();
-            
+            if (Program.zakup.count > 12)
+            {
+                Program.zakup.bunifuVTrackbar1.MaximumValue = (Program.zakup.count - 11);
+                Program.zakup.bunifuVTrackbar1.Visible = true;
+            }
+            else
+            {
+
+                Program.zakup.bunifuVTrackbar1.Visible = false;
+
+            }
 
         }
 

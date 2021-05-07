@@ -46,7 +46,7 @@ namespace OptiQ
 
         int raz = 0;
 
-
+        public int count = 0;
 
 
         public int id_rev_care =0;
@@ -166,9 +166,20 @@ namespace OptiQ
 
         private void revizia_Shown(object sender, EventArgs e)
         {
-           
+            bunifuVTrackbar1.Value = 0;
             poiskrwv();
             select();
+            if (count > 13)
+            {
+                bunifuVTrackbar1.MaximumValue = (count - 12);
+                bunifuVTrackbar1.Visible = true;
+            }
+            else
+            {
+
+                bunifuVTrackbar1.Visible = false;
+
+            }
         }
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
@@ -233,6 +244,7 @@ namespace OptiQ
                 poiskrwv();
 
                 select();
+                bunifuVTrackbar1.Visible = false;
 
         }
             catch (NpgsqlException)
@@ -399,7 +411,17 @@ namespace OptiQ
                 conoff.Close();
 
                 select();
+                if (count > 13)
+                { 
+                    bunifuVTrackbar1.MaximumValue = (count - 12);
+                    bunifuVTrackbar1.Visible = true;
+                }
+                else
+                {
 
+                    bunifuVTrackbar1.Visible = false;
+
+                }
             }
 
 
@@ -424,13 +446,13 @@ namespace OptiQ
         public void select()
         {
 
-            int count = 0;
+         
 
           int  kolichestvo = 0;
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select kod,name,rz_id,bilo,stalo,(SELECT COUNT(*) FROM reviz) from reviz order by Id desc OFFSET " + Convert.ToInt32(bunifuVTrackbar1.Value / 4) + " ROWS";
+            sqloff = "select kod,name,rz_id,bilo,stalo,(SELECT COUNT(*) FROM reviz) from reviz order by Id desc OFFSET " + Convert.ToInt32(bunifuVTrackbar1.Value) + " ROWS";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (kolichestvo < 13)
@@ -458,17 +480,7 @@ namespace OptiQ
 
             conoff.Close();
 
-            if (count > 13)
-            {
-                bunifuVTrackbar1.MaximumValue = (count - 12) * 4;
-                bunifuVTrackbar1.Visible = true;
-            }
-            else
-            {
-
-                bunifuVTrackbar1.Visible = false;
-
-            }
+          
 
 
 

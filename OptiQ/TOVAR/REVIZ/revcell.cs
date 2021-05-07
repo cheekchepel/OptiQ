@@ -253,6 +253,17 @@ namespace OptiQ
             conoff1.Close();
             Program.revix.bunifuVTrackbar1.Value = 0;
             Program.revix.select();
+            if (Program.revix.count > 13)
+            {
+                Program.revix.bunifuVTrackbar1.MaximumValue = (Program.revix.count - 12);
+                Program.revix.bunifuVTrackbar1.Visible = true;
+            }
+            else
+            {
+
+                Program.revix.bunifuVTrackbar1.Visible = false;
+
+            }
         }
     }
 }
