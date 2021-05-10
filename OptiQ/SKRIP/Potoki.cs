@@ -328,7 +328,7 @@ namespace OptiQ
             try{
                 con1.Close();
                 con1.Open();
-                sql1 = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_provid from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
+                sql1 = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_provid,pr_mg_id from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
                 cmd1 = new NpgsqlCommand(sql1, con1);
                 dr1 = cmd1.ExecuteReader();
                 
@@ -338,7 +338,7 @@ namespace OptiQ
                     conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
-                    sqloff1 = delproduc+ "INSERT INTO product_pro(pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_provid)VALUES(" + dr1[0] + "," + dr1[1] + ",N'" + dr1[2] + "'," + dr1[3] + "," + dr1[4] + ","+dr1[5]+ ",0" + dr1[6] + ",0" + dr1[7] + ",N'"+ dr1[8] + "')";
+                    sqloff1 = delproduc+ "INSERT INTO product_pro(pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_provid,pr_mg_id) VALUES(" + dr1[0] + "," + dr1[1] + ",N'" + dr1[2] + "'," + dr1[3] + "," + dr1[4] + ","+dr1[5]+ ",0" + dr1[6] + ",0" + dr1[7] + ",N'"+ dr1[8] + "'," + dr1[9] + ")";
                     cmdoff1 = new SqlCommand(sqloff1, conoff1);
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();
@@ -359,7 +359,7 @@ namespace OptiQ
             string delrazmer = "DELETE FROM razmer_pro;";
             con1.Close();
                 con1.Open();
-                sql1 = "select rz_id,rz_pr_kod,rz_name,rz_pies from razmer_pro where rz_mg_id=" + Global.IDmagaz;
+                sql1 = "select rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id from razmer_pro where rz_mg_id=" + Global.IDmagaz;
                 cmd1 = new NpgsqlCommand(sql1, con1);
                 dr1 = cmd1.ExecuteReader();
                
@@ -369,7 +369,7 @@ namespace OptiQ
                     conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
-                    sqloff1 = delrazmer+"INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_name,rz_pies)VALUES(" + dr1[0]+","+ dr1[1]+",N'" + dr1[2] + "'," + dr1[3].ToString().Replace(",",".") + ")";
+                    sqloff1 = delrazmer+ "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id)VALUES(" + dr1[0]+","+ dr1[1]+",N'" + dr1[2] + "'," + dr1[3].ToString().Replace(",",".") + ","+ dr1[4] + ")";
                     cmdoff1 = new SqlCommand(sqloff1, conoff1);
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();

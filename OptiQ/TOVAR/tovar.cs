@@ -74,33 +74,28 @@ namespace OptiQ
         public void zagrsel()
         {
 
-            try
-            {
-                con.Close();
-                con.Open();
-                sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,(SELECT SUM(rz_pies) as sum FROM razmer_pro WHERE rz_mg_id =" + Global.IDmagaz+" and rz_pr_kod =pr_kod) from product_pro where pr_mg_id =" + Global.IDmagaz;
-                cmd = new NpgsqlCommand(sql, con);
-                dr = cmd.ExecuteReader();
+          
+                conoff.Close();
+                conoff.Open();
+                sqloff = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,(SELECT SUM(rz_pies) as sum FROM razmer_pro WHERE rz_mg_id =" + Global.IDmagaz+" and rz_pr_kod =pr_kod) from product_pro where pr_mg_id =" + Global.IDmagaz;
+                cmdoff = new SqlCommand(sqloff, conoff);
+                droff = cmdoff.ExecuteReader();
                 dtSales.Rows.Clear();
-                while (dr.Read())
+                while (droff.Read())
                 {
 
-                    dtSales.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], (dr[5].ToString()).Replace(",", "."),false);
+                    dtSales.Rows.Add(droff[0], droff[1], droff[2], droff[3], droff[4], (droff[5].ToString()).Replace(",", "."),false);
                     // dataGridView1.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], (dr[5].ToString()).Replace(",","."));
                 }
-                con.Close();
+                conoff.Close();
 
                 dataGridView1.DataSource = dtSales;
 
+            viewcell();
 
-            }
-            catch (NpgsqlException) { 
-            Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show(); 
-               
-            }
+
+
+
 
 
         }
