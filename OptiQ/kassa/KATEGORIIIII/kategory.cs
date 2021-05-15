@@ -136,7 +136,7 @@ namespace OptiQ.kassa
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select kat_silka,kat_name from kateg";
+            sqloff = "select kat_silka,kat_name from kateg where kat_mg_id="+Global.IDmagaz;
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read())

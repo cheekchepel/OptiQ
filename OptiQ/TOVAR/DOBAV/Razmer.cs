@@ -88,7 +88,7 @@ namespace OptiQ
                 conr.Close();
                 conr.Open();
                 
-                sqlr = "delete from razmer_pro WHERE rz_id =" + rz_id + ";";
+                sqlr = "delete from razmer_pro WHERE rz_id =" + rz_id + " and rz_mg_id="+Global.IDmagaz+";";
 
                 sqlr += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sqlr).Replace("'", "$") + "')";
 
@@ -111,7 +111,7 @@ namespace OptiQ
                     conr.Close();
                     conr.Open();
 
-                    sqlr = "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_mg_id,rz_name,rz_pies)VALUES("+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds() + "," + Program.addprd.text1.Text + "," + Global.IDmagaz + ",'" + textname.Text + "'," + textpie.Text.Replace(",", ".") + ");";
+                    sqlr = "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_mg_id,rz_name,rz_pies)VALUES("+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds() + "," + Program.addprd.text1.Text + "," + Global.IDmagaz + ",N'" + textname.Text + "'," + textpie.Text.Replace(",", ".") + ");";
                     sqlr += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sqlr).Replace("'", "$") + "')";
                     cmdr = new SqlCommand(sqlr, conr);
                     drr = cmdr.ExecuteReader();
@@ -124,7 +124,7 @@ namespace OptiQ
                     conr.Close();
                     conr.Open();
 
-                    sqlr = "UPDATE razmer_pro Set rz_pr_kod=" + Program.addprd.text1.Text + ", rz_name='" + textname.Text + "',rz_pies=" + textpie.Text.Replace(",", ".") + " WHERE rz_id=" + rz_id + "and rz_mg_id=" + Global.IDmagaz + ";";
+                    sqlr = "UPDATE razmer_pro Set rz_pr_kod=" + Program.addprd.text1.Text + ", rz_name=N'" + textname.Text + "',rz_pies=" + textpie.Text.Replace(",", ".") + " WHERE rz_id=" + rz_id + "and rz_mg_id=" + Global.IDmagaz + ";";
                     sqlr += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sqlr).Replace("'", "$") + "')";
                     cmdr = new SqlCommand(sqlr, conr);
                     drr = cmdr.ExecuteReader();

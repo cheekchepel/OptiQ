@@ -180,7 +180,7 @@ namespace OptiQ
             {
                 conoff.Close();  
                 conoff.Open();
-                sqloff = "select crt_off_id,cbt_sum,crt_date,cbt_by_how,(SELECT COUNT(*) as count FROM sales_pro WHERE sl_crt_id=crt_off_id  and sl_skidon!='0'),cbt_skidon,cbt_by_komuis from cart LEFT JOIN cartbuymet ON crt_off_id=cbt_cart_id where crt_date>" + Global.date_open_sesions + "and (CAST(crt_off_id as CHAR) LIKE '%" + id_cart + "%') ORDER BY crt_date desc";
+                sqloff = "select crt_off_id,cbt_sum,crt_date,cbt_by_how,(SELECT COUNT(*) as count FROM sales_pro WHERE sl_crt_id=crt_off_id  and sl_skidon!='0'),cbt_skidon,cbt_by_komuis from cart LEFT JOIN cartbuymet ON crt_off_id=cbt_cart_id where crt_mg_id="+Global.IDmagaz+" and crt_date>" + Global.date_open_sesions + "and (CAST(crt_off_id as CHAR) LIKE '%" + id_cart + "%') ORDER BY crt_date desc";
 
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
@@ -332,7 +332,7 @@ namespace OptiQ
             {
                 conoff.Close();
                 conoff.Open();
-                sqloff = "select sl_name,sl_cena,sl_pieces,sl_skidon  from sales_pro where sl_crt_id=" + id_cart;
+                sqloff = "select sl_name,sl_cena,sl_pieces,sl_skidon from sales_pro where sl_crt_id=" + id_cart;
 
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
@@ -373,7 +373,7 @@ namespace OptiQ
             {
                 conoff.Close();
                 conoff.Open();
-                sqloff = "select sl_prihod  from sales_pro LEFT JOIN cart ON sl_crt_id=crt_off_id where crt_date >" + Global.date_open_sesions;
+                sqloff = "select sl_prihod  from sales_pro LEFT JOIN cart ON sl_crt_id=crt_off_id where crt_mg_id="+Global.IDmagaz+" and crt_date >" + Global.date_open_sesions;
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 while (droff.Read())
@@ -386,8 +386,6 @@ namespace OptiQ
                 conoff.Close();
                 bunifuFlatButton7.Text = (Convert.ToInt64(sum_kom) - dl).ToString();
             }
-
-            
 
         }
 

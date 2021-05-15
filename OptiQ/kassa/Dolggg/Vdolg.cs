@@ -50,13 +50,13 @@ namespace OptiQ
             if (!String.IsNullOrWhiteSpace(textBox1.Text)&& textBox2.Text.Length==10)
             {
                 string id_us = Global.IDuser+(DateTimeOffset.Now.ToUnixTimeSeconds()).ToString();
-
+                Global.veriaprodaj++;
                 conoff.Close();
                 conoff.Open();
                 sqloff = "INSERT INTO users_pro(us_mg_id,us_off_id,us_name,us_danie,us_summa,us_bonus,us_date)" +
                     "VALUES("+Global.IDmagaz+ ","+id_us+",N'" + textBox1.Text + "',7" + textBox2.Text + ",0,0," + DateTimeOffset.Now.ToUnixTimeSeconds() + ");";
 
-                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+Global.versia+sqloff.Replace("'", "$") + "');";
+                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+Global.salever + sqloff.Replace("'", "$") + "');";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
                 droff.Read();
@@ -80,7 +80,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select us_off_id,us_name,us_danie,us_bonus from users_pro where (LOWER(us_name) LIKE LOWER(N'%" + textBox4.Text + "%')) ";
+            sqloff = "select us_off_id,us_name,us_danie,us_bonus from users_pro where us_mg_id="+Global.IDmagaz+" and (LOWER(us_name) LIKE LOWER(N'%" + textBox4.Text + "%')) ";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read()) {

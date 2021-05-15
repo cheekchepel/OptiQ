@@ -1150,7 +1150,7 @@ namespace OptiQ
 
             if (zapros != null) {
 
-
+                Global.basever++;
                 string cretezapr = "INSERT INTO otlojka_pro(ot_id,id_kassir,ot_text)VALUES(" + create_id + "," + Global.IDuser + ",N'"+koment.Text+"');";
                 string zaprostext = cretezapr + zapros + "INSERT INTO productoff(pr_text)VALUES(N'" + Global.versia + cretezapr.Replace("'", "$") + zapros.Replace("'", "$") + "');";
                 conoff.Close();
@@ -1162,7 +1162,7 @@ namespace OptiQ
                 conoff.Close();
 
                 grdt_kass.Rows.Clear();
-                Global.basever++;
+                
 
 
             }

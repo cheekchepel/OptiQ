@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,15 @@ namespace OptiQ
         }
 
 
-        public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
+        public SqlConnection con = new SqlConnection(Global.conectsql);
 
 
         public string sql;
-        public NpgsqlCommand cmd;
-        public NpgsqlDataReader dr;
+        public SqlCommand cmd;
+        public SqlDataReader dr;
+
+
+
 
         private void fastaddprovid_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -56,8 +60,11 @@ namespace OptiQ
                 try { 
                 con.Close();
                 con.Open();
-                sql = "INSERT INTO myprov(mp_mg_id,mp_name,mp_test)VALUES(" + Global.IDmagaz + ",'" + text3.Text + "',false)";
-                cmd = new NpgsqlCommand(sql, con);
+                sql = "INSERT INTO myprov(mp_mg_id,mp_name,mp_test)VALUES(" + Global.IDmagaz + ",N'" + text3.Text + "','false');";
+
+                sql += "INSERT INTO productoff(pr_text)VALUES(N'"+sql.Replace("'", "$") + "')";
+
+                cmd = new SqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 con.Close();

@@ -86,9 +86,9 @@ namespace OptiQ
 
 
                 string zaprostext = delketzapr + zapros + "INSERT INTO productoff(pr_text)VALUES(N'" + Global.versia + delketzapr.Replace("'", "$") + zapros.Replace("'", "$") + "');";
-            
 
-                cont.Close();
+            Global.basever++;
+            cont.Close();
                 cont.Open();
                 sqlt = zaprostext;
                 cmdt = new SqlCommand(sqlt, cont);

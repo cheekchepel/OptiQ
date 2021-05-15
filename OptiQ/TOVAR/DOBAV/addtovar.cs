@@ -236,7 +236,7 @@ namespace OptiQ
             string prca = "";
             string prop = "";
             string prprv = "";
-            dtSales.Rows.Clear();
+            
 
            // try{
                 prkod = 0;
@@ -252,8 +252,8 @@ namespace OptiQ
                 sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_provid,rz_id,rz_name,rz_pies from product_pro "+
                        "LEFT JOIN razmer_pro ON pr_kod = rz_pr_kod where pr_mg_id ="+Global.IDmagaz+" and pr_kod ="+kod+";" ;
                 cmd = new SqlCommand(sql, con);
-
-                dr = cmd.ExecuteReader();
+            dtSales.Rows.Clear();
+            dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
 
@@ -401,7 +401,7 @@ namespace OptiQ
 
                         con.Close();
                         con.Open();
-                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name='" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_provid='" + text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
+                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name=N'" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_provid=N'" + text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
                         sql += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sql).Replace("'", "$") + "')";
 
 
@@ -419,9 +419,9 @@ namespace OptiQ
                         con.Close();
                         con.Open();
                       
-                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",'" + text2.Text + "'," + priha + "," + text5.Text + ",'" + text6.Text + "'," + opti + ");";
+                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ");";
 
-                        sql += "INSERT INTO productoff(pr_text)VALUES(N'" + "select doppler(" + Global.IDmagaz + "," + text1.Text + ");" + (Global.versia + sql).Replace("'", "$") + "')";
+                        sql += "INSERT INTO productoff(pr_text)VALUES(N'"  + (Global.versia + sql).Replace("'", "$") + "select doppler(" + Global.IDmagaz + "," + text1.Text + ");" + "')";
 
                         cmd = new SqlCommand(sql, con);
                         dr = cmd.ExecuteReader();

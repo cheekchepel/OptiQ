@@ -113,7 +113,7 @@ namespace OptiQ
                     Global.basever++;
                     con.Open();
                     
-                    sql = "UPDATE product_pro Set pr_kod=" + textBox1.Text + ",pr_name='" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_id=" + idtov+";";
+                    sql = "UPDATE product_pro Set pr_kod=" + textBox1.Text + ",pr_name=N'" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_id=" + idtov+";";
                     sql += "INSERT INTO productoff(pr_text)VALUES(N'"+ (Global.versia + sql).Replace("'","$")+"')";
 
                     cmd = new SqlCommand(sql, con);
