@@ -95,7 +95,7 @@ namespace OptiQ
                 drt = cmdt.ExecuteReader();
                 drt.Read();
                 cont.Close();
-
+            Program.KASA.koment.Text = textBox1.Text;
 
 
             Program.KASA.poihali();

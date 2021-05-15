@@ -67,9 +67,7 @@ namespace OptiQ
         Point imgpo = new Point(0, 0);
         Point imgsz = new Point(0, 0);
         BarcodeWriter qr = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
-        private Excel.Workbook xlWorkBook;
-        private Excel.Worksheet xlWorkSheet;
-        private object misValue;
+       
 
         public void zagrsel()
         {

@@ -390,6 +390,7 @@ namespace OptiQ
                label4.Visible = false;
                bunifuFlatButton16.Text = "0";
                 bunifuFlatButton16.Visible = false;
+                koment.Text = "";
 
             }
             else { Program.msg.Message.Text = "Корзина пуста"; Program.log.mess.Show(); Program.msg.Size = new Size(300, 100); }
@@ -596,6 +597,7 @@ namespace OptiQ
 
                 if (grdt_kass.Rows.Count == 1) {
                     bunifuFlatButton16.Text = "0";
+                    koment.Text = "";
                 
                 }
 
@@ -1132,27 +1134,39 @@ namespace OptiQ
             while (nacht < grdt_kass.Rows.Count)
             {
                 long kod =Convert.ToInt64( grdt_kass.Rows[nacht].Cells[0].Value);
-                long rz = Convert.ToInt64(grdt_kass.Rows[nacht].Cells[11].Value);
-                string pies = grdt_kass.Rows[nacht].Cells[4].Value.ToString().Replace(",",".");
-                string name= grdt_kass.Rows[nacht].Cells[1].Value.ToString();
+                if (kod > 0) {
 
-                zapros += "INSERT INTO tov_otlojka_pro(tov_ot_id, tov_kod, tov_rz, tov_pies, tov_name)VALUES("+ create_id + ","+kod+","+rz+","+ pies + ",N'"+ name + "');";
-                zapros += "UPDATE razmer_pro SET rz_pies=((SELECT rz_pies FROM razmer_pro where rz_pr_kod=" + kod + " and rz_id=" + rz + "ORDER BY rz_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY)-" + pies + ") where rz_id=" + rz + " and rz_pr_kod=" + kod + ";";
+                    long rz = Convert.ToInt64(grdt_kass.Rows[nacht].Cells[11].Value);
+                    string pies = grdt_kass.Rows[nacht].Cells[4].Value.ToString().Replace(",", ".");
+                    string name = grdt_kass.Rows[nacht].Cells[1].Value.ToString();
+
+                    zapros += "INSERT INTO tov_otlojka_pro(tov_ot_id, tov_kod, tov_rz, tov_pies, tov_name)VALUES(" + create_id + "," + kod + "," + rz + "," + pies + ",N'" + name + "');";
+                    zapros += "UPDATE razmer_pro SET rz_pies=((SELECT rz_pies FROM razmer_pro where rz_pr_kod=" + kod + " and rz_id=" + rz + "ORDER BY rz_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY)-" + pies + ") where rz_id=" + rz + " and rz_pr_kod=" + kod + ";";
+
+                }
+
                 nacht++;
             }
-            
-            string cretezapr = "INSERT INTO otlojka_pro(ot_id,id_kassir)VALUES(" + create_id + "," +Global.IDuser+ ");";
-            string zaprostext = cretezapr + zapros + "INSERT INTO productoff(pr_text)VALUES(N'" + Global.versia + cretezapr.Replace("'", "$") + zapros.Replace("'", "$") + "');";
-            conoff.Close();
-            conoff.Open();
-            sqloff =zaprostext ;
-            cmdoff = new SqlCommand(sqloff, conoff);
-            droff = cmdoff.ExecuteReader();
-            droff.Read();
-            conoff.Close();
 
-            grdt_kass.Rows.Clear();
-            Global.basever++;
+            if (zapros != null) {
+
+
+                string cretezapr = "INSERT INTO otlojka_pro(ot_id,id_kassir,ot_text)VALUES(" + create_id + "," + Global.IDuser + ",N'"+koment.Text+"');";
+                string zaprostext = cretezapr + zapros + "INSERT INTO productoff(pr_text)VALUES(N'" + Global.versia + cretezapr.Replace("'", "$") + zapros.Replace("'", "$") + "');";
+                conoff.Close();
+                conoff.Open();
+                sqloff = zaprostext;
+                cmdoff = new SqlCommand(sqloff, conoff);
+                droff = cmdoff.ExecuteReader();
+                droff.Read();
+                conoff.Close();
+
+                grdt_kass.Rows.Clear();
+                Global.basever++;
+
+
+            }
+            
 
         }
 

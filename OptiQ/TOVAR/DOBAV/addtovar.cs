@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
@@ -28,14 +29,17 @@ namespace OptiQ
         }
 
 
-        public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
-
+        public SqlConnection con = new SqlConnection(Global.conectsql);
 
         public string shtrih = null;
-
         public string sql;
-        public NpgsqlCommand cmd;
-        public NpgsqlDataReader dr;
+        public SqlCommand cmd;
+        public SqlDataReader dr;
+
+
+
+
+
 
         fastaddprovid fstadpr = new fastaddprovid();
         //  private double res;
@@ -114,7 +118,7 @@ namespace OptiQ
                 con.Close();
                 con.Open();
                 sql = "select mp_name from myprov where mp_mg_id = " + Global.IDmagaz;
-                cmd = new NpgsqlCommand(sql, con);
+                cmd = new SqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -157,7 +161,7 @@ namespace OptiQ
                 con.Close();
                 con.Open();
                 sql = "select pr_kod from product_pro where pr_mg_id = " + Global.IDmagaz + "and pr_kod = " + randomNumber;
-                cmd = new NpgsqlCommand(sql, con);
+                cmd = new SqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -247,7 +251,7 @@ namespace OptiQ
                 con.Open();
                 sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_provid,rz_id,rz_name,rz_pies from product_pro "+
                        "LEFT JOIN razmer_pro ON pr_kod = rz_pr_kod where pr_mg_id ="+Global.IDmagaz+" and pr_kod ="+kod+";" ;
-                cmd = new NpgsqlCommand(sql, con);
+                cmd = new SqlCommand(sql, con);
 
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -313,8 +317,8 @@ namespace OptiQ
                         {
                             con.Close();
                             con.Open();
-                            sql = "INSERT INTO allpruduct(al_kod,al_name)VALUES(" + kod + ",'" + text2.Text + "')";
-                            cmd = new NpgsqlCommand(sql, con);
+                            sql = "INSERT INTO productoff(pr_text)VALUES(N'INSERT INTO allpruduct(al_kod, al_name)VALUES(" + kod + ", $" + text2.Text + "$);')"; ;
+                            cmd = new SqlCommand(sql, con);
                             dr = cmd.ExecuteReader();
                             dr.Read();
                             con.Close();
@@ -393,12 +397,15 @@ namespace OptiQ
                    
                     if (prkod!=0)
                     {
+                        Global.basever++;
 
                         con.Close();
                         con.Open();
-                        sql = Global.versia;
-                        sql += "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name='" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_provid='" + text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz;
-                        cmd = new NpgsqlCommand(sql, con);
+                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name='" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_provid='" + text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
+                        sql += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sql).Replace("'", "$") + "')";
+
+
+                        cmd = new SqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
                         dr.Read();
                         con.Close();
@@ -411,10 +418,12 @@ namespace OptiQ
                        
                         con.Close();
                         con.Open();
-                        sql = Global.versia;
-                        sql += "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",'" + text2.Text + "'," + priha + "," + text5.Text + ",'" + text6.Text + "'," + opti + ");";
-                        sql+= "select doppler(" + Global.IDmagaz+","+ text1.Text + ");";
-                        cmd = new NpgsqlCommand(sql, con);
+                      
+                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",'" + text2.Text + "'," + priha + "," + text5.Text + ",'" + text6.Text + "'," + opti + ");";
+
+                        sql += "INSERT INTO productoff(pr_text)VALUES(N'" + "select doppler(" + Global.IDmagaz + "," + text1.Text + ");" + (Global.versia + sql).Replace("'", "$") + "')";
+
+                        cmd = new SqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
                         dr.Read();
                         con.Close();

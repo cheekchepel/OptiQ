@@ -96,7 +96,7 @@ namespace OptiQ
         {
             if (!String.IsNullOrWhiteSpace(textBox1.Text))
             {
-               Program.KASA.grdt_kass.Rows.Add(0, "Товар магазина " + Global.MGname,Convert.ToInt32(textBox1.Text), 0, 1,0,Convert.ToInt32(textBox1.Text),0,0,1);
+               Program.KASA.grdt_kass.Rows.Add(0, "Товар магазина " + Global.MGname,Convert.ToInt32(textBox1.Text), 0, 1,0,Convert.ToInt32(textBox1.Text),0,0,1,0,0);
                 Program.KASA.index = Program.KASA.grdt_kass.Rows.Count - 1;
 
                 Program.KASA.grdt_kass.ClearSelection();

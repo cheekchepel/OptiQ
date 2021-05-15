@@ -408,7 +408,7 @@ namespace OptiQ
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();
                     conoff1.Close();
-                delkateg = null;
+                    delkateg = null;
 
                 }
 

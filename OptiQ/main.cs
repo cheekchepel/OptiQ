@@ -26,6 +26,7 @@ using Syncfusion.Pdf.Grid;
 using Color = System.Drawing.Color;
 
 using OptiQ.kassa;
+using System.Runtime.InteropServices;
 
 namespace OptiQ
 {
@@ -44,9 +45,9 @@ namespace OptiQ
 
         tovar prd = new tovar() { Dock = DockStyle.Fill, TopLevel = false };
 
-       public Sales sslllaasslo = new Sales() { Dock = DockStyle.Fill, TopLevel = false };  
+       public Sales sslllaasslo = new Sales() { Dock = DockStyle.Fill, TopLevel = false };
 
-       
+        public int vremya = 0;
 
         public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
 
@@ -270,19 +271,47 @@ namespace OptiQ
         {
             if (Global.IDuser > 0)
             {
-
-                try
+                if (vremya >= Global.ojidanie)
                 {
-                    con.Close();
-                    con.Open();
 
-                    sql = "INSERT INTO sobbez(sb_ksas_id,sb_date,sb_con)VALUES(" + Global.IDuser + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + 2 + ")";
-                    cmd = new NpgsqlCommand(sql, con);
-                    dr = cmd.ExecuteReader();
-                    dr.Read();
-                    con.Close();
+                    try
+                    {
+                        con.Close();
+                        con.Open();
+
+                        sql = "INSERT INTO sobbez(sb_ksas_id,sb_date,sb_con)VALUES(" + Global.IDuser + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + 3 + ")";
+                        cmd = new NpgsqlCommand(sql, con);
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+                        con.Close();
+                    }
+                    catch { sobbez(3); }
+
+
+
                 }
-                catch { sobbez(2); }
+                else {
+
+
+                    try
+                    {
+                        con.Close();
+                        con.Open();
+
+                        sql = "INSERT INTO sobbez(sb_ksas_id,sb_date,sb_con)VALUES(" + Global.IDuser + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + "," + 2 + ")";
+                        cmd = new NpgsqlCommand(sql, con);
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+                        con.Close();
+                    }
+                    catch { sobbez(2); }
+
+
+
+                }
+
+
+             
                
 
 
@@ -311,6 +340,65 @@ namespace OptiQ
         {
             Program.main.backblakshow();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            if (InputTimer.GetInputIdleTime() >= Global.ojidanie) {
+
+                Potoki.zakroi = false;
+
+                Application.Exit();
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+        public static class InputTimer
+        {
+            public static double GetInputIdleTime()
+            {
+                var plii = new NativeMethods.LastInputInfo();
+                plii.cbSize = (UInt32)Marshal.SizeOf(plii);
+
+                if (NativeMethods.GetLastInputInfo(ref plii))
+                {
+                    return Math.Ceiling(Convert.ToDouble(Environment.TickCount - plii.dwTime) / 60000);
+                }
+                else
+                {
+                    throw new Win32Exception(Marshal.GetLastWin32Error());
+                }
+            }
+
+
+
+            private static class NativeMethods
+            {
+                public struct LastInputInfo
+                {
+                    public UInt32 cbSize;
+                    public UInt32 dwTime;
+                }
+
+                [DllImport("user32.dll")]
+                public static extern bool GetLastInputInfo(ref LastInputInfo plii);
+            }
+        }
+
+
+
+
+
+
     }
 
 } 

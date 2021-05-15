@@ -29,6 +29,7 @@ namespace OptiQ
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.header = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,7 @@ namespace OptiQ
             this.turn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.output = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -313,6 +315,12 @@ namespace OptiQ
             this.output.Size = new System.Drawing.Size(1024, 701);
             this.output.TabIndex = 3;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -352,6 +360,7 @@ namespace OptiQ
         public Bunifu.Framework.UI.BunifuFlatButton vesovoi;
         public System.Windows.Forms.Panel output;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

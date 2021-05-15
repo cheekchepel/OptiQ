@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,13 +18,16 @@ namespace OptiQ
         {
             InitializeComponent();
         }
-        public NpgsqlConnection conr = new NpgsqlConnection(Global.conectpost);
+        public SqlConnection conr = new SqlConnection(Global.conectsql);
         public string sqlr;
-        public NpgsqlCommand cmdr;
-        public NpgsqlDataReader drr;
+        public SqlCommand cmdr;
+        public SqlDataReader drr;
 
-     
-        
+
+
+
+
+
         public long rz_id=0;
         public long pr_kod = 0;
 
@@ -79,13 +83,16 @@ namespace OptiQ
 
             if (rz_id != 0)
             {
-                
+                Global.basever++;
 
                 conr.Close();
                 conr.Open();
-                sqlr = Global.versia;
-                sqlr += "delete from razmer_pro WHERE rz_id =" + rz_id + ";";
-                cmdr = new NpgsqlCommand(sqlr, conr);
+                
+                sqlr = "delete from razmer_pro WHERE rz_id =" + rz_id + ";";
+
+                sqlr += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sqlr).Replace("'", "$") + "')";
+
+                cmdr = new SqlCommand(sqlr, conr);
                 drr = cmdr.ExecuteReader();
                 drr.Read();
                 conr.Close();
@@ -98,29 +105,32 @@ namespace OptiQ
 
             if (!String.IsNullOrWhiteSpace(textname.Text) && !String.IsNullOrWhiteSpace(textpie.Text))
             {
+                Global.basever++;
                 if (rz_id == 0)
                 {
                     conr.Close();
                     conr.Open();
-                    sqlr = Global.versia;
-                    sqlr += "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_mg_id,rz_name,rz_pies)VALUES("+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds() + "," + Program.addprd.text1.Text + "," + Global.IDmagaz + ",'" + textname.Text + "'," + textpie.Text.Replace(",", ".") + ");";
-                    cmdr = new NpgsqlCommand(sqlr, conr);
+
+                    sqlr = "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_mg_id,rz_name,rz_pies)VALUES("+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds() + "," + Program.addprd.text1.Text + "," + Global.IDmagaz + ",'" + textname.Text + "'," + textpie.Text.Replace(",", ".") + ");";
+                    sqlr += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sqlr).Replace("'", "$") + "')";
+                    cmdr = new SqlCommand(sqlr, conr);
                     drr = cmdr.ExecuteReader();
                     drr.Read();
                     conr.Close();
-                    
+
                 }
                 else
                 {
                     conr.Close();
                     conr.Open();
-                    sqlr = Global.versia;
-                    sqlr += "UPDATE razmer_pro Set rz_pr_kod=" + Program.addprd.text1.Text + ", rz_name='" + textname.Text + "',rz_pies=" + textpie.Text.Replace(",", ".") + " WHERE rz_id=" + rz_id + "and rz_mg_id=" + Global.IDmagaz + ";";
-                    cmdr = new NpgsqlCommand(sqlr, conr);
+
+                    sqlr = "UPDATE razmer_pro Set rz_pr_kod=" + Program.addprd.text1.Text + ", rz_name='" + textname.Text + "',rz_pies=" + textpie.Text.Replace(",", ".") + " WHERE rz_id=" + rz_id + "and rz_mg_id=" + Global.IDmagaz + ";";
+                    sqlr += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sqlr).Replace("'", "$") + "')";
+                    cmdr = new SqlCommand(sqlr, conr);
                     drr = cmdr.ExecuteReader();
                     drr.Read();
                     conr.Close();
-                  
+                   
                 }
             }
 

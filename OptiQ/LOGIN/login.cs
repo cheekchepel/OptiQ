@@ -158,7 +158,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran from nastroiki where ns_mg_id=" + Global.IDmagaz;
+            sqloff = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow from nastroiki where ns_mg_id=" + Global.IDmagaz;
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             if (droff.Read())
@@ -172,7 +172,13 @@ namespace OptiQ
 
                 Global.maxbonusogran = Convert.ToInt32(droff[3]);
 
-            }
+                Global.sale_in_minus = Convert.ToBoolean(droff[4]); 
+
+                Global.ojidanie = Convert.ToInt32(droff[5]); 
+
+                Global.vesishow = Convert.ToBoolean(droff[6]); 
+
+    }
             conoff.Close();
 
 
@@ -204,17 +210,9 @@ namespace OptiQ
 
 
 
-
-
-
-
-
         }
 
      
-
-        
-       
 
 
 
@@ -266,20 +264,6 @@ namespace OptiQ
     
 
      
-
-     
-
-     
-
-      
-
-       
-
-    
-
-     
-
-       
 
    
 
@@ -411,7 +395,7 @@ namespace OptiQ
 
                         con.Close();
                         con.Open();
-                        sql = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran from nastroiki where ns_mg_id=" + Global.IDmagaz;
+                        sql = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow from nastroiki where ns_mg_id=" + Global.IDmagaz;
                         cmd = new NpgsqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
 
@@ -420,7 +404,7 @@ namespace OptiQ
                             conoff.Close();
                             conoff.Open();
                             sqloff = "DELETE FROM nastroiki;" +
-                        "INSERT INTO nastroiki(ns_mg_id,ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran)VALUES("+Global.IDmagaz+"," + dr[0]+ "," + dr[1] + "," + dr[2] + "," + dr[3] + ")";
+                        "INSERT INTO nastroiki(ns_mg_id,ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow)VALUES(" + Global.IDmagaz+"," + dr[0]+ "," + dr[1] + "," + dr[2] + "," + dr[3] + ",'" + dr[4] + "','" + dr[5] + "','" + dr[6] + "')";
                             cmdoff = new SqlCommand(sqloff, conoff);
                             droff = cmdoff.ExecuteReader();
                             droff.Read();
@@ -449,12 +433,13 @@ namespace OptiQ
                         {
                             poisc_sessii_and_view();
                          
+                            
+                            Potoki.start();
+                            prava();
                             Program.main.smenna.Visible = true;
                             Program.main.prodect_but.Visible = true;
                             Program.main.close.Visible = false;
-                            Program.main.vesovoi.Visible = true;
-                            Potoki.start();
-                            prava();
+                            Program.main.vesovoi.Visible = Global.vesishow;
                             Program.KASA.salesssssssssssssss();
                             Program.main.sobbez(1);
                         }

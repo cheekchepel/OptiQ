@@ -29,7 +29,13 @@ namespace OptiQ
         public static bool pra_showpie;
         public static bool pra_showprih;
         public static bool pra_showdohd;
-        public static bool sale_in_minus=false;
+
+
+
+        public static bool sale_in_minus=true;
+        public static int uvedomlenie_ostatoc = 2;
+        public static int ojidanie = 10;
+        public static bool vesishow = false;
 
 
         public static long basever;
@@ -54,7 +60,7 @@ namespace OptiQ
         public static int beznal = 0;
         public static int kaspi = 0;
         public static int kaspired = 0;
-        public static int uvedomlenie_ostatoc = 10;
+
 
 
 

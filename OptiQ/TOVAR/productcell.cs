@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,12 +26,11 @@ namespace OptiQ
 
 
 
-        public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
-
+        public SqlConnection con = new SqlConnection(Global.conectsql);
 
         public string sql;
-        public NpgsqlCommand cmd;
-        public NpgsqlDataReader dr;
+        public SqlCommand cmd;
+        public SqlDataReader dr;
 
 
 
@@ -110,12 +110,13 @@ namespace OptiQ
             {
                 try
                 {
-
+                    Global.basever++;
                     con.Open();
-                    sql = Global.versia;
-                    sql += "UPDATE product_pro Set pr_kod=" + textBox1.Text + ",pr_name='" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_id=" + idtov;
+                    
+                    sql = "UPDATE product_pro Set pr_kod=" + textBox1.Text + ",pr_name='" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_id=" + idtov+";";
+                    sql += "INSERT INTO productoff(pr_text)VALUES(N'"+ (Global.versia + sql).Replace("'","$")+"')";
 
-                    cmd = new NpgsqlCommand(sql, con);
+                    cmd = new SqlCommand(sql, con);
                     dr = cmd.ExecuteReader();
                     dr.Read();
                     con.Close();
