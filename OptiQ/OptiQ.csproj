@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\Куаныш\Desktop\Я ЗДЕСЬ КУАНЫШ\</PublishUrl>
+    <PublishUrl>C:\Users\Elon\Desktop\optiq\kassir\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/OptiQ/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
-    <ApplicationRevision>141</ApplicationRevision>
+    <ApplicationRevision>142</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

@@ -282,7 +282,7 @@ namespace OptiQ
 
                         conoff.Close();
                         conoff.Open();
-                        zapr = "select mp_test from myprov where mp_name IN (SELECT pr_provid from product_pro where pr_kod=" + kodd + ")";
+                        zapr = "select mp_test from myprov where mp_id_off = (SELECT pr_prov_id from product_pro where pr_kod=" + kodd + ")";
                         cmdoff = new SqlCommand(zapr, conoff);
                         droff = cmdoff.ExecuteReader();
                         if (droff.Read())

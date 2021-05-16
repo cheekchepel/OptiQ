@@ -60,7 +60,7 @@ namespace OptiQ
                 try { 
                 con.Close();
                 con.Open();
-                sql = "INSERT INTO myprov(mp_mg_id,mp_name,mp_test)VALUES(" + Global.IDmagaz + ",N'" + text3.Text + "','false');";
+                sql = "INSERT INTO myprov(mp_mg_id,mp_name,mp_test,mp_id_off)VALUES(" + Global.IDmagaz + ",N'" + text3.Text + "','false',"+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds() + ");";
 
                 sql += "INSERT INTO productoff(pr_text)VALUES(N'"+sql.Replace("'", "$") + "')";
 

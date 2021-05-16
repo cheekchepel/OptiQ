@@ -222,17 +222,15 @@ namespace OptiQ
             { }
             else
             {
-                string pe = "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_pies)VALUES("+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds()+","+ id + ",1);";
-                string pe2 = "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_pies,rz_mg_id)VALUES(" + Global.IDuser + "" + DateTimeOffset.Now.ToUnixTimeMilliseconds() + "," + id + ",1,"+Global.IDmagaz+");";
 
+                string pe2 = "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_pies,rz_mg_id)VALUES(" + Global.IDuser + "" + DateTimeOffset.Now.ToUnixTimeMilliseconds() + "," + id + ",1,"+Global.IDmagaz+");";
+                pe2+= "INSERT INTO product_pro(pr_mg_id,pr_name,pr_price_co,pr_price_ca,pr_kod,pr_optom)VALUES(" + Global.IDmagaz + ",N'" + textBox2.Text + "',0," + textBox1.Text + "," + id + "," + textBox1.Text + ");";
 
                 conoff.Close();
                 conoff.Open();
-                sqloff = "INSERT INTO product_pro(pr_name,pr_price_ca,pr_kod,pr_price_co,pr_optom)VALUES(N'" + textBox2.Text + "'," + textBox1.Text + "," + id + ",0," + textBox1.Text + ");";
+                sqloff = pe2;
 
-                sqloff += pe;
-                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+pe2+"INSERT INTO product_pro(pr_mg_id,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_kod,pr_optom)" +
-                    "VALUES(" + Global.IDmagaz + ",N$" + textBox2.Text + "$,0," + textBox1.Text + ",N$0$," + id + "," + textBox1.Text + ");');";
+                sqloff += "INSERT INTO productoff(pr_text)VALUES(N'"+ sqloff.Replace("'","$") + "');";
                
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();

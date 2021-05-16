@@ -266,7 +266,7 @@ namespace OptiQ
             string zaprosoff = null;
 
             int min = 0;
-
+            int max = 0;
             con.Close();
             con.Open();
             sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol from prihod";
@@ -282,13 +282,14 @@ namespace OptiQ
                 zaprosoff+= "UPDATE razmer_pro SET rz_pies=((select rz_pies from razmer_pro where rz_pr_kod=" + dr[0] + " and rz_id=" + dr[5] + ")+" + dr[6].ToString().Replace(",", ".") + ") where rz_pr_kod=" + dr[0]+" and rz_id="+dr[5]+";";
 
                 min += Convert.ToInt32(dr[2]);
+                max += Convert.ToInt32(dr[3]);
 
             }
 
             con.Close();
 
-            zapros += "insert into postavki(pos_kassir_id,pos_type,pos_sum_pri,pos_name_prov,pos_mg_id,pos_date,pos_idshnik)" +
-                " VALUES ("+Global.IDuser+",1,"+min+",'"+text6.Text+"',"+Global.IDmagaz+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ","+ cart_id + ");";
+            zapros += "insert into postavki(pos_kassir_id,pos_type,pos_sum_pri,pos_sum_sell,pos_name_prov,pos_mg_id,pos_date,pos_idshnik,pos_prov_id)" +
+                " VALUES ("+Global.IDuser+",1,"+min+","+max+",'" +text6.Text+"',"+Global.IDmagaz+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ","+ cart_id + ",0(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
 
             con.Close();
             con.Open();
