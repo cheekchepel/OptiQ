@@ -109,6 +109,7 @@ namespace OptiQ
         {
             Thread myThread2 = new Thread(new ThreadStart(proverka));
             myThread2.Start();
+
         }
 
 
@@ -170,12 +171,6 @@ namespace OptiQ
         {
 
 
-
-           
-
-
-
-
             while (zakroi)
             {
 
@@ -206,10 +201,7 @@ namespace OptiQ
         }
 
 
-
-
-
-    }
+        }
 
 
 
@@ -565,7 +557,9 @@ namespace OptiQ
                 con3.Close();
 
 
-           } catch (NpgsqlException) { }
+           } catch (NpgsqlException) {
+            
+            }
 
 
 
@@ -595,7 +589,6 @@ namespace OptiQ
 
                 sqloff3 = delstr + "INSERT INTO sales_pro(sl_crt_id,sl_pieces,sl_cena,sl_name,sl_prihod,sl_skidon,sl_kod,sl_rz_id,cbt_skidon,sl_vozvrat)" +
                     "VALUES(" + dr3[0] + "," + (dr3[1].ToString()).Replace(",", ".") + "," + dr3[2] + ",N'" + dr3[3] + "'," + dr3[4] + ",N'" + dr3[5] + "'," + dr3[6] + "," + dr3[7] + ",N'" + dr3[8] + "'," + (dr3[9].ToString()).Replace(",", ".") + ");";
-
 
                 cmdoff3 = new SqlCommand(sqloff3, conoff3);
                 droff3 = cmdoff3.ExecuteReader();

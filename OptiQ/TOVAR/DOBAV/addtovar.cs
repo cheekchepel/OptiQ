@@ -401,7 +401,7 @@ namespace OptiQ
 
                         con.Close();
                         con.Open();
-                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name=N'" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_prov_id=0(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id="+Global.IDmagaz+ " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY),pr_provid=N'"+ text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
+                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name=N'" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_prov_id=0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id="+Global.IDmagaz+ " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY),pr_provid=N'"+ text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
                         sql += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sql).Replace("'", "$") + "')";
                         cmd = new SqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
@@ -417,7 +417,7 @@ namespace OptiQ
                         con.Close();
                         con.Open();
                       
-                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ",0(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
+                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ",0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
 
                         sql += "INSERT INTO productoff(pr_text)VALUES(N'"  + (Global.versia + sql).Replace("'", "$") + "select doppler(" + Global.IDmagaz + "," + text1.Text + ");" + "')";
 

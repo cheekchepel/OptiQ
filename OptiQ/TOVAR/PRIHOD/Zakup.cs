@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using OptiQ.TOVAR.PRIHOD;
+using OptiQ.kassa;
 
 namespace OptiQ
 {
@@ -35,6 +37,10 @@ namespace OptiQ
 
         public int kolichestvo=0;
 
+
+        prihodpostav prihpos = new prihodpostav();
+
+        blackback blackback = new blackback();
 
         // int sum = 0;
         public int count = 0;
@@ -198,9 +204,13 @@ namespace OptiQ
                     sel[0].add(Convert.ToInt64(kod));
                     textBox1.Text = null;
 
-                 
+                    if (bunifuVTrackbar1.Value == 0)
+                    {
+
+                        select();
+
+                    }
                     bunifuVTrackbar1.Value = 0;
-                    select();
                     if (count > 12)
                     {
                         bunifuVTrackbar1.MaximumValue = (count - 11);
@@ -279,7 +289,9 @@ namespace OptiQ
                 zapros += "insert into postavproduct(pospro_id_postavki,pospro_kod,pospro_name,pospro_price_co,pospro_price_ca,pospro_rz_id,pospro_piec)" +
                     " VALUES ("+ cart_id + ","+dr[0]+",N'"+dr[1]+"',"+dr[2]+"," + dr[3] + "," + dr[5] + "," + dr[6].ToString().Replace(",",".") + ");";
 
-                zaprosoff+= "UPDATE razmer_pro SET rz_pies=((select rz_pies from razmer_pro where rz_pr_kod=" + dr[0] + " and rz_id=" + dr[5] + ")+" + dr[6].ToString().Replace(",", ".") + ") where rz_pr_kod=" + dr[0]+" and rz_id="+dr[5]+";";
+                zaprosoff+= "UPDATE razmer_pro SET rz_pies=((select rz_pies from razmer_pro where rz_pr_kod=" + dr[0] + " and rz_id=" + dr[5] + ")+" + dr[6].ToString().Replace(",", ".") + ") where rz_pr_kod=" + dr[0]+" and rz_id="+dr[5]+ " and rz_mg_id="+Global.IDmagaz+";";
+
+                zaprosoff+= "UPDATE product_pro SET pr_provid=N'"+text6.Text+ "',pr_prov_id=0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY) where pr_kod=" + dr[0] + " and pr_mg_id=" + Global.IDmagaz + ";";
 
                 min += Convert.ToInt32(dr[2]);
                 max += Convert.ToInt32(dr[3]);
@@ -289,7 +301,9 @@ namespace OptiQ
             con.Close();
 
             zapros += "insert into postavki(pos_kassir_id,pos_type,pos_sum_pri,pos_sum_sell,pos_name_prov,pos_mg_id,pos_date,pos_idshnik,pos_prov_id)" +
-                " VALUES ("+Global.IDuser+",1,"+min+","+max+",'" +text6.Text+"',"+Global.IDmagaz+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ","+ cart_id + ",0(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
+                " VALUES ("+Global.IDuser+",1,"+min+","+max+",'" +text6.Text+"',"+Global.IDmagaz+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ","+ cart_id + ",0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
+
+
 
             con.Close();
             con.Open();
@@ -299,39 +313,14 @@ namespace OptiQ
             dr.Read();
             con.Close();
 
-            select();
+            Program.main.backblakhide();
+            this.Close();
 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            bunifuCustomDataGrid1.Height = 0;
-            bunifuCustomDataGrid1.Visible = true;
-            long res;
-            bool isInt = Int64.TryParse(textBox1.Text + "0", out res);
 
-            if (textBox1.Text.Length > 1 && isInt != true)
-            {
-                
-                bunifuCustomDataGrid1.Rows.Clear();
-                con.Close();
-                con.Open();
-                sql = " SELECT pr_kod,pr_name FROM product_pro WHERE (LOWER(pr_name) LIKE LOWER(N'%" + textBox1.Text + "%'))";
-                cmd = new SqlCommand(sql, con);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    bunifuCustomDataGrid1.Rows.Add(Convert.ToInt64(dr[0]), dr[1]);
-
-                }
-                con.Close();
-
-                bunifuCustomDataGrid1.Height = (bunifuCustomDataGrid1.Rows.Count) * 28;
-                bunifuCustomDataGrid1.Width = 438;
-                bunifuCustomDataGrid1.Location = new Point(50, 145);
-                bunifuCustomDataGrid1.ClearSelection();
-
-            }
         }
 
         private void bunifuCustomDataGrid1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -365,6 +354,19 @@ namespace OptiQ
         private void bunifuVTrackbar1_ValueChanged(object sender, EventArgs e)
         {
             select();
+        }
+
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+            blackback.Show();           
+            prihpos.ShowDialog();
+           
+        }
+
+        public void prihpos_close() {
+
+            prihpos.Close();
+            blackback.Hide();
         }
     }
 }

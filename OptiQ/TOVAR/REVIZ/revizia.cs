@@ -343,7 +343,7 @@ namespace OptiQ
             if (!String.IsNullOrWhiteSpace(kod) && isInt == true)
             {
                 textBox7.Text = null;
-                bunifuVTrackbar1.Value = 0;
+                
 
                 string name = null;
 
@@ -410,7 +410,14 @@ namespace OptiQ
                 droff.Read();
                 conoff.Close();
 
-                select();
+                if (bunifuVTrackbar1.Value == 0) {
+
+                    select();
+
+                }
+
+                bunifuVTrackbar1.Value = 0;
+
                 if (count > 13)
                 { 
                     bunifuVTrackbar1.MaximumValue = (count - 12);

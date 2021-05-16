@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/OptiQ/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
-    <ApplicationRevision>142</ApplicationRevision>
+    <ApplicationRevision>144</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -315,6 +315,12 @@
     <Compile Include="TOVAR\PRIHOD\prihodcell.Designer.cs">
       <DependentUpon>prihodcell.cs</DependentUpon>
     </Compile>
+    <Compile Include="TOVAR\PRIHOD\prihodpostav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TOVAR\PRIHOD\prihodpostav.Designer.cs">
+      <DependentUpon>prihodpostav.cs</DependentUpon>
+    </Compile>
     <Compile Include="TOVAR\productcell.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -466,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TOVAR\PRIHOD\prihodcell.resx">
       <DependentUpon>prihodcell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TOVAR\PRIHOD\prihodpostav.resx">
+      <DependentUpon>prihodpostav.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TOVAR\productcell.resx">
       <DependentUpon>productcell.cs</DependentUpon>
