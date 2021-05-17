@@ -231,6 +231,7 @@ namespace OptiQ
             this.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.Name = "prihodcell";
             this.Size = new System.Drawing.Size(920, 36);
+            this.Load += new System.EventHandler(this.prihodcell_Load);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.panel2.ResumeLayout(false);

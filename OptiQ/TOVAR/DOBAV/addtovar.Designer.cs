@@ -42,16 +42,11 @@ namespace OptiQ
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.text1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.text2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
             this.text3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.shjowkeyboard3 = new OptiQ.shjowkeyboard();
             this.text5 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.shjowkeyboard4 = new OptiQ.shjowkeyboard();
             this.textopt = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.shjowkeyboard5 = new OptiQ.shjowkeyboard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.text6 = new System.Windows.Forms.ComboBox();
@@ -64,6 +59,11 @@ namespace OptiQ
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard3 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard4 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard5 = new OptiQ.shjowkeyboard();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +79,7 @@ namespace OptiQ
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.label1);
@@ -95,7 +96,7 @@ namespace OptiQ
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(540, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 15, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 360);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 345);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseMove);
@@ -183,16 +184,16 @@ namespace OptiQ
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.flowLayoutPanel2.Controls.Add(this.text1);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard1);
             this.flowLayoutPanel2.Controls.Add(this.bunifuFlatButton1);
+            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard1);
             this.flowLayoutPanel2.Controls.Add(this.text2);
             this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard2);
             this.flowLayoutPanel2.Controls.Add(this.text3);
             this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard3);
             this.flowLayoutPanel2.Controls.Add(this.text5);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard4);
-            this.flowLayoutPanel2.Controls.Add(this.textopt);
             this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard5);
+            this.flowLayoutPanel2.Controls.Add(this.textopt);
+            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard4);
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.bunifuFlatButton2);
             this.flowLayoutPanel2.Controls.Add(this.label8);
@@ -228,17 +229,6 @@ namespace OptiQ
             this.text1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text1_KeyPress);
             this.text1.Leave += new System.EventHandler(this.text1_Leave);
             // 
-            // shjowkeyboard1
-            // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(250, 10);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard1.TabIndex = 15;
-            this.shjowkeyboard1.Visible = false;
-            // 
             // bunifuFlatButton1
             // 
             this.bunifuFlatButton1.Activecolor = System.Drawing.Color.Transparent;
@@ -261,7 +251,7 @@ namespace OptiQ
             this.bunifuFlatButton1.IconVisible = true;
             this.bunifuFlatButton1.IconZoom = 45D;
             this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(290, 10);
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(250, 10);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
@@ -294,17 +284,6 @@ namespace OptiQ
             this.text2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.text2.Enter += new System.EventHandler(this.text2_Enter);
             // 
-            // shjowkeyboard2
-            // 
-            this.shjowkeyboard2.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard2.Location = new System.Drawing.Point(290, 60);
-            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard2.Name = "shjowkeyboard2";
-            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard2.TabIndex = 11;
-            this.shjowkeyboard2.Visible = false;
-            // 
             // text3
             // 
             this.text3.BackColor = System.Drawing.Color.White;
@@ -325,17 +304,6 @@ namespace OptiQ
             this.text3.OnValueChanged += new System.EventHandler(this.text3_OnValueChanged);
             this.text3.Enter += new System.EventHandler(this.text3_Enter);
             this.text3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text3_KeyPress);
-            // 
-            // shjowkeyboard3
-            // 
-            this.shjowkeyboard3.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard3.Location = new System.Drawing.Point(290, 110);
-            this.shjowkeyboard3.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard3.Name = "shjowkeyboard3";
-            this.shjowkeyboard3.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard3.TabIndex = 12;
-            this.shjowkeyboard3.Visible = false;
             // 
             // text5
             // 
@@ -358,17 +326,6 @@ namespace OptiQ
             this.text5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text5_KeyPress);
             this.text5.Leave += new System.EventHandler(this.text5_Leave);
             // 
-            // shjowkeyboard4
-            // 
-            this.shjowkeyboard4.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard4.Location = new System.Drawing.Point(290, 160);
-            this.shjowkeyboard4.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard4.Name = "shjowkeyboard4";
-            this.shjowkeyboard4.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard4.TabIndex = 13;
-            this.shjowkeyboard4.Visible = false;
-            // 
             // textopt
             // 
             this.textopt.BackColor = System.Drawing.Color.White;
@@ -388,17 +345,6 @@ namespace OptiQ
             this.textopt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.textopt.Enter += new System.EventHandler(this.text4_Enter);
             this.textopt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text4_KeyPress);
-            // 
-            // shjowkeyboard5
-            // 
-            this.shjowkeyboard5.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard5.Location = new System.Drawing.Point(290, 210);
-            this.shjowkeyboard5.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard5.Name = "shjowkeyboard5";
-            this.shjowkeyboard5.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard5.TabIndex = 14;
-            this.shjowkeyboard5.Visible = false;
             // 
             // panel1
             // 
@@ -588,7 +534,7 @@ namespace OptiQ
             this.panel4.Controls.Add(this.bunifuFlatButton8);
             this.panel4.Controls.Add(this.bunifuFlatButton6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 445);
+            this.panel4.Location = new System.Drawing.Point(0, 430);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(20, 10, 20, 20);
             this.panel4.Size = new System.Drawing.Size(540, 70);
@@ -638,12 +584,67 @@ namespace OptiQ
             this.flowLayoutPanel3.AutoSize = true;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 395);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 380);
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(540, 250);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(540, 50);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(540, 50);
             this.flowLayoutPanel3.TabIndex = 17;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(290, 10);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard1.TabIndex = 15;
+            this.shjowkeyboard1.Visible = false;
+            // 
+            // shjowkeyboard2
+            // 
+            this.shjowkeyboard2.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard2.Location = new System.Drawing.Point(290, 60);
+            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.shjowkeyboard2.Name = "shjowkeyboard2";
+            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard2.TabIndex = 11;
+            this.shjowkeyboard2.Visible = false;
+            // 
+            // shjowkeyboard3
+            // 
+            this.shjowkeyboard3.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard3.Location = new System.Drawing.Point(290, 110);
+            this.shjowkeyboard3.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.shjowkeyboard3.Name = "shjowkeyboard3";
+            this.shjowkeyboard3.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard3.TabIndex = 12;
+            this.shjowkeyboard3.Visible = false;
+            // 
+            // shjowkeyboard4
+            // 
+            this.shjowkeyboard4.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard4.Location = new System.Drawing.Point(290, 210);
+            this.shjowkeyboard4.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.shjowkeyboard4.Name = "shjowkeyboard4";
+            this.shjowkeyboard4.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard4.TabIndex = 13;
+            this.shjowkeyboard4.Visible = false;
+            // 
+            // shjowkeyboard5
+            // 
+            this.shjowkeyboard5.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard5.Location = new System.Drawing.Point(290, 160);
+            this.shjowkeyboard5.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.shjowkeyboard5.Name = "shjowkeyboard5";
+            this.shjowkeyboard5.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard5.TabIndex = 14;
+            this.shjowkeyboard5.Visible = false;
             // 
             // addtovar
             // 

@@ -113,7 +113,7 @@ namespace OptiQ
                     Global.basever++;
                     con.Open();
                     
-                    sql = "UPDATE product_pro Set pr_kod=" + textBox1.Text + ",pr_name=N'" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_id=" + idtov+";";
+                    sql = "UPDATE product_pro Set pr_name=N'" + textBox2.Text + "',pr_price_co=" + textBox3.Text + ",pr_price_ca=" + textBox4.Text + " where pr_kod=" + textBox1.Text + " and pr_mg_id="+Global.IDmagaz+";";
                     sql += "INSERT INTO productoff(pr_text)VALUES(N'"+ (Global.versia + sql).Replace("'","$")+"')";
 
                     cmd = new SqlCommand(sql, con);
@@ -191,6 +191,7 @@ namespace OptiQ
             this.Width = Global.x-34 ;
             edit.Visible = Global.pra_eidittov;
             panel3.Visible = Global.pra_showprih;
+            bunifuFlatButton1.Visible = Global.pra_eidittov;
         }
 
         private void bunifuCheckbox1_OnChange(object sender, EventArgs e)

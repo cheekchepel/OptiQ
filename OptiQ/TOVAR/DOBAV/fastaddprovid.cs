@@ -31,6 +31,8 @@ namespace OptiQ
 
 
 
+
+
         private void fastaddprovid_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -50,6 +52,7 @@ namespace OptiQ
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
+            Program.zakup.blackback.Hide();
             this.Close();
         }
 
@@ -72,7 +75,9 @@ namespace OptiQ
                 Program.addprd.text6.Text = text3.Text.ToString();
                 Program.zakup.text6.Items.Add(text3.Text);
                 Program.zakup.text6.Text = text3.Text.ToString();
-                this.Close();
+                    Program.zakup.blackback.Hide();
+                    this.Close();
+                   
                 }
                 catch (NpgsqlException)
                 {

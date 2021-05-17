@@ -66,7 +66,7 @@ namespace OptiQ
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.grdt_kass50.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grdt_kass50.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grdt_kass50.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdt_kass50.BackgroundColor = System.Drawing.Color.White;
             this.grdt_kass50.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdt_kass50.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdt_kass50.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -224,6 +224,7 @@ namespace OptiQ
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton1.MouseDown += new System.EventHandler(this.bunifuFlatButton1_MouseDown);
             this.bunifuFlatButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bunifuFlatButton1_MouseClick);
             // 
             // shjowkeyboard2

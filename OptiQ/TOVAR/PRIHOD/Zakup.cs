@@ -22,6 +22,7 @@ namespace OptiQ
         {
             InitializeComponent();
             Program.zakup = this;
+
         }
 
         public SqlConnection con = new SqlConnection(Global.conectsql);
@@ -40,7 +41,7 @@ namespace OptiQ
 
         prihodpostav prihpos = new prihodpostav();
 
-        blackback blackback = new blackback();
+        public blackback blackback = new blackback();
 
         // int sum = 0;
         public int count = 0;
@@ -50,6 +51,9 @@ namespace OptiQ
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
+            blackback.Show();
+
+            Program.fstpr.ShowDialog();
 
 
         }
@@ -104,6 +108,12 @@ namespace OptiQ
             //panel8.Visible = Global.pra_showprih;
             // cenaco.Visible = Global.pra_showprih;
 
+            textBox3.Visible = Global.pra_showprih;
+            textBox5.Visible = Global.pra_showprih;
+            this.Width = textBox7.Left + 200;
+
+            this.Left = (Global.x - this.Width) / 2;
+
             while (raz < 13) {
 
                 sel[raz] = new prihodcell{Visible=false,selcehk=false};
@@ -132,7 +142,7 @@ namespace OptiQ
 
             con.Close();
             con.Open();
-            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol,(SELECT COUNT(*) FROM prihod) from prihod order by Id desc OFFSET " +Convert.ToInt32(bunifuVTrackbar1.Value)+" ROWS";
+            sql = "select kod,name,cena_co,cena_ca,cena_opt,rz_id,kol,(SELECT COUNT(*) FROM prihod) from prihod order by Id desc OFFSET " +Convert.ToInt32(bunifuVTrackbar1.Value)+ " ROWS FETCH NEXT 12 ROWS ONLY";
             cmd = new SqlCommand(sql, con);
             dr = cmd.ExecuteReader();
             while (kolichestvo < 12)

@@ -449,7 +449,7 @@ namespace OptiQ
             if (e.KeyChar == (char)Keys.Enter)
             {
 
-                kassa_pulus(0, textBox1.Text);
+                kassa_pulus(0, textBox1.Text,true);
 
             }
         }
@@ -457,7 +457,7 @@ namespace OptiQ
 
 
 
-        public void kassa_pulus(long rz_id,string kod)
+        public void kassa_pulus(long rz_id,string kod,bool neuu)
         {
 
            
@@ -492,7 +492,7 @@ namespace OptiQ
                     {
                         pisc_plu(kod.Remove(12).Remove(0, 2));
                     }
-                    else {
+                    else if(neuu) {
                         conoff.Close();
                         add.ID = kod;
                         Program.main.backblakshow();                       
@@ -969,6 +969,8 @@ namespace OptiQ
         {
             string otl_fun = null;
 
+            
+
             if (otl!=0) {
 
                 otl_fun = "rz_id=" + otl + " and";
@@ -1009,9 +1011,22 @@ namespace OptiQ
             {
                
                 double pies = Convert.ToDouble(dtSales.Rows[0][2].ToString().Replace(".", ","));
-                string rz_name = dtSales.Rows[0][1].ToString();
+
+
+               
+
+
+                string rz_name = "["+dtSales.Rows[0][1].ToString()+"]";
+
+                if (otl == 0)
+                {
+
+                    rz_name = "";
+
+                }
+
                 long rz_id = Convert.ToInt64(dtSales.Rows[0][0]);
-                adda(pr_kod, pr_name, pr_price_co, pr_price_ca, pr_optom, pies, "", rz_id);
+                adda(pr_kod, pr_name, pr_price_co, pr_price_ca, pr_optom, pies, rz_name, rz_id);
             }
             else
             {
@@ -1184,18 +1199,23 @@ namespace OptiQ
                 string pies = pohav.Rows[nacht].Cells[2].Value.ToString().Replace(",", ".");
 
 
-            
-                Program.KASA.kassa_pulus(rz, kod.ToString());
+
+                Program.KASA.kassa_pulus(rz, kod.ToString(), false);
 
                 int ind = Program.KASA.grdt_kass.Rows.Count - 1;
+                if (ind > 0)
+                {
+
+                
 
                 Program.KASA.grdt_kass.Rows[ind].Cells[4].Value = Convert.ToDouble(pies.Replace(".", ","));
                 Program.KASA.grdt_kass.Rows[ind].Cells[6].Value = (Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[2].Value) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[4].Value)) - (((Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[2].Value) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[4].Value)) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[5].Value)) / 100);
                 Program.KASA.grdt_kass.Rows[ind].Cells[6].Value = Convert.ToInt64(Program.KASA.grdt_kass.Rows[ind].Cells[6].Value);
                 Program.KASA.grdt_kass.Rows[ind].Cells[7].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[3].Value) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[4].Value);
                 Program.KASA.grdt_kass.Rows[ind].Cells[8].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[9].Value) - Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[4].Value);
-
-                nacht++;
+                    nacht++;
+                }
+                
 
             }
             pohav.Rows.Clear();

@@ -41,6 +41,7 @@ namespace OptiQ
             this.close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.output = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +49,7 @@ namespace OptiQ
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.header.Controls.Add(this.label1);
             this.header.Controls.Add(this.pictureBox2);
             this.header.Controls.Add(this.vesovoi);
             this.header.Controls.Add(this.kassa_but);
@@ -321,6 +323,16 @@ namespace OptiQ
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(41, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "синхронизация";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -344,6 +356,7 @@ namespace OptiQ
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.main_KeyPress);
             this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -361,6 +374,7 @@ namespace OptiQ
         public System.Windows.Forms.Panel output;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label label1;
     }
 }
 

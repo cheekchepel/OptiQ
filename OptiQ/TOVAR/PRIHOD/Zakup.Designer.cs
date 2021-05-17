@@ -153,7 +153,7 @@ namespace OptiQ
             this.bunifuFlatButton2.IconZoom = 45D;
             this.bunifuFlatButton2.IsTab = false;
             this.bunifuFlatButton2.Location = new System.Drawing.Point(260, 20);
-            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(0, 10, 300, 10);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(229)))), ((int)(((byte)(232)))));
@@ -192,7 +192,7 @@ namespace OptiQ
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 35);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 200, 0);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1000, 130);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
@@ -212,7 +212,7 @@ namespace OptiQ
             // 
             this.mzSombraPanel3.AddControl = null;
             this.mzSombraPanel3.Controls.Add(this.bunifuDatepicker1);
-            this.mzSombraPanel3.Location = new System.Drawing.Point(292, 10);
+            this.mzSombraPanel3.Location = new System.Drawing.Point(592, 10);
             this.mzSombraPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.mzSombraPanel3.Name = "mzSombraPanel3";
             this.mzSombraPanel3.Padding = new System.Windows.Forms.Padding(10);
@@ -246,7 +246,7 @@ namespace OptiQ
             this.mzSombraPanel1.Margin = new System.Windows.Forms.Padding(40, 10, 0, 0);
             this.mzSombraPanel1.Name = "mzSombraPanel1";
             this.mzSombraPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.mzSombraPanel1.Size = new System.Drawing.Size(472, 52);
+            this.mzSombraPanel1.Size = new System.Drawing.Size(400, 52);
             this.mzSombraPanel1.TabIndex = 15;
             this.mzSombraPanel1.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
             // 
@@ -261,7 +261,7 @@ namespace OptiQ
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Size = new System.Drawing.Size(452, 32);
+            this.panel2.Size = new System.Drawing.Size(380, 32);
             this.panel2.TabIndex = 8;
             // 
             // textBox1
@@ -274,7 +274,7 @@ namespace OptiQ
             this.textBox1.Location = new System.Drawing.Point(34, 5);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 22);
+            this.textBox1.Size = new System.Drawing.Size(312, 22);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
@@ -296,7 +296,7 @@ namespace OptiQ
             this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
             this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
             this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(418, 5);
+            this.shjowkeyboard1.Location = new System.Drawing.Point(346, 5);
             this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard1.Name = "shjowkeyboard1";
             this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
@@ -324,7 +324,7 @@ namespace OptiQ
             this.bunifuFlatButton6.IconVisible = true;
             this.bunifuFlatButton6.IconZoom = 50D;
             this.bunifuFlatButton6.IsTab = false;
-            this.bunifuFlatButton6.Location = new System.Drawing.Point(527, 78);
+            this.bunifuFlatButton6.Location = new System.Drawing.Point(455, 78);
             this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(15, 16, 0, 0);
             this.bunifuFlatButton6.Name = "bunifuFlatButton6";
             this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -682,10 +682,10 @@ namespace OptiQ
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         public Bunifu.Framework.UI.BunifuVTrackbar bunifuVTrackbar1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

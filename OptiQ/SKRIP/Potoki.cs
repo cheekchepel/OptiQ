@@ -90,13 +90,22 @@ namespace OptiQ
 
 
 
-        public static int IDmagaz;
 
-        public static int Globalmagaz
+
+        public static bool Globalmagaz
         {
-            get { return IDmagaz; }
-            set { IDmagaz = value; }
+            get { return Globalmagaz; }
+            set
+            {
+                if (value) { Program.main.label1.Visible = true; }
+                else { Program.main.label1.Visible = false; }
+            }
+ 
         }
+
+
+
+        
 
 
 
@@ -183,6 +192,8 @@ namespace OptiQ
                     drc = cmdc.ExecuteReader();
                     if (drc.Read())
                     {
+                    //    Globalmagaz = true;
+
                         if (Convert.ToInt64(drc[0]) > Global.basever)
                         {
                             prihodka(Convert.ToInt64(drc[0]));
@@ -195,6 +206,7 @@ namespace OptiQ
 
                     }
                     conc.Close();
+                  //  Globalmagaz = false;
                 } catch (NpgsqlException) { }
 
             Thread.Sleep(10000);
@@ -313,6 +325,39 @@ namespace OptiQ
         public static void prihodka(long basver)
         {
 
+            con1.Close();
+
+            try
+            {
+                string delrazmer = "DELETE FROM razmer_pro;";
+                con1.Close();
+                con1.Open();
+                sql1 = "select rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id from razmer_pro where rz_mg_id=" + Global.IDmagaz;
+                cmd1 = new NpgsqlCommand(sql1, con1);
+                dr1 = cmd1.ExecuteReader();
+
+                while (dr1.Read())
+                {
+
+                    conoff1.Close();
+                    conoff1.Close();
+                    conoff1.Open();
+                    sqloff1 = delrazmer + "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id)VALUES(" + dr1[0] + "," + dr1[1] + ",N'" + dr1[2] + "'," + dr1[3].ToString().Replace(",", ".") + "," + dr1[4] + ")";
+                    cmdoff1 = new SqlCommand(sqloff1, conoff1);
+                    droff1 = cmdoff1.ExecuteReader();
+                    droff1.Read();
+                    conoff1.Close();
+                    delrazmer = null;
+
+                }
+
+                con1.Close();
+            }
+            catch (NpgsqlException) { }
+
+
+
+
 
             string delproduc = "DELETE FROM product_pro;";
             con1.Close();
@@ -320,7 +365,7 @@ namespace OptiQ
             try{
                 con1.Close();
                 con1.Open();
-                sql1 = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
+                sql1 = "select pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
                 cmd1 = new NpgsqlCommand(sql1, con1);
                 dr1 = cmd1.ExecuteReader();
                 
@@ -330,7 +375,7 @@ namespace OptiQ
                     conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
-                    sqloff1 = delproduc+ "INSERT INTO product_pro(pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid) VALUES(" + dr1[0] + "," + dr1[1] + ",N'" + dr1[2] + "'," + dr1[3] + "," + dr1[4] + ","+dr1[5]+ ",0" + dr1[6] + ",0" + dr1[7] + ",0"+ dr1[8] + "," + dr1[9] + ",N'" + dr1[10] + "')";
+                    sqloff1 = delproduc+ "INSERT INTO product_pro(pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid) VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + "," + dr1[3] + ","+dr1[4]+ ",0" + dr1[5] + ",0" + dr1[6] + ",0"+ dr1[7] + "," + dr1[8] + ",N'" + dr1[9] + "')";
                     cmdoff1 = new SqlCommand(sqloff1, conoff1);
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();
@@ -345,33 +390,7 @@ namespace OptiQ
 
 
 
-            con1.Close();
-
-            try{
-            string delrazmer = "DELETE FROM razmer_pro;";
-            con1.Close();
-                con1.Open();
-                sql1 = "select rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id from razmer_pro where rz_mg_id=" + Global.IDmagaz;
-                cmd1 = new NpgsqlCommand(sql1, con1);
-                dr1 = cmd1.ExecuteReader();
-               
-                while (dr1.Read())
-                {
-              
-                    conoff1.Close();
-                    conoff1.Close();
-                    conoff1.Open();
-                    sqloff1 = delrazmer+ "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id)VALUES(" + dr1[0]+","+ dr1[1]+",N'" + dr1[2] + "'," + dr1[3].ToString().Replace(",",".") + ","+ dr1[4] + ")";
-                    cmdoff1 = new SqlCommand(sqloff1, conoff1);
-                    droff1 = cmdoff1.ExecuteReader();
-                    droff1.Read();
-                    conoff1.Close();
-                delrazmer = null;
-
-                }
-
-                con1.Close();
-            }catch (NpgsqlException) { }
+          
 
 
 

@@ -48,11 +48,13 @@ namespace OptiQ.TOVAR.PRIHOD
             this.mzSombraPanel1 = new MZControls.MZSombraPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.search1 = new OptiQ.search();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.mzSombraPanel2 = new MZControls.MZSombraPanel();
             this.text2 = new System.Windows.Forms.ComboBox();
             this.grdt_kass = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.search1 = new OptiQ.search();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,8 +64,6 @@ namespace OptiQ.TOVAR.PRIHOD
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.mzSombraPanel1.SuspendLayout();
@@ -179,29 +179,6 @@ namespace OptiQ.TOVAR.PRIHOD
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // search1
-            // 
-            this.search1.BackColor = System.Drawing.Color.Transparent;
-            this.search1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.search1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.search1.Location = new System.Drawing.Point(4, 5);
-            this.search1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.search1.Name = "search1";
-            this.search1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.search1.Size = new System.Drawing.Size(30, 22);
-            this.search1.TabIndex = 3;
-            // 
-            // shjowkeyboard1
-            // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(346, 5);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
-            this.shjowkeyboard1.TabIndex = 9;
-            // 
             // mzSombraPanel2
             // 
             this.mzSombraPanel2.AddControl = null;
@@ -244,10 +221,10 @@ namespace OptiQ.TOVAR.PRIHOD
             this.grdt_kass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdt_kass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdt_kass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -275,8 +252,8 @@ namespace OptiQ.TOVAR.PRIHOD
             this.grdt_kass.DoubleBuffered = true;
             this.grdt_kass.EnableHeadersVisualStyles = false;
             this.grdt_kass.GridColor = System.Drawing.Color.White;
-            this.grdt_kass.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            this.grdt_kass.HeaderForeColor = System.Drawing.Color.White;
+            this.grdt_kass.HeaderBgColor = System.Drawing.Color.White;
+            this.grdt_kass.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.grdt_kass.Location = new System.Drawing.Point(0, 107);
             this.grdt_kass.Margin = new System.Windows.Forms.Padding(2);
             this.grdt_kass.MultiSelect = false;
@@ -304,91 +281,6 @@ namespace OptiQ.TOVAR.PRIHOD
             this.grdt_kass.Size = new System.Drawing.Size(800, 433);
             this.grdt_kass.TabIndex = 5;
             this.grdt_kass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdt_kass_CellClick);
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 26.73911F;
-            this.Column4.HeaderText = "";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Код";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // kod
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.kod.DefaultCellStyle = dataGridViewCellStyle3;
-            this.kod.FillWeight = 175.1175F;
-            this.kod.HeaderText = "Наименование ";
-            this.kod.MinimumWidth = 6;
-            this.kod.Name = "kod";
-            this.kod.ReadOnly = true;
-            this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.kod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column2.FillWeight = 99.09696F;
-            this.Column2.HeaderText = "Цена прихода";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column3.FillWeight = 101.6892F;
-            this.Column3.HeaderText = "Цена продажи";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Цена оптом";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "RZ_id";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column1.FillWeight = 93.27812F;
-            this.Column1.HeaderText = "Модификация ";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column5.FillWeight = 93.27812F;
-            this.Column5.HeaderText = "Поставщик";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // panel12
             // 
@@ -438,6 +330,114 @@ namespace OptiQ.TOVAR.PRIHOD
             this.bunifuFlatButton6.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton6.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
+            // 
+            // search1
+            // 
+            this.search1.BackColor = System.Drawing.Color.Transparent;
+            this.search1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.search1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search1.Location = new System.Drawing.Point(4, 5);
+            this.search1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.search1.Name = "search1";
+            this.search1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.search1.Size = new System.Drawing.Size(30, 22);
+            this.search1.TabIndex = 3;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
+            this.shjowkeyboard1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(346, 5);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 22);
+            this.shjowkeyboard1.TabIndex = 9;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 26.73911F;
+            this.Column4.HeaderText = "";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Код";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // kod
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.kod.DefaultCellStyle = dataGridViewCellStyle3;
+            this.kod.FillWeight = 175.1175F;
+            this.kod.HeaderText = "Наименование ";
+            this.kod.MinimumWidth = 6;
+            this.kod.Name = "kod";
+            this.kod.ReadOnly = true;
+            this.kod.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.kod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column2.FillWeight = 99.09696F;
+            this.Column2.HeaderText = "Цена прихода";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column3.FillWeight = 101.6892F;
+            this.Column3.HeaderText = "Цена продажи";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Цена оптом";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "RZ_id";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column1.FillWeight = 93.27812F;
+            this.Column1.HeaderText = "Модификация ";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column5.FillWeight = 93.27812F;
+            this.Column5.HeaderText = "Поставщик";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // prihodpostav
             // 

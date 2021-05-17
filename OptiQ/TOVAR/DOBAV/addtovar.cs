@@ -152,8 +152,6 @@ namespace OptiQ
         {
 
 
-
-
             Random random = new Random();
             long randomNumber = random.Next(20000000, 29999999);
             try
@@ -196,12 +194,10 @@ namespace OptiQ
             {
                 selct(shtrih);
             }
-            label3.Visible = Global.pra_showprih;
-            text3.Visible = Global.pra_showprih;
+         
 
 
 
-       
 
             //this.Height = panel3.Height + bunifuFlatButton6.Location.Y + 65;
 
@@ -417,7 +413,7 @@ namespace OptiQ
                         con.Close();
                         con.Open();
                       
-                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ",0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
+                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom,pr_prov_id)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ",0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
 
                         sql += "INSERT INTO productoff(pr_text)VALUES(N'"  + (Global.versia + sql).Replace("'", "$") + "select doppler(" + Global.IDmagaz + "," + text1.Text + ");" + "')";
 
@@ -624,6 +620,11 @@ namespace OptiQ
 
         private void addtovar_Load(object sender, EventArgs e)
         {
+            label3.Visible = Global.pra_showprih;
+            text3.Visible = Global.pra_showprih;
+            label4.Visible = Global.pra_showprih;
+            textopt.Visible = Global.pra_showprih;
+
             if (kolcreate < 30) {
 
                dtSales.Columns.Add("kod", typeof(string));

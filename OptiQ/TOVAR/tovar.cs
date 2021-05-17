@@ -115,7 +115,7 @@ namespace OptiQ
             panel16.Visible = Global.pra_eidittov;
 
             kolichestvo = (Global.y - 96) / 40;
-          
+            panel5.Visible = Global.pra_eidittov;
 
             createcell();
 

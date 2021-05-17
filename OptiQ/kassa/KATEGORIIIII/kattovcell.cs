@@ -74,7 +74,7 @@ namespace OptiQ.kassa
 
             Program.main.backblakhide();
             Program.KASA.textBox1.Text = znachenie.ToString();
-            Program.KASA.kassa_pulus(0,Program.KASA.textBox1.Text);
+            Program.KASA.kassa_pulus(0,Program.KASA.textBox1.Text,true);
            
 
         }

@@ -151,6 +151,7 @@ namespace OptiQ.TOVAR.PRIHOD
 
         private void prihodpostav_Load(object sender, EventArgs e)
         {
+            Column2.Visible = Global.pra_showprih;
             postav(Program.zakup.text6.Text);
             grdt_kass.Rows.Clear();
             select();

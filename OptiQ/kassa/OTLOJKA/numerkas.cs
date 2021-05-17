@@ -141,21 +141,26 @@ namespace OptiQ
 
         private void bunifuFlatButton1_MouseClick(object sender, MouseEventArgs e)
         {
+          
+
+
+        }
+
+        private void bunifuFlatButton1_MouseDown(object sender, EventArgs e)
+        {
             panel1.Height = 24;
 
 
-            string zapr = "UPDATE otlojka_pro SET ot_text=N'"+textBox1.Text+ "' where ot_id="+ otl_id+ "and id_kassir="+Global.IDuser+";";
+            string zapr = "UPDATE otlojka_pro SET ot_text=N'" + textBox1.Text + "' where ot_id=" + otl_id + "and id_kassir=" + Global.IDuser + ";";
 
 
             cont.Close();
             cont.Open();
-            sqlt = zapr+ "INSERT INTO productoff(pr_text)VALUES(N'"+ zapr .Replace("'","$")+ "')";
+            sqlt = zapr + "INSERT INTO productoff(pr_text)VALUES(N'" + zapr.Replace("'", "$") + "')";
             cmdt = new SqlCommand(sqlt, cont);
             drt = cmdt.ExecuteReader();
             drt.Read();
             cont.Close();
-
-
         }
     }
 }

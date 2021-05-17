@@ -240,7 +240,7 @@ namespace OptiQ
 
                     Program.main.backblakhide();
 
-                    Program.KASA.kassa_pulus(0, id);
+                    Program.KASA.kassa_pulus(0, id,true);
                     this.Close();
 
 

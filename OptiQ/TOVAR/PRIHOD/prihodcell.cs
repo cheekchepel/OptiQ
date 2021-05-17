@@ -407,5 +407,14 @@ namespace OptiQ
             timer2.Enabled = false;
             Program.zakup.select();
         }
+
+        private void prihodcell_Load(object sender, EventArgs e)
+        {
+            textBox2.Visible = Global.pra_showprih;
+            textBox4.Visible = Global.pra_showprih;
+
+            this.Width = delete.Left + 40;
+
+        }
     }
 }
