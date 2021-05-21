@@ -365,7 +365,7 @@ namespace OptiQ
             try{
                 con1.Close();
                 con1.Open();
-                sql1 = "select pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
+                sql1 = "select pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid,pr_kotak from product_pro LEFT JOIN product_ves ON pr_id=pr_silka where pr_mg_id=" + Global.IDmagaz;
                 cmd1 = new NpgsqlCommand(sql1, con1);
                 dr1 = cmd1.ExecuteReader();
                 
@@ -375,7 +375,7 @@ namespace OptiQ
                     conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
-                    sqloff1 = delproduc+ "INSERT INTO product_pro(pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid) VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + "," + dr1[3] + ","+dr1[4]+ ",0" + dr1[5] + ",0" + dr1[6] + ",0"+ dr1[7] + "," + dr1[8] + ",N'" + dr1[9] + "')";
+                    sqloff1 = delproduc+ "INSERT INTO product_pro(pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_kateg,pr_plu,pr_prov_id,pr_mg_id,pr_provid,pr_kotak) VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + "," + dr1[3] + ","+dr1[4]+ ",0" + dr1[5] + ",0" + dr1[6] + ",0"+ dr1[7] + "," + dr1[8] + ",N'" + dr1[9] + "',0+" + dr1[10] + ")";
                     cmdoff1 = new SqlCommand(sqloff1, conoff1);
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();
@@ -390,7 +390,43 @@ namespace OptiQ
 
 
 
-          
+
+
+            string deletekotak = "DELETE FROM kotak;";
+            con1.Close();
+
+            try
+            {
+                con1.Close();
+                con1.Open();
+                sql1 = "select kot_mg_id,kot_name,kot_rod,kot_chil,kot_marker from kotak where kot_mg_id=" + Global.IDmagaz;
+                cmd1 = new NpgsqlCommand(sql1, con1);
+                dr1 = cmd1.ExecuteReader();
+
+                while (dr1.Read())
+                {
+
+                    conoff1.Close();
+                    conoff1.Close();
+                    conoff1.Open();
+                    sqloff1 = deletekotak + "INSERT INTO kotak(kot_mg_id,kot_name,kot_rod,kot_chil,kot_marker) VALUES(" + dr1[0] + ",N'" + dr1[1] + "'," + dr1[2] + "," + dr1[3] + ",'" + dr1[4] + "')";
+                    cmdoff1 = new SqlCommand(sqloff1, conoff1);
+                    droff1 = cmdoff1.ExecuteReader();
+                    droff1.Read();
+                    conoff1.Close();
+                    deletekotak = null;
+
+
+                }
+
+                con1.Close();
+            }
+            catch (NpgsqlException) { }
+
+
+
+
+
 
 
 

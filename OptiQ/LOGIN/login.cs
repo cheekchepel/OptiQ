@@ -133,7 +133,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd from prava";
+            sqloff = "select pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd,pra_showreviz,pra_editkotak from prava";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             if (droff.Read()) {
@@ -145,6 +145,8 @@ namespace OptiQ
                 Global.pra_showpie = Convert.ToBoolean(droff[2]);
                 Global.pra_showprih = Convert.ToBoolean(droff[3]);
                 Global.pra_showdohd = Convert.ToBoolean(droff[4]);
+                Global.pra_showreviz = Convert.ToBoolean(droff[5]);
+                Global.pra_editkotak = Convert.ToBoolean(droff[6]);
 
             }
             conoff.Close();
@@ -304,6 +306,7 @@ namespace OptiQ
                 {
 
                     con.Open();
+
                     sql = "select sir,sir_mg_id,sir_name,sir_user,sir_login,sir_pass,mg_name,mg_pay,mg_address,mg_test,(" + DateTimeOffset.Now.ToUnixTimeSeconds() + "- mg_pay) from kassir LEFT JOIN magaz ON sir_mg_id=mg_id where sir_login='" + text_login.Text + "' and sir_pass='" + pass_text.Text + "'and sir_enabled=true";
                     cmd = new NpgsqlCommand(sql, con);
                     dr = cmd.ExecuteReader();
@@ -371,7 +374,7 @@ namespace OptiQ
 
                         con.Close();
                         con.Open();
-                        sql = "select pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd from prava where pra_id_kassir=" + Global.IDuser;
+                        sql = "select pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd,pra_showreviz,pra_editkotak from prava where pra_id_kassir=" + Global.IDuser;
                         cmd = new NpgsqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
 
@@ -380,7 +383,7 @@ namespace OptiQ
                             conoff.Close();
                             conoff.Open();
                             sqloff = "DELETE FROM prava;" +
-                        "INSERT INTO prava(pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd)VALUES('" + dr[0] + "','" + dr[1] + "','" + dr[2] + "','" + dr[3] + "','" + dr[4] + "')";
+                            "INSERT INTO prava(pra_eidittov,pra_editpri,pra_showpie,pra_showprih,pra_showdohd,pra_showreviz,pra_editkotak)VALUES('" + dr[0] + "','" + dr[1] + "','" + dr[2] + "','" + dr[3] + "','" + dr[4] + "','" + dr[5] + "','" + dr[6] + "')";
                             cmdoff = new SqlCommand(sqloff, conoff);
                             droff = cmdoff.ExecuteReader();
                             droff.Read();

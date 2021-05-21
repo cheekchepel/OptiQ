@@ -32,6 +32,7 @@ namespace OptiQ
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.header = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.vesovoi = new Bunifu.Framework.UI.BunifuFlatButton();
             this.kassa_but = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -41,7 +42,6 @@ namespace OptiQ
             this.close = new Bunifu.Framework.UI.BunifuFlatButton();
             this.output = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,17 @@ namespace OptiQ
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(1024, 40);
             this.header.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(41, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "синхронизация";
+            this.label1.Visible = false;
             // 
             // pictureBox2
             // 
@@ -322,16 +333,6 @@ namespace OptiQ
             this.timer1.Enabled = true;
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 20);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "синхронизация";
             // 
             // main
             // 

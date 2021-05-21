@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\Elon\Desktop\optiq\kassir\</PublishUrl>
+    <PublishUrl>C:\Users\Куаныш\Desktop\21.05\kassa\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/OptiQ/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
-    <ApplicationRevision>145</ApplicationRevision>
+    <ApplicationRevision>150</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -222,6 +222,18 @@
     </Compile>
     <Compile Include="kassa\izmena\add.Designer.cs">
       <DependentUpon>add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TOVAR\DOBAV\Kotak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TOVAR\DOBAV\Kotak.Designer.cs">
+      <DependentUpon>Kotak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TOVAR\DOBAV\kotcell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TOVAR\DOBAV\kotcell.Designer.cs">
+      <DependentUpon>kotcell.cs</DependentUpon>
     </Compile>
     <Compile Include="TOVAR\DOBAV\Razmer.cs">
       <SubType>UserControl</SubType>
@@ -428,6 +440,12 @@
     <EmbeddedResource Include="massa\plutovar.resx">
       <DependentUpon>plutovar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TOVAR\DOBAV\Kotak.resx">
+      <DependentUpon>Kotak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TOVAR\DOBAV\kotcell.resx">
+      <DependentUpon>kotcell.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TOVAR\DOBAV\Razmer.resx">
       <DependentUpon>Razmer.cs</DependentUpon>
     </EmbeddedResource>
@@ -602,12 +620,12 @@
   <ItemGroup>
     <PublishFile Include="BASE\maska.mdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

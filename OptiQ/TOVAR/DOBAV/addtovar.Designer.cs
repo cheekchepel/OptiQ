@@ -38,15 +38,21 @@ namespace OptiQ
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.text1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.k1 = new OptiQ.shjowkeyboard();
             this.text2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.k2 = new OptiQ.shjowkeyboard();
             this.text3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.k3 = new OptiQ.shjowkeyboard();
             this.text5 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.k4 = new OptiQ.shjowkeyboard();
             this.textopt = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.k5 = new OptiQ.shjowkeyboard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.text6 = new System.Windows.Forms.ComboBox();
@@ -59,17 +65,17 @@ namespace OptiQ
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
-            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
-            this.shjowkeyboard3 = new OptiQ.shjowkeyboard();
-            this.shjowkeyboard4 = new OptiQ.shjowkeyboard();
-            this.shjowkeyboard5 = new OptiQ.shjowkeyboard();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.kotname = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -86,17 +92,18 @@ namespace OptiQ
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.label10);
             this.flowLayoutPanel1.Controls.Add(this.label6);
             this.flowLayoutPanel1.Controls.Add(this.label7);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 35);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(540, 360);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(540, 415);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(540, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 15, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 345);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 395);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseMove);
@@ -157,11 +164,22 @@ namespace OptiQ
             this.label4.TabIndex = 3;
             this.label4.Text = "Цена оптом";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.label10.Location = new System.Drawing.Point(20, 280);
+            this.label10.Margin = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 20);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Категория";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label6.Location = new System.Drawing.Point(20, 280);
+            this.label6.Location = new System.Drawing.Point(20, 330);
             this.label6.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 20);
@@ -172,7 +190,7 @@ namespace OptiQ
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label7.Location = new System.Drawing.Point(20, 325);
+            this.label7.Location = new System.Drawing.Point(20, 375);
             this.label7.Margin = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 20);
@@ -185,24 +203,25 @@ namespace OptiQ
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.flowLayoutPanel2.Controls.Add(this.text1);
             this.flowLayoutPanel2.Controls.Add(this.bunifuFlatButton1);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard1);
+            this.flowLayoutPanel2.Controls.Add(this.k1);
             this.flowLayoutPanel2.Controls.Add(this.text2);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard2);
+            this.flowLayoutPanel2.Controls.Add(this.k2);
             this.flowLayoutPanel2.Controls.Add(this.text3);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard3);
+            this.flowLayoutPanel2.Controls.Add(this.k3);
             this.flowLayoutPanel2.Controls.Add(this.text5);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard5);
+            this.flowLayoutPanel2.Controls.Add(this.k4);
             this.flowLayoutPanel2.Controls.Add(this.textopt);
-            this.flowLayoutPanel2.Controls.Add(this.shjowkeyboard4);
+            this.flowLayoutPanel2.Controls.Add(this.k5);
+            this.flowLayoutPanel2.Controls.Add(this.panel6);
             this.flowLayoutPanel2.Controls.Add(this.panel1);
             this.flowLayoutPanel2.Controls.Add(this.bunifuFlatButton2);
             this.flowLayoutPanel2.Controls.Add(this.label8);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(200, 15);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.MaximumSize = new System.Drawing.Size(340, 330);
+            this.flowLayoutPanel2.MaximumSize = new System.Drawing.Size(340, 385);
             this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(340, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(340, 330);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(340, 380);
             this.flowLayoutPanel2.TabIndex = 1;
             this.flowLayoutPanel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseDown);
             this.flowLayoutPanel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelMove_MouseMove);
@@ -265,6 +284,17 @@ namespace OptiQ
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
+            // k1
+            // 
+            this.k1.BackColor = System.Drawing.Color.Transparent;
+            this.k1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.k1.Location = new System.Drawing.Point(290, 10);
+            this.k1.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.k1.Name = "k1";
+            this.k1.Size = new System.Drawing.Size(30, 30);
+            this.k1.TabIndex = 25;
+            this.k1.Visible = false;
+            // 
             // text2
             // 
             this.text2.BackColor = System.Drawing.Color.White;
@@ -283,6 +313,18 @@ namespace OptiQ
             this.text2.TabIndex = 2;
             this.text2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.text2.Enter += new System.EventHandler(this.text2_Enter);
+            this.text2.Leave += new System.EventHandler(this.text2_Leave);
+            // 
+            // k2
+            // 
+            this.k2.BackColor = System.Drawing.Color.Transparent;
+            this.k2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.k2.Location = new System.Drawing.Point(290, 60);
+            this.k2.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.k2.Name = "k2";
+            this.k2.Size = new System.Drawing.Size(30, 30);
+            this.k2.TabIndex = 21;
+            this.k2.Visible = false;
             // 
             // text3
             // 
@@ -304,6 +346,18 @@ namespace OptiQ
             this.text3.OnValueChanged += new System.EventHandler(this.text3_OnValueChanged);
             this.text3.Enter += new System.EventHandler(this.text3_Enter);
             this.text3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text3_KeyPress);
+            this.text3.Leave += new System.EventHandler(this.text3_Leave);
+            // 
+            // k3
+            // 
+            this.k3.BackColor = System.Drawing.Color.Transparent;
+            this.k3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.k3.Location = new System.Drawing.Point(290, 110);
+            this.k3.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.k3.Name = "k3";
+            this.k3.Size = new System.Drawing.Size(30, 30);
+            this.k3.TabIndex = 23;
+            this.k3.Visible = false;
             // 
             // text5
             // 
@@ -320,11 +374,22 @@ namespace OptiQ
             this.text5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.text5.Name = "text5";
             this.text5.Size = new System.Drawing.Size(280, 30);
-            this.text5.TabIndex = 5;
+            this.text5.TabIndex = 4;
             this.text5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.text5.Enter += new System.EventHandler(this.text5_Enter);
             this.text5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text5_KeyPress);
             this.text5.Leave += new System.EventHandler(this.text5_Leave);
+            // 
+            // k4
+            // 
+            this.k4.BackColor = System.Drawing.Color.Transparent;
+            this.k4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.k4.Location = new System.Drawing.Point(290, 160);
+            this.k4.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.k4.Name = "k4";
+            this.k4.Size = new System.Drawing.Size(30, 30);
+            this.k4.TabIndex = 24;
+            this.k4.Visible = false;
             // 
             // textopt
             // 
@@ -341,16 +406,29 @@ namespace OptiQ
             this.textopt.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.textopt.Name = "textopt";
             this.textopt.Size = new System.Drawing.Size(280, 30);
-            this.textopt.TabIndex = 4;
+            this.textopt.TabIndex = 5;
             this.textopt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textopt.Enter += new System.EventHandler(this.text4_Enter);
+            this.textopt.Click += new System.EventHandler(this.edit_Click);
+            this.textopt.Enter += new System.EventHandler(this.textopt_Enter);
             this.textopt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text4_KeyPress);
+            this.textopt.Leave += new System.EventHandler(this.textopt_Leave);
+            // 
+            // k5
+            // 
+            this.k5.BackColor = System.Drawing.Color.Transparent;
+            this.k5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.k5.Location = new System.Drawing.Point(290, 210);
+            this.k5.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.k5.Name = "k5";
+            this.k5.Size = new System.Drawing.Size(30, 30);
+            this.k5.TabIndex = 22;
+            this.k5.Visible = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 260);
+            this.panel1.Location = new System.Drawing.Point(0, 310);
             this.panel1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
@@ -402,7 +480,7 @@ namespace OptiQ
             this.bunifuFlatButton2.IconVisible = true;
             this.bunifuFlatButton2.IconZoom = 45D;
             this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(290, 260);
+            this.bunifuFlatButton2.Location = new System.Drawing.Point(290, 310);
             this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.Transparent;
@@ -420,7 +498,7 @@ namespace OptiQ
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.label8.Location = new System.Drawing.Point(0, 310);
+            this.label8.Location = new System.Drawing.Point(0, 360);
             this.label8.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(175, 20);
@@ -531,10 +609,11 @@ namespace OptiQ
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.panel4.Controls.Add(this.bunifuFlatButton8);
             this.panel4.Controls.Add(this.bunifuFlatButton6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 430);
+            this.panel4.Location = new System.Drawing.Point(0, 480);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(20, 10, 20, 20);
             this.panel4.Size = new System.Drawing.Size(540, 70);
@@ -584,72 +663,52 @@ namespace OptiQ
             this.flowLayoutPanel3.AutoSize = true;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 380);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 430);
             this.flowLayoutPanel3.MaximumSize = new System.Drawing.Size(540, 250);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(540, 50);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(540, 50);
             this.flowLayoutPanel3.TabIndex = 17;
             // 
-            // shjowkeyboard1
+            // panel5
             // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(290, 10);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard1.TabIndex = 15;
-            this.shjowkeyboard1.Visible = false;
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.kotname);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(1, 1);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(278, 28);
+            this.panel5.TabIndex = 27;
             // 
-            // shjowkeyboard2
+            // panel6
             // 
-            this.shjowkeyboard2.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard2.Location = new System.Drawing.Point(290, 60);
-            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard2.Name = "shjowkeyboard2";
-            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard2.TabIndex = 11;
-            this.shjowkeyboard2.Visible = false;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel6.Controls.Add(this.panel5);
+            this.panel6.Location = new System.Drawing.Point(0, 260);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(1);
+            this.panel6.Size = new System.Drawing.Size(280, 30);
+            this.panel6.TabIndex = 28;
             // 
-            // shjowkeyboard3
+            // kotname
             // 
-            this.shjowkeyboard3.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard3.Location = new System.Drawing.Point(290, 110);
-            this.shjowkeyboard3.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard3.Name = "shjowkeyboard3";
-            this.shjowkeyboard3.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard3.TabIndex = 12;
-            this.shjowkeyboard3.Visible = false;
-            // 
-            // shjowkeyboard4
-            // 
-            this.shjowkeyboard4.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard4.Location = new System.Drawing.Point(290, 210);
-            this.shjowkeyboard4.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard4.Name = "shjowkeyboard4";
-            this.shjowkeyboard4.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard4.TabIndex = 13;
-            this.shjowkeyboard4.Visible = false;
-            // 
-            // shjowkeyboard5
-            // 
-            this.shjowkeyboard5.BackColor = System.Drawing.Color.Transparent;
-            this.shjowkeyboard5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard5.Location = new System.Drawing.Point(290, 160);
-            this.shjowkeyboard5.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.shjowkeyboard5.Name = "shjowkeyboard5";
-            this.shjowkeyboard5.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard5.TabIndex = 14;
-            this.shjowkeyboard5.Visible = false;
+            this.kotname.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kotname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.kotname.Location = new System.Drawing.Point(0, 4);
+            this.kotname.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.kotname.Name = "kotname";
+            this.kotname.Size = new System.Drawing.Size(278, 24);
+            this.kotname.TabIndex = 19;
+            this.kotname.Click += new System.EventHandler(this.edit_Click);
             // 
             // addtovar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.ClientSize = new System.Drawing.Size(540, 650);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -661,7 +720,6 @@ namespace OptiQ
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "addtovar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.addtovar_Load);
             this.Shown += new System.EventHandler(this.addtovar_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addtovar_KeyPress);
@@ -674,6 +732,8 @@ namespace OptiQ
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,22 +757,26 @@ namespace OptiQ
         public Bunifu.Framework.UI.BunifuFlatButton close;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         public System.Windows.Forms.ComboBox text6;
-        private shjowkeyboard shjowkeyboard2;
-        private shjowkeyboard shjowkeyboard4;
-        private shjowkeyboard shjowkeyboard5;
         public Bunifu.Framework.UI.BunifuMetroTextbox text1;
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label8;
-        private shjowkeyboard shjowkeyboard1;
         private System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuMetroTextbox text3;
-        private shjowkeyboard shjowkeyboard3;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuMetroTextbox textopt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label10;
+        private shjowkeyboard k1;
+        private shjowkeyboard k2;
+        private shjowkeyboard k3;
+        private shjowkeyboard k4;
+        private shjowkeyboard k5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        public System.Windows.Forms.Label kotname;
     }
 }

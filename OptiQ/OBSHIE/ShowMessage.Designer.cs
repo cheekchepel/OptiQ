@@ -45,15 +45,16 @@ namespace OptiQ
             // 
             // Message
             // 
-            this.Message.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Message.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Message.AutoSize = true;
             this.Message.BackColor = System.Drawing.Color.Transparent;
-            this.Message.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Message.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Message.ForeColor = System.Drawing.Color.White;
             this.Message.Location = new System.Drawing.Point(30, 22);
             this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(54, 24);
+            this.Message.Size = new System.Drawing.Size(176, 24);
             this.Message.TabIndex = 17;
-            this.Message.Text = "текст";
+            this.Message.Text = "текстbdfbnfdbdfb";
             this.Message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Message.TextChanged += new System.EventHandler(this.Message_TextChanged);
             // 
@@ -112,7 +113,7 @@ namespace OptiQ
             this.close.Text = "OK";
             this.close.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.close.Textcolor = System.Drawing.Color.White;
-            this.close.TextFont = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.close.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // ShowMessage
@@ -122,12 +123,15 @@ namespace OptiQ
             this.ClientSize = new System.Drawing.Size(164, 100);
             this.Controls.Add(this.bunifuGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "ShowMessage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowMessage";
             this.TopMost = true;
             this.Shown += new System.EventHandler(this.ShowMessage_Shown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShowMessage_KeyPress);
             this.bunifuGradientPanel1.ResumeLayout(false);
+            this.bunifuGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

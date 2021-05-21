@@ -214,9 +214,7 @@ namespace OptiQ
             output.Controls.Add(prd);
             
             prd.Show();
-         
-            prd.zagrsel();
-            prd.viewcell();
+            prd.zagrsel(true);
         }
 
 

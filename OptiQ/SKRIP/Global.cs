@@ -24,13 +24,13 @@ namespace OptiQ
         public static int y;
 
 
-        public static bool pra_eidittov;
-        public static bool pra_editpri;
-        public static bool pra_showpie;
-        public static bool pra_showprih;
-        public static bool pra_showdohd;
-
-
+        public static bool pra_eidittov=false;
+        public static bool pra_editpri = false;
+        public static bool pra_showpie = false;
+        public static bool pra_showprih = false;
+        public static bool pra_showdohd = false;
+        public static bool pra_showreviz = false; 
+        public static bool pra_editkotak = false;
 
         public static bool sale_in_minus=true;
         public static int uvedomlenie_ostatoc = 2;

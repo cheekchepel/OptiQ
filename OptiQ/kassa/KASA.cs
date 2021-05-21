@@ -255,7 +255,7 @@ namespace OptiQ
                         long rz_id= Convert.ToInt64(grdt_kass.Rows[keeti].Cells[11].Value);
                         string osttok = Convert.ToString(grdt_kass.Rows[keeti].Cells[8].Value).Replace(",", ".");
 
-                    show_ost(Global.pra_showpie, Convert.ToDouble(ostatok.Replace(".",",")), saloname);
+                   // show_ost(Global.pra_showpie, Convert.ToDouble(ostatok.Replace(".",",")), saloname);
                         
 
                     OVAR = "                               " + pieces + " X " + zena + " X " + skid + "% = " + sum;
@@ -282,7 +282,7 @@ namespace OptiQ
 
                         conoff.Close();
                         conoff.Open();
-                        zapr = "select mp_test from myprov where mp_id_off = (SELECT pr_prov_id from product_pro where pr_kod=" + kodd + ")";
+                        zapr = "select kot_marker from kotak where kot_chil = (SELECT pr_kotak from product_pro where pr_kod=" + kodd + ")";
                         cmdoff = new SqlCommand(zapr, conoff);
                         droff = cmdoff.ExecuteReader();
                         if (droff.Read())
@@ -946,9 +946,10 @@ namespace OptiQ
             {
                 if (ost <= Global.uvedomlenie_ostatoc)
                 {
+                    
+                    Program.msg.Message.Text = name_ost + " осталось " + ost;
                     Program.main.backblakshow();
                     Program.msg.Show();
-                    Program.msg.Message.Text = name_ost + " осталось " + ost;
                 }
                 
             }
@@ -956,9 +957,10 @@ namespace OptiQ
             {
                 if (ost <= Global.uvedomlenie_ostatoc)
                 {
+                    
+                    Program.msg.Message.Text = "Количество " + name_ost + " ограничено";
                     Program.main.backblakshow();
                     Program.msg.Show();
-                    Program.msg.Message.Text = "Количество " + name_ost + " ограничено";
                 }
                 
             }
@@ -1213,9 +1215,9 @@ namespace OptiQ
                 Program.KASA.grdt_kass.Rows[ind].Cells[6].Value = Convert.ToInt64(Program.KASA.grdt_kass.Rows[ind].Cells[6].Value);
                 Program.KASA.grdt_kass.Rows[ind].Cells[7].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[3].Value) * Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[4].Value);
                 Program.KASA.grdt_kass.Rows[ind].Cells[8].Value = Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[9].Value) - Convert.ToDouble(Program.KASA.grdt_kass.Rows[ind].Cells[4].Value);
-                    nacht++;
+                    
                 }
-                
+                nacht++;
 
             }
             pohav.Rows.Clear();

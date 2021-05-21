@@ -32,7 +32,6 @@ namespace OptiQ
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tovar));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -48,8 +47,12 @@ namespace OptiQ
             this.panel15 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -65,7 +68,8 @@ namespace OptiQ
             this.bunifuiOSSwitch1 = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.panel16 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.bunifuVTrackbar1 = new Bunifu.Framework.UI.BunifuVTrackbar();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
             this.mzSombraPanel1.SuspendLayout();
@@ -75,7 +79,9 @@ namespace OptiQ
             this.panel6.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -83,6 +89,7 @@ namespace OptiQ
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -90,29 +97,15 @@ namespace OptiQ
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-191, -5);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(243, 88);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.Visible = false;
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.panel7.Controls.Add(this.bunifuFlatButton5);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(615, 0);
+            this.panel7.Location = new System.Drawing.Point(705, 0);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.panel7.Size = new System.Drawing.Size(115, 60);
+            this.panel7.Size = new System.Drawing.Size(110, 60);
             this.panel7.TabIndex = 11;
             // 
             // bunifuFlatButton5
@@ -145,7 +138,7 @@ namespace OptiQ
             this.bunifuFlatButton5.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
             this.bunifuFlatButton5.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton5.selected = false;
-            this.bunifuFlatButton5.Size = new System.Drawing.Size(105, 40);
+            this.bunifuFlatButton5.Size = new System.Drawing.Size(100, 40);
             this.bunifuFlatButton5.TabIndex = 5;
             this.bunifuFlatButton5.Text = "Ревизия";
             this.bunifuFlatButton5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,7 +151,7 @@ namespace OptiQ
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.panel4.Controls.Add(this.mzSombraPanel1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(20, 0);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.panel4.Size = new System.Drawing.Size(350, 60);
@@ -229,7 +222,7 @@ namespace OptiQ
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.panel5.Controls.Add(this.bunifuFlatButton8);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(370, 0);
+            this.panel5.Location = new System.Drawing.Point(350, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -260,7 +253,7 @@ namespace OptiQ
             this.bunifuFlatButton8.IconZoom = 30D;
             this.bunifuFlatButton8.IsTab = false;
             this.bunifuFlatButton8.Location = new System.Drawing.Point(5, 10);
-            this.bunifuFlatButton8.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton8.Margin = new System.Windows.Forms.Padding(0);
             this.bunifuFlatButton8.Name = "bunifuFlatButton8";
             this.bunifuFlatButton8.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.bunifuFlatButton8.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(111)))), ((int)(((byte)(177)))));
@@ -279,10 +272,10 @@ namespace OptiQ
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.panel6.Controls.Add(this.bunifuFlatButton6);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(500, 0);
+            this.panel6.Location = new System.Drawing.Point(480, 0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.panel6.Size = new System.Drawing.Size(115, 60);
+            this.panel6.Size = new System.Drawing.Size(110, 60);
             this.panel6.TabIndex = 10;
             // 
             // bunifuFlatButton6
@@ -315,7 +308,7 @@ namespace OptiQ
             this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(162)))), ((int)(((byte)(128)))));
             this.bunifuFlatButton6.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton6.selected = false;
-            this.bunifuFlatButton6.Size = new System.Drawing.Size(105, 40);
+            this.bunifuFlatButton6.Size = new System.Drawing.Size(100, 40);
             this.bunifuFlatButton6.TabIndex = 7;
             this.bunifuFlatButton6.Text = "Закуп";
             this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -328,10 +321,10 @@ namespace OptiQ
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.panel15.Controls.Add(this.bunifuFlatButton1);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel15.Location = new System.Drawing.Point(884, 0);
+            this.panel15.Location = new System.Drawing.Point(869, 0);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.panel15.Size = new System.Drawing.Size(140, 60);
+            this.panel15.Size = new System.Drawing.Size(50, 60);
             this.panel15.TabIndex = 12;
             // 
             // bunifuFlatButton1
@@ -340,13 +333,13 @@ namespace OptiQ
             this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
             this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton1.BorderRadius = 7;
-            this.bunifuFlatButton1.ButtonText = "Распечатать";
+            this.bunifuFlatButton1.ButtonText = "";
             this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuFlatButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuFlatButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = null;
+            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
             this.bunifuFlatButton1.Iconimage_right = null;
             this.bunifuFlatButton1.Iconimage_right_Selected = null;
             this.bunifuFlatButton1.Iconimage_Selected = null;
@@ -355,7 +348,7 @@ namespace OptiQ
             this.bunifuFlatButton1.IconRightVisible = true;
             this.bunifuFlatButton1.IconRightZoom = 0D;
             this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 90D;
+            this.bunifuFlatButton1.IconZoom = 30D;
             this.bunifuFlatButton1.IsTab = false;
             this.bunifuFlatButton1.Location = new System.Drawing.Point(5, 10);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
@@ -364,9 +357,8 @@ namespace OptiQ
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(130, 40);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(40, 40);
             this.bunifuFlatButton1.TabIndex = 5;
-            this.bunifuFlatButton1.Text = "Распечатать";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -375,30 +367,80 @@ namespace OptiQ
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel7);
+            this.panel1.Controls.Add(this.panel17);
             this.panel1.Controls.Add(this.panel15);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel18);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.panel1.Size = new System.Drawing.Size(1024, 60);
             this.panel1.TabIndex = 0;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
+            this.panel17.Controls.Add(this.bunifuFlatButton3);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel17.Location = new System.Drawing.Point(590, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.panel17.Size = new System.Drawing.Size(115, 60);
+            this.panel17.TabIndex = 14;
+            // 
+            // bunifuFlatButton3
+            // 
+            this.bunifuFlatButton3.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(102)))), ((int)(((byte)(113)))));
+            this.bunifuFlatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            this.bunifuFlatButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton3.BorderRadius = 7;
+            this.bunifuFlatButton3.ButtonText = "Категории";
+            this.bunifuFlatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton3.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuFlatButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton3.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton3.Iconimage = null;
+            this.bunifuFlatButton3.Iconimage_right = null;
+            this.bunifuFlatButton3.Iconimage_right_Selected = null;
+            this.bunifuFlatButton3.Iconimage_Selected = null;
+            this.bunifuFlatButton3.IconMarginLeft = 0;
+            this.bunifuFlatButton3.IconMarginRight = 0;
+            this.bunifuFlatButton3.IconRightVisible = true;
+            this.bunifuFlatButton3.IconRightZoom = 0D;
+            this.bunifuFlatButton3.IconVisible = true;
+            this.bunifuFlatButton3.IconZoom = 90D;
+            this.bunifuFlatButton3.IsTab = false;
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(5, 10);
+            this.bunifuFlatButton3.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton3.Name = "bunifuFlatButton3";
+            this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
+            this.bunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton3.selected = false;
+            this.bunifuFlatButton3.Size = new System.Drawing.Size(105, 40);
+            this.bunifuFlatButton3.TabIndex = 5;
+            this.bunifuFlatButton3.Text = "Категории";
+            this.bunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton3.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton3.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.panel2.Controls.Add(this.bunifuFlatButton2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(769, 0);
+            this.panel2.Location = new System.Drawing.Point(919, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.panel2.Size = new System.Drawing.Size(115, 60);
+            this.panel2.Size = new System.Drawing.Size(50, 60);
             this.panel2.TabIndex = 13;
             // 
             // bunifuFlatButton2
@@ -407,13 +449,13 @@ namespace OptiQ
             this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
             this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton2.BorderRadius = 7;
-            this.bunifuFlatButton2.ButtonText = "Экспорт";
+            this.bunifuFlatButton2.ButtonText = "";
             this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuFlatButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuFlatButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton2.Iconimage = null;
+            this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
             this.bunifuFlatButton2.Iconimage_right = null;
             this.bunifuFlatButton2.Iconimage_right_Selected = null;
             this.bunifuFlatButton2.Iconimage_Selected = null;
@@ -422,7 +464,7 @@ namespace OptiQ
             this.bunifuFlatButton2.IconRightVisible = true;
             this.bunifuFlatButton2.IconRightZoom = 0D;
             this.bunifuFlatButton2.IconVisible = true;
-            this.bunifuFlatButton2.IconZoom = 90D;
+            this.bunifuFlatButton2.IconZoom = 30D;
             this.bunifuFlatButton2.IsTab = false;
             this.bunifuFlatButton2.Location = new System.Drawing.Point(5, 10);
             this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
@@ -431,13 +473,61 @@ namespace OptiQ
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
             this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(105, 40);
+            this.bunifuFlatButton2.Size = new System.Drawing.Size(40, 40);
             this.bunifuFlatButton2.TabIndex = 5;
-            this.bunifuFlatButton2.Text = "Экспорт";
             this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuFlatButton2.Click += new System.EventHandler(this.bunifuFlatButton2_Click);
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
+            this.panel18.Controls.Add(this.bunifuFlatButton4);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel18.Location = new System.Drawing.Point(969, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.panel18.Size = new System.Drawing.Size(50, 60);
+            this.panel18.TabIndex = 15;
+            this.panel18.Visible = false;
+            // 
+            // bunifuFlatButton4
+            // 
+            this.bunifuFlatButton4.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(102)))), ((int)(((byte)(113)))));
+            this.bunifuFlatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton4.BorderRadius = 7;
+            this.bunifuFlatButton4.ButtonText = "";
+            this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuFlatButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton4.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton4.Iconimage")));
+            this.bunifuFlatButton4.Iconimage_right = null;
+            this.bunifuFlatButton4.Iconimage_right_Selected = null;
+            this.bunifuFlatButton4.Iconimage_Selected = null;
+            this.bunifuFlatButton4.IconMarginLeft = 0;
+            this.bunifuFlatButton4.IconMarginRight = 0;
+            this.bunifuFlatButton4.IconRightVisible = true;
+            this.bunifuFlatButton4.IconRightZoom = 0D;
+            this.bunifuFlatButton4.IconVisible = true;
+            this.bunifuFlatButton4.IconZoom = 30D;
+            this.bunifuFlatButton4.IsTab = false;
+            this.bunifuFlatButton4.Location = new System.Drawing.Point(5, 10);
+            this.bunifuFlatButton4.Margin = new System.Windows.Forms.Padding(10, 0, 0, 10);
+            this.bunifuFlatButton4.Name = "bunifuFlatButton4";
+            this.bunifuFlatButton4.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(127)))), ((int)(((byte)(141)))));
+            this.bunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(114)))), ((int)(((byte)(127)))));
+            this.bunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.selected = false;
+            this.bunifuFlatButton4.Size = new System.Drawing.Size(40, 40);
+            this.bunifuFlatButton4.TabIndex = 5;
+            this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
             // 
             // panel8
             // 
@@ -453,7 +543,7 @@ namespace OptiQ
             this.panel8.Location = new System.Drawing.Point(0, 60);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.panel8.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
             this.panel8.Size = new System.Drawing.Size(1024, 36);
             this.panel8.TabIndex = 1;
             // 
@@ -462,7 +552,7 @@ namespace OptiQ
             this.panel9.BackColor = System.Drawing.Color.Transparent;
             this.panel9.Controls.Add(this.textBox2);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(215, 0);
+            this.panel9.Location = new System.Drawing.Point(205, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(5);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(7);
@@ -478,6 +568,7 @@ namespace OptiQ
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBox2.Location = new System.Drawing.Point(7, 7);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(370, 22);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Наименование";
@@ -487,7 +578,8 @@ namespace OptiQ
             this.panel10.BackColor = System.Drawing.Color.Transparent;
             this.panel10.Controls.Add(this.textBox3);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(599, 0);
+            this.panel10.Enabled = false;
+            this.panel10.Location = new System.Drawing.Point(589, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(5);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(7);
@@ -503,6 +595,7 @@ namespace OptiQ
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBox3.Location = new System.Drawing.Point(7, 7);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(78, 22);
             this.textBox3.TabIndex = 1;
             this.textBox3.Text = "Закупка";
@@ -512,7 +605,7 @@ namespace OptiQ
             this.panel11.BackColor = System.Drawing.Color.Transparent;
             this.panel11.Controls.Add(this.textBox4);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(691, 0);
+            this.panel11.Location = new System.Drawing.Point(681, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(5);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(7);
@@ -528,6 +621,7 @@ namespace OptiQ
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBox4.Location = new System.Drawing.Point(7, 7);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(88, 22);
             this.textBox4.TabIndex = 1;
             this.textBox4.Text = "Продажа";
@@ -541,7 +635,7 @@ namespace OptiQ
             this.panel12.Margin = new System.Windows.Forms.Padding(5);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(7);
-            this.panel12.Size = new System.Drawing.Size(150, 36);
+            this.panel12.Size = new System.Drawing.Size(140, 36);
             this.panel12.TabIndex = 5;
             // 
             // textBox5
@@ -553,7 +647,8 @@ namespace OptiQ
             this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBox5.Location = new System.Drawing.Point(7, 7);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(136, 22);
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(126, 22);
             this.textBox5.TabIndex = 0;
             this.textBox5.Text = "Штрих-код";
             // 
@@ -562,7 +657,7 @@ namespace OptiQ
             this.panel13.BackColor = System.Drawing.Color.Transparent;
             this.panel13.Controls.Add(this.textBox6);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel13.Location = new System.Drawing.Point(793, 0);
+            this.panel13.Location = new System.Drawing.Point(783, 0);
             this.panel13.Margin = new System.Windows.Forms.Padding(5);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(7);
@@ -578,6 +673,7 @@ namespace OptiQ
             this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.textBox6.Location = new System.Drawing.Point(7, 7);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(117, 22);
             this.textBox6.TabIndex = 1;
             this.textBox6.Text = "Количество";
@@ -608,28 +704,56 @@ namespace OptiQ
             this.bunifuiOSSwitch1.Size = new System.Drawing.Size(35, 20);
             this.bunifuiOSSwitch1.TabIndex = 0;
             this.bunifuiOSSwitch1.Value = false;
-            this.bunifuiOSSwitch1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.bunifuiOSSwitch1_MouseClick);
+            this.bunifuiOSSwitch1.Click += new System.EventHandler(this.bunifuiOSSwitch1_Click);
+            this.bunifuiOSSwitch1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bunifuiOSSwitch1_MouseDown);
             // 
             // panel16
             // 
             this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel16.Location = new System.Drawing.Point(924, 0);
+            this.panel16.Location = new System.Drawing.Point(914, 0);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(80, 36);
             this.panel16.TabIndex = 11;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 96);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1024, 604);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(997, 604);
             this.flowLayoutPanel1.TabIndex = 2;
-            this.flowLayoutPanel1.Visible = false;
             this.flowLayoutPanel1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.flowLayoutPanel1_Scroll);
+            // 
+            // panel19
+            // 
+            this.panel19.AutoSize = true;
+            this.panel19.Controls.Add(this.bunifuVTrackbar1);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel19.Location = new System.Drawing.Point(997, 96);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(27, 604);
+            this.panel19.TabIndex = 24;
+            // 
+            // bunifuVTrackbar1
+            // 
+            this.bunifuVTrackbar1.AutoSize = true;
+            this.bunifuVTrackbar1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuVTrackbar1.BackgroudColor = System.Drawing.Color.DarkGray;
+            this.bunifuVTrackbar1.BorderRadius = 0;
+            this.bunifuVTrackbar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bunifuVTrackbar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bunifuVTrackbar1.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(65)))));
+            this.bunifuVTrackbar1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuVTrackbar1.Margin = new System.Windows.Forms.Padding(0);
+            this.bunifuVTrackbar1.MaximumValue = 100;
+            this.bunifuVTrackbar1.Name = "bunifuVTrackbar1";
+            this.bunifuVTrackbar1.Size = new System.Drawing.Size(30, 604);
+            this.bunifuVTrackbar1.SliderRadius = 7;
+            this.bunifuVTrackbar1.TabIndex = 24;
+            this.bunifuVTrackbar1.Value = 0;
+            this.bunifuVTrackbar1.Visible = false;
             // 
             // tovar
             // 
@@ -638,6 +762,7 @@ namespace OptiQ
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1024, 700);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel19);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -647,7 +772,6 @@ namespace OptiQ
             this.Text = "tovar";
             this.Load += new System.EventHandler(this.tovar_Load);
             this.Shown += new System.EventHandler(this.tovar_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.mzSombraPanel1.ResumeLayout(false);
@@ -658,7 +782,9 @@ namespace OptiQ
             this.panel6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -671,13 +797,15 @@ namespace OptiQ
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Timer timer1;
-        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel7;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private System.Windows.Forms.Panel panel4;
@@ -710,5 +838,11 @@ namespace OptiQ
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
+        private System.Windows.Forms.Panel panel17;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
+        private System.Windows.Forms.Panel panel18;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
+        private System.Windows.Forms.Panel panel19;
+        public Bunifu.Framework.UI.BunifuVTrackbar bunifuVTrackbar1;
     }
 }

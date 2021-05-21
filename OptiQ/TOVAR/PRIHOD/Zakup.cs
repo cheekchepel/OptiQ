@@ -149,7 +149,7 @@ namespace OptiQ
             {
 
                  while (kolichestvo < 12 && dr.Read()) {
-
+                    
                     sel[kolichestvo].zagruz(Convert.ToInt64(dr[0]), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), Convert.ToInt64(dr[5]), Convert.ToDouble(dr[6]));
                     
                     kolichestvo++;

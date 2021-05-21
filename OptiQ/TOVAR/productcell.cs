@@ -34,17 +34,11 @@ namespace OptiQ
 
 
 
-        public int id;
-        public int idtov;
+        public long idtov;
         public int colsoz;
         private double res;
 
-        public int ID
-        {
-            get { return id; }
-            set { id = value;add();}
-            
-        }
+
 
 
 
@@ -76,28 +70,26 @@ namespace OptiQ
             bunifuFlatButton1.Visible = true;
         }
 
-        private void add() {
+        public void add(long id,long kod,string name,int cenaco, int cenaca,string kol,bool chek) {
 
-            if (Program.tov.dataGridView1.Rows.Count > id)
-            {
-                
-                idtov = Convert.ToInt32(Program.tov.dataGridView1.Rows[id].Cells[0].Value);
-                textBox1.Text = Program.tov.dataGridView1.Rows[id].Cells[1].Value.ToString();
-                textBox2.Text = Program.tov.dataGridView1.Rows[id].Cells[2].Value.ToString();
-                textBox3.Text = Program.tov.dataGridView1.Rows[id].Cells[3].Value.ToString();
-                textBox4.Text = Program.tov.dataGridView1.Rows[id].Cells[4].Value.ToString();
-                textBox5.Text = Program.tov.dataGridView1.Rows[id].Cells[5].Value.ToString();
-                cheker.Checked = Convert.ToBoolean(Program.tov.dataGridView1.Rows[id].Cells[6].Value);
+               
+                idtov = id;
+                textBox1.Text = kod.ToString();
+                textBox2.Text = name;
+                textBox3.Text = cenaco.ToString();
+                textBox4.Text = cenaca.ToString();
+                textBox5.Text = kol;
+                cheker.Checked = chek;
                 this.Visible = true;
-            }
-            else {  this.Visible = false; }
-            
+                editFalse();
+
+
         }
 
         private void close_Click(object sender, EventArgs e)
         {
             editFalse();
-            add();
+
         }
 
 
@@ -108,8 +100,7 @@ namespace OptiQ
 
             if (!String.IsNullOrWhiteSpace(textBox1.Text) && !String.IsNullOrWhiteSpace(textBox2.Text) && !String.IsNullOrWhiteSpace(textBox3.Text) && !String.IsNullOrWhiteSpace(textBox4.Text) && !String.IsNullOrWhiteSpace(textBox5.Text)&& isInt == true )
             {
-                try
-                {
+               
                     Global.basever++;
                     con.Open();
                     
@@ -122,22 +113,12 @@ namespace OptiQ
                     con.Close();
 
                     editFalse();
-                    add();
 
 
-                    Program.tov.zagrsel();
 
-                    Program.tov.viewcell();
 
-                }
-                catch (NpgsqlException)
-                {
-                    editFalse();
-                    Program.msg.Message.Text = "Необходимо интернет подключение";
-                    Program.msg.Width = 400;
-                    Program.msg.Show();
 
-                }
+             
             }
         }
 
@@ -188,7 +169,7 @@ namespace OptiQ
 
         private void productcell_Load(object sender, EventArgs e)
         {
-            this.Width = Global.x-34 ;
+            this.Width = Global.x-44 ;
             edit.Visible = Global.pra_eidittov;
             panel3.Visible = Global.pra_showprih;
             bunifuFlatButton1.Visible = Global.pra_eidittov;
@@ -197,21 +178,17 @@ namespace OptiQ
         private void bunifuCheckbox1_OnChange(object sender, EventArgs e)
         {
 
-            for (int i = 0; i < Program.tov.dtSales.Rows.Count; i++)
-            {
-
-                if (Convert.ToInt32(Program.tov.dtSales.Rows[i][0]) == idtov) {
-
-                    Program.tov.dtSales.Rows[i][6] = cheker.Checked;
-
-                }
-
-               
-
-            }
 
 
-            
+            con.Open();
+
+            sql = "UPDATE product_pro Set pr_chek='" + cheker.Checked + "' where pr_kod=" + textBox1.Text + " and pr_mg_id=" + Global.IDmagaz + ";";
+
+            cmd = new SqlCommand(sql, con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            con.Close();
+
 
 
 

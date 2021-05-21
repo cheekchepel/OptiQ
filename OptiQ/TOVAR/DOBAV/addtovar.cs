@@ -59,6 +59,8 @@ namespace OptiQ
         private int MouseX;
         private int MouseY;
         public long prkod = 0;
+        public long katid = 0;
+        public long tov_id_loc = 0;
 
         public int kol = 0;
         public int kolcreate = 0;
@@ -232,10 +234,13 @@ namespace OptiQ
             string prca = "";
             string prop = "";
             string prprv = "";
-            
+            string prkot = "";
+            string prkotname = "";
+            tov_id_loc = 0;
 
-           // try{
-                prkod = 0;
+        // try{
+        katid = 0;
+            prkod = 0;
                 text2.Text = "";
                 text3.Text = "";
                 textopt.Text = "";
@@ -245,7 +250,7 @@ namespace OptiQ
 
 
                 con.Open();
-                sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_provid,rz_id,rz_name,rz_pies from product_pro " +
+                sql = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,pr_provid,rz_id,rz_name,rz_pies,pr_kotak,(select kot_name as name from kotak where kot_chil=pr_kotak) from product_pro " +
                        "LEFT JOIN razmer_pro ON pr_kod = rz_pr_kod where pr_mg_id ="+Global.IDmagaz+" and pr_kod ="+kod+";" ;
                 cmd = new SqlCommand(sql, con);
             dtSales.Rows.Clear();
@@ -253,13 +258,22 @@ namespace OptiQ
                 while (dr.Read())
                 {
 
-
-                    prname = dr["pr_name"].ToString();
+                tov_id_loc =Convert.ToInt64(dr["pr_id"]) ;
+                prname = dr["pr_name"].ToString();
                     prco = dr["pr_price_co"].ToString();
                     prca = dr["pr_price_ca"].ToString();
                     prop = dr["pr_optom"].ToString();
                     prprv = dr["pr_provid"].ToString();
-                    danet = false;
+                    prkot= dr["pr_kotak"].ToString();
+         
+                    prkotname =""+ dr[11].ToString();
+                if (prkotname == "") {
+                    prkotname = "Нет";
+                }
+              
+                    
+
+                danet = false;
                     dtSales.Rows.Add(kod,dr["rz_id"],dr["rz_name"],dr["rz_pies"]);
 
 
@@ -274,6 +288,8 @@ namespace OptiQ
                 text5.Text = prca;
                 textopt.Text = text5.Text;
                 text6.Text = prprv;
+                 kotname.Text = prkotname;
+                 katid = Convert.ToInt64(prkot); 
 
                 if (Convert.ToInt32(0+prop) != 0)
                 {
@@ -390,14 +406,35 @@ namespace OptiQ
                         opti = Convert.ToInt32(0 + text5.Text);
                     }
 
-                   
-                    if (prkod!=0)
+
+                    if (prkod != 0)
                     {
+
+                        con.Close();
+                        con.Open();
+                        sql = $"select pr_kod from product_pro where pr_mg_id ={Global.IDmagaz}and pr_kod ={text1.Text} and not pr_id="+ tov_id_loc + " ;";
+                        cmd = new SqlCommand(sql, con);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+
+                           
+
+                            MessageBox.Show("Товар с данным штрих кодом уже существует");
+
+                            con.Close();
+                            return;
+
+                        }
+
+                        con.Close();
+
+
                         Global.basever++;
 
                         con.Close();
                         con.Open();
-                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name=N'" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_prov_id=0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id="+Global.IDmagaz+ " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY),pr_provid=N'"+ text6.Text + "',pr_optom=" + opti + " WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
+                        sql = "UPDATE product_pro Set pr_kod=" + text1.Text + ", pr_name=N'" + text2.Text + "',pr_price_co=" + priha + ",pr_price_ca=" + text5.Text + ",pr_prov_id=0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id="+Global.IDmagaz+ " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY),pr_provid=N'"+ text6.Text + "',pr_optom=" + opti + ", pr_kotak="+katid+" WHERE pr_kod =" + prkod + "and pr_mg_id=" + Global.IDmagaz+";";
                         sql += "INSERT INTO productoff(pr_text)VALUES(N'" + (Global.versia + sql).Replace("'", "$") + "')";
                         cmd = new SqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
@@ -409,11 +446,31 @@ namespace OptiQ
                     else
                     {
 
-                       
                         con.Close();
                         con.Open();
-                      
-                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom,pr_prov_id)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ",0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY));";
+                        sql = $"select pr_kod from product_pro where pr_mg_id ={Global.IDmagaz}and pr_kod ={text1.Text};";
+                        cmd = new SqlCommand(sql, con);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+
+                            MessageBox.Show("Товар с данным штрих кодом уже существует");
+                            ;
+                            con.Close();
+                            return;
+
+                        }
+
+                        con.Close();
+
+
+
+
+                        con.Close();
+                        con.Open(); 
+
+
+                        sql = "INSERT INTO product_pro(pr_mg_id,pr_kod,pr_name,pr_price_co,pr_price_ca,pr_provid,pr_optom,pr_prov_id,pr_kotak)VALUES(" + Global.IDmagaz + "," + text1.Text + ",N'" + text2.Text + "'," + priha + "," + text5.Text + ",N'" + text6.Text + "'," + opti + ",0+(select mp_id_off from myprov where mp_name=N'" + text6.Text + "' and mp_mg_id=" + Global.IDmagaz + " ORDER BY mp_id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY),"+katid+");";
 
                         sql += "INSERT INTO productoff(pr_text)VALUES(N'"  + (Global.versia + sql).Replace("'", "$") + "select doppler(" + Global.IDmagaz + "," + text1.Text + ");" + "')";
 
@@ -437,8 +494,8 @@ namespace OptiQ
 
                     con.Close();
                     Program.main.backblakhide();
-                    Program.tov.zagrsel();
-                    Program.tov.viewcell();
+                    Program.tov.zagrsel(true);
+
                     this.Close();
 
 
@@ -504,46 +561,13 @@ namespace OptiQ
 
        
 
-        private void text2_Enter(object sender, EventArgs e)
-        {
-            klava_clok();
-            shjowkeyboard2.Visible = true;
-        }
+   
+    
 
-        public void klava_clok()
-        {
+      
+     
 
-            shjowkeyboard1.Visible = false;
-            shjowkeyboard2.Visible = false;
-            shjowkeyboard3.Visible = false;
-            shjowkeyboard4.Visible = false;
-            shjowkeyboard5.Visible = false;
-
-        }
-
-        private void text3_Enter(object sender, EventArgs e)
-        {
-            klava_clok();
-            shjowkeyboard3.Visible = true;
-        }
-
-        private void text4_Enter(object sender, EventArgs e)
-        {
-            klava_clok();
-            shjowkeyboard4.Visible = true;
-        }
-
-        private void text5_Enter(object sender, EventArgs e)
-        {
-            klava_clok();
-            shjowkeyboard5.Visible = true;
-        }
-
-        private void text7_Enter(object sender, EventArgs e)
-        {
-            klava_clok();
-            shjowkeyboard1.Visible = true;
-        }
+     
 
 
 
@@ -603,19 +627,13 @@ namespace OptiQ
 
         }
 
-        private void text1_Enter(object sender, EventArgs e)
-        {
-            shjowkeyboard1.Visible = true;
-        }
+      
 
-        private void text1_Leave(object sender, EventArgs e)
-        {
-            shjowkeyboard1.Visible = false;
-        }
+    
 
         private void text5_Leave(object sender, EventArgs e)
         {
-
+            k4.Visible = false;
         }
 
         private void addtovar_Load(object sender, EventArgs e)
@@ -711,6 +729,60 @@ namespace OptiQ
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            Program.zakup.blackback.Show();
+            Program.tov.kot.vibor = true;
+            Program.tov.kot.ShowDialog();
+
+
+        }
+
+        private void text1_Enter(object sender, EventArgs e)
+        {
+            k1.Visible = true;
+        }
+
+        private void text1_Leave(object sender, EventArgs e)
+        {
+            k1.Visible = false;
+        }
+
+        private void text2_Enter(object sender, EventArgs e)
+        {
+            k2.Visible = true;
+        }
+
+        private void text2_Leave(object sender, EventArgs e)
+        {
+            k2.Visible = false;
+        }
+
+        private void text3_Enter(object sender, EventArgs e)
+        {
+            k3.Visible = true;
+        }
+
+        private void text3_Leave(object sender, EventArgs e)
+        {
+            k3.Visible = false;
+        }
+
+        private void text5_Enter(object sender, EventArgs e)
+        {
+            k4.Visible = true;
+        }
+
+        private void textopt_Enter(object sender, EventArgs e)
+        {
+            k5.Visible = true;
+        }
+
+        private void textopt_Leave(object sender, EventArgs e)
+        {
+            k5.Visible = false;
         }
     }
 }

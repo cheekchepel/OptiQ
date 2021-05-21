@@ -353,7 +353,7 @@ namespace OptiQ
             this.bunifuFlatButton1.IconRightVisible = true;
             this.bunifuFlatButton1.IconRightZoom = 20D;
             this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 20D;
+            this.bunifuFlatButton1.IconZoom = 25D;
             this.bunifuFlatButton1.IsTab = false;
             this.bunifuFlatButton1.Location = new System.Drawing.Point(729, 0);
             this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(0);

@@ -1,4 +1,5 @@
 ﻿using OptiQ.kassa;
+using OptiQ.TOVAR.DOBAV;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace OptiQ
         public static add ad;
      
         public static login log;
+        public static Kotak kotak;
 
         public static tovar tov;
 

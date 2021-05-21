@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using ZXing;
 using System.IO;
 using System.Data.SqlClient;
+using OptiQ.TOVAR.DOBAV;
 
 namespace OptiQ
 {
@@ -34,23 +35,27 @@ namespace OptiQ
         public SqlDataReader droff;
 
 
-        productcell[] sel = new productcell[60];
+        productcell[] sel = new productcell[25];
         public addtovar add = new addtovar();
 
-       public revizia rev = new revizia();
+        public Kotak kot = new Kotak();
+
+        public revizia rev = new revizia();
 
         Zakup zakup = new Zakup();
 
+        DataTable pechat = new DataTable();
 
-      public  DataTable dtSales = new DataTable();
 
 
+
+       int vobshem=0;
 
        Excel.Application xlApp = new Excel.Application();
 
 
 
-        int list = 0;
+
         private double res;
 
 
@@ -69,64 +74,89 @@ namespace OptiQ
         BarcodeWriter qr = new BarcodeWriter() { Format = BarcodeFormat.CODE_128 };
        
 
-        public void zagrsel()
+        public void zagrsel(bool isk)
         {
+            string filter = "";
 
-          
-                conoff.Close();
+            bool isInt = Double.TryParse(textBox1.Text + "0", out res);
+
+
+            if (bunifuiOSSwitch1.Value==true)
+            {
+                filter = "and pr_chek='" + bunifuiOSSwitch1.Value + "'";
+            }
+            else
+            {
+                if (isInt == true) { filter = "and CAST(pr_kod AS VARCHAR(20)) LIKE N'%" + textBox1.Text + "%'"; }
+                else { filter = " and LOWER(pr_name) LIKE LOWER(N'%" + textBox1.Text + "%')"; }
+            }
+
+
+            vobshem = 0;
+            int a = 0;
+            conoff.Close();
+            conoff.Close();
                 conoff.Open();
-                sqloff = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,(SELECT SUM(rz_pies) as sum FROM razmer_pro WHERE rz_mg_id =" + Global.IDmagaz+" and rz_pr_kod =pr_kod) from product_pro where pr_mg_id =" + Global.IDmagaz;
+                sqloff = "select pr_id,pr_kod,pr_name,pr_price_co,pr_price_ca,(SELECT SUM(rz_pies) as sum FROM razmer_pro WHERE rz_mg_id =" + Global.IDmagaz+ " and rz_pr_kod =pr_kod),pr_chek from product_pro where pr_mg_id =" + Global.IDmagaz+" "+ filter+ " order by pr_id asc OFFSET " + bunifuVTrackbar1.Value + " ROWS";
                 cmdoff = new SqlCommand(sqloff, conoff);
                 droff = cmdoff.ExecuteReader();
-                dtSales.Rows.Clear();
-                while (droff.Read())
-                {
 
-                    dtSales.Rows.Add(droff[0], droff[1], droff[2], droff[3], droff[4], (droff[5].ToString()).Replace(",", "."),false);
-                    // dataGridView1.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], (dr[5].ToString()).Replace(",","."));
+                while (a<kolichestvo)
+                {
+                    while (droff.Read())
+                    {
+                   
+                        vobshem++;
+                        if (a < kolichestvo)
+                        {
+
+                        long id = Convert.ToInt64(droff[0]);
+                        long kod = Convert.ToInt64(droff[1]);
+                        string name = droff[2].ToString();
+                        int cenaco = Convert.ToInt32(droff[3]);
+                        int cenaca = Convert.ToInt32(droff[4]);
+                        string kol = droff[5].ToString();
+                        bool chek = Convert.ToBoolean(droff[6]);
+
+                        sel[a].add(id, kod, name, cenaco, cenaca, kol, chek);
+                        a++;
+                        }
+                    }
+                        sel[a].Visible = false;
+                        a++;
                 }
                 conoff.Close();
+            if (isk) {
 
-                dataGridView1.DataSource = dtSales;
+                if (vobshem - kolichestvo > kolichestvo) { bunifuVTrackbar1.MaximumValue = vobshem - kolichestvo; bunifuVTrackbar1.Visible = true; }
+                else { bunifuVTrackbar1.Visible = false; }
 
-            viewcell();
-
-
-
-
-
+            }
+           
 
         }
 
 
 
-
-
-
-
-
-
-
         private void tovar_Load(object sender, EventArgs e)
         {
-          
 
-            panel10.Visible = Global.pra_showprih;
-            panel16.Visible = Global.pra_eidittov;
+            pechat.Columns.Add("kod", typeof(string));
+            pechat.Columns.Add("name", typeof(string));
+
+
+
+
 
             kolichestvo = (Global.y - 96) / 40;
-            panel5.Visible = Global.pra_eidittov;
+            if (kolichestvo > 25) {
+                kolichestvo = 25;
+            }
+
 
             createcell();
 
-            dtSales.Columns.Add("pr_id", typeof(int));
-            dtSales.Columns.Add("pr_kod", typeof(string));
-            dtSales.Columns.Add("pr_name", typeof(string));
-            dtSales.Columns.Add("pr_co", typeof(int));
-            dtSales.Columns.Add("pr_ca", typeof(int));
-            dtSales.Columns.Add("pr_piec", typeof(string));
 
-            dtSales.Columns.Add("pr_pechat", typeof(bool));
 
            
 
@@ -139,19 +169,6 @@ namespace OptiQ
         {
            
 
-            for ( int i =0; i < kolichestvo*2; i++)
-            { 
-                if (i < dtSales.Rows.Count)
-                {
-                    sel[i].ID = i + list;
-                   
-                }
-                else {
-                    sel[i].Visible = false;
-                }
-            }
-
-           flowLayoutPanel1.Visible = true;
         }
 
 
@@ -159,10 +176,9 @@ namespace OptiQ
        public void createcell()
         {
 
-            for (int i = 0; i < kolichestvo*2 ; i++) {
+            for (int i = 0; i < kolichestvo+1 ; i++) {
                 
-                sel[i] = new productcell ();
-                sel[i].ID = i;
+                sel[i] = new productcell {Visible=false};
                 flowLayoutPanel1.Controls.Add(sel[i]);
 
 
@@ -188,8 +204,14 @@ namespace OptiQ
 
         private void tovar_Shown(object sender, EventArgs e)
         {
-           
-            
+            panel10.Visible = Global.pra_showprih;
+            panel16.Visible = Global.pra_eidittov;
+            panel5.Visible = Global.pra_eidittov;
+            panel7.Visible = Global.pra_showreviz;
+            panel17.Visible = Global.pra_showreviz;
+
+
+
         }
 
 
@@ -213,55 +235,46 @@ namespace OptiQ
 
         private void flowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)
         {
-            if (flowLayoutPanel1.VerticalScroll.Value > (10*40))
-            {
-                list += 5;
-
-                flowLayoutPanel1.VerticalScroll.Value = (5 * 40);
-                viewcell();
-            }
-            else if (list!=0&& flowLayoutPanel1.VerticalScroll.Value < (5 * 40)) {
-
-                list -= 5;
-
-                flowLayoutPanel1.VerticalScroll.Value = (10 *40) ;   
-                viewcell();
-            }
+            
           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+            if (bunifuVTrackbar1.Value == 0) { zagrsel(true); }
+            else { bunifuVTrackbar1.Value = 0; }
 
-            try
-            {
-                list = 0;
-                flowLayoutPanel1.VerticalScroll.Value = 0;
-                bool isInt = Double.TryParse(textBox1.Text + "0", out res);
-                if (isInt == true) { dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "pr_kod", textBox1.Text); }
-                else { dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "pr_name", textBox1.Text); }
-                flowLayoutPanel1.Visible = false;
 
-                viewcell();
-            }catch { }
-           
         }
 
        
 
         private void bunifuiOSSwitch1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (bunifuiOSSwitch1.Value == true) { dtSales.DefaultView.RowFilter = "pr_pechat=true"; }
-            else { dtSales.DefaultView.RowFilter = null; }
-            flowLayoutPanel1.Visible = false;
-            viewcell();
+            
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            dtSales.DefaultView.RowFilter = "pr_pechat=true";
-            if (dataGridView1.Rows.Count > 0)
+            pechat.Clear();
+
+            conoff.Close();
+            conoff.Open();
+            sqloff = "select pr_kod,pr_name from product_pro where pr_mg_id =" + Global.IDmagaz + " AND pr_chek='true' ";
+            cmdoff = new SqlCommand(sqloff, conoff);
+            droff = cmdoff.ExecuteReader();
+
+            while (droff.Read())
+            {
+                pechat.Rows.Add(droff[0], droff[1]);
+
+            }
+            conoff.Close();
+
+
+
+            if (pechat.Rows.Count > 0)
             {
             
                 opana = 0;
@@ -300,17 +313,19 @@ namespace OptiQ
                     }
                 }
 
+                conoff.Close();
+                conoff.Open();
+                sqloff = "UPDATE product_pro Set pr_chek='false' where pr_mg_id=" + Global.IDmagaz + ";";
+                cmdoff = new SqlCommand(sqloff, conoff);
+                droff = cmdoff.ExecuteReader();
+                droff.Read();
+                conoff.Close();
 
+                bunifuiOSSwitch1.Value = false;
 
-                //printPreviewDialog1.Document = printDocument;
-                //printPreviewDialog1.Width = 1000;
-                // printPreviewDialog1.Height = 700;
-                //printPreviewDialog1.ShowDialog();
+                if (bunifuVTrackbar1.Value == 0) { zagrsel(true); }
+                else { bunifuVTrackbar1.Value = 0; }
 
-            
-                zagrsel();
-                flowLayoutPanel1.Visible = false;
-                viewcell();
             }
 
         }
@@ -340,21 +355,20 @@ namespace OptiQ
                     int x = 260 * (i2)+55;
                     int y = 145 * (i)+65;
 
-                    if (opana < dataGridView1.Rows.Count)
+                    if (opana < pechat.Rows.Count)
                     {
 
-                        img = qr.Write(dataGridView1.Rows[opana].Cells[1].Value.ToString());
+                        img = qr.Write(pechat.Rows[opana][0].ToString());
 
 
 
-                        string text = dataGridView1.Rows[opana].Cells[2].Value.ToString();
+                        string text = pechat.Rows[opana][1].ToString();
 
                        
 
                         Rectangle destRectangle = new Rectangle(x, y, 200, 100);
 
                         var r = new Rectangle(x-15, y - 55, 230, 50);
-                        // e.Graphics.DrawImage(img,x,y,200,50);
 
                         e.Graphics.DrawString(text, new Font("Arial", 16), Brushes.Black, r);
 
@@ -367,7 +381,7 @@ namespace OptiQ
 
             }
 
-            e.HasMorePages = (opana < dataGridView1.Rows.Count);
+            e.HasMorePages = (opana < pechat.Rows.Count);
 
         }
 
@@ -386,7 +400,9 @@ namespace OptiQ
                 return;
             }
 
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + Global.MGname + ".xls";
+
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + Global.MGname +" "+ DateTime.Today.ToShortDateString() + ".xls";
 
 
             if (File.Exists(path))
@@ -416,7 +432,7 @@ namespace OptiQ
             xlWorkSheet.Cells[1, 5] = "Цена оптом"; xlWorkSheet.Columns[5].ColumnWidth = 12;
             xlWorkSheet.Cells[1, 6] = "Модификация"; xlWorkSheet.Columns[6].ColumnWidth = 15;
             xlWorkSheet.Cells[1, 7] = "Количество"; xlWorkSheet.Columns[7].ColumnWidth = 12;
-
+            xlWorkSheet.Cells[1, 8] = "Поставщик"; xlWorkSheet.Columns[7].ColumnWidth = 12;
 
 
 
@@ -424,7 +440,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "SELECT pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,rz_name,rz_pies FROM product_pro LEFT JOIN razmer_pro ON pr_kod=rz_pr_kod";
+            sqloff = "SELECT pr_kod,pr_name,pr_price_co,pr_price_ca,pr_optom,rz_name,rz_pies,pr_provid FROM product_pro LEFT JOIN razmer_pro ON pr_kod=rz_pr_kod";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             int i = 2;
@@ -437,6 +453,10 @@ namespace OptiQ
                 xlWorkSheet.Cells[i, 6] = droff[5].ToString();
                 xlWorkSheet.Cells[i, 5] = droff[4].ToString();
                 xlWorkSheet.Cells[i, 7] = droff[6].ToString().Replace(",", ".");
+
+                if (String.IsNullOrWhiteSpace(droff[7].ToString())) {xlWorkSheet.Cells[i, 8] = "Нет";}
+                else { xlWorkSheet.Cells[i, 8] = droff[7].ToString(); }
+                    
 
 
                 i++;
@@ -458,7 +478,47 @@ namespace OptiQ
             Marshal.ReleaseComObject(xlWorkBook);
             Marshal.ReleaseComObject(xlApp);
 
-            MessageBox.Show("Файл "+ Global.MGname + ".xls создан на рабочем столе");
+            MessageBox.Show("Файл "+ Global.MGname + " " + DateTime.Today.ToShortDateString() + ".xls создан на рабочем столе");
+        }
+
+        private void bunifuFlatButton3_Click(object sender, EventArgs e)
+        {
+            Program.zakup.blackback.Show();
+            Program.tov.kot.vibor = false;
+            kot.ShowDialog();
+
+        }
+
+       
+
+      
+
+        private void bunifuiOSSwitch1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+
+        }
+
+        private void bunifuVTrackbar1_ValueChanged_1(object sender, EventArgs e)
+        {
+            zagrsel(false);
+        }
+
+        private void bunifuiOSSwitch1_Click(object sender, EventArgs e)
+        {
+            if (bunifuVTrackbar1.Value == 0) { zagrsel(true); }
+            else { bunifuVTrackbar1.Value = 0; }
+            
+        }
+
+        private void bunifuVTrackbar1_Scroll(object sender, ScrollEventArgs e)
+        {
+     
+        }
+
+        private void bunifuFlatButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
