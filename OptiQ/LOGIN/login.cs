@@ -1,7 +1,10 @@
-﻿using Npgsql;
+﻿using Newtonsoft.Json;
+using Npgsql;
 using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
+using System.Net;
 using System.Windows.Forms;
 namespace OptiQ
 {
@@ -190,21 +193,17 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select by_how,by_komis from buymethod";
+            sqloff = $"select nalic,beznalic,kaspi,kaspired from methodsetings where mg_id={Global.IDmagaz};";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             while (droff.Read())
             {
 
-                if (droff[0].ToString() == "Наличный") { Global.nal = Convert.ToInt32(droff[1]); }
-                if (droff[0].ToString() == "Безналичный") { Global.beznal = Convert.ToInt32(droff[1]); }
-                if (droff[0].ToString() == "Kaspi") { Global.kaspi = Convert.ToInt32(droff[1]); }
-                if (droff[0].ToString() == "Kaspi RED") { Global.kaspired = Convert.ToInt32(droff[1]); }
-
-             
-
-                
-                             
+               Global.nal = Convert.ToInt32(droff[0]); 
+               Global.beznal = Convert.ToInt32(droff[1]); 
+               Global.kaspi = Convert.ToInt32(droff[2]); 
+               Global.kaspired = Convert.ToInt32(droff[3]);
+              
 
             }
             conoff.Close();
@@ -299,7 +298,7 @@ namespace OptiQ
 
 
             if (String.IsNullOrWhiteSpace(text_login.Text) || String.IsNullOrWhiteSpace(pass_text.Text))
-            { Program.msg.Message.Text = "Заполните все поля"; mess.Show(); }
+            { Program.msg.uvedomlrnie("Заполните все поля", 3); return; ; }
             else
             {
                 try
@@ -350,9 +349,6 @@ namespace OptiQ
                         sql = "select id_kassir_ksas,date_start_ksas,date_end_ksas,id_mg_ksas from ksas where id_kassir_ksas=" + Global.IDuser + "and date_end_ksas =0";
                         cmd = new NpgsqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
-
-
-
 
                         if (dr.Read())
                         {
@@ -434,6 +430,7 @@ namespace OptiQ
                         if (Global.mg_pay_raznica / 86400 > 0) { Program.msg.Size = new Size(310, 100); Program.msg.Message.Text = "Приложение не оплачено"; mess.Show(); }
                         else
                         {
+                            Program.main.logadministartoe.Visible = false;
                             poisc_sessii_and_view();
                          
                             
@@ -441,17 +438,19 @@ namespace OptiQ
                             prava();
                             Program.main.smenna.Visible = true;
                             Program.main.prodect_but.Visible = true;
-                            Program.main.close.Visible = false;
+                            
                             Program.main.vesovoi.Visible = Global.vesishow;
                             Program.KASA.salesssssssssssssss();
                             Program.main.sobbez(1);
+                            Program.main.close.Visible = false;
+                            
                         }
                         con.Close();
                         conoff.Close();
 
 
                     }
-                    else { Program.msg.Width = 350; Program.msg.Message.Text = "Неверный логин или пароль"; mess.Show(); con.Close(); }
+                    else { con.Close(); Program.msg.uvedomlrnie("Неверный логин или пароль", 2); return; }
                 }
                 catch (NpgsqlException)
                 {
@@ -490,7 +489,7 @@ namespace OptiQ
                         else if (Global.mg_off_raznica / 86400 > 1) { Program.msg.Size = new Size(360, 100); Program.msg.Message.Text = "Необходима синхронизация"; mess.Show(); }
                         else
                         {
-
+                            Program.main.logadministartoe.Visible = false;
                             Program.main.prodect_but.Visible = true;
 
                             poisc_sessii_and_view();
@@ -509,7 +508,7 @@ namespace OptiQ
 
                     }
 
-                    else { Program.msg.Message.Text = "Неверный логин или пароль"; mess.Show(); }
+                    else { conoff.Close(); Program.msg.uvedomlrnie("Неверный логин или пароль", 2); return; }
 
                     conoff.Close();
 
@@ -547,5 +546,20 @@ namespace OptiQ
         {
             shjowkeyboard2.Visible = false;
         }
+
+
+        public string GetHash(string input)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.hashify.net/hash/md5/hex?value=" + input);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader sr = new StreamReader(stream);
+            string sReadData = sr.ReadToEnd();
+            response.Close();
+            dynamic d = JsonConvert.DeserializeObject(sReadData);
+            return d.Digest;
+        }
+
+
     }
 }

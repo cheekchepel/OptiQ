@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/OptiQ/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
-    <ApplicationRevision>150</ApplicationRevision>
+    <ApplicationRevision>151</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -88,6 +88,9 @@
     <Reference Include="MZControls, Version=1.0.7217.27044, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MZControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.5.0.0\lib\netstandard2.0\Npgsql.dll</HintPath>
@@ -193,6 +196,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>maskaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN\logadm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN\logadm.Designer.cs">
+      <DependentUpon>logadm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\magaz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\magaz.Designer.cs">
+      <DependentUpon>magaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\adminka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="magaz\adminka.Designer.cs">
+      <DependentUpon>adminka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\vladelec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\vladelec.Designer.cs">
+      <DependentUpon>vladelec.cs</DependentUpon>
     </Compile>
     <Compile Include="OBSHIE\Yesandno.cs">
       <SubType>Form</SubType>
@@ -427,6 +454,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="kassa\KATEGORIIIII\kattovcell.resx">
       <DependentUpon>kattovcell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN\logadm.resx">
+      <DependentUpon>logadm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\adminka.resx">
+      <DependentUpon>adminka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\magaz.resx">
+      <DependentUpon>magaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\vladelec.resx">
+      <DependentUpon>vladelec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OBSHIE\Yesandno.resx">
       <DependentUpon>Yesandno.cs</DependentUpon>

@@ -385,10 +385,7 @@ namespace OptiQ
 
         }
 
-        private void bunifuVTrackbar1_ValueChanged(object sender, EventArgs e)
-        {
-            viewcell();
-        }
+
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {

@@ -16,6 +16,7 @@ namespace OptiQ
         public numerkas()
         {
             InitializeComponent();
+            grdt_kass50.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204)));
         }
 
         public SqlConnection cont = new SqlConnection(Global.conectsql);
@@ -30,6 +31,9 @@ namespace OptiQ
 
 
         public void vgruzit(long id,long num,string text) {
+
+            grdt_kass50.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(204)));
+
             name.HeaderText = "Клиент " + num;
 
             textBox1.Text = text;

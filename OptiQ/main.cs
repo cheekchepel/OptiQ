@@ -27,6 +27,8 @@ using Color = System.Drawing.Color;
 
 using OptiQ.kassa;
 using System.Runtime.InteropServices;
+using OptiQ.magaz;
+using OptiQ.LOGIN;
 
 namespace OptiQ
 {
@@ -45,7 +47,11 @@ namespace OptiQ
 
         tovar prd = new tovar() { Dock = DockStyle.Fill, TopLevel = false };
 
-       public Sales sslllaasslo = new Sales() { Dock = DockStyle.Fill, TopLevel = false };
+        adminka admin =new adminka() { Dock = DockStyle.Fill, TopLevel = false };
+
+        logadm logadm = new logadm();
+
+        public Sales sslllaasslo = new Sales() { Dock = DockStyle.Fill, TopLevel = false };
 
         public int vremya = 0;
 
@@ -228,6 +234,7 @@ namespace OptiQ
             sslllaasslo.Hide();
             newkass.Hide();
             vesa.Hide();
+            admin.Hide();
           
         }
 
@@ -341,6 +348,7 @@ namespace OptiQ
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            string a = "";
 
             if (InputTimer.GetInputIdleTime() >= Global.ojidanie) {
 
@@ -349,9 +357,24 @@ namespace OptiQ
                 Application.Exit();
 
             }
-
-
-
+            
+            if (Potoki.sinserv == 1) {
+                a += " сервер";
+            }
+            if (Potoki.sinprodaj == 1) {
+                a += " продаж";
+            }
+            if (Potoki.sintovar == 1)
+            {
+                a += " товаров";
+            }
+            if (a == "" && label1.Text != "")
+            {
+                label1.Text = a;
+            }
+            else if (a == "" && label1.Text == "") { }
+            else { label1.Text = "Cинхронизация"+ a; }
+            
 
 
 
@@ -392,8 +415,24 @@ namespace OptiQ
             }
         }
 
+        private void bunifuFlatButton3_Click(object sender, EventArgs e)
+        {
+            Program.zakup.blackback.Show();
+            logadm.ShowDialog();
+
+        }
 
 
+        public void mag_show()
+        {
+
+            output.Controls.Add(admin);
+
+            hide_form();
+
+            admin.Show();
+
+        }
 
 
 

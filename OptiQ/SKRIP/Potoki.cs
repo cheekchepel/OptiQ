@@ -86,26 +86,16 @@ namespace OptiQ
         public static SqlDataReader droff3;
 
 
+        public static int razresenie = 1;
+
+        public static int sinprodaj=0;
+        public static int sintovar = 0;
+        public static int sinserv = 0;
 
 
 
 
 
-
-        public static bool Globalmagaz
-        {
-            get { return Globalmagaz; }
-            set
-            {
-                if (value) { Program.main.label1.Visible = true; }
-                else { Program.main.label1.Visible = false; }
-            }
- 
-        }
-
-
-
-        
 
 
 
@@ -134,15 +124,15 @@ namespace OptiQ
             {
                 conc.Close();
                 conc.Open();
-                sqlc = "select by_how,by_komis from buymethod where by_mg_id=" + Global.IDmagaz + ";";
+                sqlc = $"select nalic,beznalic,kaspi,kaspired from methodsetings where mg_id={Global.IDmagaz};";
                 cmdc = new NpgsqlCommand(sqlc, conc);
                 drc = cmdc.ExecuteReader();
-                string a = "DELETE FROM buymethod;";
+                string a = "DELETE FROM methodsetings;";
                 while (drc.Read())
                 {
                     conoff1.Close();
                     conoff1.Open();
-                    sqloff1 = a + "INSERT INTO buymethod(by_how, by_komis)VALUES(N'" + drc[0] + "'," + drc[1] + ")";
+                    sqloff1 = a + $"INSERT INTO methodsetings(nalic,beznalic,kaspi,kaspired,mg_id)VALUES({drc[0]},{drc[1]},{drc[2]},{drc[3]},{Global.IDmagaz});";
                     cmdoff1 = new SqlCommand(sqloff1, conoff1);
                     droff1 = cmdoff1.ExecuteReader();
                     droff1.Read();
@@ -180,7 +170,7 @@ namespace OptiQ
         {
 
 
-            while (zakroi)
+            while (zakroi&&razresenie==0)
             {
 
 
@@ -324,6 +314,7 @@ namespace OptiQ
 
         public static void prihodka(long basver)
         {
+            sintovar = 1;
 
             con1.Close();
 
@@ -507,6 +498,7 @@ namespace OptiQ
                     droff1.Read();
                     conoff1.Close();
                     Global.basever = basver;
+            sintovar = 0; 
 
         }
 
@@ -517,7 +509,8 @@ namespace OptiQ
 
         public static void prihodsalo(long basvers) {
 
-
+            sinprodaj = 1;
+            
 
             try { 
 
@@ -666,14 +659,14 @@ namespace OptiQ
             conoff3.Close();
             Global.veriaprodaj = basvers;
 
+            sinprodaj = 0;
+
+            
 
 
-     
 
 
-
-
-}
+        }
 
 
 
@@ -719,8 +712,10 @@ namespace OptiQ
                     droff = cmdoff.ExecuteReader();
                     while (droff.Read())
                     {
-                   
-                    con.Close();
+                        razresenie = 1;
+                        sinserv = 1;
+
+                        con.Close();
                     con.Close();
                         con.Open();
                         sql = (droff[0].ToString()).Replace("$", "'");
@@ -730,7 +725,7 @@ namespace OptiQ
                         con.Close();
                    
 
-                }
+                    }
 
                 conoff.Close();
                     conoff.Open();
@@ -754,6 +749,7 @@ namespace OptiQ
                     droff = cmdoff.ExecuteReader();
                     while (droff.Read())
                     {
+                        sinserv = 1;
                         conblak.Close();
                         conblak.Close();
                         conblak.Open();
@@ -779,8 +775,8 @@ namespace OptiQ
 
 
 
-
-
+                sinserv = 0;
+                razresenie = 0;
 
                 Thread.Sleep(5000);
 

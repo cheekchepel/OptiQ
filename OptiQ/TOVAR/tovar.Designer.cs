@@ -754,6 +754,7 @@ namespace OptiQ
             this.bunifuVTrackbar1.TabIndex = 24;
             this.bunifuVTrackbar1.Value = 0;
             this.bunifuVTrackbar1.Visible = false;
+            this.bunifuVTrackbar1.ValueChanged += new System.EventHandler(this.bunifuVTrackbar1_ValueChanged_1);
             // 
             // tovar
             // 

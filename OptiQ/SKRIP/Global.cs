@@ -34,7 +34,7 @@ namespace OptiQ
 
         public static bool sale_in_minus=true;
         public static int uvedomlenie_ostatoc = 2;
-        public static int ojidanie = 10;
+        public static int ojidanie = 5;
         public static bool vesishow = false;
 
 
