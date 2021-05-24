@@ -630,6 +630,7 @@ namespace OptiQ
             this.karta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.karta.Textcolor = System.Drawing.Color.LightGray;
             this.karta.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.karta.Visible = false;
             this.karta.Click += new System.EventHandler(this.karta_Click);
             // 
             // kaspi
@@ -667,6 +668,7 @@ namespace OptiQ
             this.kaspi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.kaspi.Textcolor = System.Drawing.Color.LightGray;
             this.kaspi.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.kaspi.Visible = false;
             this.kaspi.Click += new System.EventHandler(this.kaspi_Click);
             // 
             // RED
@@ -704,6 +706,7 @@ namespace OptiQ
             this.RED.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RED.Textcolor = System.Drawing.Color.LightGray;
             this.RED.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RED.Visible = false;
             this.RED.Click += new System.EventHandler(this.RED_Click);
             // 
             // smejno
@@ -1711,10 +1714,6 @@ namespace OptiQ
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label7;
-        private Bunifu.Framework.UI.BunifuFlatButton nal;
-        private Bunifu.Framework.UI.BunifuFlatButton karta;
-        private Bunifu.Framework.UI.BunifuFlatButton kaspi;
-        private Bunifu.Framework.UI.BunifuFlatButton smejno;
         private Bunifu.Framework.UI.BunifuFlatButton dolg;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
@@ -1748,7 +1747,6 @@ namespace OptiQ
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton10;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton11;
         private Vdolg vdolg1;
-        private Bunifu.Framework.UI.BunifuFlatButton RED;
         private MZControls.MZSombraPanel REDT;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel9;
@@ -1777,5 +1775,10 @@ namespace OptiQ
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label textdolg;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton13;
+        public Bunifu.Framework.UI.BunifuFlatButton karta;
+        public Bunifu.Framework.UI.BunifuFlatButton kaspi;
+        public Bunifu.Framework.UI.BunifuFlatButton RED;
+        public Bunifu.Framework.UI.BunifuFlatButton nal;
+        public Bunifu.Framework.UI.BunifuFlatButton smejno;
     }
 }

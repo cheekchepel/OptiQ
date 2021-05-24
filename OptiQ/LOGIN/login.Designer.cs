@@ -32,6 +32,8 @@ namespace OptiQ
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.login_form = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
+            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
             this.login_button = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pass_text = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pass_img = new System.Windows.Forms.Label();
@@ -39,9 +41,16 @@ namespace OptiQ
             this.label_label = new System.Windows.Forms.Label();
             this.text_login = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.shjowkeyboard2 = new OptiQ.shjowkeyboard();
-            this.shjowkeyboard1 = new OptiQ.shjowkeyboard();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.login_form.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // login_form
@@ -67,6 +76,28 @@ namespace OptiQ
             this.login_form.Quality = 10;
             this.login_form.Size = new System.Drawing.Size(600, 425);
             this.login_form.TabIndex = 7;
+            // 
+            // shjowkeyboard2
+            // 
+            this.shjowkeyboard2.BackColor = System.Drawing.Color.White;
+            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard2.Location = new System.Drawing.Point(444, 255);
+            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard2.Name = "shjowkeyboard2";
+            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard2.TabIndex = 19;
+            this.shjowkeyboard2.Visible = false;
+            // 
+            // shjowkeyboard1
+            // 
+            this.shjowkeyboard1.BackColor = System.Drawing.Color.White;
+            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.shjowkeyboard1.Location = new System.Drawing.Point(444, 161);
+            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
+            this.shjowkeyboard1.Name = "shjowkeyboard1";
+            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
+            this.shjowkeyboard1.TabIndex = 18;
+            this.shjowkeyboard1.Visible = false;
             // 
             // login_button
             // 
@@ -192,27 +223,81 @@ namespace OptiQ
             this.bunifuElipse1.ElipseRadius = 40;
             this.bunifuElipse1.TargetControl = this.login_form;
             // 
-            // shjowkeyboard2
+            // panel2
             // 
-            this.shjowkeyboard2.BackColor = System.Drawing.Color.White;
-            this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard2.Location = new System.Drawing.Point(444, 255);
-            this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard2.Name = "shjowkeyboard2";
-            this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard2.TabIndex = 19;
-            this.shjowkeyboard2.Visible = false;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 565);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel2.Size = new System.Drawing.Size(1028, 40);
+            this.panel2.TabIndex = 9;
             // 
-            // shjowkeyboard1
+            // label3
             // 
-            this.shjowkeyboard1.BackColor = System.Drawing.Color.White;
-            this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(444, 161);
-            this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
-            this.shjowkeyboard1.Name = "shjowkeyboard1";
-            this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
-            this.shjowkeyboard1.TabIndex = 18;
-            this.shjowkeyboard1.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Unispace", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(104)))), ((int)(((byte)(215)))));
+            this.label3.Location = new System.Drawing.Point(45, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.label3.Size = new System.Drawing.Size(251, 38);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "CREATED BY ENGINEERING TEAM";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(184)))), ((int)(((byte)(128)))));
+            this.label4.Location = new System.Drawing.Point(824, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.label4.Size = new System.Drawing.Size(74, 33);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Powered";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(898, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.label5.Size = new System.Drawing.Size(25, 33);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "by";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(923, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 40);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(5, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
             // 
             // login
             // 
@@ -220,7 +305,8 @@ namespace OptiQ
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(210)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(1028, 641);
+            this.ClientSize = new System.Drawing.Size(1028, 605);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.login_form);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(148)))));
@@ -228,13 +314,16 @@ namespace OptiQ
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "login";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 900, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
             this.Load += new System.EventHandler(this.login_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.login_KeyPress);
             this.login_form.ResumeLayout(false);
             this.login_form.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,5 +339,11 @@ namespace OptiQ
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private shjowkeyboard shjowkeyboard1;
         private shjowkeyboard shjowkeyboard2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

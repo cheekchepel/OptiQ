@@ -120,21 +120,4 @@
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="test.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAYAAAALrl3YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF4SURBVHhe7dFbjsIwEERRtsYyZv8LYT64koVSkJfdWOSW
-        dP7ajlN9MxfI/f73uAJ+d86kB18JNXw/6XFXRi31SY9RQ001SQ/QEnWNS/qo1lFf36QPaTtq7JP0Ae1H
-        neeSLtZx1Hos6UKdR737ky7TedS7L+ki9UPN25IuUH/UvZ50WP1R9+ekgxqH2t8nHdI41J6TDmg86l8m
-        DWs86n9NGlQNVvCaNKg6rKElDakOa2hJQ6rDGlrSkOqwhmfSgGqximfSgOqxDhcyC9bhQmbBOlzILFiH
-        C5kF63Ahs2AdLmQGrKIlDakOa2hJQ6rDGlrSkOqwhpY0pDqsoSUNqQYrWCYNazzqXyYNazzqz0kHNA61
-        v086pHGo/XPSQfVH3etJh9UfdW9LukD9UPO+pIt0HvXuT7pM51HvsaQLdRy1nku6WPtRZ5+kD2g7auyb
-        9CGto75xSR/VEnXVJD1ADTXVJz3myqjl+0mPuxJqmDPpwb+I3zW/m9vtH8W54qi4KSmHAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
-  <metadata name="npgsqlCommandBuilder1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>141, 17</value>
-  </metadata>
 </root>

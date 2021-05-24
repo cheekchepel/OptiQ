@@ -46,6 +46,7 @@ namespace OptiQ.magaz
             this.mzSombraPanel2 = new MZControls.MZSombraPanel();
             this.magadres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.npgsqlCommandBuilder1 = new Npgsql.NpgsqlCommandBuilder();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -215,6 +216,7 @@ namespace OptiQ.magaz
             // magname
             // 
             this.magname.BackColor = System.Drawing.Color.White;
+            this.magname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.magname.Dock = System.Windows.Forms.DockStyle.Fill;
             this.magname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.magname.Location = new System.Drawing.Point(10, 10);
@@ -262,6 +264,7 @@ namespace OptiQ.magaz
             // magadres
             // 
             this.magadres.BackColor = System.Drawing.Color.White;
+            this.magadres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.magadres.Dock = System.Windows.Forms.DockStyle.Fill;
             this.magadres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.magadres.Location = new System.Drawing.Point(10, 10);
@@ -281,17 +284,22 @@ namespace OptiQ.magaz
             this.label2.TabIndex = 4;
             this.label2.Text = "Адрес магазина";
             // 
+            // npgsqlCommandBuilder1
+            // 
+            this.npgsqlCommandBuilder1.QuotePrefix = "\"";
+            this.npgsqlCommandBuilder1.QuoteSuffix = "\"";
+            // 
             // magaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(20);
+            this.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.Name = "magaz";
             this.Size = new System.Drawing.Size(440, 320);
             this.Load += new System.EventHandler(this.admin_Load);
@@ -327,5 +335,6 @@ namespace OptiQ.magaz
         private MZControls.MZSombraPanel mzSombraPanel2;
         private System.Windows.Forms.TextBox magadres;
         private Bunifu.Framework.UI.BunifuiOSSwitch test;
+        private Npgsql.NpgsqlCommandBuilder npgsqlCommandBuilder1;
     }
 }

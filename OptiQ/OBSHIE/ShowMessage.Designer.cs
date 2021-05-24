@@ -42,6 +42,7 @@ namespace OptiQ
             // 
             // timer1
             // 
+            this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Message
@@ -51,20 +52,19 @@ namespace OptiQ
             this.Message.BackColor = System.Drawing.Color.Transparent;
             this.Message.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Message.ForeColor = System.Drawing.Color.White;
-            this.Message.Location = new System.Drawing.Point(10, 18);
+            this.Message.Location = new System.Drawing.Point(24, 24);
             this.Message.Name = "Message";
             this.Message.Size = new System.Drawing.Size(176, 24);
             this.Message.TabIndex = 17;
             this.Message.Text = "текстbdfbnfdbdfb";
             this.Message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Message.TextChanged += new System.EventHandler(this.Message_TextChanged);
             // 
             // ShowMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(164, 60);
+            this.ClientSize = new System.Drawing.Size(164, 72);
             this.Controls.Add(this.Message);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -73,8 +73,6 @@ namespace OptiQ
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowMessage";
             this.TopMost = true;
-            this.Shown += new System.EventHandler(this.ShowMessage_Shown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShowMessage_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

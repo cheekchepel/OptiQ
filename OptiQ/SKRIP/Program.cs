@@ -1,4 +1,5 @@
 ﻿using OptiQ.kassa;
+using OptiQ.magaz;
 using OptiQ.TOVAR.DOBAV;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,8 @@ namespace OptiQ
         public static Zakup zakup;
         public static fastaddprovid fstpr;
         public static Otlojka ooo;
+
+        public static adminka adminkaa;
 
 
         public static Oplata oplati;

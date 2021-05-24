@@ -118,11 +118,9 @@ namespace OptiQ
         }
             catch (NpgsqlException)
             {
-                this.Hide();
-        Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
+
+
+                Program.msg.uvedomlrnie("Необходимо интернет подключение", 3);
 
             }
 }
@@ -184,26 +182,24 @@ namespace OptiQ
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
-            try { 
-            con.Close();
-            con.Open();
-            sql = "INSERT INTO itogrevcard(itogrevcard_mg_id,itogrevcard_date_start,itogrevcard_date_end )VALUES("+Global.IDmagaz+","+ DateTimeOffset.Now.ToUnixTimeSeconds() + ",0)";
-            cmd = new NpgsqlCommand(sql, con);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-            con.Close();
-            poiskrwv();
-        }
+            try
+            {
+                con.Close();
+                con.Open();
+                sql = "INSERT INTO itogrevcard(itogrevcard_mg_id,itogrevcard_date_start,itogrevcard_date_end )VALUES(" + Global.IDmagaz + "," + DateTimeOffset.Now.ToUnixTimeSeconds() + ",0)";
+                cmd = new NpgsqlCommand(sql, con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                con.Close();
+                poiskrwv();
+            }
             catch (NpgsqlException)
             {
-                this.Hide();
-        Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
+
+                Program.msg.uvedomlrnie("Необходимо интернет подключение", 3); 
 
             }
-}
+        }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -249,15 +245,15 @@ namespace OptiQ
         }
             catch (NpgsqlException)
             {
-                this.Hide();
-        Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
+
+
+                Program.msg.uvedomlrnie("Необходимо интернет подключение", 3); 
+
 
             }
 
 }
+
 
         private void bunifuFlatButton8_Click(object sender, EventArgs e)
         {

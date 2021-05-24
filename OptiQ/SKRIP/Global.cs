@@ -62,6 +62,11 @@ namespace OptiQ
         public static int kaspired = 0;
 
 
+        public static bool Vbeznal = false;
+        public static bool Vkaspi = false;
+        public static bool Vkaspired = false;
+        public static bool prin = false; 
+
 
 
 

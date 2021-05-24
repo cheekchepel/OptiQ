@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\Куаныш\Desktop\21.05\kassa\</PublishUrl>
+    <PublishUrl>C:\Users\Elon\Desktop\23.05 new\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/OptiQ/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
-    <ApplicationRevision>151</ApplicationRevision>
+    <ApplicationRevision>156</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -162,6 +162,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Poderjka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Poderjka.Designer.cs">
+      <DependentUpon>Poderjka.cs</DependentUpon>
+    </Compile>
     <Compile Include="kassa\izmena\drobno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,42 @@
     </Compile>
     <Compile Include="magaz\adminka.Designer.cs">
       <DependentUpon>adminka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\magopcia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\magopcia.Designer.cs">
+      <DependentUpon>magopcia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\magsetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\magsetting.Designer.cs">
+      <DependentUpon>magsetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\metodopl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\metodopl.Designer.cs">
+      <DependentUpon>metodopl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\user.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\user.Designer.cs">
+      <DependentUpon>user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\usercell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="magaz\usercell.Designer.cs">
+      <DependentUpon>usercell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="magaz\usercontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="magaz\usercontrol.Designer.cs">
+      <DependentUpon>usercontrol.cs</DependentUpon>
     </Compile>
     <Compile Include="magaz\vladelec.cs">
       <SubType>UserControl</SubType>
@@ -464,6 +506,24 @@
     <EmbeddedResource Include="magaz\magaz.resx">
       <DependentUpon>magaz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="magaz\magopcia.resx">
+      <DependentUpon>magopcia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\magsetting.resx">
+      <DependentUpon>magsetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\metodopl.resx">
+      <DependentUpon>metodopl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\user.resx">
+      <DependentUpon>user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\usercell.resx">
+      <DependentUpon>usercell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="magaz\usercontrol.resx">
+      <DependentUpon>usercontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="magaz\vladelec.resx">
       <DependentUpon>vladelec.cs</DependentUpon>
     </EmbeddedResource>
@@ -640,9 +700,9 @@
     <None Include="bin\Debug\icon\users.png" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.1 %28x86 и x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -650,9 +710,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.13.2">
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
       <Visible>False</Visible>
-      <ProductName>SQL Server 2016 Express LocalDB</ProductName>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>

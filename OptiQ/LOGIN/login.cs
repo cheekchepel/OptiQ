@@ -163,7 +163,7 @@ namespace OptiQ
 
             conoff.Close();
             conoff.Open();
-            sqloff = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow from nastroiki where ns_mg_id=" + Global.IDmagaz;
+            sqloff = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow,ns_autopech from nastroiki where ns_mg_id=" + Global.IDmagaz;
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
             if (droff.Read())
@@ -183,7 +183,9 @@ namespace OptiQ
 
                 Global.vesishow = Convert.ToBoolean(droff[6]); 
 
-    }
+                Global.prin = Convert.ToBoolean(droff[7]);
+
+            }
             conoff.Close();
 
 
@@ -196,19 +198,30 @@ namespace OptiQ
             sqloff = $"select nalic,beznalic,kaspi,kaspired from methodsetings where mg_id={Global.IDmagaz};";
             cmdoff = new SqlCommand(sqloff, conoff);
             droff = cmdoff.ExecuteReader();
-            while (droff.Read())
+            if (droff.Read())
             {
-
+               
                Global.nal = Convert.ToInt32(droff[0]); 
-               Global.beznal = Convert.ToInt32(droff[1]); 
+               Global.beznal = Convert.ToInt32(droff[1]);
                Global.kaspi = Convert.ToInt32(droff[2]); 
                Global.kaspired = Convert.ToInt32(droff[3]);
-              
+               
+
 
             }
             conoff.Close();
+            int a = 2;
+            if (Global.beznal >= 0) { a++; Global.Vbeznal = true; Program.oplati.karta.Visible = true; }
+            if (Global.kaspi >= 0) { a++; Global.Vkaspi = true; Program.oplati.kaspi.Visible = true; }
+            if (Global.kaspired >= 0) { a++; Global.Vkaspired = true; Program.oplati.RED.Visible = true; }
+            if (a == 2) { Program.oplati.smejno.Visible = false; a--; }
 
-
+            int b = 780 / a;
+            Program.oplati.nal.Width = b;
+            Program.oplati.karta.Width = b;
+            Program.oplati.kaspi.Width = b;
+            Program.oplati.RED.Width = b;
+            Program.oplati.smejno.Width = b;
 
 
         }
@@ -294,11 +307,11 @@ namespace OptiQ
         public void INICIALIZ() {
 
 
-            Program.msg.Size = new Size(320, 100);
+
 
 
             if (String.IsNullOrWhiteSpace(text_login.Text) || String.IsNullOrWhiteSpace(pass_text.Text))
-            { Program.msg.uvedomlrnie("Заполните все поля", 3); return; ; }
+            { Program.msg.uvedomlrnie("Заполните все поля", 3); }
             else
             {
                 try
@@ -394,7 +407,7 @@ namespace OptiQ
 
                         con.Close();
                         con.Open();
-                        sql = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow from nastroiki where ns_mg_id=" + Global.IDmagaz;
+                        sql = "select ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow,ns_autopech from nastroiki where ns_mg_id=" + Global.IDmagaz;
                         cmd = new NpgsqlCommand(sql, con);
                         dr = cmd.ExecuteReader();
 
@@ -403,7 +416,7 @@ namespace OptiQ
                             conoff.Close();
                             conoff.Open();
                             sqloff = "DELETE FROM nastroiki;" +
-                        "INSERT INTO nastroiki(ns_mg_id,ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow)VALUES(" + Global.IDmagaz+"," + dr[0]+ "," + dr[1] + "," + dr[2] + "," + dr[3] + ",'" + dr[4] + "','" + dr[5] + "','" + dr[6] + "')";
+                        "INSERT INTO nastroiki(ns_mg_id,ns_maxskidnactov,ns_maxskidnacitog,ns_maxbonus,ns_maxbonusogran,ns_sale_in_minus,ns_ojidanie,ns_vesishow,ns_autopech)VALUES(" + Global.IDmagaz+"," + dr[0]+ "," + dr[1] + "," + dr[2] + "," + dr[3] + ",'" + dr[4] + "','" + dr[5] + "','" + dr[6] + "','" + dr[7] + "')";
                             cmdoff = new SqlCommand(sqloff, conoff);
                             droff = cmdoff.ExecuteReader();
                             droff.Read();

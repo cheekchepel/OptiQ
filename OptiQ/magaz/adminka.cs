@@ -15,17 +15,29 @@ namespace OptiQ.magaz
         public adminka()
         {
             InitializeComponent();
+            Program.adminkaa = this;
         }
 
         magaz magaz = new magaz();
         vladelec vladelec = new vladelec();
+        metodopl metodopl = new metodopl();
+        user user = new user();
+        magopcia magopcia = new magopcia();
+        magsetting magsetting = new magsetting();
 
         private void adminka_Load(object sender, EventArgs e)
         {
 
             flowLayoutPanel1.Controls.Add(magaz);
-            flowLayoutPanel1.Controls.Add(vladelec);
+            flowLayoutPanel1.Controls.Add(vladelec);           
+            flowLayoutPanel1.Controls.Add(metodopl);
+            flowLayoutPanel1.Controls.Add(user);
+            flowLayoutPanel1.Controls.Add(magopcia);
+            flowLayoutPanel1.Controls.Add(magsetting);
 
+
+
+           
         }
     }
 }

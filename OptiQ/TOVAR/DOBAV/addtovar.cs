@@ -115,8 +115,7 @@ namespace OptiQ
             text6.Items.Add("Нет");
             text6.Text = "Нет";
 
-            try
-            {
+
                 con.Close();
                 con.Open();
                 sql = "select mp_name from myprov where mp_mg_id = " + Global.IDmagaz;
@@ -129,15 +128,7 @@ namespace OptiQ
 
                 }
                 con.Close();
-            }
-            catch (NpgsqlException)
-            {
-                this.Close();
-                Program.main.backblakhide();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
-            }
+
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -156,8 +147,7 @@ namespace OptiQ
 
             Random random = new Random();
             long randomNumber = random.Next(20000000, 29999999);
-            try
-            {
+
                 con.Close();
                 con.Open();
                 sql = "select pr_kod from product_pro where pr_mg_id = " + Global.IDmagaz + "and pr_kod = " + randomNumber;
@@ -171,15 +161,7 @@ namespace OptiQ
                 }
                 else { text1.Text = randomNumber.ToString(); }
                 con.Close();
-            }
-            catch (NpgsqlException)
-            {
-                this.Close();
-                Program.main.backblakhide();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
-            }
+
 
 
 
@@ -238,7 +220,6 @@ namespace OptiQ
             string prkotname = "";
             tov_id_loc = 0;
 
-        // try{
         katid = 0;
             prkod = 0;
                 text2.Text = "";
@@ -343,14 +324,7 @@ namespace OptiQ
                 }
                 con.Close();
                 viewcell();
-            //}
-            //catch (NpgsqlException)
-            //{
-            //    this.Close(); Program.main.backblakhide();
-            //    Program.msg.Message.Text = "Необходимо интернет подключение";
-            //    Program.msg.Width = 450;
-            //    Program.msg.Show();
-            //}
+
 
         }
 
@@ -395,8 +369,7 @@ namespace OptiQ
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+
                 if (!String.IsNullOrWhiteSpace(rzm[0].textname.Text)&& !String.IsNullOrWhiteSpace(rzm[0].textname.Text) && !String.IsNullOrWhiteSpace(text1.Text) && !String.IsNullOrWhiteSpace(text2.Text) && !String.IsNullOrWhiteSpace(text5.Text) && !String.IsNullOrWhiteSpace(text6.Text))
                 {
                     int priha = Convert.ToInt32(0 + text3.Text);
@@ -500,15 +473,7 @@ namespace OptiQ
 
 
                 }
-            }
-            catch (NpgsqlException)
-            {
-                this.Close();
-                Program.main.backblakhide();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
-            }
+
         }
 
         private void text3_KeyPress(object sender, KeyPressEventArgs e)

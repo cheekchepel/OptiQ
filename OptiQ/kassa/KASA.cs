@@ -367,7 +367,7 @@ namespace OptiQ
                 // обработчик события печати
                 printDocument.PrintPage += PrintPageHandler;
 
-                if (opa.prin == true) { printDocument.Print(); }
+                if (Global.prin == true) { printDocument.Print(); }
 
                  // печатаем
 
@@ -635,10 +635,8 @@ namespace OptiQ
                 if (Convert.ToInt64(Program.KASA.grdt_kass.Rows[index].Cells[8].Value) < 1 && !Global.sale_in_minus)
                 {
                     Program.KASA.textBox1.Text = "";
-                    Program.main.backblakshow();
-                    Program.msg.Show();
-                    Program.msg.Message.Text = "Товар отсутствует на складе";
-                    return;
+                    Program.msg.uvedomlrnie("Товар отсутствует на складе", 2); return;
+
                 }
 
 
@@ -947,9 +945,7 @@ namespace OptiQ
                 if (ost <= Global.uvedomlenie_ostatoc)
                 {
                     
-                    Program.msg.Message.Text = name_ost + " осталось " + ost;
-                    Program.main.backblakshow();
-                    Program.msg.Show();
+                    Program.msg.uvedomlrnie(name_ost + " осталось " + ost, 3); 
                 }
                 
             }
@@ -958,9 +954,8 @@ namespace OptiQ
                 if (ost <= Global.uvedomlenie_ostatoc)
                 {
                     
-                    Program.msg.Message.Text = "Количество " + name_ost + " ограничено";
-                    Program.main.backblakshow();
-                    Program.msg.Show();
+
+                    Program.msg.uvedomlrnie("Количество " + name_ost + " ограничено", 3); 
                 }
                 
             }
@@ -1001,10 +996,8 @@ namespace OptiQ
             if (dtSales.Rows.Count < 1 && !Global.sale_in_minus)
             {
                 Program.KASA.textBox1.Text = "";
-                Program.main.backblakshow();
-                Program.msg.Show();
-                Program.msg.Message.Text = "Товар отсутствует на складе";
-                return;
+                Program.msg.uvedomlrnie("Товар отсутствует на складе", 2); return;
+
             }
 
 
@@ -1057,12 +1050,10 @@ namespace OptiQ
             if (pies <= 0 && !Global.sale_in_minus)
             {
                 Program.KASA.textBox1.Text = "";
-                Program.main.backblakshow();
-                Program.msg.Show();
-                Program.msg.Message.Text = "Товар отсутствует на складе";
-                return;
-            }
+                Program.msg.uvedomlrnie("Товар отсутствует на складе", 2); return;
 
+            }
+            
 
 
             while (schet < Program.KASA.grdt_kass.Rows.Count && zap == true)
@@ -1073,10 +1064,8 @@ namespace OptiQ
                     if (Convert.ToInt64(Program.KASA.grdt_kass.Rows[schet].Cells[8].Value) <1 && !Global.sale_in_minus)
                     {
                         Program.KASA.textBox1.Text = "";
-                        Program.main.backblakshow();
-                        Program.msg.Show();
-                        Program.msg.Message.Text = "Товар отсутствует на складе";
-                        return;
+                        Program.msg.uvedomlrnie("Товар отсутствует на складе", 2); return;
+
                     }
 
 

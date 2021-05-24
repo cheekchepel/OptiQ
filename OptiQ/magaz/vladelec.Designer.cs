@@ -97,6 +97,7 @@ namespace OptiQ.magaz
             // login
             // 
             this.login.BackColor = System.Drawing.Color.White;
+            this.login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.login.Dock = System.Windows.Forms.DockStyle.Fill;
             this.login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.login.Location = new System.Drawing.Point(10, 10);
@@ -144,6 +145,7 @@ namespace OptiQ.magaz
             // name
             // 
             this.name.BackColor = System.Drawing.Color.White;
+            this.name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.name.Dock = System.Windows.Forms.DockStyle.Fill;
             this.name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.name.Location = new System.Drawing.Point(10, 10);
@@ -379,6 +381,7 @@ namespace OptiQ.magaz
             // pass
             // 
             this.pass.BackColor = System.Drawing.Color.White;
+            this.pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pass.Enabled = false;
             this.pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
@@ -499,7 +502,7 @@ namespace OptiQ.magaz
             // 
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 40);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(440, 10);
             this.panel7.TabIndex = 5;
@@ -508,7 +511,7 @@ namespace OptiQ.magaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -517,7 +520,7 @@ namespace OptiQ.magaz
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(20);
+            this.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.Name = "vladelec";
             this.Size = new System.Drawing.Size(440, 320);
             this.Load += new System.EventHandler(this.vladelec_Load);

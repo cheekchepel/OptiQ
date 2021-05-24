@@ -47,11 +47,11 @@ namespace OptiQ.LOGIN
                     Global.mg_pay_raznica = Convert.ToInt32(dr[2]);
                     Program.main.glavnaya.Visible = true;
                     Program.zakup.blackback.Hide();
-                    Program.main.logadministartoe.Visible = false;
+                    Program.main.logadministartoe.Text = "Выйти";
                     Program.main.mag_show();
-                    con.Close();
 
-                   
+
+
 
                 }
                 else { Program.msg.uvedomlrnie("Неверный логин или пароль", 2); return; }
@@ -71,7 +71,27 @@ namespace OptiQ.LOGIN
 
         private void logadm_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
+            this.Location = new Point(0, 40);
+        }
+
+        private void text_login_Enter(object sender, EventArgs e)
+        {
+            shjowkeyboard1.Visible = true;
+        }
+
+        private void pass_text_Enter(object sender, EventArgs e)
+        {
+            shjowkeyboard2.Visible = true;
+        }
+
+        private void text_login_Leave(object sender, EventArgs e)
+        {
+            shjowkeyboard1.Visible = false;
+        }
+
+        private void pass_text_Leave(object sender, EventArgs e)
+        {
+            shjowkeyboard2.Visible = false;
         }
     }
 }

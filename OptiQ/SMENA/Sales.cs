@@ -265,9 +265,9 @@ namespace OptiQ
             }
             else
             {
-                Program.msg.Size = new Size(320, 100);
-                Program.msg.Message.Text = "Смена не открыта"; Program.msg.Show();
+
                 Closesess.Visible = false;
+                Program.msg.uvedomlrnie("Смена не открыта", 3); 
             }
 
             conoff.Close();

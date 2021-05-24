@@ -65,7 +65,7 @@ namespace OptiQ.magaz
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 con.Close();
-                Program.msg.uvedomlrnie("Данные с успешно изменены", 1);
+                Program.msg.uvedomlrnie("Данные успешно изменены", 1);
 
 
 

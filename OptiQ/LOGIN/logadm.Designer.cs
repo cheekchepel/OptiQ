@@ -40,6 +40,7 @@ namespace OptiQ.LOGIN
             this.label_label = new System.Windows.Forms.Label();
             this.text_login = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.close = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.avtor_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -49,9 +50,10 @@ namespace OptiQ.LOGIN
             // 
             // shjowkeyboard2
             // 
+            this.shjowkeyboard2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.shjowkeyboard2.BackColor = System.Drawing.Color.White;
             this.shjowkeyboard2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard2.Location = new System.Drawing.Point(305, 135);
+            this.shjowkeyboard2.Location = new System.Drawing.Point(305, 180);
             this.shjowkeyboard2.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard2.Name = "shjowkeyboard2";
             this.shjowkeyboard2.Size = new System.Drawing.Size(30, 30);
@@ -60,9 +62,10 @@ namespace OptiQ.LOGIN
             // 
             // shjowkeyboard1
             // 
+            this.shjowkeyboard1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.shjowkeyboard1.BackColor = System.Drawing.Color.White;
             this.shjowkeyboard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shjowkeyboard1.Location = new System.Drawing.Point(305, 46);
+            this.shjowkeyboard1.Location = new System.Drawing.Point(305, 91);
             this.shjowkeyboard1.Margin = new System.Windows.Forms.Padding(0);
             this.shjowkeyboard1.Name = "shjowkeyboard1";
             this.shjowkeyboard1.Size = new System.Drawing.Size(30, 30);
@@ -72,6 +75,7 @@ namespace OptiQ.LOGIN
             // login_button
             // 
             this.login_button.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(71)))), ((int)(((byte)(164)))));
+            this.login_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.login_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.login_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.login_button.BorderRadius = 7;
@@ -91,7 +95,7 @@ namespace OptiQ.LOGIN
             this.login_button.IconVisible = true;
             this.login_button.IconZoom = 90D;
             this.login_button.IsTab = false;
-            this.login_button.Location = new System.Drawing.Point(15, 190);
+            this.login_button.Location = new System.Drawing.Point(15, 235);
             this.login_button.Margin = new System.Windows.Forms.Padding(0);
             this.login_button.Name = "login_button";
             this.login_button.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
@@ -108,6 +112,7 @@ namespace OptiQ.LOGIN
             // 
             // pass_text
             // 
+            this.pass_text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pass_text.BackColor = System.Drawing.Color.White;
             this.pass_text.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pass_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -119,20 +124,23 @@ namespace OptiQ.LOGIN
             this.pass_text.LineIdleColor = System.Drawing.Color.DarkGray;
             this.pass_text.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(92)))), ((int)(((byte)(179)))));
             this.pass_text.LineThickness = 4;
-            this.pass_text.Location = new System.Drawing.Point(15, 131);
+            this.pass_text.Location = new System.Drawing.Point(15, 176);
             this.pass_text.Margin = new System.Windows.Forms.Padding(4);
             this.pass_text.Name = "pass_text";
             this.pass_text.Size = new System.Drawing.Size(320, 38);
             this.pass_text.TabIndex = 21;
             this.pass_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.pass_text.Enter += new System.EventHandler(this.pass_text_Enter);
+            this.pass_text.Leave += new System.EventHandler(this.pass_text_Leave);
             // 
             // pass_img
             // 
+            this.pass_img.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pass_img.AutoSize = true;
             this.pass_img.BackColor = System.Drawing.Color.White;
             this.pass_img.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pass_img.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            this.pass_img.Location = new System.Drawing.Point(15, 105);
+            this.pass_img.Location = new System.Drawing.Point(15, 150);
             this.pass_img.Name = "pass_img";
             this.pass_img.Size = new System.Drawing.Size(82, 24);
             this.pass_img.TabIndex = 24;
@@ -140,11 +148,12 @@ namespace OptiQ.LOGIN
             // 
             // label_label
             // 
+            this.label_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_label.AutoSize = true;
             this.label_label.BackColor = System.Drawing.Color.White;
             this.label_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
-            this.label_label.Location = new System.Drawing.Point(15, 15);
+            this.label_label.Location = new System.Drawing.Point(15, 60);
             this.label_label.Name = "label_label";
             this.label_label.Size = new System.Drawing.Size(69, 24);
             this.label_label.TabIndex = 23;
@@ -152,6 +161,7 @@ namespace OptiQ.LOGIN
             // 
             // text_login
             // 
+            this.text_login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.text_login.BackColor = System.Drawing.Color.White;
             this.text_login.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.text_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -163,12 +173,14 @@ namespace OptiQ.LOGIN
             this.text_login.LineIdleColor = System.Drawing.Color.DarkGray;
             this.text_login.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(92)))), ((int)(((byte)(179)))));
             this.text_login.LineThickness = 4;
-            this.text_login.Location = new System.Drawing.Point(15, 42);
+            this.text_login.Location = new System.Drawing.Point(15, 87);
             this.text_login.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.text_login.Name = "text_login";
             this.text_login.Size = new System.Drawing.Size(320, 38);
             this.text_login.TabIndex = 20;
             this.text_login.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.text_login.Enter += new System.EventHandler(this.text_login_Enter);
+            this.text_login.Leave += new System.EventHandler(this.text_login_Leave);
             // 
             // close
             // 
@@ -192,7 +204,7 @@ namespace OptiQ.LOGIN
             this.close.IconVisible = true;
             this.close.IconZoom = 20D;
             this.close.IsTab = false;
-            this.close.Location = new System.Drawing.Point(305, 0);
+            this.close.Location = new System.Drawing.Point(303, 10);
             this.close.Margin = new System.Windows.Forms.Padding(0);
             this.close.Name = "close";
             this.close.Normalcolor = System.Drawing.Color.Transparent;
@@ -206,12 +218,25 @@ namespace OptiQ.LOGIN
             this.close.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
+            // avtor_label
+            // 
+            this.avtor_label.AutoSize = true;
+            this.avtor_label.BackColor = System.Drawing.Color.White;
+            this.avtor_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.avtor_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(89)))));
+            this.avtor_label.Location = new System.Drawing.Point(115, 10);
+            this.avtor_label.Name = "avtor_label";
+            this.avtor_label.Size = new System.Drawing.Size(120, 39);
+            this.avtor_label.TabIndex = 29;
+            this.avtor_label.Text = "Войти";
+            // 
             // logadm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(350, 245);
+            this.ClientSize = new System.Drawing.Size(350, 290);
+            this.Controls.Add(this.avtor_label);
             this.Controls.Add(this.close);
             this.Controls.Add(this.shjowkeyboard2);
             this.Controls.Add(this.shjowkeyboard1);
@@ -243,5 +268,6 @@ namespace OptiQ.LOGIN
         private System.Windows.Forms.Label label_label;
         private Bunifu.Framework.UI.BunifuMaterialTextbox text_login;
         private Bunifu.Framework.UI.BunifuFlatButton close;
+        private System.Windows.Forms.Label avtor_label;
     }
 }

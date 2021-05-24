@@ -96,10 +96,8 @@ namespace OptiQ
             }
             catch (NpgsqlException)
             {
-                Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
+
+            Program.msg.uvedomlrnie("Необходимо интернет подключение", 3);
 
             }
 
@@ -131,10 +129,8 @@ namespace OptiQ
             }
             catch (NpgsqlException)
             {
-                Program.main.KASSA_view();
-                Program.msg.Message.Text = "Необходимо интернет подключение";
-                Program.msg.Width = 450;
-                Program.msg.Show();
+
+         Program.msg.uvedomlrnie("Необходимо интернет подключение", 3); 
 
             }
 

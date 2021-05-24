@@ -36,6 +36,9 @@ namespace OptiQ
 
     {
 
+        Poderjka Poderjka = new Poderjka();
+
+
         KASA newkass = new KASA() { Dock = DockStyle.Fill, TopLevel = false };
 
         login log = new login() { Dock = DockStyle.Fill, TopLevel = false };
@@ -53,7 +56,7 @@ namespace OptiQ
 
         public Sales sslllaasslo = new Sales() { Dock = DockStyle.Fill, TopLevel = false };
 
-        public int vremya = 0;
+        public double vremya = 0;
 
         public NpgsqlConnection con = new NpgsqlConnection(Global.conectpost);
 
@@ -106,9 +109,6 @@ namespace OptiQ
         {
 
            Potoki.startot();
-
-
-
 
 
 
@@ -279,6 +279,7 @@ namespace OptiQ
                 if (vremya >= Global.ojidanie)
                 {
 
+
                     try
                     {
                         con.Close();
@@ -289,9 +290,9 @@ namespace OptiQ
                         dr = cmd.ExecuteReader();
                         dr.Read();
                         con.Close();
+
                     }
                     catch { sobbez(3); }
-
 
 
                 }
@@ -350,13 +351,15 @@ namespace OptiQ
         {
             string a = "";
 
-            if (InputTimer.GetInputIdleTime() >= Global.ojidanie) {
+            //if (InputTimer.GetInputIdleTime() >= Global.ojidanie) {
 
-                Potoki.zakroi = false;
 
-                Application.Exit();
+            //    vremya = InputTimer.GetInputIdleTime();
+            //    Potoki.zakroi = false;
+            //    Application.Exit();
 
-            }
+
+            //}
             
             if (Potoki.sinserv == 1) {
                 a += " сервер";
@@ -383,42 +386,56 @@ namespace OptiQ
 
 
 
-        public static class InputTimer
-        {
-            public static double GetInputIdleTime()
-            {
-                var plii = new NativeMethods.LastInputInfo();
-                plii.cbSize = (UInt32)Marshal.SizeOf(plii);
+        //public static class InputTimer
+        //{
+        //    public static double GetInputIdleTime()
+        //    {
+        //        var plii = new NativeMethods.LastInputInfo();
+        //        plii.cbSize = (UInt32)Marshal.SizeOf(plii);
 
-                if (NativeMethods.GetLastInputInfo(ref plii))
-                {
-                    return Math.Ceiling(Convert.ToDouble(Environment.TickCount - plii.dwTime) / 60000);
-                }
-                else
-                {
-                    throw new Win32Exception(Marshal.GetLastWin32Error());
-                }
-            }
+        //        if (NativeMethods.GetLastInputInfo(ref plii))
+        //        {
+        //            return Math.Floor(Convert.ToDouble(Environment.TickCount - plii.dwTime) / 60000);
+        //        }
+        //        else
+        //        {
+        //            throw new Win32Exception(Marshal.GetLastWin32Error());
+        //        }
+        //    }
 
 
 
-            private static class NativeMethods
-            {
-                public struct LastInputInfo
-                {
-                    public UInt32 cbSize;
-                    public UInt32 dwTime;
-                }
+        //    private static class NativeMethods
+        //    {
+        //        public struct LastInputInfo
+        //        {
+        //            public UInt32 cbSize;
+        //            public UInt32 dwTime;
+        //        }
 
-                [DllImport("user32.dll")]
-                public static extern bool GetLastInputInfo(ref LastInputInfo plii);
-            }
-        }
+        //        [DllImport("user32.dll")]
+        //        public static extern bool GetLastInputInfo(ref LastInputInfo plii);
+        //    }
+        //}
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-            Program.zakup.blackback.Show();
-            logadm.ShowDialog();
+            if (logadministartoe.Text == "Войти")
+            {
+
+                Program.zakup.blackback.Show();
+                logadm.ShowDialog();
+
+            }
+            else {
+
+                hide_form();
+                output.Controls.Add(log);
+                log.Show();
+                logadministartoe.Text = "Войти";
+                glavnaya.Visible = false;
+            }
+            
 
         }
 
@@ -434,8 +451,16 @@ namespace OptiQ
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+            Program.zakup.blackback.Show();
+            Poderjka.ShowDialog();
+        }
     }
 
 } 

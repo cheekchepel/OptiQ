@@ -83,7 +83,7 @@ namespace OptiQ.magaz
                 cmd = new NpgsqlCommand(sql, con);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
-                { Program.msg.uvedomlrnie("Пользователь с таким логином уже существует", 3); return; } 
+                { Program.msg.uvedomlrnie("Пользователь с таким логином уже существует", 2); return; } 
                 con.Close();
 
                 con.Close();
@@ -93,7 +93,7 @@ namespace OptiQ.magaz
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 con.Close();
-                Program.msg.uvedomlrnie("Данные с успешно изменены", 1);
+                Program.msg.uvedomlrnie("Данные успешно изменены", 1);
             }
             else {
 
@@ -110,7 +110,7 @@ namespace OptiQ.magaz
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 con.Close();
-                Program.msg.uvedomlrnie("Данные с успешно изменены", 1);
+                Program.msg.uvedomlrnie("Данные успешно изменены", 1);
 
 
 

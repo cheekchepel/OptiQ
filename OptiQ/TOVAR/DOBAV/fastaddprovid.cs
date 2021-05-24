@@ -60,7 +60,7 @@ namespace OptiQ
         {
             if (!String.IsNullOrWhiteSpace(text3.Text))
             {
-                try { 
+
                 con.Close();
                 con.Open();
                 sql = "INSERT INTO myprov(mp_mg_id,mp_name,mp_test,mp_id_off)VALUES(" + Global.IDmagaz + ",N'" + text3.Text + "','false',"+Global.IDuser+""+ DateTimeOffset.Now.ToUnixTimeMilliseconds() + ");";
@@ -78,14 +78,7 @@ namespace OptiQ
                     Program.zakup.blackback.Hide();
                     this.Close();
                    
-                }
-                catch (NpgsqlException)
-                {
-                    this.Close();
-                    Program.msg.Message.Text = "Необходимо интернет подключение";
-                    Program.msg.Width = 450;
-                    Program.msg.Show();
-                }
+
             }
         }
     }

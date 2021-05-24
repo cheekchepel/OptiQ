@@ -170,38 +170,43 @@ namespace OptiQ
         {
 
 
-            while (zakroi&&razresenie==0)
+
+            while (zakroi)
             {
-
-
-                try{
-                    conc.Close();
-                    conc.Open();
-                    sqlc = "select base_ver,sales_ver from magaz where mg_id=" + Global.IDmagaz + " and (base_ver>" + Global.basever+ "or sales_ver>" + Global.veriaprodaj+")";
-                    cmdc = new NpgsqlCommand(sqlc, conc);
-                    drc = cmdc.ExecuteReader();
-                    if (drc.Read())
+                
+                if (razresenie == 0)
+                {
+                   
+                    try
                     {
-                    //    Globalmagaz = true;
+                        conc.Close();
+                        conc.Open();
+                        sqlc = "select base_ver,sales_ver from magaz where mg_id=" + Global.IDmagaz + " and (base_ver>" + Global.basever + "or sales_ver>" + Global.veriaprodaj + ")";
+                        cmdc = new NpgsqlCommand(sqlc, conc);
+                        drc = cmdc.ExecuteReader();
+                        if (drc.Read())
+                        {
 
-                        if (Convert.ToInt64(drc[0]) > Global.basever)
-                        {
-                            prihodka(Convert.ToInt64(drc[0]));
+
+                            if (Convert.ToInt64(drc[0]) > Global.basever)
+                            {
+                                prihodka(Convert.ToInt64(drc[0]));
+                            }
+                            if (Convert.ToInt64(drc[1]) > Global.veriaprodaj)
+                            {
+                                prihodsalo(Convert.ToInt64(drc[1]));
+                            }
+
+
                         }
-                        if (Convert.ToInt64(drc[1]) > Global.veriaprodaj)
-                        {
-                            prihodsalo(Convert.ToInt64(drc[1]));
-                        }
-                        
+                        conc.Close();
 
                     }
-                    conc.Close();
-                  //  Globalmagaz = false;
-                } catch (NpgsqlException) { }
-
-            Thread.Sleep(10000);
-        }
-
+                    catch (NpgsqlException) { }
+                }
+                Thread.Sleep(10000);
+                
+            }
 
         }
 
@@ -318,8 +323,10 @@ namespace OptiQ
 
             con1.Close();
 
-            try
-            {
+
+
+                try{
+
                 string delrazmer = "DELETE FROM razmer_pro;";
                 con1.Close();
                 con1.Open();
@@ -330,7 +337,7 @@ namespace OptiQ
                 while (dr1.Read())
                 {
 
-                    conoff1.Close();
+                conoff1.Close();
                     conoff1.Close();
                     conoff1.Open();
                     sqloff1 = delrazmer + "INSERT INTO razmer_pro(rz_id,rz_pr_kod,rz_name,rz_pies,rz_mg_id)VALUES(" + dr1[0] + "," + dr1[1] + ",N'" + dr1[2] + "'," + dr1[3].ToString().Replace(",", ".") + "," + dr1[4] + ")";
@@ -343,8 +350,7 @@ namespace OptiQ
                 }
 
                 con1.Close();
-            }
-            catch (NpgsqlException) { }
+            }catch (NpgsqlException) { }
 
 
 
@@ -386,8 +392,7 @@ namespace OptiQ
             string deletekotak = "DELETE FROM kotak;";
             con1.Close();
 
-            try
-            {
+            try{
                 con1.Close();
                 con1.Open();
                 sql1 = "select kot_mg_id,kot_name,kot_rod,kot_chil,kot_marker from kotak where kot_mg_id=" + Global.IDmagaz;
@@ -411,8 +416,7 @@ namespace OptiQ
                 }
 
                 con1.Close();
-            }
-            catch (NpgsqlException) { }
+            }catch (NpgsqlException) { }
 
 
 
@@ -486,7 +490,6 @@ namespace OptiQ
 
             }
             catch (NpgsqlException) { }
-            ///////////////////
 
 
             con1.Close();
@@ -701,8 +704,6 @@ namespace OptiQ
 
 
 
-
-
                   try{
                 conoff.Close();
                     conoff.Open();
@@ -777,6 +778,7 @@ namespace OptiQ
 
                 sinserv = 0;
                 razresenie = 0;
+
 
                 Thread.Sleep(5000);
 

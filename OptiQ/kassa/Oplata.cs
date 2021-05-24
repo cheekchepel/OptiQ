@@ -39,7 +39,7 @@ namespace OptiQ
         public SqlDataReader droff;
 
 
-        public bool prin = true;
+
 
         public bool belie = true;
 
@@ -153,10 +153,10 @@ namespace OptiQ
             color_clear();
             smejno.Normalcolor = nal.Activecolor;
             nalich.Visible = true;
-            kaspiet.Visible = true;
-            beznal.Visible = true;
+            kaspiet.Visible = Global.Vkaspi;
+            beznal.Visible = Global.Vbeznal;
             numpad1.Visible = true;
-            REDT.Visible = true;
+            REDT.Visible = Global.Vkaspired;
             textBox1.Focus();
             smejno.Textcolor = Color.White;
             cena.Visible = false;
@@ -385,7 +385,10 @@ namespace OptiQ
 
         private void Oplata_Load(object sender, EventArgs e)
         {
-          us_id_bon = 0;
+
+
+            if (Global.prin == false) { prinnet(); } else { prinda(); }
+            us_id_bon = 0;
             dolber = false;
 
             color_clear();
@@ -594,7 +597,7 @@ namespace OptiQ
         private void bunifuFlatButton12_MouseDown(object sender, EventArgs e)
         {
 
-            if (prin == true) { prinnet(); } else { prinda(); }
+            if (Global.prin == true) { prinnet(); } else { prinda(); }
 
          
         }
@@ -603,7 +606,7 @@ namespace OptiQ
 
         void prinda() {
 
-            prin = true;
+            Global.prin = true;
             bunifuFlatButton12.Normalcolor= Color.FromArgb(67, 181, 129);
             bunifuFlatButton12.OnHovercolor= Color.FromArgb(67, 181, 129);
             bunifuFlatButton12.Activecolor= Color.FromArgb(67, 181, 129);
@@ -611,8 +614,8 @@ namespace OptiQ
 
         void prinnet()
         {
-            
-            prin = false;
+
+            Global.prin = false;
             bunifuFlatButton12.Normalcolor = Color.FromArgb(240, 71, 71);
             bunifuFlatButton12.OnHovercolor = Color.FromArgb(240, 71, 71);
             bunifuFlatButton12.Activecolor = Color.FromArgb(240, 71, 71);
